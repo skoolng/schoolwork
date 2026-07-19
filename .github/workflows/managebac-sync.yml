@@ -18,16 +18,75 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Sync all students
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Sync and download classroom archives
         env:
           SYNC_URL: ${{ secrets.SYNC_URL }}
           SYNC_SECRET: ${{ secrets.SYNC_SECRET }}
           SIWC_BYPASS_TOKEN: ${{ secrets.SIWC_BYPASS_TOKEN }}
         run: |
-          curl --fail-with-body --show-error --silent \
-            --retry 2 \
-            --request POST \
-            --header "x-sync-secret: ${SYNC_SECRET}" \
-            --header "x-github-token: ${{ github.token }}" \
-            --header "OAI-Sites-Authorization: Bearer ${SIWC_BYPASS_TOKEN}" \
-            "${SYNC_URL}"
+          set -euo pipefail
+          for student in advika adrika; do
+            response="/tmp/classroom-${student}.json"
+            curl --fail-with-body --show-error --silent \
+              --retry 2 \
+              --request POST \
+              --header "x-sync-secret: ${SYNC_SECRET}" \
+              --header "OAI-Sites-Authorization: Bearer ${SIWC_BYPASS_TOKEN}" \
+              --output "$response" \
+              "${SYNC_URL}?student=${student}"
+            jq -e '.ok == true and (.archives | length == 1)' "$response" >/dev/null
+          done
+
+      - name: Persist snapshots and assets in the repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data/classroom
+
+          for student in advika adrika; do
+            response="/tmp/classroom-${student}.json"
+            synced_at=$(jq -r '.archives[0].snapshot.syncedAt' "$response")
+            history_name=$(printf '%s' "$synced_at" | tr ':.' '--')
+            student_dir="data/classroom/${student}"
+            mkdir -p "${student_dir}/history" "${student_dir}/assets"
+
+            jq '.archives[0].snapshot' "$response" > "${student_dir}/latest.json"
+            cp "${student_dir}/latest.json" "${student_dir}/history/${history_name}.json"
+
+            jq -c '.archives[0].assets[]' "$response" | while IFS= read -r asset; do
+              path=$(jq -r '.path' <<<"$asset")
+              case "$path" in
+                data/classroom/*/assets/*) ;;
+                *) echo "Unsafe archive path: $path" >&2; exit 1 ;;
+              esac
+              mkdir -p "$(dirname "$path")"
+              jq -r '.contentBase64' <<<"$asset" | base64 --decode > "$path"
+            done
+          done
+
+          jq -n \
+            --slurpfile advika /tmp/classroom-advika.json \
+            --slurpfile adrika /tmp/classroom-adrika.json \
+            --argjson previous "$(test -f data/classroom/index.json && cat data/classroom/index.json || printf '{\"students\":[]}')" \
+            '{students: [
+              [$advika[0].archives[0], $adrika[0].archives[0]][] |
+              . as $item |
+              ([$previous.students[]? | select(.key == $item.student)][0] // {}) as $old |
+              {
+                key: $item.student,
+                name: $item.snapshot.studentName,
+                syncedAt: $item.snapshot.syncedAt,
+                status: $item.snapshot.status,
+                historyCount: (($old.historyCount // 0) + 1)
+              }
+            ]}' > data/classroom/index.json
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/classroom
+          git diff --cached --quiet && exit 0
+          git commit -m "Archive classroom snapshot and assets"
+          git push

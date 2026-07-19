@@ -5,12 +5,10 @@ import {
   classroomSnapshots,
 } from "../../../db/schema";
 import { getDb } from "../../../db";
-import { commitSnapshotArchives } from "../../../lib/github-archive";
 import {
   readManageBacCredentials,
   scrapeManageBacWithAssets,
 } from "../../../lib/managebac";
-import type { ArchivedAsset } from "../../../lib/managebac";
 import type { ClassroomSnapshot } from "../../../lib/types";
 
 const runtimeEnv = env as unknown as Record<string, string | undefined>;
@@ -138,13 +136,6 @@ export async function POST(request: Request) {
   if (rejected) return rejected;
 
   const requestedStudent = new URL(request.url).searchParams.get("student");
-  const githubToken = request.headers.get("x-github-token")?.trim();
-  if (!githubToken) {
-    return Response.json(
-      { error: "A short-lived GitHub Actions token is required." },
-      { status: 400 },
-    );
-  }
   const definitions = configuredStudents();
   const targets = requestedStudent
     ? definitions.filter((student) => student.key === requestedStudent)
@@ -155,11 +146,7 @@ export async function POST(request: Request) {
   }
 
   const results: Array<Record<string, unknown>> = [];
-  const snapshots: Array<{
-    student: string;
-    snapshot: ClassroomSnapshot;
-    assets: ArchivedAsset[];
-  }> = [];
+  const archives: Array<Record<string, unknown>> = [];
   let failed = false;
 
   for (const student of targets) {
@@ -174,7 +161,16 @@ export async function POST(request: Request) {
       );
       const { snapshot, assets } = archived;
       await saveSnapshot(student.key, snapshot);
-      snapshots.push({ student: student.key, snapshot, assets });
+      archives.push({
+        student: student.key,
+        snapshot,
+        assets: assets.map((asset) => ({
+          path: asset.path,
+          contentType: asset.contentType,
+          sourceUrl: asset.sourceUrl,
+          contentBase64: bytesToBase64(asset.content),
+        })),
+      });
       results.push({
         ok: true,
         ...summarize(student.key, snapshot),
@@ -193,25 +189,17 @@ export async function POST(request: Request) {
     }
   }
 
-  let repository: { commit: string; assets: number } | null = null;
-  if (!failed && snapshots.length) {
-    try {
-      repository = await commitSnapshotArchives(githubToken, snapshots);
-    } catch (error) {
-      failed = true;
-      results.push({
-        ok: false,
-        repository: true,
-        error:
-          error instanceof Error
-            ? error.message
-            : "Repository archive commit failed.",
-      });
-    }
-  }
-
   return Response.json(
-    { ok: !failed, students: results, repository },
+    { ok: !failed, students: results, archives },
     { status: failed ? 500 : 200 },
   );
+}
+
+function bytesToBase64(bytes: Uint8Array) {
+  let result = "";
+  const chunkSize = 0x8000;
+  for (let offset = 0; offset < bytes.length; offset += chunkSize) {
+    result += String.fromCharCode(...bytes.subarray(offset, offset + chunkSize));
+  }
+  return btoa(result);
 }
