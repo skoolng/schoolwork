@@ -143,6 +143,7 @@ export async function POST(request: Request) {
   }
 
   const results: Array<Record<string, unknown>> = [];
+  const snapshots: Array<{ student: string; snapshot: ClassroomSnapshot }> = [];
   let failed = false;
 
   for (const student of targets) {
@@ -155,6 +156,7 @@ export async function POST(request: Request) {
         }),
       );
       await saveSnapshot(student.key, snapshot);
+      snapshots.push({ student: student.key, snapshot });
       results.push({ ok: true, ...summarize(student.key, snapshot) });
     } catch (error) {
       failed = true;
@@ -170,7 +172,7 @@ export async function POST(request: Request) {
   }
 
   return Response.json(
-    { ok: !failed, students: results },
+    { ok: !failed, students: results, snapshots },
     { status: failed ? 500 : 200 },
   );
 }

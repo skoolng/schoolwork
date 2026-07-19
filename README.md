@@ -11,12 +11,16 @@ This public repository contains application source, database migrations, and the
 scheduled sync workflow. It intentionally contains no student records,
 ManageBac passwords, sync secrets, or private site access tokens.
 
-Student data is stored in the private Cloudflare D1 database attached to the
-Sites project:
+Student data is stored in the Cloudflare D1 database attached to the Sites
+project and mirrored to `data/classroom` by the scheduled GitHub workflow:
 
 - `classroom_snapshots` keeps the latest record for each student.
 - `classroom_snapshot_history` appends every successful sync for long-term
   history.
+- `data/classroom/<student>/latest.json` is the repository-backed read copy.
+- `data/classroom/<student>/history` keeps one JSON file per successful sync.
+- the classroom API reads GitHub first and falls back to D1 during repository
+  propagation or an upstream outage.
 - the site remains owner-only even though this source repository is public.
 
 ## Students
