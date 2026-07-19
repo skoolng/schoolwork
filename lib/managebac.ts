@@ -14,12 +14,14 @@ const CLASS_LINK_PATTERN = /\/student\/classes\/\d+$/;
 const MONTH_DAY = /\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{1,2}\b/i;
 const CLASS_SECTION_PATTERN = /\/student\/classes\/\d+\/(?:class_stream|units|calendar|discussions|files)\/?$/;
 const DISCUSSION_LINK_PATTERN = /\/student\/classes\/\d+\/discussions\/\d+/;
+const DISCUSSION_INDEX_PATTERN = /\/student\/classes\/\d+\/discussions\/?$/;
 const UNIT_LINK_PATTERN = /\/student\/classes\/\d+\/units\/\d+\/presentations/;
 const ASSET_PATTERN = /\/attachments\/|\/files\/|\/download(?:s)?\/|\.(?:pdf|docx?|xlsx?|pptx?|mp3|mp4|m4a|wav|jpe?g|png)(?:\?|$)/i;
-const DISCUSSION_ASSIGNMENT_PATTERN = /\b(?:home\s*work|home assignment|assignment|practice|practise|test|worksheet|solve|complete|finish|answer|write|prepare|revise|submit)\b/i;
+const DISCUSSION_ASSIGNMENT_PATTERN = /\b(?:home\s*(?:assignment|learning|task|work)|assignment|assessment|complete|create|deadline|draw|exercise|find|finish|learn|listen|memorise|notebook|practice|practise|prepare|question\s*answers?|reading\s*comprehension|revise|solve|submit|task|test|watch|worksheet|write)\b/i;
 const IMAGE_ASSIGNMENT_PATTERN = /\b(?:exercise|fraction|home\s*work|problem|practice|practise|question|revision|task|test|worksheet)\b/i;
 const NON_ASSIGNMENT_IMAGE_PATTERN = /\b(?:announcement|celebration|competition|event|parliament|poster|register|registration|schedule|time\s*table|timetable)\b/i;
 const IMAGE_NAME_PATTERN = /\.(?:avif|gif|jpe?g|png|webp)(?:\?|$)/i;
+const MAX_DISCUSSION_PAGES = 50;
 
 interface Credentials {
   baseUrl: string;
@@ -300,8 +302,13 @@ async function scrapeClass(
       session.fetchFollowing(`${classUrl}/discussions`),
       session.fetchFollowing(`${classUrl}/files`),
     ]);
+  const discussionPages = await fetchDiscussionPages(
+    session,
+    classUrl,
+    discussionsPage,
+  );
   const taskLinks = dedupeLinks(
-    [streamPage, unitsPage, calendarPage, discussionsPage, filesPage].flatMap(
+    [streamPage, unitsPage, calendarPage, ...discussionPages, filesPage].flatMap(
       (page) => extractLinks(page.text, page.url),
     ),
   )
@@ -314,7 +321,7 @@ async function scrapeClass(
       streamPage,
       unitsPage,
       calendarPage,
-      discussionsPage,
+      discussionPages,
       filesPage,
     }),
     taskLinks,
@@ -328,7 +335,7 @@ function parseClass(
     streamPage: PageResult;
     unitsPage: PageResult;
     calendarPage: PageResult;
-    discussionsPage: PageResult;
+    discussionPages: PageResult[];
     filesPage: PageResult;
   },
 ): ClassroomClass {
@@ -345,7 +352,7 @@ function parseClass(
     url: link.url,
     latestActivity: clip(activity, 300),
     stream: parseClassContent(pages.streamPage, "stream"),
-    discussions: parseDiscussions(pages.discussionsPage),
+    discussions: parseDiscussions(pages.discussionPages),
     units: parseUnits(pages.unitsPage),
     calendar: parseCalendar(pages.calendarPage),
     files: parseFiles(pages.filesPage),
@@ -403,7 +410,58 @@ function parseClassContent(page: PageResult, kind: "stream" | "discussions") {
     .slice(0, 8);
 }
 
-function parseDiscussions(page: PageResult) {
+function discussionPageNumber(url: string) {
+  const parsed = new URL(url);
+  if (!DISCUSSION_INDEX_PATTERN.test(parsed.pathname)) return 0;
+  const page = Number.parseInt(parsed.searchParams.get("page") ?? "", 10);
+  return Number.isFinite(page) && page > 1 ? page : 0;
+}
+
+function maxLinkedDiscussionPage(page: PageResult) {
+  return extractLinks(page.text, page.url).reduce(
+    (maximum, link) => Math.max(maximum, discussionPageNumber(link.url)),
+    1,
+  );
+}
+
+function discussionPageUrl(firstPageUrl: string, pageNumber: number) {
+  const url = new URL(firstPageUrl);
+  url.searchParams.set("page", String(pageNumber));
+  return url.toString();
+}
+
+async function fetchDiscussionPages(
+  session: ManageBacSession,
+  classUrl: string,
+  firstPage: PageResult,
+) {
+  const pages = [firstPage];
+  let nextPage = 2;
+  let linkedMaximum = maxLinkedDiscussionPage(firstPage);
+
+  while (nextPage <= linkedMaximum && nextPage <= MAX_DISCUSSION_PAGES) {
+    const batchEnd = Math.min(linkedMaximum, MAX_DISCUSSION_PAGES);
+    const pageNumbers = Array.from(
+      { length: batchEnd - nextPage + 1 },
+      (_, index) => nextPage + index,
+    );
+    const fetched = await mapWithConcurrency(pageNumbers, 4, (pageNumber) =>
+      session.fetchFollowing(
+        discussionPageUrl(`${classUrl}/discussions`, pageNumber),
+      ),
+    );
+    pages.push(...fetched);
+    nextPage = batchEnd + 1;
+    linkedMaximum = Math.max(
+      linkedMaximum,
+      ...fetched.map(maxLinkedDiscussionPage),
+    );
+  }
+
+  return pages;
+}
+
+function parseDiscussionPage(page: PageResult) {
   const root = parse(page.text);
   root.querySelectorAll("script, style").forEach((node) => node.remove());
 
@@ -494,12 +552,22 @@ function parseDiscussions(page: PageResult) {
         images,
       };
     })
-    .filter((item): item is NonNullable<typeof item> => Boolean(item?.title))
-    .slice(0, 10);
+    .filter((item): item is NonNullable<typeof item> => Boolean(item?.title));
+}
+
+function parseDiscussions(pages: PageResult[]) {
+  const seen = new Set<string>();
+  return pages.flatMap(parseDiscussionPage).filter((discussion) => {
+    if (seen.has(discussion.url)) return false;
+    seen.add(discussion.url);
+    return true;
+  });
 }
 
 function isDiscussionAssignment(item: ClassroomClass["discussions"][number]) {
-  const text = `${item.title} ${item.detail}`;
+  const text = `${item.title} ${item.detail} ${item.attachments
+    .map((attachment) => attachment.name)
+    .join(" ")}`.replace(/[_\W]+/g, " ");
   return (
     DISCUSSION_ASSIGNMENT_PATTERN.test(text) ||
     ((item.images?.length ?? 0) > 0 &&

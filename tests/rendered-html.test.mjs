@@ -97,8 +97,13 @@ test("ManageBac scraper consolidates every class section", async () => {
   assert.match(scraper, /parseUnits/);
   assert.match(scraper, /parseFiles/);
   assert.match(scraper, /parseDiscussions/);
+  assert.match(scraper, /fetchDiscussionPages/);
+  assert.match(scraper, /MAX_DISCUSSION_PAGES/);
+  assert.match(scraper, /searchParams\.set\("page"/);
   assert.match(scraper, /discussionToAssignment/);
   assert.match(scraper, /DISCUSSION_ASSIGNMENT_PATTERN/);
+  assert.match(scraper, /attachment\.name/);
+  assert.match(scraper, /reading\\s\*comprehension/);
   assert.match(scraper, /querySelectorAll\("img"\)/);
   assert.match(scraper, /isImageAttachment/);
   assert.match(scraper, /NON_ASSIGNMENT_IMAGE_PATTERN/);
