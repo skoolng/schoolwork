@@ -73,3 +73,42 @@ export interface StudentSummary {
   syncedAt: string;
   status: "ok" | "pending" | "error";
 }
+
+export interface WeeklyJournalVideo {
+  title: string;
+  url: string;
+}
+
+export interface WeeklyJournalUnit {
+  name: string;
+  summary: string;
+  activities: string[];
+  questions: string[];
+  videos: WeeklyJournalVideo[];
+}
+
+export interface WeeklyJournalSubject {
+  subject: string;
+  summary: string;
+  units: WeeklyJournalUnit[];
+}
+
+export interface WeeklyJournal {
+  studentKey: string;
+  studentName: string;
+  weekKey: string;
+  weekStart: string;
+  weekEnd: string;
+  generatedAt: string;
+  overallSummary: string;
+  highlights: string[];
+  attentionItems: string[];
+  subjects: WeeklyJournalSubject[];
+}
+
+export interface WeeklyJournalIndexItem {
+  weekKey: string;
+  weekStart: string;
+  weekEnd: string;
+  generatedAt: string;
+}

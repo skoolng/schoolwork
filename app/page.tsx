@@ -14,6 +14,8 @@ import type {
   ClassroomClass,
   ClassroomSnapshot,
   StudentSummary,
+  WeeklyJournal,
+  WeeklyJournalIndexItem,
 } from "../lib/types";
 
 const FileWorkspaceContext = createContext<
@@ -388,6 +390,114 @@ function ClassLearningPanel({
   );
 }
 
+function WeeklyJournalPanel({
+  journal,
+  journals,
+  selectedWeek,
+  onSelectWeek,
+}: {
+  journal: WeeklyJournal | null;
+  journals: WeeklyJournalIndexItem[];
+  selectedWeek: string;
+  onSelectWeek: (week: string) => void;
+}) {
+  return (
+    <section className="weekly-journal" aria-labelledby="weekly-journal-title">
+      <div className="section-heading journal-heading">
+        <div>
+          <p className="eyebrow">Weekly Journal</p>
+          <h2 id="weekly-journal-title">Parent learning review</h2>
+        </div>
+        {journals.length ? (
+          <label className="journal-week-picker">
+            <span>Saved week</span>
+            <select value={selectedWeek} onChange={(event) => onSelectWeek(event.target.value)}>
+              {journals.map((item) => (
+                <option value={item.weekKey} key={item.weekKey}>
+                  {item.weekStart} to {item.weekEnd}
+                </option>
+              ))}
+            </select>
+          </label>
+        ) : null}
+      </div>
+
+      {journal ? (
+        <>
+          <article className="journal-overview">
+            <div>
+              <span>{journal.weekStart} to {journal.weekEnd}</span>
+              <h3>{journal.studentName}&apos;s overall learning</h3>
+              <p>{journal.overallSummary}</p>
+            </div>
+            <div className="journal-snapshot-lists">
+              <section>
+                <h4>Learning highlights</h4>
+                {journal.highlights.length ? (
+                  <ul>{journal.highlights.map((item) => <li key={item}>{item}</li>)}</ul>
+                ) : <p>No highlights were recorded.</p>}
+              </section>
+              <section>
+                <h4>Parent follow-up</h4>
+                {journal.attentionItems.length ? (
+                  <ul>{journal.attentionItems.map((item) => <li key={item}>{item}</li>)}</ul>
+                ) : <p>No overdue or pending work was detected.</p>}
+              </section>
+            </div>
+          </article>
+
+          <div className="journal-subjects">
+            {journal.subjects.map((subject) => (
+              <article className="journal-subject" key={subject.subject}>
+                <header>
+                  <h3>{subject.subject}</h3>
+                  <p>{subject.summary}</p>
+                </header>
+                <div className="journal-units">
+                  {subject.units.map((unit) => (
+                    <details key={`${subject.subject}-${unit.name}`}>
+                      <summary>{unit.name}</summary>
+                      <div className="journal-unit-body">
+                        <p>{unit.summary}</p>
+                        {unit.activities.length ? (
+                          <section>
+                            <h4>Learning evidence</h4>
+                            <ul>{unit.activities.map((activity) => <li key={activity}>{activity}</li>)}</ul>
+                          </section>
+                        ) : null}
+                        <section>
+                          <h4>Questions for parents to ask</h4>
+                          <ol>{unit.questions.map((question) => <li key={question}>{question}</li>)}</ol>
+                        </section>
+                        {unit.videos.length ? (
+                          <section>
+                            <h4>Related videos</h4>
+                            <div className="journal-video-links">
+                              {unit.videos.map((video) => (
+                                <a href={video.url} target="_blank" rel="noreferrer" key={video.url}>
+                                  {video.title}
+                                </a>
+                              ))}
+                            </div>
+                          </section>
+                        ) : null}
+                      </div>
+                    </details>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </>
+      ) : (
+        <p className="empty-state journal-empty">
+          The first weekly journal will be recorded Friday at 5:00 PM IST.
+        </p>
+      )}
+    </section>
+  );
+}
+
 export default function Home() {
   const [snapshot, setSnapshot] = useState<ClassroomSnapshot>(emptySnapshot);
   const [students, setStudents] = useState<StudentSummary[]>(defaultStudents);
@@ -396,9 +506,12 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [query, setQuery] = useState("");
   const [selectedSubject, setSelectedSubject] = useState("all");
-  const [view, setView] = useState<"all" | "assignments" | "classes">("all");
+  const [view, setView] = useState<"all" | "assignments" | "classes" | "journal">("all");
   const [classSection, setClassSection] = useState<ClassSection>("stream");
   const [activeFile, setActiveFile] = useState<Attachment | null>(null);
+  const [weeklyJournal, setWeeklyJournal] = useState<WeeklyJournal | null>(null);
+  const [journalIndex, setJournalIndex] = useState<WeeklyJournalIndexItem[]>([]);
+  const [selectedJournalWeek, setSelectedJournalWeek] = useState("");
 
   useEffect(() => {
     let cancelled = false;
@@ -432,6 +545,29 @@ export default function Home() {
       cancelled = true;
     };
   }, [selectedStudent]);
+
+  useEffect(() => {
+    let cancelled = false;
+    const query = new URLSearchParams({ student: selectedStudent });
+    if (selectedJournalWeek) query.set("week", selectedJournalWeek);
+    fetch(`/api/weekly-journal?${query}`, { cache: "no-store" })
+      .then((response) => (response.ok ? response.json() : Promise.reject()))
+      .then((data) => {
+        if (cancelled) return;
+        setWeeklyJournal(data.journal ?? null);
+        setJournalIndex(data.journals ?? []);
+        if (!selectedJournalWeek && data.journal?.weekKey) {
+          setSelectedJournalWeek(data.journal.weekKey);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setWeeklyJournal(null);
+          setJournalIndex([]);
+        }
+      });
+    return () => { cancelled = true; };
+  }, [selectedStudent, selectedJournalWeek]);
 
   const subjectOptions = useMemo(
     () => {
@@ -555,6 +691,7 @@ export default function Home() {
                 setSelectedStudent(student.key);
                 setSelectedSubject("all");
                 setQuery("");
+                setSelectedJournalWeek("");
               }}
             >
               <span>{student.name}</span>
@@ -591,28 +728,28 @@ export default function Home() {
 
       <section className="toolbar" aria-label="Dashboard controls">
         <div className="segmented" role="tablist" aria-label="View">
-          {(["all", "assignments", "classes"] as const).map((item) => (
+          {(["all", "assignments", "classes", "journal"] as const).map((item) => (
             <button
               key={item}
               className={view === item ? "active" : ""}
               onClick={() => setView(item)}
               type="button"
             >
-              {item === "all" ? "Overview" : item[0].toUpperCase() + item.slice(1)}
+              {item === "all" ? "Overview" : item === "journal" ? "Weekly Journal" : item[0].toUpperCase() + item.slice(1)}
             </button>
           ))}
         </div>
-        <label className="search-box">
+        {view !== "journal" ? <label className="search-box">
           <span>Search</span>
           <input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Subject, task, unit, status"
           />
-        </label>
+        </label> : null}
       </section>
 
-      <section className="subject-picker" aria-labelledby="subject-picker-title">
+      {view !== "journal" ? <section className="subject-picker" aria-labelledby="subject-picker-title">
         <div className="subject-picker-intro">
           <p className="eyebrow">Subject Choice</p>
           <h2 id="subject-picker-title">Choose a subject</h2>
@@ -642,7 +779,7 @@ export default function Home() {
             </button>
           ))}
         </div>
-      </section>
+      </section> : null}
 
       {(view === "all" || view === "assignments") && (
         <section className="content-section" aria-labelledby="assignments-title">
@@ -767,6 +904,15 @@ export default function Home() {
         </section>
       )}
 
+      {(view === "all" || view === "journal") && (
+        <WeeklyJournalPanel
+          journal={weeklyJournal}
+          journals={journalIndex}
+          selectedWeek={selectedJournalWeek}
+          onSelectWeek={setSelectedJournalWeek}
+        />
+      )}
+
       <section className="lower-grid" aria-label="Notifications and calendar">
         <article className="notice-panel">
           <div className="section-heading compact">
@@ -779,13 +925,15 @@ export default function Home() {
             <ul>
               {snapshot.notifications.map((notice) => (
                 <li key={`${notice.title}-${notice.url}`}>
-                  <strong>{notice.title}</strong>
-                  <span>{notice.detail}</span>
-                  {notice.url ? (
-                    <a href={notice.url} target="_blank" rel="noreferrer">
-                      Open
+                  {notice.url && /^https?:/i.test(notice.url) ? (
+                    <a className="notice-card-link" href={notice.url} target="_blank" rel="noreferrer">
+                      <strong>{notice.title}</strong>
+                      <span>{notice.detail}</span>
+                      <em>Open notification</em>
                     </a>
-                  ) : null}
+                  ) : (
+                    <><strong>{notice.title}</strong><span>{notice.detail}</span></>
+                  )}
                 </li>
               ))}
             </ul>
