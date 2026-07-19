@@ -45,6 +45,18 @@ interface ClassScrapeResult {
   taskLinks: LinkResult[];
 }
 
+export interface ArchivedAsset {
+  path: string;
+  content: Uint8Array;
+  contentType: string;
+  sourceUrl: string;
+}
+
+export interface ArchivedClassroomSnapshot {
+  snapshot: ClassroomSnapshot;
+  assets: ArchivedAsset[];
+}
+
 class ManageBacSession {
   private cookies = new Map<string, string>();
 
@@ -114,6 +126,36 @@ class ManageBacSession {
       url: current,
       status: response.status,
       text: await response.text(),
+    };
+  }
+
+  async downloadFollowing(url: string) {
+    let current = url;
+    let response = await this.request(current);
+
+    for (
+      let index = 0;
+      index < 10 && [301, 302, 303, 307, 308].includes(response.status);
+      index += 1
+    ) {
+      const location = response.headers.get("location");
+      if (!location) break;
+      current = new URL(location, current).toString();
+      response = await this.request(current, { method: "GET" });
+    }
+
+    if (!response.ok) {
+      throw new Error(`Asset download failed with ${response.status}: ${url}`);
+    }
+
+    const contentType = response.headers.get("content-type") ?? "application/octet-stream";
+    if (/text\/html/i.test(contentType)) {
+      throw new Error(`Asset download returned HTML instead of a file: ${url}`);
+    }
+
+    return {
+      content: new Uint8Array(await response.arrayBuffer()),
+      contentType,
     };
   }
 
@@ -216,6 +258,156 @@ export async function scrapeManageBac(credentials: Credentials): Promise<Classro
     assignments: dedupeAssignments([...assignments, ...discussionAssignments]),
     calendar: parseCalendar(calendarPage),
   };
+}
+
+export async function scrapeManageBacWithAssets(
+  credentials: Credentials,
+  studentKey: string,
+): Promise<ArchivedClassroomSnapshot> {
+  const session = new ManageBacSession(credentials.baseUrl);
+  const home = await session.login(credentials.login, credentials.password);
+  const snapshot = await scrapeAuthenticatedManageBac(credentials, session, home);
+  const attachments = collectAttachments(snapshot);
+  const uniqueAttachments = attachments.filter(
+    (attachment, index, items) =>
+      attachment.url.startsWith("http") &&
+      items.findIndex((candidate) => candidate.url === attachment.url) === index,
+  );
+  const archivedByUrl = new Map<
+    string,
+    { archivedUrl: string; asset: ArchivedAsset }
+  >();
+
+  await mapWithConcurrency(uniqueAttachments, 3, async (attachment) => {
+    const sourceUrl = attachment.url;
+    const downloaded = await session.downloadFollowing(sourceUrl);
+    const hash = await shortHash(sourceUrl);
+    const filename = safeFilename(attachment.name, downloaded.contentType);
+    const path = `data/classroom/${studentKey}/assets/${hash}-${filename}`;
+    const archivedUrl =
+      `https://raw.githubusercontent.com/skoolng/schoolwork/main/${path}`;
+    archivedByUrl.set(sourceUrl, {
+      archivedUrl,
+      asset: {
+        path,
+        content: downloaded.content,
+        contentType: downloaded.contentType,
+        sourceUrl,
+      },
+    });
+  });
+
+  for (const attachment of attachments) {
+    const archived = archivedByUrl.get(attachment.url);
+    if (!archived) continue;
+    attachment.sourceUrl = attachment.url;
+    attachment.url = archived.archivedUrl;
+  }
+
+  return {
+    snapshot,
+    assets: [...archivedByUrl.values()].map(({ asset }) => asset),
+  };
+}
+
+async function scrapeAuthenticatedManageBac(
+  credentials: Credentials,
+  session: ManageBacSession,
+  home: PageResult,
+): Promise<ClassroomSnapshot> {
+  const homeLinks = extractLinks(home.text, home.url);
+  const classLinks = dedupeLinks(
+    homeLinks.filter((link) => CLASS_LINK_PATTERN.test(new URL(link.url).pathname)),
+  ).slice(0, 16);
+
+  const [upcomingTasks, overdueTasks, notificationsPage, calendarPage] =
+    await Promise.all([
+      session.fetchFollowing(`${credentials.baseUrl}/student/tasks_and_deadlines?view=upcoming`),
+      session.fetchFollowing(`${credentials.baseUrl}/student/tasks_and_deadlines?view=overdue`),
+      session.fetchFollowing(`${credentials.baseUrl}/student/notifications`),
+      session.fetchFollowing(`${credentials.baseUrl}/student/calendar`),
+    ]);
+
+  const globalTaskLinks = dedupeLinks([
+    ...extractLinks(upcomingTasks.text, upcomingTasks.url),
+    ...extractLinks(overdueTasks.text, overdueTasks.url),
+  ])
+    .filter((link) => TASK_LINK_PATTERN.test(new URL(link.url).pathname))
+    .filter((link) => !/submit coursework/i.test(link.text))
+    .slice(0, 40);
+
+  const classResults = await mapWithConcurrency(classLinks, 3, (link) =>
+    scrapeClass(session, link),
+  );
+  const taskLinks = dedupeLinks([
+    ...globalTaskLinks,
+    ...classResults.flatMap((result) => result.taskLinks),
+  ]).slice(0, 60);
+  const assignments = await mapWithConcurrency(taskLinks, 5, async (link) =>
+    parseAssignment(link, await session.fetchFollowing(link.url)),
+  );
+  const discussionAssignments = classResults.flatMap((result) =>
+    result.classroom.discussions
+      .filter(isDiscussionAssignment)
+      .map((discussion) => discussionToAssignment(result.classroom.name, discussion)),
+  );
+
+  return {
+    studentName: extractStudentName(home.text) || "Advika Lakshmi",
+    syncedAt: new Date().toISOString(),
+    sourceUrl: `${credentials.baseUrl}/student/home`,
+    status: "ok",
+    error: "",
+    notifications: parseNotifications(notificationsPage),
+    classes: classResults.map((result) => result.classroom),
+    assignments: dedupeAssignments([...assignments, ...discussionAssignments]),
+    calendar: parseCalendar(calendarPage),
+  };
+}
+
+function collectAttachments(snapshot: ClassroomSnapshot) {
+  const attachments: Attachment[] = [];
+  for (const classroom of snapshot.classes) {
+    attachments.push(...classroom.files);
+    for (const item of [...classroom.stream, ...classroom.discussions]) {
+      attachments.push(...item.attachments, ...(item.images ?? []));
+    }
+  }
+  for (const assignment of snapshot.assignments) {
+    attachments.push(...assignment.attachments, ...(assignment.images ?? []));
+  }
+  return attachments;
+}
+
+async function shortHash(value: string) {
+  const digest = await crypto.subtle.digest(
+    "SHA-256",
+    new TextEncoder().encode(value),
+  );
+  return [...new Uint8Array(digest)]
+    .slice(0, 10)
+    .map((byte) => byte.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+function safeFilename(name: string, contentType: string) {
+  const extensionByType: Record<string, string> = {
+    "application/pdf": ".pdf",
+    "image/gif": ".gif",
+    "image/jpeg": ".jpg",
+    "image/png": ".png",
+    "image/webp": ".webp",
+  };
+  const cleaned = name
+    .normalize("NFKD")
+    .replace(/[^a-zA-Z0-9._-]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 100) || "attachment";
+  const hasExtension = /\.[a-zA-Z0-9]{1,8}$/.test(cleaned);
+  const contentTypeWithoutParameters = contentType.split(";")[0].toLowerCase();
+  return hasExtension
+    ? cleaned
+    : `${cleaned}${extensionByType[contentTypeWithoutParameters] ?? ".bin"}`;
 }
 
 async function mapWithConcurrency<T, R>(
