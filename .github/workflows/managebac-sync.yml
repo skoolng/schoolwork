@@ -1,4 +1,4 @@
-name: ManageBac sync
+name: ManageBac sync and archive
 
 permissions:
   contents: write
@@ -18,9 +18,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
       - name: Sync all students
         env:
           SYNC_URL: ${{ secrets.SYNC_URL }}
@@ -31,48 +28,6 @@ jobs:
             --retry 2 \
             --request POST \
             --header "x-sync-secret: ${SYNC_SECRET}" \
+            --header "x-github-token: ${{ github.token }}" \
             --header "OAI-Sites-Authorization: Bearer ${SIWC_BYPASS_TOKEN}" \
-            --output /tmp/classroom-sync.json \
             "${SYNC_URL}"
-
-      - name: Persist snapshots in the repository
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p data/classroom
-
-          jq -e '.ok == true and (.snapshots | length > 0)' /tmp/classroom-sync.json >/dev/null
-
-          while IFS= read -r student; do
-            synced_at=$(jq -r --arg student "$student" '.snapshots[] | select(.student == $student) | .snapshot.syncedAt' /tmp/classroom-sync.json)
-            history_name=$(printf '%s' "$synced_at" | tr ':.' '--')
-            student_dir="data/classroom/${student}"
-            mkdir -p "${student_dir}/history"
-
-            jq --arg student "$student" \
-              '.snapshots[] | select(.student == $student) | .snapshot' \
-              /tmp/classroom-sync.json > "${student_dir}/latest.json"
-            cp "${student_dir}/latest.json" "${student_dir}/history/${history_name}.json"
-          done < <(jq -r '.snapshots[].student' /tmp/classroom-sync.json)
-
-          jq -n \
-            --slurpfile response /tmp/classroom-sync.json \
-            --argjson previous "$(test -f data/classroom/index.json && cat data/classroom/index.json || printf '{\"students\":[]}')" \
-            '{students: [
-              $response[0].snapshots[] as $item |
-              ([$previous.students[]? | select(.key == $item.student)][0] // {}) as $old |
-              {
-                key: $item.student,
-                name: $item.snapshot.studentName,
-                syncedAt: $item.snapshot.syncedAt,
-                status: $item.snapshot.status,
-                historyCount: (($old.historyCount // 0) + 1)
-              }
-            ]}' > data/classroom/index.json
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/classroom
-          git diff --cached --quiet && exit 0
-          git commit -m "Persist classroom snapshot"
-          git push

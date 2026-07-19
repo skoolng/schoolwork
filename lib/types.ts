@@ -1,6 +1,7 @@
 export interface Attachment {
   name: string;
   url: string;
+  sourceUrl?: string;
 }
 
 export interface Assignment {

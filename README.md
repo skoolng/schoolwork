@@ -19,6 +19,9 @@ project and mirrored to `data/classroom` by the scheduled GitHub workflow:
   history.
 - `data/classroom/<student>/latest.json` is the repository-backed read copy.
 - `data/classroom/<student>/history` keeps one JSON file per successful sync.
+- `data/classroom/<student>/assets` keeps authenticated copies of every image
+  and attachment referenced by a snapshot. Snapshot links point to these copies
+  and retain the ManageBac URL in `sourceUrl`.
 - the classroom API reads GitHub first and falls back to D1 during repository
   propagation or an upstream outage.
 - the site remains owner-only even though this source repository is public.
