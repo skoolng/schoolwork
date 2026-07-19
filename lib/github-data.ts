@@ -1,5 +1,22 @@
 import type { ClassroomSnapshot } from "./types";
 
+function cleanNotifications(snapshot: ClassroomSnapshot): ClassroomSnapshot {
+  const notifications = snapshot.notifications.filter((notification) => {
+    if (!/^https?:\/\//i.test(notification.url)) return false;
+    if (/notifications shown by ManageBac/i.test(notification.title)) return true;
+
+    try {
+      return /^\/student\/notifications\/.+/i.test(
+        new URL(notification.url).pathname,
+      );
+    } catch {
+      return false;
+    }
+  });
+
+  return { ...snapshot, notifications };
+}
+
 const rawDataRoot =
   "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom";
 
@@ -37,8 +54,10 @@ export async function readRepositorySnapshot(studentKey: string) {
 
   if (!selected) return null;
 
-  const snapshot = await fetchJson<ClassroomSnapshot>(
-    `${encodeURIComponent(selected.key)}/latest.json`,
+  const snapshot = cleanNotifications(
+    await fetchJson<ClassroomSnapshot>(
+      `${encodeURIComponent(selected.key)}/latest.json`,
+    ),
   );
 
   return {

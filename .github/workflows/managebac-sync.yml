@@ -53,7 +53,16 @@ jobs:
             student_dir="data/classroom/${student}"
             mkdir -p "${student_dir}/history" "${student_dir}/assets"
 
-            jq '.archives[0].snapshot' "$response" > "${student_dir}/latest.json"
+            jq '
+              .archives[0].snapshot
+              | .notifications = [
+                  .notifications[]?
+                  | select(
+                      ((.title // "") | test("notifications shown by ManageBac"; "i")) or
+                      ((.url // "") | test("^https?://[^/]+/student/notifications/.+"; "i"))
+                    )
+                ]
+            ' "$response" > "${student_dir}/latest.json"
             cp "${student_dir}/latest.json" "${student_dir}/history/${history_name}.json"
 
             jq -c '.archives[0].assets[]' "$response" | while IFS= read -r asset; do

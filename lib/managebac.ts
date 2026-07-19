@@ -907,18 +907,14 @@ function parseNotifications(page: PageResult): NotificationItem[] {
   const count = text.match(/Notifications\s+(\d+\s+of\s+\d+)/i)?.[1] ?? "";
   const links = extractLinks(page.text, page.url)
     .filter((link) => /^https?:/i.test(link.url))
-    .filter(
-      (link) =>
-        !/logout|preferences|profile|classes|calendar|tasks_and_deadlines/i.test(
-          link.url,
-        ),
-    )
-    .filter(
-      (link) =>
-        !/^(?:skip to|the gaudium school|here|classes|groups|files & resources|guides)$/i.test(
-          link.text.trim(),
-        ),
-    );
+    .filter((link) => {
+      try {
+        const path = new URL(link.url).pathname;
+        return /^\/student\/notifications\/.+/i.test(path);
+      } catch {
+        return false;
+      }
+    });
 
   const items: NotificationItem[] = links.slice(0, 8).map((link) => ({
     title: link.text || "ManageBac notification",
