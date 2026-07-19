@@ -4,6 +4,7 @@ import {
   classroomSnapshots,
 } from "../../../db/schema";
 import { getDb } from "../../../db";
+import { readRepositorySnapshot } from "../../../lib/github-data";
 import type { ClassroomSnapshot } from "../../../lib/types";
 
 function fallbackSnapshot(studentKey = "advika"): ClassroomSnapshot {
@@ -22,6 +23,13 @@ function fallbackSnapshot(studentKey = "advika"): ClassroomSnapshot {
 
 export async function GET(request: Request) {
   const requestedKey = new URL(request.url).searchParams.get("student") ?? "advika";
+
+  try {
+    const repositoryData = await readRepositorySnapshot(requestedKey);
+    if (repositoryData) return Response.json(repositoryData);
+  } catch {
+    // D1 remains the fallback while GitHub data is unavailable or being updated.
+  }
 
   try {
     const db = getDb();
