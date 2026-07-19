@@ -485,16 +485,18 @@ dd {
   margin-top: 4px;
 }
 
-.homework-image-gallery a {
+.homework-image-gallery button {
   background: #fff;
   border: 1px solid var(--line);
   color: var(--blue);
+  cursor: pointer;
   display: grid;
   font-size: 0.82rem;
   font-weight: 800;
   gap: 7px;
   padding: 8px;
   text-decoration: none;
+  text-align: left;
 }
 
 .homework-image-gallery img {
@@ -511,6 +513,7 @@ dd {
 }
 
 .attachment-row a,
+.attachment-row button,
 .attachment-row span {
   align-items: center;
   background: #ecf3f1;
@@ -522,6 +525,14 @@ dd {
   min-height: 34px;
   padding: 0 10px;
   text-decoration: none;
+}
+
+.attachment-button {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  overflow-wrap: anywhere;
+  text-align: left;
 }
 
 .class-grid,
@@ -608,7 +619,8 @@ dd {
 }
 
 .class-detail-list a,
-.file-list a {
+.file-list a,
+.file-list button {
   color: var(--blue);
   font-weight: 800;
   overflow-wrap: anywhere;
@@ -659,13 +671,136 @@ dd {
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 }
 
-.file-list a {
+.file-list a,
+.file-list button {
   align-items: center;
   background: #ecf3f1;
   display: flex;
   gap: 8px;
   min-height: 44px;
   padding: 8px 10px;
+}
+
+body.workspace-open {
+  overflow: hidden;
+}
+
+.file-workspace-backdrop {
+  align-items: center;
+  background: rgba(18, 29, 27, 0.76);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 18px;
+  position: fixed;
+  z-index: 1000;
+}
+
+.file-workspace {
+  background: #f8f6ef;
+  border-radius: 18px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  height: min(92vh, 920px);
+  overflow: hidden;
+  width: min(96vw, 1280px);
+}
+
+.file-workspace > header {
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 16px 20px;
+}
+
+.file-workspace h2 {
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  margin: 2px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.workspace-close,
+.workspace-toolbar button,
+.workspace-toolbar a {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 800;
+  padding: 8px 11px;
+  text-decoration: none;
+}
+
+.workspace-close {
+  background: var(--ink);
+  color: #fff;
+}
+
+.workspace-toolbar {
+  align-items: center;
+  background: #eef3ef;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 16px;
+}
+
+.workspace-toolbar span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+  min-width: 44px;
+  text-align: center;
+}
+
+.workspace-canvas {
+  min-height: 0;
+  overflow: auto;
+}
+
+.workspace-canvas.pdf iframe {
+  border: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.workspace-canvas.image {
+  align-items: center;
+  background-color: #d9ddd9;
+  background-image: linear-gradient(45deg, #cbd0cc 25%, transparent 25%),
+    linear-gradient(-45deg, #cbd0cc 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #cbd0cc 75%),
+    linear-gradient(-45deg, transparent 75%, #cbd0cc 75%);
+  background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+  background-size: 24px 24px;
+  display: flex;
+  justify-content: center;
+  padding: 48px;
+}
+
+.workspace-canvas.image img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  transform-origin: center;
+  transition: transform 160ms ease;
+}
+
+.unsupported-preview {
+  display: grid;
+  gap: 8px;
+  margin: auto;
+  max-width: 460px;
+  padding: 60px 24px;
+  text-align: center;
 }
 
 .compact {
@@ -731,5 +866,19 @@ dd {
   .class-item-heading {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .file-workspace-backdrop {
+    padding: 0;
+  }
+
+  .file-workspace {
+    border-radius: 0;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .workspace-canvas.image {
+    padding: 24px;
   }
 }
