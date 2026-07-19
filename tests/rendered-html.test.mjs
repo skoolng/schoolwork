@@ -96,6 +96,14 @@ test("archived PDFs use the inline file proxy", async () => {
   assert.match(route, /request\.headers\.get\("range"\)/);
 });
 
+test("Word and PowerPoint files use the embedded Office viewer", async () => {
+  const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+
+  assert.match(page, /docx\?/);
+  assert.match(page, /pptx\?/);
+  assert.match(page, /view\.officeapps\.live\.com\/op\/embed\.aspx/);
+});
+
 test("ManageBac scraper consolidates every class section", async () => {
   const [scraper, types] = await Promise.all([
     readFile(new URL("../lib/managebac.ts", import.meta.url), "utf8"),

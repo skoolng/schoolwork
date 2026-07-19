@@ -92,6 +92,7 @@ function fileKind(file: Attachment) {
   const value = `${file.name} ${file.url}`.toLowerCase();
   if (/\.pdf(?:\?|$)/.test(value)) return "pdf";
   if (/\.(?:avif|gif|jpe?g|png|webp)(?:\?|$)/.test(value)) return "image";
+  if (/\.(?:docx?|pptx?)(?:\?|$)/.test(value)) return "office";
   return "file";
 }
 
@@ -112,6 +113,8 @@ function FileWorkspace({ file, onClose }: { file: Attachment | null; onClose: ()
   const previewUrl =
     file && kind === "pdf"
       ? `/api/file?url=${encodeURIComponent(file.url)}`
+      : file && kind === "office"
+        ? `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(file.url)}`
       : file?.url;
 
   useEffect(() => {
@@ -176,8 +179,8 @@ function FileWorkspace({ file, onClose }: { file: Attachment | null; onClose: ()
               alt={file.name || "Classroom image"}
               style={{ transform: `scale(${zoom}) rotate(${rotation}deg)` }}
             />
-          ) : kind === "pdf" ? (
-            <iframe src={previewUrl} title={file.name || "PDF document"} />
+          ) : kind === "pdf" || kind === "office" ? (
+            <iframe src={previewUrl} title={file.name || "Classroom document"} />
           ) : (
             <div className="unsupported-preview">
               <strong>Preview is not available for this file type.</strong>

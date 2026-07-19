@@ -766,7 +766,8 @@ body.workspace-open {
   overflow: auto;
 }
 
-.workspace-canvas.pdf iframe {
+.workspace-canvas.pdf iframe,
+.workspace-canvas.office iframe {
   border: 0;
   height: 100%;
   width: 100%;
