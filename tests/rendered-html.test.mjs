@@ -83,6 +83,19 @@ test("classroom sync artifacts exist", async () => {
   await assert.rejects(access(new URL("app/_sites-preview", templateRoot)));
 });
 
+test("archived PDFs use the inline file proxy", async () => {
+  const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+  const route = await readFile(
+    new URL("../app/api/file/route.ts", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(page, /\/api\/file\?url=/);
+  assert.match(route, /content-disposition/);
+  assert.match(route, /application\/pdf/);
+  assert.match(route, /request\.headers\.get\("range"\)/);
+});
+
 test("ManageBac scraper consolidates every class section", async () => {
   const [scraper, types] = await Promise.all([
     readFile(new URL("../lib/managebac.ts", import.meta.url), "utf8"),

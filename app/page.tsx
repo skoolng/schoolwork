@@ -109,6 +109,10 @@ function FileWorkspace({ file, onClose }: { file: Attachment | null; onClose: ()
   const [rotation, setRotation] = useState(0);
   const [zoom, setZoom] = useState(1);
   const kind = file ? fileKind(file) : "file";
+  const previewUrl =
+    file && kind === "pdf"
+      ? `/api/file?url=${encodeURIComponent(file.url)}`
+      : file?.url;
 
   useEffect(() => {
     setRotation(0);
@@ -173,7 +177,7 @@ function FileWorkspace({ file, onClose }: { file: Attachment | null; onClose: ()
               style={{ transform: `scale(${zoom}) rotate(${rotation}deg)` }}
             />
           ) : kind === "pdf" ? (
-            <iframe src={file.url} title={file.name || "PDF document"} />
+            <iframe src={previewUrl} title={file.name || "PDF document"} />
           ) : (
             <div className="unsupported-preview">
               <strong>Preview is not available for this file type.</strong>
