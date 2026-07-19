@@ -1,0 +1,72 @@
+name: Weekly parent learning journal
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 11 * * 5"
+
+concurrency:
+  group: weekly-parent-journal
+  cancel-in-progress: false
+
+jobs:
+  journal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Generate weekly journals
+        env:
+          SITE_URL: ${{ secrets.SYNC_URL }}
+          SYNC_SECRET: ${{ secrets.SYNC_SECRET }}
+          SIWC_BYPASS_TOKEN: ${{ secrets.SIWC_BYPASS_TOKEN }}
+        run: |
+          set -euo pipefail
+          journal_url="${SITE_URL%/api/sync}/api/weekly-journal"
+          for student in advika adrika; do
+            curl --fail-with-body --show-error --silent \
+              --request POST \
+              --header "x-sync-secret: ${SYNC_SECRET}" \
+              --header "OAI-Sites-Authorization: Bearer ${SIWC_BYPASS_TOKEN}" \
+              --output "/tmp/journal-${student}.json" \
+              "${journal_url}?student=${student}"
+            jq -e '.ok == true and .journal.weekKey' "/tmp/journal-${student}.json" >/dev/null
+          done
+
+      - name: Record weekly journals
+        shell: bash
+        run: |
+          set -euo pipefail
+          for student in advika adrika; do
+            response="/tmp/journal-${student}.json"
+            journal_dir="data/weekly-journal/${student}"
+            week_key=$(jq -r '.journal.weekKey' "$response")
+            mkdir -p "$journal_dir"
+            jq '.journal' "$response" > "${journal_dir}/${week_key}.json"
+            cp "${journal_dir}/${week_key}.json" "${journal_dir}/latest.json"
+            previous=$(test -f "${journal_dir}/index.json" && cat "${journal_dir}/index.json" || printf '{"journals":[]}')
+            jq -n \
+              --slurpfile response "$response" \
+              --argjson previous "$previous" \
+              '$response[0].journal as $journal |
+              {journals: ([{
+                weekKey: $journal.weekKey,
+                weekStart: $journal.weekStart,
+                weekEnd: $journal.weekEnd,
+                generatedAt: $journal.generatedAt
+              }] + ($previous.journals // []) |
+              unique_by(.weekKey) | sort_by(.weekKey) | reverse)}' \
+              > "${journal_dir}/index.json"
+          done
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/weekly-journal
+          git diff --cached --quiet && exit 0
+          git commit -m "Record weekly parent learning journal"
+          git push

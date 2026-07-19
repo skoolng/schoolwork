@@ -905,9 +905,20 @@ function parseNotifications(page: PageResult): NotificationItem[] {
     text.match(/Notifications\s+(.+?)\s+(?:Members Guides|Chat Bot Sidebar items|Privacy Preferences)/i)?.[1] ??
     "";
   const count = text.match(/Notifications\s+(\d+\s+of\s+\d+)/i)?.[1] ?? "";
-  const links = extractLinks(page.text, page.url).filter(
-    (link) => !/logout|preferences|profile|classes|calendar|tasks_and_deadlines/i.test(link.url),
-  );
+  const links = extractLinks(page.text, page.url)
+    .filter((link) => /^https?:/i.test(link.url))
+    .filter(
+      (link) =>
+        !/logout|preferences|profile|classes|calendar|tasks_and_deadlines/i.test(
+          link.url,
+        ),
+    )
+    .filter(
+      (link) =>
+        !/^(?:skip to|the gaudium school|here|classes|groups|files & resources|guides)$/i.test(
+          link.text.trim(),
+        ),
+    );
 
   const items: NotificationItem[] = links.slice(0, 8).map((link) => ({
     title: link.text || "ManageBac notification",
