@@ -401,6 +401,18 @@ function WeeklyJournalPanel({
   selectedWeek: string;
   onSelectWeek: (week: string) => void;
 }) {
+  const unitCount = journal?.subjects.reduce(
+    (total, subject) => total + subject.units.length,
+    0,
+  ) ?? 0;
+  const questionCount = journal?.subjects.reduce(
+    (total, subject) =>
+      total + subject.units.reduce((sum, unit) => sum + unit.questions.length, 0),
+    0,
+  ) ?? 0;
+  const strengths = journal?.strengths ?? journal?.highlights ?? [];
+  const growthAreas = journal?.growthAreas ?? journal?.attentionItems ?? [];
+
   return (
     <section className="weekly-journal" aria-labelledby="weekly-journal-title">
       <div className="section-heading journal-heading">
@@ -425,26 +437,119 @@ function WeeklyJournalPanel({
       {journal ? (
         <>
           <article className="journal-overview">
-            <div>
+            <div className="journal-overview-copy">
               <span>{journal.weekStart} to {journal.weekEnd}</span>
-              <h3>{journal.studentName}&apos;s overall learning</h3>
+              <h3>This week, in plain language</h3>
               <p>{journal.overallSummary}</p>
+              <p className="journal-parent-note">
+                {journal.parentOverview ?? "Use the prompts below to check independent understanding and agree on one next step."}
+              </p>
             </div>
-            <div className="journal-snapshot-lists">
-              <section>
-                <h4>Learning highlights</h4>
-                {journal.highlights.length ? (
-                  <ul>{journal.highlights.map((item) => <li key={item}>{item}</li>)}</ul>
-                ) : <p>No highlights were recorded.</p>}
-              </section>
-              <section>
-                <h4>Parent follow-up</h4>
-                {journal.attentionItems.length ? (
-                  <ul>{journal.attentionItems.map((item) => <li key={item}>{item}</li>)}</ul>
-                ) : <p>No overdue or pending work was detected.</p>}
-              </section>
+            <div className="journal-at-a-glance" aria-label="Journal scope">
+              <div><strong>{journal.subjects.length}</strong><span>subjects connected</span></div>
+              <div><strong>{unitCount}</strong><span>learning focuses</span></div>
+              <div><strong>{questionCount}</strong><span>mentoring prompts</span></div>
             </div>
           </article>
+
+          <div className="journal-insight-grid">
+            <section className="journal-insight-card strength-card">
+              <p className="eyebrow">Build confidence</p>
+              <h3>What learning to notice</h3>
+              <p>Look for explanations, decisions, and connections—not only completed pages.</p>
+              <ul>{strengths.slice(0, 5).map((item) => <li key={item}>{item}</li>)}</ul>
+            </section>
+            <section className="journal-insight-card support-card">
+              <p className="eyebrow">Support gently</p>
+              <h3>Where mentoring will help</h3>
+              <p>Keep the next step small, visible, and owned by the student.</p>
+              <ul>{growthAreas.slice(0, 4).map((item) => <li key={item}>{item}</li>)}</ul>
+            </section>
+          </div>
+
+          {journal.mentoringPlan ? (
+            <section className="mentor-guide">
+              <header>
+                <p className="eyebrow">A better parent conversation</p>
+                <h3>A 10-minute mentoring guide</h3>
+                <p>Pick two prompts. Listen first, then coach the thinking rather than giving the answer.</p>
+              </header>
+              <div className="mentor-guide-grid">
+                <section>
+                  <h4>Conversation starters</h4>
+                  <ol>{journal.mentoringPlan.conversationStarters.map((item) => <li key={item}>{item}</li>)}</ol>
+                </section>
+                <section>
+                  <h4>How to respond</h4>
+                  <ul>{journal.mentoringPlan.coachingTips.map((item) => <li key={item}>{item}</li>)}</ul>
+                </section>
+              </div>
+              <div className="mentor-routine">
+                {journal.mentoringPlan.weeklyRoutine.map((item) => (
+                  <div key={item.label}>
+                    <strong>{item.label}</strong>
+                    <span>{item.action}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+          ) : null}
+
+          {journal.homeProjects?.length ? (
+            <section className="home-projects">
+              <div className="section-heading">
+                <div>
+                  <p className="eyebrow">Learn by making</p>
+                  <h2>Recommended projects at home</h2>
+                  <p>Choose one—not all three. Let the student plan, make decisions, test, and reflect.</p>
+                </div>
+              </div>
+              <div className="home-project-grid">
+                {journal.homeProjects.map((project, index) => (
+                  <article className="home-project-card" key={project.title}>
+                    <div className="project-number">Project {index + 1}</div>
+                    <h3>{project.title}</h3>
+                    <p>{project.purpose}</p>
+                    <div className="project-meta">
+                      <span>{project.estimatedTime}</span>
+                      {project.subjectLinks.map((subject) => <span key={subject}>{subject}</span>)}
+                    </div>
+                    <details>
+                      <summary>Project plan and parent role</summary>
+                      <div className="project-plan">
+                        <section>
+                          <h4>What you need</h4>
+                          <p>{project.materials.join(" · ")}</p>
+                        </section>
+                        <section>
+                          <h4>Student steps</h4>
+                          <ol>{project.steps.map((step) => <li key={step}>{step}</li>)}</ol>
+                        </section>
+                        <section className="parent-role-callout">
+                          <h4>Your role</h4>
+                          <p>{project.parentRole}</p>
+                        </section>
+                        <section>
+                          <h4>What good learning looks like</h4>
+                          <ul>{project.lookFor.map((item) => <li key={item}>{item}</li>)}</ul>
+                        </section>
+                        <section>
+                          <h4>Reflect together</h4>
+                          <ul>{project.reflectionQuestions.map((item) => <li key={item}>{item}</li>)}</ul>
+                        </section>
+                      </div>
+                    </details>
+                  </article>
+                ))}
+              </div>
+            </section>
+          ) : null}
+
+          <div className="journal-section-intro">
+            <p className="eyebrow">Subject-by-subject</p>
+            <h2>What was learned and how to guide it</h2>
+            <p>Open a unit for the learning goals, evidence to listen for, likely misconceptions, questions, and a small home extension.</p>
+          </div>
 
           <div className="journal-subjects">
             {journal.subjects.map((subject) => (
@@ -452,6 +557,9 @@ function WeeklyJournalPanel({
                 <header>
                   <h3>{subject.subject}</h3>
                   <p>{subject.summary}</p>
+                  {subject.parentTakeaway ? (
+                    <div className="parent-takeaway"><strong>Listen for</strong><span>{subject.parentTakeaway}</span></div>
+                  ) : null}
                 </header>
                 <div className="journal-units">
                   {subject.units.map((unit) => (
@@ -459,9 +567,33 @@ function WeeklyJournalPanel({
                       <summary>{unit.name}</summary>
                       <div className="journal-unit-body">
                         <p>{unit.summary}</p>
+                        {unit.learningGoals?.length ? (
+                          <section>
+                            <h4>What the student is learning</h4>
+                            <ul>{unit.learningGoals.map((goal) => <li key={goal}>{goal}</li>)}</ul>
+                          </section>
+                        ) : null}
+                        {unit.evidenceToListenFor?.length ? (
+                          <section className="learning-evidence-callout">
+                            <h4>What understanding sounds like</h4>
+                            <ul>{unit.evidenceToListenFor.map((item) => <li key={item}>{item}</li>)}</ul>
+                          </section>
+                        ) : null}
+                        {unit.parentGuidance?.length ? (
+                          <section>
+                            <h4>How a parent can guide</h4>
+                            <ul>{unit.parentGuidance.map((item) => <li key={item}>{item}</li>)}</ul>
+                          </section>
+                        ) : null}
+                        {unit.commonMisconceptions?.length ? (
+                          <section>
+                            <h4>Misconceptions to probe</h4>
+                            <ul>{unit.commonMisconceptions.map((item) => <li key={item}>{item}</li>)}</ul>
+                          </section>
+                        ) : null}
                         {unit.activities.length ? (
                           <section>
-                            <h4>Learning evidence</h4>
+                            <h4>ManageBac evidence used</h4>
                             <ul>{unit.activities.map((activity) => <li key={activity}>{activity}</li>)}</ul>
                           </section>
                         ) : null}
@@ -469,6 +601,12 @@ function WeeklyJournalPanel({
                           <h4>Questions for parents to ask</h4>
                           <ol>{unit.questions.map((question) => <li key={question}>{question}</li>)}</ol>
                         </section>
+                        {unit.homeExtension ? (
+                          <section className="unit-home-extension">
+                            <h4>Try this at home</h4>
+                            <p>{unit.homeExtension}</p>
+                          </section>
+                        ) : null}
                         {unit.videos.length ? (
                           <section>
                             <h4>Related videos</h4>

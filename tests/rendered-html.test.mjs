@@ -116,7 +116,14 @@ test("weekly journals and clickable notifications are wired", async () => {
 
   assert.match(page, /Weekly Journal/);
   assert.match(page, /notice-card-link/);
+  assert.match(page, /A 10-minute mentoring guide/);
+  assert.match(page, /Recommended projects at home/);
+  assert.match(page, /What understanding sounds like/);
+  assert.match(page, /Misconceptions to probe/);
   assert.match(generator, /questionsFor/);
+  assert.match(generator, /homeProjectsFor/);
+  assert.match(generator, /Kitchen-table fair test/);
+  assert.match(generator, /coachingTips/);
   assert.match(generator, /youtube\.com\/watch\?v=/);
   assert.doesNotMatch(generator, /youtube\.com\/results|search_query=/);
   assert.match(route, /buildWeeklyJournal/);
