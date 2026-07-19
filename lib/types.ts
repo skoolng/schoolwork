@@ -83,6 +83,11 @@ export interface WeeklyJournalUnit {
   name: string;
   summary: string;
   activities: string[];
+  learningGoals: string[];
+  evidenceToListenFor: string[];
+  commonMisconceptions: string[];
+  parentGuidance: string[];
+  homeExtension: string;
   questions: string[];
   videos: WeeklyJournalVideo[];
 }
@@ -90,7 +95,26 @@ export interface WeeklyJournalUnit {
 export interface WeeklyJournalSubject {
   subject: string;
   summary: string;
+  parentTakeaway: string;
   units: WeeklyJournalUnit[];
+}
+
+export interface WeeklyJournalHomeProject {
+  title: string;
+  purpose: string;
+  estimatedTime: string;
+  materials: string[];
+  steps: string[];
+  parentRole: string;
+  lookFor: string[];
+  reflectionQuestions: string[];
+  subjectLinks: string[];
+}
+
+export interface WeeklyJournalMentoringPlan {
+  conversationStarters: string[];
+  coachingTips: string[];
+  weeklyRoutine: Array<{ label: string; action: string }>;
 }
 
 export interface WeeklyJournal {
@@ -101,6 +125,11 @@ export interface WeeklyJournal {
   weekEnd: string;
   generatedAt: string;
   overallSummary: string;
+  parentOverview: string;
+  strengths: string[];
+  growthAreas: string[];
+  mentoringPlan: WeeklyJournalMentoringPlan;
+  homeProjects: WeeklyJournalHomeProject[];
   highlights: string[];
   attentionItems: string[];
   subjects: WeeklyJournalSubject[];
