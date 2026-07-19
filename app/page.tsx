@@ -1,13 +1,30 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import type {
+  Attachment,
   Assignment,
   ClassContentItem,
   ClassroomClass,
   ClassroomSnapshot,
   StudentSummary,
 } from "../lib/types";
+
+const FileWorkspaceContext = createContext<
+  ((file: Attachment) => void) | null
+>(null);
+
+function useFileWorkspace() {
+  const openFile = useContext(FileWorkspaceContext);
+  if (!openFile) throw new Error("File workspace is unavailable.");
+  return openFile;
+}
 
 type ClassSection = "stream" | "tasks" | "discussions" | "calendar" | "files";
 
@@ -71,6 +88,104 @@ function hostOnly(url: string) {
   }
 }
 
+function fileKind(file: Attachment) {
+  const value = `${file.name} ${file.url}`.toLowerCase();
+  if (/\.pdf(?:\?|$)/.test(value)) return "pdf";
+  if (/\.(?:avif|gif|jpe?g|png|webp)(?:\?|$)/.test(value)) return "image";
+  return "file";
+}
+
+function AttachmentButton({ file }: { file: Attachment }) {
+  const openFile = useFileWorkspace();
+  return (
+    <button className="attachment-button" type="button" onClick={() => openFile(file)}>
+      <span aria-hidden="true">{fileKind(file)}</span>
+      {file.name || hostOnly(file.url)}
+    </button>
+  );
+}
+
+function FileWorkspace({ file, onClose }: { file: Attachment | null; onClose: () => void }) {
+  const [rotation, setRotation] = useState(0);
+  const [zoom, setZoom] = useState(1);
+  const kind = file ? fileKind(file) : "file";
+
+  useEffect(() => {
+    setRotation(0);
+    setZoom(1);
+  }, [file?.url]);
+
+  useEffect(() => {
+    if (!file) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKeyDown);
+    document.body.classList.add("workspace-open");
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.classList.remove("workspace-open");
+    };
+  }, [file, onClose]);
+
+  if (!file) return null;
+
+  return (
+    <div className="file-workspace-backdrop" role="presentation" onMouseDown={onClose}>
+      <section
+        className="file-workspace"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="file-workspace-title"
+        onMouseDown={(event) => event.stopPropagation()}
+      >
+        <header>
+          <div>
+            <p className="eyebrow">Document workspace</p>
+            <h2 id="file-workspace-title">{file.name || "Classroom file"}</h2>
+          </div>
+          <button className="workspace-close" type="button" onClick={onClose} aria-label="Close file">
+            Close
+          </button>
+        </header>
+
+        <div className="workspace-toolbar">
+          {kind === "image" ? (
+            <>
+              <button type="button" onClick={() => setZoom((value) => Math.max(0.5, value - 0.25))}>Zoom out</button>
+              <span>{Math.round(zoom * 100)}%</span>
+              <button type="button" onClick={() => setZoom((value) => Math.min(3, value + 0.25))}>Zoom in</button>
+              <button type="button" onClick={() => setRotation((value) => value - 90)}>Rotate left</button>
+              <button type="button" onClick={() => setRotation((value) => value + 90)}>Rotate right</button>
+              <button type="button" onClick={() => { setZoom(1); setRotation(0); }}>Reset</button>
+            </>
+          ) : null}
+          <a href={file.url} download={file.name || undefined}>Download</a>
+          <a href={file.url} target="_blank" rel="noreferrer">Open original</a>
+        </div>
+
+        <div className={`workspace-canvas ${kind}`}>
+          {kind === "image" ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={file.url}
+              alt={file.name || "Classroom image"}
+              style={{ transform: `scale(${zoom}) rotate(${rotation}deg)` }}
+            />
+          ) : kind === "pdf" ? (
+            <iframe src={file.url} title={file.name || "PDF document"} />
+          ) : (
+            <div className="unsupported-preview">
+              <strong>Preview is not available for this file type.</strong>
+              <p>Download it or open the archived copy in a new tab.</p>
+            </div>
+          )}
+        </div>
+      </section>
+    </div>
+  );
+}
+
 function assignmentDueTimestamp(assignment: Assignment) {
   const dueText = assignment.dueText || "";
   const monthDay = dueText.match(/\b[A-Z][a-z]{2,8}\s+\d{1,2}\b/)?.[0];
@@ -127,14 +242,7 @@ function ClassContentList({
           {content.attachments?.length ? (
             <div className="attachment-row compact-attachments">
               {content.attachments.map((attachment) => (
-                <a
-                  key={attachment.url}
-                  href={attachment.url}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {attachment.name || hostOnly(attachment.url)}
-                </a>
+                <AttachmentButton key={attachment.url} file={attachment} />
               ))}
             </div>
           ) : null}
@@ -145,16 +253,17 @@ function ClassContentList({
 }
 
 function ImageGallery({ images = [] }: { images?: { name: string; url: string }[] }) {
+  const openFile = useFileWorkspace();
   if (!images.length) return null;
 
   return (
     <div className="homework-image-gallery" aria-label="Homework images">
       {images.map((item) => (
-        <a key={item.url} href={item.url} target="_blank" rel="noreferrer">
+        <button key={item.url} type="button" onClick={() => openFile(item)}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={item.url} alt={item.name || "Discussion homework"} loading="lazy" />
           <span>{item.name || "Open full image"}</span>
-        </a>
+        </button>
       ))}
     </div>
   );
@@ -260,10 +369,7 @@ function ClassLearningPanel({
           files.length ? (
             <div className="file-list">
               {files.map((file) => (
-                <a key={file.url} href={file.url} target="_blank" rel="noreferrer">
-                  <span aria-hidden="true">file</span>
-                  {file.name || hostOnly(file.url)}
-                </a>
+                <AttachmentButton key={file.url} file={file} />
               ))}
             </div>
           ) : (
@@ -285,6 +391,7 @@ export default function Home() {
   const [selectedSubject, setSelectedSubject] = useState("all");
   const [view, setView] = useState<"all" | "assignments" | "classes">("all");
   const [classSection, setClassSection] = useState<ClassSection>("stream");
+  const [activeFile, setActiveFile] = useState<Attachment | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -401,6 +508,7 @@ export default function Home() {
     );
 
   return (
+    <FileWorkspaceContext.Provider value={setActiveFile}>
     <main className="classroom-shell">
       <section className="hero-panel" aria-labelledby="dashboard-title">
         <div>
@@ -587,15 +695,7 @@ export default function Home() {
                         <div className="attachment-row">
                           {assignment.attachments.length ? (
                             assignment.attachments.map((attachment) => (
-                              <a
-                                key={attachment.url}
-                                href={attachment.url}
-                                target="_blank"
-                                rel="noreferrer"
-                              >
-                                <span aria-hidden="true">file</span>
-                                {attachment.name || hostOnly(attachment.url)}
-                              </a>
+                              <AttachmentButton key={attachment.url} file={attachment} />
                             ))
                           ) : (
                             <span>No attachment included</span>
@@ -714,5 +814,7 @@ export default function Home() {
         </article>
       </section>
     </main>
+    <FileWorkspace file={activeFile} onClose={() => setActiveFile(null)} />
+    </FileWorkspaceContext.Provider>
   );
 }
