@@ -1,0 +1,735 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f4ee;
+  --foreground: #1d2228;
+  --muted: #68717b;
+  --paper: #fffdf8;
+  --line: #d9d4c8;
+  --ink-soft: #38414b;
+  --blue: #1e5d88;
+  --green: #26735f;
+  --coral: #b9503e;
+  --amber: #b87a1d;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid rgba(30, 93, 136, 0.28);
+  outline-offset: 2px;
+}
+
+.classroom-shell {
+  display: grid;
+  gap: 22px;
+  margin: 0 auto;
+  max-width: 1240px;
+  padding: 28px;
+}
+
+.hero-panel {
+  align-items: end;
+  background:
+    linear-gradient(120deg, rgba(30, 93, 136, 0.94), rgba(38, 115, 95, 0.88)),
+    url("/classroom-bg.png");
+  background-position: center;
+  background-size: cover;
+  color: #fffdf8;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  min-height: 280px;
+  padding: 36px;
+}
+
+.eyebrow {
+  color: inherit;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 7vw, 5.7rem);
+  line-height: 0.95;
+  margin-bottom: 18px;
+  max-width: 760px;
+}
+
+h2 {
+  color: var(--foreground);
+  font-size: 1.45rem;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+h3 {
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.hero-copy {
+  color: rgba(255, 253, 248, 0.88);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  margin-bottom: 0;
+  max-width: 660px;
+}
+
+.sync-card {
+  align-items: center;
+  background: rgba(255, 253, 248, 0.14);
+  border: 1px solid rgba(255, 253, 248, 0.26);
+  display: flex;
+  gap: 12px;
+  min-width: 245px;
+  padding: 14px 16px;
+}
+
+.sync-card strong,
+.sync-card span {
+  display: block;
+}
+
+.sync-card span {
+  color: rgba(255, 253, 248, 0.76);
+  font-size: 0.88rem;
+}
+
+.sync-dot {
+  background: var(--amber);
+  border-radius: 999px;
+  height: 12px;
+  width: 12px;
+}
+
+.sync-dot.ok {
+  background: #7ed0a9;
+}
+
+.sync-dot.error {
+  background: #f28c74;
+}
+
+.alert {
+  background: #fff2eb;
+  border-left: 4px solid var(--coral);
+  color: #773424;
+  margin: 0;
+  padding: 14px 16px;
+}
+
+.summary-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.summary-grid article,
+.assignment-card,
+.class-card,
+.notice-panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+
+.summary-grid article {
+  display: grid;
+  gap: 7px;
+  min-height: 128px;
+  padding: 18px;
+}
+
+.summary-grid span,
+.assignment-topline span,
+dt,
+.search-box span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.summary-grid strong {
+  color: var(--blue);
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.summary-grid p,
+.class-card p,
+.assignment-card p,
+.notice-panel span,
+.empty-state {
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.toolbar {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.segmented {
+  background: #e7e1d4;
+  display: inline-flex;
+  padding: 4px;
+}
+
+.segmented button {
+  background: transparent;
+  border: 0;
+  color: var(--ink-soft);
+  cursor: pointer;
+  min-height: 40px;
+  padding: 0 16px;
+}
+
+.segmented button.active {
+  background: var(--paper);
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.search-box {
+  align-items: center;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  display: flex;
+  gap: 12px;
+  min-height: 48px;
+  padding: 0 14px;
+  width: min(420px, 100%);
+}
+
+.search-box input {
+  background: transparent;
+  border: 0;
+  color: var(--foreground);
+  min-width: 0;
+  outline: 0;
+  width: 100%;
+}
+
+.content-section {
+  display: grid;
+  gap: 14px;
+}
+
+.section-heading {
+  align-items: end;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.section-heading .eyebrow {
+  color: var(--green);
+}
+
+.section-heading a,
+.class-card a,
+.notice-panel a {
+  color: var(--blue);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.subject-list,
+.assignment-list {
+  display: grid;
+  gap: 12px;
+}
+
+.student-switcher {
+  align-items: center;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.student-switcher .eyebrow {
+  color: var(--green);
+}
+
+.student-options {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  width: min(520px, 100%);
+}
+
+.student-options button {
+  align-items: start;
+  background: #f6f3eb;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  cursor: pointer;
+  display: grid;
+  gap: 3px;
+  min-height: 58px;
+  padding: 9px 12px;
+  text-align: left;
+}
+
+.student-options button.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+
+.student-options button span {
+  font-weight: 800;
+}
+
+.student-options button small {
+  color: var(--muted);
+  text-transform: capitalize;
+}
+
+.student-options button.active small {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.subject-picker {
+  align-items: start;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(150px, 0.24fr) 1fr;
+  padding: 16px;
+}
+
+.subject-picker-intro .eyebrow {
+  color: var(--green);
+}
+
+.subject-picker-intro h2 {
+  margin-bottom: 0;
+}
+
+.subject-options {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+}
+
+.subject-options button {
+  align-items: center;
+  background: #f6f3eb;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  min-height: 54px;
+  padding: 9px 11px;
+  text-align: left;
+}
+
+.subject-options button:hover {
+  border-color: var(--green);
+}
+
+.subject-options button:focus-visible {
+  outline: 3px solid rgba(30, 93, 136, 0.28);
+  outline-offset: 2px;
+}
+
+.subject-options button.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fffdf8;
+}
+
+.subject-options button span {
+  line-height: 1.25;
+}
+
+.subject-options button strong {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--green);
+  display: inline-flex;
+  flex: 0 0 28px;
+  height: 28px;
+  justify-content: center;
+}
+
+.subject-options button.active strong {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fffdf8;
+}
+
+.subject-group {
+  display: grid;
+  gap: 10px;
+}
+
+.subject-heading {
+  align-items: baseline;
+  background: #e8eee9;
+  border: 1px solid #cbdad3;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 12px 14px;
+}
+
+.subject-heading h3 {
+  color: var(--green);
+  margin-bottom: 0;
+}
+
+.subject-heading span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.assignment-card {
+  display: grid;
+  gap: 13px;
+  padding: 18px;
+}
+
+.assignment-card.discussion-assignment {
+  border-left: 4px solid var(--green);
+}
+
+.discussion-assignment .assignment-topline strong {
+  background: #e4f0eb;
+  color: var(--green);
+}
+
+.assignment-topline {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.assignment-topline strong {
+  background: #f7e7dd;
+  color: var(--coral);
+  font-size: 0.78rem;
+  padding: 5px 8px;
+}
+
+.assignment-card dl {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1.15fr 0.8fr 1.4fr;
+  margin: 0;
+}
+
+.assignment-card dl div {
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+dd {
+  color: var(--ink-soft);
+  margin: 3px 0 0;
+}
+
+.attachment-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.homework-image-gallery {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 4px;
+}
+
+.homework-image-gallery a {
+  background: #fff;
+  border: 1px solid var(--line);
+  color: var(--blue);
+  display: grid;
+  font-size: 0.82rem;
+  font-weight: 800;
+  gap: 7px;
+  padding: 8px;
+  text-decoration: none;
+}
+
+.homework-image-gallery img {
+  aspect-ratio: 4 / 3;
+  background: #f3f1eb;
+  display: block;
+  max-height: 480px;
+  object-fit: contain;
+  width: 100%;
+}
+
+.homework-image-gallery span {
+  overflow-wrap: anywhere;
+}
+
+.attachment-row a,
+.attachment-row span {
+  align-items: center;
+  background: #ecf3f1;
+  color: var(--green);
+  display: inline-flex;
+  font-size: 0.88rem;
+  font-weight: 700;
+  gap: 7px;
+  min-height: 34px;
+  padding: 0 10px;
+  text-decoration: none;
+}
+
+.class-grid,
+.lower-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.class-grid {
+  grid-template-columns: 1fr;
+}
+
+.lower-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.class-card,
+.notice-panel {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+}
+
+.class-card h3 {
+  color: var(--blue);
+  margin-bottom: 0;
+}
+
+.class-card-heading {
+  align-items: start;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.class-card-heading p {
+  margin-top: 6px;
+  max-width: 850px;
+}
+
+.class-section-tabs {
+  background: #e7e1d4;
+  display: grid;
+  gap: 4px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  padding: 4px;
+}
+
+.class-section-tabs button {
+  background: transparent;
+  border: 0;
+  color: var(--ink-soft);
+  cursor: pointer;
+  min-height: 44px;
+  padding: 8px 10px;
+}
+
+.class-section-tabs button.active {
+  background: var(--paper);
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.class-detail {
+  border-top: 1px solid var(--line);
+  min-height: 104px;
+  padding-top: 14px;
+}
+
+.class-detail-list {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.class-detail-list li {
+  border-left: 3px solid #cbdad3;
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  padding: 2px 0 2px 12px;
+}
+
+.class-detail-list a,
+.file-list a {
+  color: var(--blue);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.class-item-heading {
+  align-items: baseline;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.class-item-heading span,
+.compact-list span {
+  color: var(--muted);
+  flex: 0 0 auto;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.compact-attachments {
+  margin-top: 4px;
+}
+
+.task-unit-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.task-unit-grid h4 {
+  color: var(--green);
+  font-size: 0.84rem;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+
+.compact-list li {
+  border-left: 0;
+  border-top: 1px solid var(--line);
+  padding: 10px 0 0;
+}
+
+.file-list {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.file-list a {
+  align-items: center;
+  background: #ecf3f1;
+  display: flex;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 10px;
+}
+
+.compact {
+  display: block;
+}
+
+.notice-panel ul {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.notice-panel li {
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 4px;
+  padding-top: 12px;
+}
+
+@media (max-width: 840px) {
+  .classroom-shell {
+    padding: 18px;
+  }
+
+  .hero-panel,
+  .summary-grid,
+  .class-grid,
+  .lower-grid,
+  .subject-picker,
+  .assignment-card dl,
+  .task-unit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-panel {
+    gap: 24px;
+    padding: 24px;
+  }
+
+  .toolbar,
+  .section-heading,
+  .subject-heading,
+  .student-switcher {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .segmented {
+    overflow-x: auto;
+  }
+
+  .class-section-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .student-options {
+    grid-template-columns: 1fr;
+  }
+
+  .class-card-heading,
+  .class-item-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

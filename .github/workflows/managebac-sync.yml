@@ -1,0 +1,29 @@
+name: ManageBac sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 9 * * 1-5"
+    - cron: "0 11 * * 1-5"
+
+concurrency:
+  group: managebac-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Sync all students
+        env:
+          SYNC_URL: ${{ secrets.SYNC_URL }}
+          SYNC_SECRET: ${{ secrets.SYNC_SECRET }}
+          SIWC_BYPASS_TOKEN: ${{ secrets.SIWC_BYPASS_TOKEN }}
+        run: |
+          curl --fail-with-body --show-error --silent \
+            --retry 2 \
+            --request POST \
+            --header "x-sync-secret: ${SYNC_SECRET}" \
+            --header "OAI-Sites-Authorization: Bearer ${SIWC_BYPASS_TOKEN}" \
+            "${SYNC_URL}"

@@ -1,0 +1,62 @@
+# Schoolwork
+
+Private multi-student ManageBac dashboard for classroom learnings, assignments,
+discussion homework, images, files, due dates, calendars, and notifications.
+
+Production: <https://advika-classroom-2026.go4chaitu.chatgpt.site>
+
+## Privacy and persistence
+
+This public repository contains application source, database migrations, and the
+scheduled sync workflow. It intentionally contains no student records,
+ManageBac passwords, sync secrets, or private site access tokens.
+
+Student data is stored in the private Cloudflare D1 database attached to the
+Sites project:
+
+- `classroom_snapshots` keeps the latest record for each student.
+- `classroom_snapshot_history` appends every successful sync for long-term
+  history.
+- the site remains owner-only even though this source repository is public.
+
+## Students
+
+The application currently supports:
+
+- Advika, using `MANAGEBAC_LOGIN` and `MANAGEBAC_PASSWORD`.
+- Adrika, using `MANAGEBAC_ADRIKA_LOGIN` and
+  `MANAGEBAC_ADRIKA_PASSWORD`.
+
+All credential values must be configured as secrets in the Sites runtime. Do
+not add them to `.env.example`, migrations, commits, workflow files, or logs.
+
+## Scheduled sync
+
+`.github/workflows/managebac-sync.yml` calls the protected production sync
+endpoint at 3:00 PM and 4:30 PM Asia/Kolkata, Monday through Friday. Configure
+these GitHub Actions secrets:
+
+- `SYNC_URL`
+- `SYNC_SECRET`
+- `SIWC_BYPASS_TOKEN`
+
+The endpoint syncs every configured student in one run. It can also sync one
+student with `?student=advika` or `?student=adrika`.
+
+## Development
+
+Requires Node.js `>=22.13.0`.
+
+```bash
+npm install
+npm run dev
+npm test
+```
+
+Useful commands:
+
+- `npm run build` builds the vinext application.
+- `npm run lint` checks the source.
+- `npm run db:generate` generates Drizzle migrations after schema changes.
+- `scripts/run-managebac-sync.sh` invokes the protected production sync using
+  `.secrets/managebac-sync.env`.
