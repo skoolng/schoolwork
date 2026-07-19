@@ -105,11 +105,13 @@ test("Word and PowerPoint files use the embedded Office viewer", async () => {
 });
 
 test("weekly journals and clickable notifications are wired", async () => {
-  const [page, generator, route, workflow] = await Promise.all([
+  const [page, generator, route, workflow, scraper, classroomData] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../lib/weekly-journal.ts", import.meta.url), "utf8"),
     readFile(new URL("../app/api/weekly-journal/route.ts", import.meta.url), "utf8"),
     readFile(new URL("../.github/workflows/weekly-journal.yml", import.meta.url), "utf8"),
+    readFile(new URL("../lib/managebac.ts", import.meta.url), "utf8"),
+    readFile(new URL("../lib/github-data.ts", import.meta.url), "utf8"),
   ]);
 
   assert.match(page, /Weekly Journal/);
@@ -120,6 +122,8 @@ test("weekly journals and clickable notifications are wired", async () => {
   assert.match(route, /buildWeeklyJournal/);
   assert.match(workflow, /30 11 \* \* 5/);
   assert.match(workflow, /data\/weekly-journal/);
+  assert.match(scraper, /student\\\/notifications\\\/.\+/);
+  assert.match(classroomData, /cleanNotifications/);
 });
 
 test("ManageBac scraper consolidates every class section", async () => {
