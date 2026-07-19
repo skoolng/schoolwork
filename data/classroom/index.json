@@ -1,0 +1,18 @@
+{
+  "students": [
+    {
+      "key": "advika",
+      "name": "Advika Lakshmi",
+      "syncedAt": "2026-07-19T10:07:56.106Z",
+      "status": "ok",
+      "historyCount": 1
+    },
+    {
+      "key": "adrika",
+      "name": "Adrika Lakshmi Saragadam",
+      "syncedAt": "2026-07-19T10:07:59.925Z",
+      "status": "ok",
+      "historyCount": 1
+    }
+  ]
+}
