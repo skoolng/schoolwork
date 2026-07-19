@@ -270,7 +270,7 @@ export async function scrapeManageBacWithAssets(
   const attachments = collectAttachments(snapshot);
   const uniqueAttachments = attachments.filter(
     (attachment, index, items) =>
-      attachment.url.startsWith("http") &&
+      isDownloadableAttachment(attachment) &&
       items.findIndex((candidate) => candidate.url === attachment.url) === index,
   );
   const archivedByUrl = new Map<
@@ -377,6 +377,21 @@ function collectAttachments(snapshot: ClassroomSnapshot) {
     attachments.push(...assignment.attachments, ...(assignment.images ?? []));
   }
   return attachments;
+}
+
+function isDownloadableAttachment(attachment: Attachment) {
+  const parsed = new URL(attachment.url);
+  if (/\/files\/(?:category|folder)\//i.test(parsed.pathname)) return false;
+  return (
+    /\/attachments\//i.test(parsed.pathname) ||
+    /\/downloads?\//i.test(parsed.pathname) ||
+    /\.(?:avif|gif|jpe?g|png|webp|pdf|docx?|xlsx?|pptx?|mp3|mp4|m4a|wav)$/i.test(
+      attachment.name,
+    ) ||
+    /\.(?:avif|gif|jpe?g|png|webp|pdf|docx?|xlsx?|pptx?|mp3|mp4|m4a|wav)(?:\?|$)/i.test(
+      attachment.url,
+    )
+  );
 }
 
 async function shortHash(value: string) {
