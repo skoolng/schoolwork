@@ -75,6 +75,15 @@ function formatDate(value: string) {
   }).format(date);
 }
 
+function MappedTimestamp({ value }: { value?: string }) {
+  if (!value) return null;
+  return (
+    <time className="mapped-time" dateTime={value} title={formatDate(value)}>
+      Added to dashboard {formatDate(value)}
+    </time>
+  );
+}
+
 function urgency(dueText: string, status: string) {
   const lowered = `${dueText} ${status}`.toLowerCase();
   if (lowered.includes("overdue") || lowered.includes("not submitted")) return "Needs attention";
@@ -103,7 +112,10 @@ function AttachmentButton({ file }: { file: Attachment }) {
   return (
     <button className="attachment-button" type="button" onClick={() => openFile(file)}>
       <span aria-hidden="true">{fileKind(file)}</span>
-      {file.name || hostOnly(file.url)}
+      <div className="attachment-copy">
+        <strong>{file.name || hostOnly(file.url)}</strong>
+        <MappedTimestamp value={file.mappedAt} />
+      </div>
     </button>
   );
 }
@@ -152,6 +164,7 @@ function FileWorkspace({ file, onClose }: { file: Attachment | null; onClose: ()
           <div>
             <p className="eyebrow">Document workspace</p>
             <h2 id="file-workspace-title">{file.name || "Classroom file"}</h2>
+            <MappedTimestamp value={file.mappedAt} />
           </div>
           <button className="workspace-close" type="button" onClick={onClose} aria-label="Close file">
             Close
@@ -246,6 +259,7 @@ function ClassContentList({
             </a>
             {content.dateText ? <span>{content.dateText}</span> : null}
           </div>
+          <MappedTimestamp value={content.mappedAt} />
           {content.detail ? <p>{content.detail}</p> : null}
           <ImageGallery images={content.images} />
           {content.attachments?.length ? (
@@ -261,7 +275,7 @@ function ClassContentList({
   );
 }
 
-function ImageGallery({ images = [] }: { images?: { name: string; url: string }[] }) {
+function ImageGallery({ images = [] }: { images?: Attachment[] }) {
   const openFile = useFileWorkspace();
   if (!images.length) return null;
 
@@ -272,6 +286,7 @@ function ImageGallery({ images = [] }: { images?: { name: string; url: string }[
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={item.url} alt={item.name || "Discussion homework"} loading="lazy" />
           <span>{item.name || "Open full image"}</span>
+          <MappedTimestamp value={item.mappedAt} />
         </button>
       ))}
     </div>
@@ -297,6 +312,7 @@ function ClassLearningPanel({
         <div>
           <h3>{item.name}</h3>
           <p>{item.latestActivity || "No recent activity captured."}</p>
+          <MappedTimestamp value={item.mappedAt} />
         </div>
         <a href={item.url} target="_blank" rel="noreferrer">
           View class
@@ -330,6 +346,7 @@ function ClassLearningPanel({
                         {assignment.title}
                       </a>
                       <span>{assignment.dueText || "Due date not listed"}</span>
+                      <MappedTimestamp value={assignment.mappedAt} />
                     </li>
                   ))}
                 </ul>
@@ -347,6 +364,7 @@ function ClassLearningPanel({
                         {unit.title}
                       </a>
                       <p>{unit.detail}</p>
+                      <MappedTimestamp value={unit.mappedAt} />
                     </li>
                   ))}
                 </ul>
@@ -366,6 +384,7 @@ function ClassLearningPanel({
                     {entry.title}
                   </a>
                   <span>{entry.dateText}</span>
+                  <MappedTimestamp value={entry.mappedAt} />
                 </li>
               ))}
             </ul>
@@ -957,6 +976,7 @@ export default function Home() {
                               : urgency(assignment.dueText, assignment.status)}
                           </strong>
                         </div>
+                        <MappedTimestamp value={assignment.mappedAt} />
                         <h3>{assignment.title}</h3>
                         <dl>
                           <div>
@@ -1067,10 +1087,15 @@ export default function Home() {
                     <a className="notice-card-link" href={notice.url} target="_blank" rel="noreferrer">
                       <strong>{notice.title}</strong>
                       <span>{notice.detail}</span>
+                      <MappedTimestamp value={notice.mappedAt} />
                       <em>Open notification</em>
                     </a>
                   ) : (
-                    <><strong>{notice.title}</strong><span>{notice.detail}</span></>
+                    <>
+                      <strong>{notice.title}</strong>
+                      <span>{notice.detail}</span>
+                      <MappedTimestamp value={notice.mappedAt} />
+                    </>
                   )}
                 </li>
               ))}
@@ -1093,6 +1118,7 @@ export default function Home() {
                 <li key={`${item.title}-${item.dateText}`}>
                   <strong>{item.title}</strong>
                   <span>{item.dateText}</span>
+                  <MappedTimestamp value={item.mappedAt} />
                   {item.url ? (
                     <a href={item.url} target="_blank" rel="noreferrer">
                       Open

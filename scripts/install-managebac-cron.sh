@@ -31,7 +31,12 @@ schedule_config="${MANAGEBAC_CRON_SCHEDULES:-${MANAGEBAC_CRON_SCHEDULE:-}}"
 if [[ -n "$schedule_config" ]]; then
   IFS=';' read -r -a schedules <<< "$schedule_config"
 else
-  schedules=("0 15 * * 1-5" "30 16 * * 1-5")
+  schedules=(
+    "0 7 * * 1-5"
+    "0 11 * * 1-5"
+    "0 15 * * 1-5"
+    "30 17 * * 1-5"
+  )
 fi
 
 for schedule in "${schedules[@]}"; do

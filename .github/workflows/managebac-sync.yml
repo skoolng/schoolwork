@@ -6,8 +6,10 @@ permissions:
 on:
   workflow_dispatch:
   schedule:
+    - cron: "30 1 * * 1-5"
+    - cron: "30 5 * * 1-5"
     - cron: "30 9 * * 1-5"
-    - cron: "0 11 * * 1-5"
+    - cron: "0 12 * * 1-5"
 
 concurrency:
   group: managebac-sync
@@ -53,16 +55,10 @@ jobs:
             student_dir="data/classroom/${student}"
             mkdir -p "${student_dir}/history" "${student_dir}/assets"
 
-            jq '
-              .archives[0].snapshot
-              | .notifications = [
-                  .notifications[]?
-                  | select(
-                      ((.title // "") | test("notifications shown by ManageBac"; "i")) or
-                      ((.url // "") | test("^https?://[^/]+/student/notifications/.+"; "i"))
-                    )
-                ]
-            ' "$response" > "${student_dir}/latest.json"
+            node scripts/stamp-classroom-mapped-at.mjs \
+              "$student" \
+              "$response" \
+              "${student_dir}/latest.json"
             cp "${student_dir}/latest.json" "${student_dir}/history/${history_name}.json"
 
             jq -c '.archives[0].assets[]' "$response" | while IFS= read -r asset; do
