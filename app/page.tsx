@@ -132,11 +132,6 @@ function FileWorkspace({ file, onClose }: { file: Attachment | null; onClose: ()
       : file?.url;
 
   useEffect(() => {
-    setRotation(0);
-    setZoom(1);
-  }, [file?.url]);
-
-  useEffect(() => {
     if (!file) return;
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") onClose();
@@ -208,13 +203,8 @@ function FileWorkspace({ file, onClose }: { file: Attachment | null; onClose: ()
   );
 }
 
-function assignmentDueTimestamp(assignment: Assignment) {
-  const dueText = assignment.dueText || "";
-  const monthDay = dueText.match(/\b[A-Z][a-z]{2,8}\s+\d{1,2}\b/)?.[0];
-  const time = dueText.match(/\b\d{1,2}:\d{2}\s+(?:AM|PM)\b/i)?.[0] ?? "11:59 PM";
-  if (!monthDay) return 0;
-
-  const parsed = new Date(`${monthDay} ${new Date().getFullYear()} ${time}`);
+function assignmentMappedTimestamp(assignment: Assignment) {
+  const parsed = new Date(assignment.mappedAt ?? "");
   return Number.isNaN(parsed.getTime()) ? 0 : parsed.getTime();
 }
 
@@ -233,7 +223,7 @@ function groupAssignmentsBySubject(assignments: Assignment[]) {
         .slice()
         .sort(
           (left, right) =>
-            assignmentDueTimestamp(right) - assignmentDueTimestamp(left) ||
+            assignmentMappedTimestamp(right) - assignmentMappedTimestamp(left) ||
             right.title.localeCompare(left.title),
         ),
     }))
@@ -956,7 +946,7 @@ export default function Home() {
                 <section className="subject-group" key={group.subject}>
                   <div className="subject-heading">
                     <h3>{group.subject}</h3>
-                    <span>{group.items.length} assignments - latest due first</span>
+                    <span>{group.items.length} assignments - newest added first</span>
                   </div>
                   <div className="assignment-list">
                     {group.items.map((assignment) => (
@@ -969,19 +959,18 @@ export default function Home() {
                         key={assignment.url}
                       >
                         <div className="assignment-topline">
-                          <span>{assignment.dueText || "Due date not listed"}</span>
+                          <MappedTimestamp value={assignment.mappedAt} />
                           <strong>
                             {assignment.source === "discussion"
                               ? "From discussion"
-                              : urgency(assignment.dueText, assignment.status)}
+                            : urgency(assignment.dueText, assignment.status)}
                           </strong>
                         </div>
-                        <MappedTimestamp value={assignment.mappedAt} />
                         <h3>{assignment.title}</h3>
                         <dl>
                           <div>
                             <dt>Due</dt>
-                            <dd>{assignment.dueText || "Not listed"}</dd>
+                            <dd>{assignment.dueText || "Not provided by teacher"}</dd>
                           </div>
                           <div>
                             <dt>Status</dt>
@@ -1133,7 +1122,11 @@ export default function Home() {
         </article>
       </section>
     </main>
-    <FileWorkspace file={activeFile} onClose={() => setActiveFile(null)} />
+    <FileWorkspace
+      file={activeFile}
+      key={activeFile?.url ?? "closed"}
+      onClose={() => setActiveFile(null)}
+    />
     </FileWorkspaceContext.Provider>
   );
 }

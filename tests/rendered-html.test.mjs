@@ -19,7 +19,9 @@ test("classroom dashboard source is wired", async () => {
   assert.match(page, /Classroom Learnings/);
   assert.match(page, /\/api\/classroom/);
   assert.match(page, /groupAssignmentsBySubject/);
-  assert.match(page, /latest due first/);
+  assert.match(page, /assignmentMappedTimestamp/);
+  assert.match(page, /newest added first/);
+  assert.doesNotMatch(page, /latest due first/);
   assert.match(page, /Choose a subject/);
   assert.match(page, /selectedSubject/);
   assert.match(page, /snapshot\.classes\.map/);
