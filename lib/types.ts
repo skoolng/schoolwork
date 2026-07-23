@@ -2,6 +2,7 @@ export interface Attachment {
   name: string;
   url: string;
   sourceUrl?: string;
+  mappedAt?: string;
 }
 
 export interface Assignment {
@@ -15,6 +16,7 @@ export interface Assignment {
   attachments: Attachment[];
   images?: Attachment[];
   source?: "task" | "discussion";
+  mappedAt?: string;
 }
 
 export interface ClassContentItem {
@@ -24,12 +26,14 @@ export interface ClassContentItem {
   url: string;
   attachments: Attachment[];
   images?: Attachment[];
+  mappedAt?: string;
 }
 
 export interface ClassUnit {
   title: string;
   detail: string;
   url: string;
+  mappedAt?: string;
 }
 
 export interface ClassroomClass {
@@ -41,18 +45,21 @@ export interface ClassroomClass {
   units: ClassUnit[];
   calendar: CalendarItem[];
   files: Attachment[];
+  mappedAt?: string;
 }
 
 export interface NotificationItem {
   title: string;
   detail: string;
   url: string;
+  mappedAt?: string;
 }
 
 export interface CalendarItem {
   title: string;
   dateText: string;
   url: string;
+  mappedAt?: string;
 }
 
 export interface ClassroomSnapshot {

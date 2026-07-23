@@ -40,8 +40,9 @@ not add them to `.env.example`, migrations, commits, workflow files, or logs.
 ## Scheduled sync
 
 `.github/workflows/managebac-sync.yml` calls the protected production sync
-endpoint at 3:00 PM and 4:30 PM Asia/Kolkata, Monday through Friday. Configure
-these GitHub Actions secrets:
+endpoint at 7:00 AM, 11:00 AM, 3:00 PM, and 5:30 PM Asia/Kolkata, Monday
+through Friday. Each archived item keeps the timestamp from the first snapshot
+in which it appeared. Configure these GitHub Actions secrets:
 
 - `SYNC_URL`
 - `SYNC_SECRET`

@@ -49,7 +49,7 @@ test("classroom dashboard source is wired", async () => {
 });
 
 test("classroom sync artifacts exist", async () => {
-  const [syncRoute, schema, cron, runner, migration, historyMigration, workflow] =
+  const [syncRoute, schema, cron, runner, migration, historyMigration, workflow, timestampScript] =
     await Promise.all([
     readFile(new URL("../app/api/sync/route.ts", import.meta.url), "utf8"),
     readFile(new URL("../db/schema.ts", import.meta.url), "utf8"),
@@ -58,6 +58,7 @@ test("classroom sync artifacts exist", async () => {
     readFile(new URL("../drizzle/0000_classroom_snapshots.sql", import.meta.url), "utf8"),
     readFile(new URL("../drizzle/0002_multi_student_history.sql", import.meta.url), "utf8"),
     readFile(new URL("../.github/workflows/managebac-sync.yml", import.meta.url), "utf8"),
+    readFile(new URL("../scripts/stamp-classroom-mapped-at.mjs", import.meta.url), "utf8"),
   ]);
 
   assert.match(syncRoute, /x-sync-secret/);
@@ -69,15 +70,22 @@ test("classroom sync artifacts exist", async () => {
   assert.match(schema, /studentKey/);
   assert.match(cron, /advika-managebac-sync/);
   assert.match(cron, /SIWC_BYPASS_TOKEN/);
+  assert.match(cron, /0 7 \* \* 1-5/);
+  assert.match(cron, /0 11 \* \* 1-5/);
   assert.match(cron, /0 15 \* \* 1-5/);
-  assert.match(cron, /30 16 \* \* 1-5/);
+  assert.match(cron, /30 17 \* \* 1-5/);
   assert.match(runner, /OAI-Sites-Authorization/);
   assert.match(runner, /x-sync-secret/);
   assert.match(migration, /CREATE TABLE `classroom_snapshots`/);
   assert.match(historyMigration, /ADD COLUMN `student_key`/);
   assert.match(historyMigration, /CREATE TABLE `classroom_snapshot_history`/);
+  assert.match(workflow, /30 1 \* \* 1-5/);
+  assert.match(workflow, /30 5 \* \* 1-5/);
   assert.match(workflow, /30 9 \* \* 1-5/);
-  assert.match(workflow, /0 11 \* \* 1-5/);
+  assert.match(workflow, /0 12 \* \* 1-5/);
+  assert.match(workflow, /stamp-classroom-mapped-at\.mjs/);
+  assert.match(timestampScript, /earliestMappedAt/);
+  assert.match(timestampScript, /item\.mappedAt/);
   await access(new URL("../public/classroom-bg.png", import.meta.url));
   await access(new URL("../public/og.png", import.meta.url));
   await assert.rejects(access(new URL("app/_sites-preview", templateRoot)));
@@ -116,6 +124,7 @@ test("weekly journals and clickable notifications are wired", async () => {
 
   assert.match(page, /Weekly Journal/);
   assert.match(page, /notice-card-link/);
+  assert.match(page, /Added to dashboard/);
   assert.match(page, /A 10-minute mentoring guide/);
   assert.match(page, /Recommended projects at home/);
   assert.match(page, /What understanding sounds like/);
