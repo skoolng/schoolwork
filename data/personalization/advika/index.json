@@ -1,20 +1,8 @@
 {
   "version": 1,
   "studentKey": "advika",
-  "updatedAt": "2026-07-24T17:12:39.928Z",
-  "favorites": [
-    {
-      "item": {
-        "id": "journal-unit-2026-07-20_2026-07-26-English-Myths and legends: A mirror of reality?",
-        "category": "Weekly journal",
-        "title": "Myths and legends: A mirror of reality?",
-        "summary": "The learning focus was to build an engaging narrative opening with a clear character, setting, and problem and to reveal character through actions, dialogue, thoughts, and reactions instead of direct labels.",
-        "source": "2026-07-20_2026-07-26 · English",
-        "attachments": []
-      },
-      "addedAt": "2026-07-24T17:12:39.928Z"
-    }
-  ],
+  "updatedAt": "2026-07-24T17:12:57.417Z",
+  "favorites": [],
   "itemNotes": [],
   "notes": []
 }
