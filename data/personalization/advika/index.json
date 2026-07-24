@@ -1,17 +1,8 @@
 {
   "version": 1,
   "studentKey": "advika",
-  "updatedAt": "2026-07-24T17:12:36.714Z",
+  "updatedAt": "2026-07-24T17:12:40.180Z",
   "favorites": [],
   "itemNotes": [],
-  "notes": [
-    {
-      "id": "e1b77dc3-dfa4-4b4d-8232-3689a02a5c77",
-      "title": "Deployment verification",
-      "text": "Temporary end-to-end persistence check.",
-      "attachments": [],
-      "createdAt": "2026-07-24T17:12:36.714Z",
-      "updatedAt": "2026-07-24T17:12:36.714Z"
-    }
-  ]
+  "notes": []
 }
