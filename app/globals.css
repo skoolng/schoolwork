@@ -1802,6 +1802,17 @@ body.workspace-open {
 
 .parent-alert-card {
   border-radius: 4px;
+  overflow: hidden;
+}
+
+.parent-alert-card .attachment-row {
+  min-width: 0;
+}
+
+.parent-alert-card .attachment-row > * {
+  flex: 1 1 220px;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .text-action,
@@ -2004,6 +2015,22 @@ body.workspace-open {
 
 .lower-grid {
   align-items: start;
+}
+
+.lower-grid > *,
+.notice-panel,
+.notice-panel li,
+.notice-card-link {
+  min-width: 0;
+}
+
+.notice-panel {
+  overflow: hidden;
+}
+
+.notice-card-link > * {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .notice-panel ul {
