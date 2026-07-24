@@ -29,6 +29,15 @@ function useFileWorkspace() {
 }
 
 type ClassSection = "stream" | "tasks" | "discussions" | "calendar" | "files";
+type DashboardView = "overview" | "alerts" | "assignments" | "classes" | "journal";
+
+const dashboardViews: { id: DashboardView; label: string; shortLabel: string }[] = [
+  { id: "overview", label: "Overview", shortLabel: "Overview" },
+  { id: "alerts", label: "Alerts & notices", shortLabel: "Alerts" },
+  { id: "assignments", label: "Assignments", shortLabel: "Work" },
+  { id: "classes", label: "Classroom", shortLabel: "Classes" },
+  { id: "journal", label: "Weekly journal", shortLabel: "Journal" },
+];
 
 const classSections: { id: ClassSection; label: string }[] = [
   { id: "stream", label: "Class stream" },
@@ -345,9 +354,22 @@ function deriveParentAlerts(snapshot: ClassroomSnapshot): ParentAlert[] {
   return [...byTitle.values()].slice(0, 12);
 }
 
-function ParentAlertsPanel({ alerts }: { alerts: ParentAlert[] }) {
+function ParentAlertsPanel({
+  alerts,
+  limit,
+  compact = false,
+}: {
+  alerts: ParentAlert[];
+  limit?: number;
+  compact?: boolean;
+}) {
+  const visibleAlerts = typeof limit === "number" ? alerts.slice(0, limit) : alerts;
+
   return (
-    <section className="parent-alerts" aria-labelledby="parent-alerts-title">
+    <section
+      className={`parent-alerts ${compact ? "compact-alerts" : ""}`}
+      aria-labelledby="parent-alerts-title"
+    >
       <div className="section-heading">
         <div>
           <p className="eyebrow">Parent Alerts</p>
@@ -357,7 +379,7 @@ function ParentAlertsPanel({ alerts }: { alerts: ParentAlert[] }) {
       </div>
       {alerts.length ? (
         <div className="parent-alert-list">
-          {alerts.map((alert) => (
+          {visibleAlerts.map((alert) => (
             <article
               className={`parent-alert-card ${
                 alert.kind === "Assessment update" ? "featured" : ""
@@ -823,7 +845,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [query, setQuery] = useState("");
   const [selectedSubject, setSelectedSubject] = useState("all");
-  const [view, setView] = useState<"all" | "assignments" | "classes" | "journal">("all");
+  const [view, setView] = useState<DashboardView>("overview");
   const [classSection, setClassSection] = useState<ClassSection>("stream");
   const [activeFile, setActiveFile] = useState<Attachment | null>(null);
   const [weeklyJournal, setWeeklyJournal] = useState<WeeklyJournal | null>(null);
@@ -973,149 +995,323 @@ export default function Home() {
       0,
     );
 
+  const recentAssignments = snapshot.assignments
+    .slice()
+    .sort(
+      (left, right) =>
+        assignmentMappedTimestamp(right) - assignmentMappedTimestamp(left),
+    )
+    .slice(0, 6);
+
+  const activeView = dashboardViews.find((item) => item.id === view);
+  const showSubjectFilter = view === "assignments" || view === "classes";
+
   return (
     <FileWorkspaceContext.Provider value={setActiveFile}>
-    <main className="classroom-shell">
-      <section className="hero-panel" aria-labelledby="dashboard-title">
-        <div>
-          <p className="eyebrow">The Gaudium School</p>
-          <h1 id="dashboard-title">
-            {snapshot.studentName.split(/\s+/)[0] || "Student"} Classroom
-          </h1>
-          <p className="hero-copy">
-            A private, lasting record of classroom learnings, home assignments,
-            attachments, due dates, and ManageBac notifications.
-          </p>
-        </div>
-        <div className="sync-card" aria-live="polite">
-          <span className={`sync-dot ${snapshot.status}`} />
-          <div>
-            <strong>{isLoading ? "Loading classroom data" : "Latest sync"}</strong>
-            <span>{formatDate(snapshot.syncedAt)}</span>
-            <span>{historyCount} saved snapshots</span>
+      <div className="enterprise-app">
+        <header className="app-header">
+          <div className="brand-lockup">
+            <span className="brand-mark" aria-hidden="true">G</span>
+            <div>
+              <strong>Schoolwork</strong>
+              <span>The Gaudium School</span>
+            </div>
           </div>
-        </div>
-      </section>
 
-      <section className="student-switcher" aria-labelledby="student-switcher-title">
-        <div>
-          <p className="eyebrow">Student</p>
-          <h2 id="student-switcher-title">Choose a classroom</h2>
-        </div>
-        <div className="student-options" role="group" aria-label="Students">
-          {students.map((student) => (
-            <button
-              className={selectedStudent === student.key ? "active" : ""}
-              key={student.key}
-              type="button"
-              aria-pressed={selectedStudent === student.key}
-              onClick={() => {
+          <div className="header-status" aria-live="polite">
+            <span className={`sync-dot ${snapshot.status}`} />
+            <div>
+              <strong>{isLoading ? "Loading classroom data" : "ManageBac synced"}</strong>
+              <span>{formatDate(snapshot.syncedAt)} · {historyCount} snapshots</span>
+            </div>
+          </div>
+
+          <label className="student-select">
+            <span id="student-switcher-title">Choose a classroom</span>
+            <select
+              aria-labelledby="student-switcher-title"
+              value={selectedStudent}
+              onChange={(event) => {
                 setIsLoading(true);
-                setSelectedStudent(student.key);
+                setSelectedStudent(event.target.value);
                 setSelectedSubject("all");
                 setQuery("");
                 setSelectedJournalWeek("");
               }}
             >
-              <span>{student.name}</span>
-              <small>{student.status === "ok" ? "Synced" : student.status}</small>
-            </button>
-          ))}
-        </div>
-      </section>
+              {students.map((student) => (
+                <option value={student.key} key={student.key}>
+                  {student.name} · {student.status === "ok" ? "Synced" : student.status}
+                </option>
+              ))}
+            </select>
+          </label>
+        </header>
 
-      {snapshot.error ? <p className="alert">{snapshot.error}</p> : null}
+        <div className="app-body">
+          <aside className="app-sidebar" aria-label="Dashboard navigation">
+            <nav className="primary-nav">
+              {dashboardViews.map((item) => (
+                <button
+                  className={view === item.id ? "active" : ""}
+                  key={item.id}
+                  type="button"
+                  aria-current={view === item.id ? "page" : undefined}
+                  onClick={() => setView(item.id)}
+                >
+                  <span>{item.label}</span>
+                  {item.id === "alerts" && parentAlerts.length ? (
+                    <strong>{parentAlerts.length}</strong>
+                  ) : null}
+                </button>
+              ))}
+            </nav>
 
-      <ParentAlertsPanel alerts={parentAlerts} />
+            {showSubjectFilter ? (
+              <section className="sidebar-filter" aria-labelledby="subject-picker-title">
+                <div>
+                  <p className="eyebrow">Subject choice</p>
+                  <h2 id="subject-picker-title">Choose a subject</h2>
+                </div>
+                <div className="subject-options" role="group" aria-label="Subjects">
+                  <button
+                    className={selectedSubject === "all" ? "active" : ""}
+                    type="button"
+                    aria-pressed={selectedSubject === "all"}
+                    onClick={() => setSelectedSubject("all")}
+                  >
+                    <span>All subjects</span>
+                    <strong aria-label={`${snapshot.assignments.length} assignments`}>
+                      {snapshot.assignments.length}
+                    </strong>
+                  </button>
+                  {subjectOptions.map((option) => (
+                    <button
+                      className={selectedSubject === option.subject ? "active" : ""}
+                      key={option.subject}
+                      type="button"
+                      aria-pressed={selectedSubject === option.subject}
+                      onClick={() => setSelectedSubject(option.subject)}
+                    >
+                      <span>{option.subject}</span>
+                      <strong aria-label={`${option.count} assignments`}>
+                        {option.count}
+                      </strong>
+                    </button>
+                  ))}
+                </div>
+              </section>
+            ) : (
+              <section className="sidebar-context">
+                <span>Active student</span>
+                <strong>{snapshot.studentName}</strong>
+                <a href={snapshot.sourceUrl} target="_blank" rel="noreferrer">
+                  Open ManageBac
+                </a>
+              </section>
+            )}
+          </aside>
 
-      <section className="summary-grid" aria-label="Classroom summary">
-        <article>
-          <span>Assignments</span>
-          <strong>{snapshot.assignments.length}</strong>
-          <p>{urgentCount} need attention</p>
-        </article>
-        <article>
-          <span>Classes</span>
-          <strong>{snapshot.classes.length}</strong>
-          <p>Recent stream activity included</p>
-        </article>
-        <article>
-          <span>Attachments</span>
-          <strong>{attachmentCount}</strong>
-          <p>Linked from ManageBac</p>
-        </article>
-        <article>
-          <span>Parent alerts</span>
-          <strong>{parentAlerts.length}</strong>
-          <p>School and assessment updates</p>
-        </article>
-      </section>
+          <main className="app-workspace">
+            <header className="workspace-heading">
+              <div>
+                <p className="eyebrow">{snapshot.studentName}</p>
+                <h1 id="dashboard-title">{activeView?.label ?? "Overview"}</h1>
+              </div>
+              <span className="workspace-date">Updated {formatDate(snapshot.syncedAt)}</span>
+            </header>
 
-      <section className="toolbar" aria-label="Dashboard controls">
-        <div className="segmented" role="tablist" aria-label="View">
-          {(["all", "assignments", "classes", "journal"] as const).map((item) => (
-            <button
-              key={item}
-              className={view === item ? "active" : ""}
-              onClick={() => setView(item)}
-              type="button"
-            >
-              {item === "all" ? "Overview" : item === "journal" ? "Weekly Journal" : item[0].toUpperCase() + item.slice(1)}
-            </button>
-          ))}
-        </div>
-        {view !== "journal" ? <label className="search-box">
-          <span>Search</span>
-          <input
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Subject, task, unit, status"
-          />
-        </label> : null}
-      </section>
+            {showSubjectFilter ? (
+              <label className="mobile-subject-filter">
+                <span>Subject</span>
+                <select
+                  value={selectedSubject}
+                  onChange={(event) => setSelectedSubject(event.target.value)}
+                >
+                  <option value="all">All subjects ({snapshot.assignments.length})</option>
+                  {subjectOptions.map((option) => (
+                    <option value={option.subject} key={option.subject}>
+                      {option.subject} ({option.count})
+                    </option>
+                  ))}
+                </select>
+              </label>
+            ) : null}
 
-      {view !== "journal" ? <section className="subject-picker" aria-labelledby="subject-picker-title">
-        <div className="subject-picker-intro">
-          <p className="eyebrow">Subject Choice</p>
-          <h2 id="subject-picker-title">Choose a subject</h2>
-        </div>
-        <div className="subject-options" role="group" aria-label="Subjects">
-          <button
-            className={selectedSubject === "all" ? "active" : ""}
-            type="button"
-            aria-pressed={selectedSubject === "all"}
-            onClick={() => setSelectedSubject("all")}
-          >
-            <span>All subjects</span>
-            <strong aria-label={`${snapshot.assignments.length} assignments`}>
-              {snapshot.assignments.length}
-            </strong>
-          </button>
-          {subjectOptions.map((option) => (
-            <button
-              className={selectedSubject === option.subject ? "active" : ""}
-              key={option.subject}
-              type="button"
-              aria-pressed={selectedSubject === option.subject}
-              onClick={() => setSelectedSubject(option.subject)}
-            >
-              <span>{option.subject}</span>
-              <strong aria-label={`${option.count} assignments`}>{option.count}</strong>
-            </button>
-          ))}
-        </div>
-      </section> : null}
+            {snapshot.error ? <p className="alert">{snapshot.error}</p> : null}
 
-      {(view === "all" || view === "assignments") && (
+            {view === "overview" ? (
+              <>
+                <section className="summary-grid" aria-label="Classroom summary">
+                  <button type="button" onClick={() => setView("assignments")}>
+                    <span>Assignments</span>
+                    <strong>{snapshot.assignments.length}</strong>
+                    <small>{urgentCount} need attention</small>
+                  </button>
+                  <button type="button" onClick={() => setView("alerts")}>
+                    <span>Parent alerts</span>
+                    <strong>{parentAlerts.length}</strong>
+                    <small>School and assessments</small>
+                  </button>
+                  <button type="button" onClick={() => setView("classes")}>
+                    <span>Classes</span>
+                    <strong>{snapshot.classes.length}</strong>
+                    <small>Consolidated subjects</small>
+                  </button>
+                  <button type="button" onClick={() => setView("assignments")}>
+                    <span>Attachments</span>
+                    <strong>{attachmentCount}</strong>
+                    <small>Files ready to review</small>
+                  </button>
+                </section>
+
+                <div className="overview-grid">
+                  <div className="overview-primary">
+                    <ParentAlertsPanel alerts={parentAlerts} compact limit={3} />
+                    {parentAlerts.length > 3 ? (
+                      <button className="text-action" type="button" onClick={() => setView("alerts")}>
+                        View all {parentAlerts.length} alerts
+                      </button>
+                    ) : null}
+                  </div>
+
+                  <section className="work-queue" aria-labelledby="recent-work-title">
+                    <div className="section-heading">
+                      <div>
+                        <p className="eyebrow">Recent additions</p>
+                        <h2 id="recent-work-title">Latest classroom work</h2>
+                      </div>
+                      <button type="button" onClick={() => setView("assignments")}>View all</button>
+                    </div>
+                    {recentAssignments.length ? (
+                      <ul>
+                        {recentAssignments.map((assignment) => (
+                          <li key={assignment.url}>
+                            <div>
+                              <strong>{assignment.title}</strong>
+                              <span>{assignment.className}</span>
+                            </div>
+                            <MappedTimestamp value={assignment.mappedAt} />
+                            <span className="queue-status">
+                              {assignment.source === "discussion"
+                                ? "Discussion"
+                                : assignment.dueText || "No due date"}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="empty-state">No classroom work was captured.</p>
+                    )}
+                  </section>
+                </div>
+
+                <section className="overview-notices" aria-labelledby="latest-notices-title">
+                  <div className="section-heading">
+                    <div>
+                      <p className="eyebrow">Latest notices</p>
+                      <h2 id="latest-notices-title">What changed recently</h2>
+                    </div>
+                    <button type="button" onClick={() => setView("alerts")}>Open notice centre</button>
+                  </div>
+                  <div className="notice-strip">
+                    {snapshot.notifications.slice(0, 4).map((notice) => (
+                      <a href={notice.url} target="_blank" rel="noreferrer" key={`${notice.title}-${notice.url}`}>
+                        <strong>{notice.title}</strong>
+                        <span>{notice.detail}</span>
+                        {notice.createdAt ? <time dateTime={notice.createdAt}>{formatDate(notice.createdAt)}</time> : null}
+                      </a>
+                    ))}
+                  </div>
+                </section>
+              </>
+            ) : null}
+
+            {view === "alerts" ? (
+              <>
+                <ParentAlertsPanel alerts={parentAlerts} />
+                <section className="lower-grid" aria-label="Notifications and calendar">
+                  <article className="notice-panel">
+                    <div className="section-heading compact">
+                      <div>
+                        <p className="eyebrow">Notifications</p>
+                        <h2>Needs awareness</h2>
+                      </div>
+                    </div>
+                    {snapshot.notifications.length ? (
+                      <ul>
+                        {snapshot.notifications.slice(0, 20).map((notice) => (
+                          <li key={`${notice.title}-${notice.url}`}>
+                            {notice.url && /^https?:/i.test(notice.url) ? (
+                              <a className="notice-card-link" href={notice.url} target="_blank" rel="noreferrer">
+                                <strong>{notice.title}</strong>
+                                <span>{notice.detail}</span>
+                                {notice.createdAt ? (
+                                  <time dateTime={notice.createdAt}>
+                                    Posted {formatDate(notice.createdAt)}
+                                  </time>
+                                ) : null}
+                                <MappedTimestamp value={notice.mappedAt} />
+                                <em>Open notification</em>
+                              </a>
+                            ) : (
+                              <>
+                                <strong>{notice.title}</strong>
+                                <span>{notice.detail}</span>
+                                <MappedTimestamp value={notice.mappedAt} />
+                              </>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="empty-state">No notification details were captured.</p>
+                    )}
+                  </article>
+
+                  <article className="notice-panel">
+                    <div className="section-heading compact">
+                      <div>
+                        <p className="eyebrow">Calendar</p>
+                        <h2>Upcoming markers</h2>
+                      </div>
+                    </div>
+                    {snapshot.calendar.length ? (
+                      <ul>
+                        {snapshot.calendar.map((item) => (
+                          <li key={`${item.title}-${item.dateText}`}>
+                            <strong>{item.title}</strong>
+                            <span>{item.dateText}</span>
+                            <MappedTimestamp value={item.mappedAt} />
+                            {item.url ? (
+                              <a href={item.url} target="_blank" rel="noreferrer">Open</a>
+                            ) : null}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="empty-state">Calendar events will appear after sync.</p>
+                    )}
+                  </article>
+                </section>
+              </>
+            ) : null}
+
+            {view === "assignments" ? (
         <section className="content-section" aria-labelledby="assignments-title">
           <div className="section-heading">
             <div>
               <p className="eyebrow">Home Assignments</p>
               <h2 id="assignments-title">Due dates, instructions, and attachments</h2>
             </div>
-            <a href={snapshot.sourceUrl} target="_blank" rel="noreferrer">
-              Open ManageBac
-            </a>
+            <label className="search-box">
+              <span>Search</span>
+              <input
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder="Task, unit, status"
+              />
+            </label>
           </div>
 
           <div className="subject-list">
@@ -1184,9 +1380,9 @@ export default function Home() {
             )}
           </div>
         </section>
-      )}
+            ) : null}
 
-      {(view === "all" || view === "classes") && (
+            {view === "classes" ? (
         <section className="content-section" aria-labelledby="classes-title">
           <div className="section-heading">
             <div>
@@ -1227,89 +1423,37 @@ export default function Home() {
             )}
           </div>
         </section>
-      )}
+            ) : null}
 
-      {(view === "all" || view === "journal") && (
+            {view === "journal" ? (
         <WeeklyJournalPanel
           journal={weeklyJournal}
           journals={journalIndex}
           selectedWeek={selectedJournalWeek}
           onSelectWeek={setSelectedJournalWeek}
         />
-      )}
+            ) : null}
+          </main>
+        </div>
 
-      <section className="lower-grid" aria-label="Notifications and calendar">
-        <article className="notice-panel">
-          <div className="section-heading compact">
-            <div>
-              <p className="eyebrow">Notifications</p>
-              <h2>Needs awareness</h2>
-            </div>
-          </div>
-          {snapshot.notifications.length ? (
-            <ul>
-              {snapshot.notifications.slice(0, 12).map((notice) => (
-                <li key={`${notice.title}-${notice.url}`}>
-                  {notice.url && /^https?:/i.test(notice.url) ? (
-                    <a className="notice-card-link" href={notice.url} target="_blank" rel="noreferrer">
-                      <strong>{notice.title}</strong>
-                      <span>{notice.detail}</span>
-                      {notice.createdAt ? (
-                        <time dateTime={notice.createdAt}>
-                          Posted {formatDate(notice.createdAt)}
-                        </time>
-                      ) : null}
-                      <MappedTimestamp value={notice.mappedAt} />
-                      <em>Open notification</em>
-                    </a>
-                  ) : (
-                    <>
-                      <strong>{notice.title}</strong>
-                      <span>{notice.detail}</span>
-                      <MappedTimestamp value={notice.mappedAt} />
-                    </>
-                  )}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="empty-state">No notification details were captured.</p>
-          )}
-        </article>
-
-        <article className="notice-panel">
-          <div className="section-heading compact">
-            <div>
-              <p className="eyebrow">Calendar</p>
-              <h2>Upcoming markers</h2>
-            </div>
-          </div>
-          {snapshot.calendar.length ? (
-            <ul>
-              {snapshot.calendar.map((item) => (
-                <li key={`${item.title}-${item.dateText}`}>
-                  <strong>{item.title}</strong>
-                  <span>{item.dateText}</span>
-                  <MappedTimestamp value={item.mappedAt} />
-                  {item.url ? (
-                    <a href={item.url} target="_blank" rel="noreferrer">
-                      Open
-                    </a>
-                  ) : null}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="empty-state">Calendar events will appear after sync.</p>
-          )}
-        </article>
-      </section>
-    </main>
-    <FileWorkspace
-      file={activeFile}
-      key={activeFile?.url ?? "closed"}
-      onClose={() => setActiveFile(null)}
-    />
+        <nav className="mobile-nav" aria-label="Mobile dashboard navigation">
+          {dashboardViews.map((item) => (
+            <button
+              className={view === item.id ? "active" : ""}
+              key={item.id}
+              type="button"
+              onClick={() => setView(item.id)}
+            >
+              {item.shortLabel}
+            </button>
+          ))}
+        </nav>
+      </div>
+      <FileWorkspace
+        file={activeFile}
+        key={activeFile?.url ?? "closed"}
+        onClose={() => setActiveFile(null)}
+      />
     </FileWorkspaceContext.Provider>
   );
 }

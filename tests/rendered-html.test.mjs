@@ -14,7 +14,7 @@ test("classroom dashboard source is wired", async () => {
 
   assert.match(page, /Choose a classroom/);
   assert.match(page, /selectedStudent/);
-  assert.match(page, /saved snapshots/);
+  assert.match(page, /snapshots/);
   assert.match(page, /Home Assignments/);
   assert.match(page, /Classroom Learnings/);
   assert.match(page, /\/api\/classroom/);
@@ -24,6 +24,10 @@ test("classroom dashboard source is wired", async () => {
   assert.doesNotMatch(page, /latest due first/);
   assert.match(page, /Choose a subject/);
   assert.match(page, /selectedSubject/);
+  assert.match(page, /DashboardView/);
+  assert.match(page, /Alerts & notices/);
+  assert.match(page, /Latest classroom work/);
+  assert.match(page, /Open notice centre/);
   assert.match(page, /snapshot\.classes\.map/);
   assert.match(page, /filteredClasses/);
   assert.match(page, /aria-pressed/);
@@ -43,6 +47,10 @@ test("classroom dashboard source is wired", async () => {
   assert.match(css, /parent-alert-card/);
   assert.match(layout, /title:\s*"Schoolwork Dashboard"/);
   assert.match(css, /classroom-shell/);
+  assert.match(css, /enterprise-app/);
+  assert.match(css, /app-sidebar/);
+  assert.match(css, /app-workspace/);
+  assert.match(css, /mobile-nav/);
   assert.match(css, /subject-heading/);
   assert.match(css, /subject-options/);
   assert.match(css, /class-section-tabs/);
