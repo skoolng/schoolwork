@@ -198,6 +198,7 @@ test("favorites and notes persist through the scoped GitHub endpoint", async () 
   ]);
 
   assert.match(route, /GITHUB_PERSONALIZATION_TOKEN/);
+  assert.match(route, /user-agent/);
   assert.match(route, /data\/personalization\/\$\{studentKey\}\/index\.json/);
   assert.match(route, /Cross-origin writes are not allowed/);
   assert.match(route, /MAX_UPLOAD_BYTES/);

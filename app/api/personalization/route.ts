@@ -86,6 +86,7 @@ function githubHeaders(token: string) {
   const headers = new Headers({
     accept: "application/vnd.github+json",
     "content-type": "application/json",
+    "user-agent": "schoolwork-dashboard",
     "x-github-api-version": "2022-11-28",
   });
   if (token) headers.set("authorization", `Bearer ${token}`);
