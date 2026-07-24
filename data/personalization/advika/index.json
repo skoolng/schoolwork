@@ -1,7 +1,7 @@
 {
   "version": 1,
   "studentKey": "advika",
-  "updatedAt": "2026-07-24T17:18:30.584Z",
+  "updatedAt": "2026-07-24T17:19:07.274Z",
   "favorites": [
     {
       "item": {
@@ -77,19 +77,5 @@
       "updatedAt": "2026-07-24T17:18:30.584Z"
     }
   ],
-  "notes": [
-    {
-      "id": "40535255-9b17-413c-9930-3558b723e801",
-      "title": "This is a test note",
-      "text": "Thie is the note of the test note detailed description",
-      "attachments": [
-        {
-          "name": "MYP1_Mock_SA1.docx-1-.pdf",
-          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/personalization/advika/assets/40535255-9b17-413c-9930-3558b723e801/9397cc20-1f2f-4221-8e26-edfebffc6ae4-MYP1_Mock_SA1.docx-1-.pdf"
-        }
-      ],
-      "createdAt": "2026-07-24T17:18:04.349Z",
-      "updatedAt": "2026-07-24T17:18:04.349Z"
-    }
-  ]
+  "notes": []
 }
