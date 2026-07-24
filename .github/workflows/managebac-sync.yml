@@ -94,4 +94,5 @@ jobs:
           git add data/classroom
           git diff --cached --quiet && exit 0
           git commit -m "Archive classroom snapshot and assets"
+          git pull --rebase origin main
           git push

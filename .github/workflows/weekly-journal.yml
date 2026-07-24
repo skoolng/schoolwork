@@ -69,4 +69,5 @@ jobs:
           git add data/weekly-journal
           git diff --cached --quiet && exit 0
           git commit -m "Record weekly parent learning journal"
+          git pull --rebase origin main
           git push

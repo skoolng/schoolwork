@@ -123,6 +123,7 @@ test("classroom sync artifacts exist", async () => {
   assert.match(workflow, /30 9 \* \* 1-5/);
   assert.match(workflow, /0 12 \* \* 1-5/);
   assert.match(workflow, /stamp-classroom-mapped-at\.mjs/);
+  assert.match(workflow, /git pull --rebase origin main/);
   assert.match(timestampScript, /earliestMappedAt/);
   assert.match(timestampScript, /item\.mappedAt/);
   await access(new URL("../public/classroom-bg.png", import.meta.url));
@@ -177,6 +178,7 @@ test("weekly journals and clickable notifications are wired", async () => {
   assert.match(route, /buildWeeklyJournal/);
   assert.match(workflow, /30 11 \* \* 5/);
   assert.match(workflow, /data\/weekly-journal/);
+  assert.match(workflow, /git pull --rebase origin main/);
   assert.match(scraper, /student\\\/notifications\\\/.\+/);
   assert.match(scraper, /api\/frontend\/v2\/notifications/);
   assert.match(scraper, /data-mnn-hub-endpoint/);
