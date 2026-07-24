@@ -1,8 +1,21 @@
 {
   "version": 1,
   "studentKey": "advika",
-  "updatedAt": "2026-07-24T17:19:07.274Z",
+  "updatedAt": "2026-07-24T18:28:50.859Z",
   "favorites": [
+    {
+      "item": {
+        "id": "assignment-https://thegaudium.managebac.com/student/classes/12992681/discussions/28691102",
+        "category": "Discussion assignment",
+        "title": "Simplifing fractions",
+        "summary": "Dear Students, solve the given problems in Math notebook.",
+        "source": "Mathematics (MYP Year 1) C",
+        "sourceUrl": "https://thegaudium.managebac.com/student/classes/12992681/discussions/28691102",
+        "createdAt": "2026-07-19T10:07:56.106Z",
+        "attachments": []
+      },
+      "addedAt": "2026-07-24T18:28:50.859Z"
+    },
     {
       "item": {
         "id": "maths-sa1-rescheduled-2026-07-24",
