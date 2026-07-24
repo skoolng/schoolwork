@@ -45,8 +45,19 @@ test("classroom dashboard source is wired", async () => {
   assert.match(page, /Parent Alerts/);
   assert.match(page, /Mathematics SA-1 is now Monday, 27 July/);
   assert.match(page, /deriveParentAlerts/);
+  assert.match(page, /DetailWorkspace/);
+  assert.match(page, /JournalDetailWorkspace/);
+  assert.match(page, /View details/);
+  assert.match(page, /View project/);
+  assert.match(page, /journal-unit-row/);
+  assert.match(page, /notificationToDetail/);
   assert.match(css, /parent-alerts/);
   assert.match(css, /parent-alert-card/);
+  assert.match(css, /detail-workspace/);
+  assert.match(css, /truncated-copy/);
+  assert.match(css, /nested-submenu/);
+  assert.match(css, /row-view-button/);
+  assert.match(css, /detail-facts/);
   assert.match(layout, /title:\s*"Schoolwork Dashboard"/);
   assert.match(css, /classroom-shell/);
   assert.match(css, /enterprise-app/);
@@ -142,7 +153,7 @@ test("weekly journals and clickable notifications are wired", async () => {
   ]);
 
   assert.match(page, /Weekly Journal/);
-  assert.match(page, /notice-card-link/);
+  assert.match(page, /notice-card/);
   assert.match(page, /Added to dashboard/);
   assert.match(page, /A 10-minute mentoring guide/);
   assert.match(page, /Recommended projects at home/);

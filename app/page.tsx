@@ -13,13 +13,19 @@ import type {
   ClassContentItem,
   ClassroomClass,
   ClassroomSnapshot,
+  NotificationItem,
   StudentSummary,
   WeeklyJournal,
+  WeeklyJournalHomeProject,
   WeeklyJournalIndexItem,
+  WeeklyJournalUnit,
 } from "../lib/types";
 
 const FileWorkspaceContext = createContext<
   ((file: Attachment) => void) | null
+>(null);
+const DetailWorkspaceContext = createContext<
+  ((item: DetailWorkspaceItem) => void) | null
 >(null);
 
 function useFileWorkspace() {
@@ -28,8 +34,27 @@ function useFileWorkspace() {
   return openFile;
 }
 
+function useDetailWorkspace() {
+  const openDetail = useContext(DetailWorkspaceContext);
+  if (!openDetail) throw new Error("Detail workspace is unavailable.");
+  return openDetail;
+}
+
 type ClassSection = "stream" | "tasks" | "discussions" | "calendar" | "files";
 type DashboardView = "overview" | "alerts" | "assignments" | "classes" | "journal";
+
+interface DetailWorkspaceItem {
+  id: string;
+  kind: string;
+  title: string;
+  detail: string;
+  url: string;
+  source: string;
+  createdAt?: string;
+  mappedAt?: string;
+  attachments: Attachment[];
+  facts?: Array<{ label: string; value: string }>;
+}
 
 const dashboardViews: { id: DashboardView; label: string; shortLabel: string }[] = [
   { id: "overview", label: "Overview", shortLabel: "Overview" },
@@ -212,6 +237,103 @@ function FileWorkspace({ file, onClose }: { file: Attachment | null; onClose: ()
   );
 }
 
+function DetailWorkspace({
+  item,
+  onClose,
+  onOpenFile,
+}: {
+  item: DetailWorkspaceItem | null;
+  onClose: () => void;
+  onOpenFile: (file: Attachment) => void;
+}) {
+  useEffect(() => {
+    if (!item) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKeyDown);
+    document.body.classList.add("detail-workspace-open");
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.classList.remove("detail-workspace-open");
+    };
+  }, [item, onClose]);
+
+  if (!item) return null;
+
+  return (
+    <div className="detail-workspace-backdrop" role="presentation" onMouseDown={onClose}>
+      <section
+        className="detail-workspace"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="detail-workspace-title"
+        onMouseDown={(event) => event.stopPropagation()}
+      >
+        <header>
+          <div>
+            <p className="eyebrow">{item.kind}</p>
+            <h2 id="detail-workspace-title">{item.title}</h2>
+          </div>
+          <button
+            className="workspace-close"
+            type="button"
+            onClick={onClose}
+            aria-label="Close details"
+          >
+            Close
+          </button>
+        </header>
+
+        <div className="detail-workspace-meta">
+          {item.source ? <span>{item.source}</span> : null}
+          {item.createdAt ? (
+            <time dateTime={item.createdAt}>Posted {formatDate(item.createdAt)}</time>
+          ) : null}
+          <MappedTimestamp value={item.mappedAt} />
+        </div>
+
+        <div className="detail-workspace-body">
+          {item.facts?.length ? (
+            <dl className="detail-facts">
+              {item.facts.map((fact) => (
+                <div key={fact.label}>
+                  <dt>{fact.label}</dt>
+                  <dd>{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
+          ) : null}
+          <p>{item.detail || "No additional detail was included."}</p>
+          {item.attachments.length ? (
+            <section className="detail-attachments" aria-labelledby="detail-attachments-title">
+              <h3 id="detail-attachments-title">Attachments</h3>
+              <div>
+                {item.attachments.map((attachment) => (
+                  <button
+                    type="button"
+                    key={attachment.url}
+                    onClick={() => onOpenFile(attachment)}
+                  >
+                    <span aria-hidden="true">{fileKind(attachment)}</span>
+                    <strong>{attachment.name || hostOnly(attachment.url)}</strong>
+                  </button>
+                ))}
+              </div>
+            </section>
+          ) : null}
+        </div>
+
+        <footer>
+          {item.url && /^https?:/i.test(item.url) ? (
+            <a href={item.url} target="_blank" rel="noreferrer">Open original</a>
+          ) : null}
+        </footer>
+      </section>
+    </div>
+  );
+}
+
 function assignmentMappedTimestamp(assignment: Assignment) {
   const parsed = new Date(assignment.mappedAt ?? "");
   return Number.isNaN(parsed.getTime()) ? 0 : parsed.getTime();
@@ -239,16 +361,58 @@ function groupAssignmentsBySubject(assignments: Assignment[]) {
     .sort((left, right) => left.subject.localeCompare(right.subject));
 }
 
-interface ParentAlert {
-  id: string;
+function assignmentToDetail(assignment: Assignment): DetailWorkspaceItem {
+  return {
+    id: `assignment-${assignment.url}`,
+    kind: assignment.source === "discussion" ? "Discussion assignment" : "Assignment",
+    title: assignment.title,
+    detail: assignment.description,
+    url: assignment.url,
+    source: assignment.className,
+    mappedAt: assignment.mappedAt,
+    attachments: assignment.attachments,
+    facts: [
+      { label: "Due", value: assignment.dueText || "Not provided by teacher" },
+      { label: "Status", value: assignment.status || "Unknown" },
+      { label: "Unit", value: assignment.unit || "Not listed" },
+    ],
+  };
+}
+
+function classContentToDetail(
+  content: ClassContentItem,
+  source: string,
+  kind: string,
+): DetailWorkspaceItem {
+  return {
+    id: `class-content-${content.url}`,
+    kind,
+    title: content.title,
+    detail: content.detail,
+    url: content.url,
+    source,
+    mappedAt: content.mappedAt,
+    attachments: content.attachments ?? [],
+    facts: content.dateText ? [{ label: "Date", value: content.dateText }] : undefined,
+  };
+}
+
+interface ParentAlert extends DetailWorkspaceItem {
   kind: "School update" | "Assessment" | "Assessment update";
-  title: string;
-  detail: string;
-  url: string;
-  source: string;
-  createdAt?: string;
-  mappedAt?: string;
-  attachments: Attachment[];
+}
+
+function notificationToDetail(notice: NotificationItem): DetailWorkspaceItem {
+  return {
+    id: `notification-${notice.url}-${notice.title}`,
+    kind: "Notification",
+    title: notice.title,
+    detail: notice.detail,
+    url: notice.url,
+    source: [notice.origin, notice.sender].filter(Boolean).join(" · "),
+    createdAt: notice.createdAt,
+    mappedAt: notice.mappedAt,
+    attachments: notice.attachments ?? [],
+  };
 }
 
 const PARENT_ALERT_PATTERN =
@@ -363,6 +527,7 @@ function ParentAlertsPanel({
   limit?: number;
   compact?: boolean;
 }) {
+  const openDetail = useDetailWorkspace();
   const visibleAlerts = typeof limit === "number" ? alerts.slice(0, limit) : alerts;
 
   return (
@@ -379,39 +544,46 @@ function ParentAlertsPanel({
       </div>
       {alerts.length ? (
         <div className="parent-alert-list">
-          {visibleAlerts.map((alert) => (
-            <article
-              className={`parent-alert-card ${
-                alert.kind === "Assessment update" ? "featured" : ""
-              }`}
-              key={alert.id}
-            >
-              <div className="parent-alert-topline">
-                <strong>{alert.kind}</strong>
-                {alert.createdAt ? (
-                  <time dateTime={alert.createdAt}>
-                    Posted {formatDate(alert.createdAt)}
-                  </time>
-                ) : (
-                  <MappedTimestamp value={alert.mappedAt} />
-                )}
-              </div>
-              <h3>
-                <a href={alert.url} target="_blank" rel="noreferrer">
-                  {alert.title}
-                </a>
-              </h3>
-              {alert.source ? <span className="parent-alert-source">{alert.source}</span> : null}
-              {alert.detail ? <p>{alert.detail}</p> : null}
-              {alert.attachments.length ? (
-                <div className="attachment-row">
-                  {alert.attachments.map((attachment) => (
-                    <AttachmentButton key={attachment.url} file={attachment} />
-                  ))}
+          {visibleAlerts.map((alert) => {
+            const isLong = alert.detail.length > 220;
+            return (
+              <article
+                className={`parent-alert-card ${
+                  alert.kind === "Assessment update" ? "featured" : ""
+                }`}
+                key={alert.id}
+              >
+                <div className="parent-alert-topline">
+                  <strong>{alert.kind}</strong>
+                  {alert.createdAt ? (
+                    <time dateTime={alert.createdAt}>
+                      Posted {formatDate(alert.createdAt)}
+                    </time>
+                  ) : (
+                    <MappedTimestamp value={alert.mappedAt} />
+                  )}
                 </div>
-              ) : null}
-            </article>
-          ))}
+                <h3>{alert.title}</h3>
+                {alert.source ? <span className="parent-alert-source">{alert.source}</span> : null}
+                {alert.detail ? (
+                  <p className={isLong ? "truncated-copy" : ""}>{alert.detail}</p>
+                ) : null}
+                {alert.attachments.length ? (
+                  <div className="attachment-row">
+                    {alert.attachments.map((attachment) => (
+                      <AttachmentButton key={attachment.url} file={attachment} />
+                    ))}
+                  </div>
+                ) : null}
+                <div className="parent-alert-actions">
+                  {isLong ? (
+                    <button type="button" onClick={() => openDetail(alert)}>View details</button>
+                  ) : null}
+                  <a href={alert.url} target="_blank" rel="noreferrer">Open source</a>
+                </div>
+              </article>
+            );
+          })}
         </div>
       ) : (
         <p className="empty-state">
@@ -425,10 +597,15 @@ function ParentAlertsPanel({
 function ClassContentList({
   items = [],
   empty,
+  source,
+  kind,
 }: {
   items?: ClassContentItem[];
   empty: string;
+  source: string;
+  kind: string;
 }) {
+  const openDetail = useDetailWorkspace();
   if (!items.length) return <p className="empty-state">{empty}</p>;
 
   return (
@@ -442,13 +619,23 @@ function ClassContentList({
             {content.dateText ? <span>{content.dateText}</span> : null}
           </div>
           <MappedTimestamp value={content.mappedAt} />
-          {content.detail ? <p>{content.detail}</p> : null}
+          {content.detail ? <p className="truncated-copy">{content.detail}</p> : null}
           <ImageGallery images={content.images} />
           {content.attachments?.length ? (
             <div className="attachment-row compact-attachments">
               {content.attachments.map((attachment) => (
                 <AttachmentButton key={attachment.url} file={attachment} />
               ))}
+            </div>
+          ) : null}
+          {content.detail ? (
+            <div className="row-actions">
+              <button
+                type="button"
+                onClick={() => openDetail(classContentToDetail(content, source, kind))}
+              >
+                View details
+              </button>
             </div>
           ) : null}
         </li>
@@ -506,6 +693,8 @@ function ClassLearningPanel({
           <ClassContentList
             items={item.stream}
             empty="No recent class stream entries were captured."
+            source={item.name}
+            kind="Class stream"
           />
         ) : null}
 
@@ -513,6 +702,8 @@ function ClassLearningPanel({
           <ClassContentList
             items={item.discussions}
             empty="No discussions were listed for this class."
+            source={item.name}
+            kind="Discussion"
           />
         ) : null}
 
@@ -591,6 +782,164 @@ function ClassLearningPanel({
   );
 }
 
+type JournalWorkspaceItem =
+  | { kind: "project"; project: WeeklyJournalHomeProject }
+  | { kind: "unit"; subject: string; unit: WeeklyJournalUnit };
+
+function JournalDetailWorkspace({
+  item,
+  onClose,
+}: {
+  item: JournalWorkspaceItem | null;
+  onClose: () => void;
+}) {
+  useEffect(() => {
+    if (!item) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKeyDown);
+    document.body.classList.add("detail-workspace-open");
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.classList.remove("detail-workspace-open");
+    };
+  }, [item, onClose]);
+
+  if (!item) return null;
+  const title = item.kind === "project" ? item.project.title : item.unit.name;
+  const label = item.kind === "project" ? "Home project" : item.subject;
+
+  return (
+    <div className="detail-workspace-backdrop" role="presentation" onMouseDown={onClose}>
+      <section
+        className="detail-workspace journal-detail-workspace"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="journal-detail-title"
+        onMouseDown={(event) => event.stopPropagation()}
+      >
+        <header>
+          <div>
+            <p className="eyebrow">{label}</p>
+            <h2 id="journal-detail-title">{title}</h2>
+          </div>
+          <button className="workspace-close" type="button" onClick={onClose}>
+            Close
+          </button>
+        </header>
+
+        {item.kind === "project" ? (
+          <>
+            <div className="detail-workspace-meta">
+              <span>{item.project.estimatedTime}</span>
+              <span>{item.project.subjectLinks.join(" · ")}</span>
+            </div>
+            <div className="detail-workspace-body journal-detail-body">
+              <p>{item.project.purpose}</p>
+              <section>
+                <h3>What you need</h3>
+                <p>{item.project.materials.join(" · ")}</p>
+              </section>
+              <section>
+                <h3>Student steps</h3>
+                <ol>{item.project.steps.map((step) => <li key={step}>{step}</li>)}</ol>
+              </section>
+              <section className="parent-role-callout">
+                <h3>Your role</h3>
+                <p>{item.project.parentRole}</p>
+              </section>
+              <section>
+                <h3>What good learning looks like</h3>
+                <ul>{item.project.lookFor.map((entry) => <li key={entry}>{entry}</li>)}</ul>
+              </section>
+              <section>
+                <h3>Reflect together</h3>
+                <ul>
+                  {item.project.reflectionQuestions.map((question) => (
+                    <li key={question}>{question}</li>
+                  ))}
+                </ul>
+              </section>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="detail-workspace-meta">
+              <span>{item.subject}</span>
+            </div>
+            <div className="detail-workspace-body journal-detail-body">
+              <p>{item.unit.summary}</p>
+              {item.unit.learningGoals?.length ? (
+                <section>
+                  <h3>What the student is learning</h3>
+                  <ul>{item.unit.learningGoals.map((goal) => <li key={goal}>{goal}</li>)}</ul>
+                </section>
+              ) : null}
+              {item.unit.evidenceToListenFor?.length ? (
+                <section className="learning-evidence-callout">
+                  <h3>What understanding sounds like</h3>
+                  <ul>
+                    {item.unit.evidenceToListenFor.map((entry) => <li key={entry}>{entry}</li>)}
+                  </ul>
+                </section>
+              ) : null}
+              {item.unit.parentGuidance?.length ? (
+                <section>
+                  <h3>How a parent can guide</h3>
+                  <ul>
+                    {item.unit.parentGuidance.map((entry) => <li key={entry}>{entry}</li>)}
+                  </ul>
+                </section>
+              ) : null}
+              {item.unit.commonMisconceptions?.length ? (
+                <section>
+                  <h3>Misconceptions to probe</h3>
+                  <ul>
+                    {item.unit.commonMisconceptions.map((entry) => <li key={entry}>{entry}</li>)}
+                  </ul>
+                </section>
+              ) : null}
+              {item.unit.activities.length ? (
+                <section>
+                  <h3>ManageBac evidence used</h3>
+                  <ul>{item.unit.activities.map((activity) => <li key={activity}>{activity}</li>)}</ul>
+                </section>
+              ) : null}
+              <section>
+                <h3>Questions for parents to ask</h3>
+                <ol>{item.unit.questions.map((question) => <li key={question}>{question}</li>)}</ol>
+              </section>
+              {item.unit.homeExtension ? (
+                <section className="unit-home-extension">
+                  <h3>Try this at home</h3>
+                  <p>{item.unit.homeExtension}</p>
+                </section>
+              ) : null}
+              {item.unit.videos.length ? (
+                <section>
+                  <h3>Related videos</h3>
+                  <div className="journal-video-links">
+                    {item.unit.videos.map((video) => (
+                      <a href={video.url} target="_blank" rel="noreferrer" key={video.url}>
+                        {video.title}
+                      </a>
+                    ))}
+                  </div>
+                </section>
+              ) : null}
+            </div>
+          </>
+        )}
+
+        <footer>
+          <button type="button" onClick={onClose}>Done</button>
+        </footer>
+      </section>
+    </div>
+  );
+}
+
 function WeeklyJournalPanel({
   journal,
   journals,
@@ -602,6 +951,8 @@ function WeeklyJournalPanel({
   selectedWeek: string;
   onSelectWeek: (week: string) => void;
 }) {
+  const [activeJournalDetail, setActiveJournalDetail] =
+    useState<JournalWorkspaceItem | null>(null);
   const unitCount = journal?.subjects.reduce(
     (total, subject) => total + subject.units.length,
     0,
@@ -708,38 +1059,24 @@ function WeeklyJournalPanel({
               <div className="home-project-grid">
                 {journal.homeProjects.map((project, index) => (
                   <article className="home-project-card" key={project.title}>
-                    <div className="project-number">Project {index + 1}</div>
-                    <h3>{project.title}</h3>
-                    <p>{project.purpose}</p>
-                    <div className="project-meta">
-                      <span>{project.estimatedTime}</span>
-                      {project.subjectLinks.map((subject) => <span key={subject}>{subject}</span>)}
-                    </div>
-                    <details>
-                      <summary>Project plan and parent role</summary>
-                      <div className="project-plan">
-                        <section>
-                          <h4>What you need</h4>
-                          <p>{project.materials.join(" · ")}</p>
-                        </section>
-                        <section>
-                          <h4>Student steps</h4>
-                          <ol>{project.steps.map((step) => <li key={step}>{step}</li>)}</ol>
-                        </section>
-                        <section className="parent-role-callout">
-                          <h4>Your role</h4>
-                          <p>{project.parentRole}</p>
-                        </section>
-                        <section>
-                          <h4>What good learning looks like</h4>
-                          <ul>{project.lookFor.map((item) => <li key={item}>{item}</li>)}</ul>
-                        </section>
-                        <section>
-                          <h4>Reflect together</h4>
-                          <ul>{project.reflectionQuestions.map((item) => <li key={item}>{item}</li>)}</ul>
-                        </section>
+                    <div className="home-project-summary">
+                      <div>
+                        <div className="project-number">Project {index + 1}</div>
+                        <h3>{project.title}</h3>
+                        <p>{project.purpose}</p>
                       </div>
-                    </details>
+                      <div className="project-meta">
+                        <span>{project.estimatedTime}</span>
+                        {project.subjectLinks.map((subject) => <span key={subject}>{subject}</span>)}
+                      </div>
+                    </div>
+                    <button
+                      className="row-view-button"
+                      type="button"
+                      onClick={() => setActiveJournalDetail({ kind: "project", project })}
+                    >
+                      View project
+                    </button>
                   </article>
                 ))}
               </div>
@@ -764,64 +1101,17 @@ function WeeklyJournalPanel({
                 </header>
                 <div className="journal-units">
                   {subject.units.map((unit) => (
-                    <details key={`${subject.subject}-${unit.name}`}>
-                      <summary>{unit.name}</summary>
-                      <div className="journal-unit-body">
-                        <p>{unit.summary}</p>
-                        {unit.learningGoals?.length ? (
-                          <section>
-                            <h4>What the student is learning</h4>
-                            <ul>{unit.learningGoals.map((goal) => <li key={goal}>{goal}</li>)}</ul>
-                          </section>
-                        ) : null}
-                        {unit.evidenceToListenFor?.length ? (
-                          <section className="learning-evidence-callout">
-                            <h4>What understanding sounds like</h4>
-                            <ul>{unit.evidenceToListenFor.map((item) => <li key={item}>{item}</li>)}</ul>
-                          </section>
-                        ) : null}
-                        {unit.parentGuidance?.length ? (
-                          <section>
-                            <h4>How a parent can guide</h4>
-                            <ul>{unit.parentGuidance.map((item) => <li key={item}>{item}</li>)}</ul>
-                          </section>
-                        ) : null}
-                        {unit.commonMisconceptions?.length ? (
-                          <section>
-                            <h4>Misconceptions to probe</h4>
-                            <ul>{unit.commonMisconceptions.map((item) => <li key={item}>{item}</li>)}</ul>
-                          </section>
-                        ) : null}
-                        {unit.activities.length ? (
-                          <section>
-                            <h4>ManageBac evidence used</h4>
-                            <ul>{unit.activities.map((activity) => <li key={activity}>{activity}</li>)}</ul>
-                          </section>
-                        ) : null}
-                        <section>
-                          <h4>Questions for parents to ask</h4>
-                          <ol>{unit.questions.map((question) => <li key={question}>{question}</li>)}</ol>
-                        </section>
-                        {unit.homeExtension ? (
-                          <section className="unit-home-extension">
-                            <h4>Try this at home</h4>
-                            <p>{unit.homeExtension}</p>
-                          </section>
-                        ) : null}
-                        {unit.videos.length ? (
-                          <section>
-                            <h4>Related videos</h4>
-                            <div className="journal-video-links">
-                              {unit.videos.map((video) => (
-                                <a href={video.url} target="_blank" rel="noreferrer" key={video.url}>
-                                  {video.title}
-                                </a>
-                              ))}
-                            </div>
-                          </section>
-                        ) : null}
-                      </div>
-                    </details>
+                    <button
+                      className="journal-unit-row"
+                      key={`${subject.subject}-${unit.name}`}
+                      type="button"
+                      onClick={() =>
+                        setActiveJournalDetail({ kind: "unit", subject: subject.subject, unit })
+                      }
+                    >
+                      <span>{unit.name}</span>
+                      <strong>View details</strong>
+                    </button>
                   ))}
                 </div>
               </article>
@@ -833,6 +1123,10 @@ function WeeklyJournalPanel({
           The first weekly journal will be recorded Friday at 5:00 PM IST.
         </p>
       )}
+      <JournalDetailWorkspace
+        item={activeJournalDetail}
+        onClose={() => setActiveJournalDetail(null)}
+      />
     </section>
   );
 }
@@ -848,6 +1142,7 @@ export default function Home() {
   const [view, setView] = useState<DashboardView>("overview");
   const [classSection, setClassSection] = useState<ClassSection>("stream");
   const [activeFile, setActiveFile] = useState<Attachment | null>(null);
+  const [activeDetail, setActiveDetail] = useState<DetailWorkspaceItem | null>(null);
   const [weeklyJournal, setWeeklyJournal] = useState<WeeklyJournal | null>(null);
   const [journalIndex, setJournalIndex] = useState<WeeklyJournalIndexItem[]>([]);
   const [selectedJournalWeek, setSelectedJournalWeek] = useState("");
@@ -1007,6 +1302,7 @@ export default function Home() {
 
   return (
     <FileWorkspaceContext.Provider value={setActiveFile}>
+    <DetailWorkspaceContext.Provider value={setActiveDetail}>
       <div className="enterprise-app">
         <header className="app-header">
           <div className="brand-lockup">
@@ -1067,7 +1363,10 @@ export default function Home() {
             </nav>
 
             {showSubjectFilter ? (
-              <section className="sidebar-filter" aria-labelledby="subject-picker-title">
+              <section
+                className="sidebar-filter nested-submenu"
+                aria-labelledby="subject-picker-title"
+              >
                 <div>
                   <p className="eyebrow">Subject choice</p>
                   <h2 id="subject-picker-title">Choose a subject</h2>
@@ -1100,15 +1399,15 @@ export default function Home() {
                   ))}
                 </div>
               </section>
-            ) : (
-              <section className="sidebar-context">
-                <span>Active student</span>
-                <strong>{snapshot.studentName}</strong>
-                <a href={snapshot.sourceUrl} target="_blank" rel="noreferrer">
-                  Open ManageBac
-                </a>
-              </section>
-            )}
+            ) : null}
+
+            <section className="sidebar-context">
+              <span>Active student</span>
+              <strong>{snapshot.studentName}</strong>
+              <a href={snapshot.sourceUrl} target="_blank" rel="noreferrer">
+                Open ManageBac
+              </a>
+            </section>
           </aside>
 
           <main className="app-workspace">
@@ -1166,7 +1465,11 @@ export default function Home() {
 
                 <div className="overview-grid">
                   <div className="overview-primary">
-                    <ParentAlertsPanel alerts={parentAlerts} compact limit={3} />
+                    <ParentAlertsPanel
+                      alerts={parentAlerts}
+                      compact
+                      limit={3}
+                    />
                     {parentAlerts.length > 3 ? (
                       <button className="text-action" type="button" onClick={() => setView("alerts")}>
                         View all {parentAlerts.length} alerts
@@ -1239,29 +1542,42 @@ export default function Home() {
                     </div>
                     {snapshot.notifications.length ? (
                       <ul>
-                        {snapshot.notifications.slice(0, 20).map((notice) => (
-                          <li key={`${notice.title}-${notice.url}`}>
-                            {notice.url && /^https?:/i.test(notice.url) ? (
-                              <a className="notice-card-link" href={notice.url} target="_blank" rel="noreferrer">
+                        {snapshot.notifications.slice(0, 20).map((notice) => {
+                          const isLong = notice.detail.length > 180;
+                          return (
+                            <li key={`${notice.title}-${notice.url}`}>
+                              <article className="notice-card">
                                 <strong>{notice.title}</strong>
-                                <span>{notice.detail}</span>
-                                {notice.createdAt ? (
-                                  <time dateTime={notice.createdAt}>
-                                    Posted {formatDate(notice.createdAt)}
-                                  </time>
-                                ) : null}
-                                <MappedTimestamp value={notice.mappedAt} />
-                                <em>Open notification</em>
-                              </a>
-                            ) : (
-                              <>
-                                <strong>{notice.title}</strong>
-                                <span>{notice.detail}</span>
-                                <MappedTimestamp value={notice.mappedAt} />
-                              </>
-                            )}
-                          </li>
-                        ))}
+                                <span className={isLong ? "truncated-copy" : ""}>
+                                  {notice.detail}
+                                </span>
+                                <div className="notice-card-meta">
+                                  {notice.createdAt ? (
+                                    <time dateTime={notice.createdAt}>
+                                      Posted {formatDate(notice.createdAt)}
+                                    </time>
+                                  ) : null}
+                                  <MappedTimestamp value={notice.mappedAt} />
+                                </div>
+                                <div className="notice-card-actions">
+                                  {isLong ? (
+                                    <button
+                                      type="button"
+                                      onClick={() => setActiveDetail(notificationToDetail(notice))}
+                                    >
+                                      View details
+                                    </button>
+                                  ) : null}
+                                  {notice.url && /^https?:/i.test(notice.url) ? (
+                                    <a href={notice.url} target="_blank" rel="noreferrer">
+                                      Open source
+                                    </a>
+                                  ) : null}
+                                </div>
+                              </article>
+                            </li>
+                          );
+                        })}
                       </ul>
                     ) : (
                       <p className="empty-state">No notification details were captured.</p>
@@ -1365,6 +1681,17 @@ export default function Home() {
                             <span>No attachment included</span>
                           )}
                         </div>
+                        <div className="row-actions">
+                          <button
+                            type="button"
+                            onClick={() => setActiveDetail(assignmentToDetail(assignment))}
+                          >
+                            View details
+                          </button>
+                          <a href={assignment.url} target="_blank" rel="noreferrer">
+                            Open source
+                          </a>
+                        </div>
                       </article>
                     ))}
                   </div>
@@ -1448,11 +1775,21 @@ export default function Home() {
           ))}
         </nav>
       </div>
+      <DetailWorkspace
+        item={activeDetail}
+        key={`detail-${activeDetail?.id ?? "closed"}`}
+        onClose={() => setActiveDetail(null)}
+        onOpenFile={(file) => {
+          setActiveDetail(null);
+          setActiveFile(file);
+        }}
+      />
       <FileWorkspace
         file={activeFile}
-        key={activeFile?.url ?? "closed"}
+        key={`file-${activeFile?.url ?? "closed"}`}
         onClose={() => setActiveFile(null)}
       />
+    </DetailWorkspaceContext.Provider>
     </FileWorkspaceContext.Provider>
   );
 }
