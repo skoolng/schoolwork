@@ -53,6 +53,8 @@ test("classroom dashboard source is wired", async () => {
   assert.match(css, /app-sidebar/);
   assert.match(css, /app-workspace/);
   assert.match(css, /mobile-nav/);
+  assert.match(css, /\/\* Dark theme \*\//);
+  assert.match(css, /color-scheme:\s*dark/);
   assert.match(css, /subject-heading/);
   assert.match(css, /subject-options/);
   assert.match(css, /class-section-tabs/);

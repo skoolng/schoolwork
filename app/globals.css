@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f6f4ee;
-  --foreground: #1d2228;
-  --muted: #68717b;
-  --paper: #fffdf8;
-  --line: #d9d4c8;
-  --ink-soft: #38414b;
-  --blue: #1e5d88;
-  --green: #26735f;
-  --coral: #b9503e;
-  --amber: #b87a1d;
+  --background: #0b1015;
+  --foreground: #e8eef3;
+  --muted: #97a5b2;
+  --paper: #151c23;
+  --line: #2c3741;
+  --ink-soft: #c1ccd5;
+  --blue: #6db5e3;
+  --green: #6fc7a7;
+  --coral: #f08b78;
+  --amber: #e7bc61;
 }
 
 @theme inline {
@@ -23,6 +23,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
+  color-scheme: dark;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
 }
@@ -2234,4 +2235,379 @@ body.workspace-open {
     background: #ffffff;
     color: #173f5f;
   }
+}
+
+/* Dark theme */
+.enterprise-app {
+  background: #0b1015;
+}
+
+.app-header {
+  background: #121920;
+  border-color: #2a3540;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.brand-mark {
+  background: #285e7d;
+  color: #f4f8fb;
+}
+
+.brand-lockup strong,
+.header-status strong,
+.workspace-heading h1 {
+  color: #edf3f7;
+}
+
+.brand-lockup span:not(.brand-mark),
+.header-status span:not(.sync-dot),
+.student-select > span,
+.workspace-date {
+  color: #9aa8b4;
+}
+
+.student-select select,
+.mobile-subject-filter select,
+.journal-week-picker select {
+  background: #19222b;
+  border-color: #35424e;
+  color: #e6edf2;
+}
+
+.app-sidebar,
+.mobile-nav {
+  background: #0f151b;
+  border-color: #26313a;
+}
+
+.primary-nav button {
+  color: #b8c3cc;
+}
+
+.primary-nav button:hover,
+.sidebar-filter .subject-options button:hover {
+  background: #1b252e;
+  color: #f2f6f8;
+}
+
+.primary-nav button.active,
+.mobile-nav button.active {
+  background: #263541;
+  color: #f4f8fb;
+}
+
+.sidebar-filter,
+.sidebar-context {
+  border-color: #2a3540;
+}
+
+.sidebar-filter .subject-options button.active {
+  background: #285f50;
+}
+
+.app-workspace {
+  background: #0b1015;
+}
+
+.workspace-heading .eyebrow,
+.section-heading .eyebrow,
+.parent-alerts .eyebrow,
+.work-queue .eyebrow,
+.overview-notices .eyebrow,
+.journal-section-intro .eyebrow {
+  color: #6fc7a7;
+}
+
+.summary-grid button,
+.parent-alerts,
+.work-queue,
+.overview-notices,
+.app-workspace .content-section > .section-heading,
+.assignment-card,
+.class-card,
+.notice-panel,
+.weekly-journal .journal-heading,
+.journal-overview,
+.journal-subject,
+.home-project-card,
+.journal-empty,
+.mobile-subject-filter {
+  background: #151c23;
+  border-color: #2c3741;
+  color: #e8eef3;
+}
+
+.summary-grid button:hover {
+  background: #19232b;
+  border-color: #52758d;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+}
+
+.summary-grid button > span,
+.summary-grid button > small,
+.work-queue li > div span,
+.notice-strip span,
+.notice-strip time,
+.mobile-subject-filter span {
+  color: #96a5b1;
+}
+
+.summary-grid button > strong {
+  color: #79bce5;
+}
+
+.parent-alert-card {
+  background: #182028;
+  border-color: #34414c;
+  border-left-color: #6db5e3;
+}
+
+.parent-alert-card.featured {
+  background: #292317;
+  border-color: #77612c;
+  border-left-color: #e7bc61;
+}
+
+.parent-alert-topline strong {
+  background: #1e3443;
+  color: #9dcdeb;
+}
+
+.parent-alert-card.featured .parent-alert-topline strong {
+  background: #4a3d1e;
+  color: #f0ce7b;
+}
+
+.parent-alert-card h3 a,
+.work-queue li strong,
+.notice-strip strong,
+.class-card h3,
+.assignment-card h3,
+.notice-panel strong,
+.journal-insight-card h3,
+.home-project-card h3 {
+  color: #e7edf2;
+}
+
+.parent-alert-card h3 a:hover,
+.parent-alert-card h3 a:focus-visible,
+.section-heading a,
+.class-card a,
+.notice-panel a,
+.text-action,
+.section-heading > button {
+  color: #78bce7;
+}
+
+.parent-alert-card p,
+.assignment-card p,
+.class-card p,
+.notice-panel span,
+.empty-state,
+dd {
+  color: #9eabb6;
+}
+
+.work-queue li,
+.notice-panel li,
+.assignment-card dl div,
+.class-detail,
+.class-detail-list li,
+.home-project-card > details,
+.journal-subject > header,
+.journal-units details {
+  border-color: #2c3741;
+}
+
+.queue-status,
+.project-meta span {
+  background: #20303c;
+  color: #b8d7e9;
+}
+
+.notice-strip a {
+  border-color: #5ab493;
+}
+
+.notice-card-link:hover,
+.notice-card-link:focus-visible {
+  background: #1b272f;
+}
+
+.subject-heading {
+  background: #1a2731;
+  border-color: #33414d;
+}
+
+.subject-heading h3,
+.class-card h3 {
+  color: #9dcdeb;
+}
+
+.assignment-card.discussion-assignment {
+  border-left-color: #6fc7a7;
+}
+
+.discussion-assignment .assignment-topline strong {
+  background: #1d342c;
+  color: #8ed6b9;
+}
+
+.assignment-topline strong {
+  background: #3a2825;
+  color: #f2a092;
+}
+
+.search-box {
+  background: #151c23;
+  border-color: #34414c;
+}
+
+.search-box input {
+  color: #e7edf2;
+}
+
+.class-section-tabs,
+.segmented {
+  background: #0f161c;
+}
+
+.class-section-tabs button,
+.segmented button {
+  color: #9eabb6;
+}
+
+.class-section-tabs button.active,
+.segmented button.active {
+  background: #24313b;
+  color: #8bc6e9;
+}
+
+.class-detail-list li {
+  border-left-color: #3b514b;
+}
+
+.class-item-heading span,
+.compact-list span,
+.mapped-time,
+dt {
+  color: #8998a5;
+}
+
+.attachment-row a,
+.attachment-row button,
+.attachment-row span,
+.file-list a,
+.file-list button {
+  background: #192b28;
+  color: #84d0b4;
+}
+
+.attachment-copy strong,
+.class-detail-list a,
+.file-list a,
+.file-list button {
+  color: #87c5ea;
+}
+
+.homework-image-gallery button {
+  background: #151c23;
+  border-color: #34414c;
+  color: #87c5ea;
+}
+
+.homework-image-gallery img {
+  background: #0f151b;
+}
+
+.alert {
+  background: #321f1c;
+  color: #ffd0c7;
+}
+
+.weekly-journal .journal-heading {
+  background: #162029;
+}
+
+.journal-at-a-glance div,
+.parent-role-callout,
+.learning-evidence-callout,
+.unit-home-extension {
+  background: #192824;
+}
+
+.journal-insight-card.strength-card {
+  background: #17271f;
+  border-color: #315044;
+}
+
+.journal-insight-card.support-card {
+  background: #2a211b;
+  border-color: #55402e;
+}
+
+.mentor-guide {
+  background: #102328;
+  border: 1px solid #284148;
+}
+
+.home-projects {
+  background: #111820;
+  border-color: #2c3741;
+}
+
+.journal-snapshot-lists section,
+.parent-takeaway {
+  background: #1a222a;
+}
+
+.journal-video-links a {
+  background: #192936;
+  border-color: #344b5c;
+  color: #8cc8eb;
+}
+
+.journal-overview-copy > p:first-of-type,
+.parent-takeaway span {
+  color: #d5dee5;
+}
+
+.file-workspace {
+  background: #0d1318;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.58);
+}
+
+.file-workspace > header {
+  background: #151c23;
+  border-color: #2c3741;
+}
+
+.workspace-toolbar {
+  background: #111920;
+  border-color: #2c3741;
+}
+
+.workspace-close,
+.workspace-toolbar button,
+.workspace-toolbar a {
+  background: #1b252e;
+  border-color: #384550;
+  color: #e6edf2;
+}
+
+.workspace-close {
+  background: #294e66;
+}
+
+.workspace-canvas.image {
+  background-color: #10161b;
+  background-image: linear-gradient(45deg, #1c252c 25%, transparent 25%),
+    linear-gradient(-45deg, #1c252c 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #1c252c 75%),
+    linear-gradient(-45deg, transparent 75%, #1c252c 75%);
+}
+
+::selection {
+  background: #315f78;
+  color: #ffffff;
 }
