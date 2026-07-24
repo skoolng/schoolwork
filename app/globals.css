@@ -1670,10 +1670,12 @@ body.workspace-open {
 }
 
 .workspace-heading {
-  align-items: end;
+  align-items: center;
   display: flex;
   gap: 20px;
   justify-content: space-between;
+  min-height: 48px;
+  overflow-anchor: none;
 }
 
 .workspace-heading .eyebrow {
@@ -1692,6 +1694,7 @@ body.workspace-open {
   color: #697580;
   font-size: 0.76rem;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .summary-grid {
@@ -2071,13 +2074,25 @@ body.workspace-open {
   }
 
   .workspace-heading {
-    align-items: start;
-    flex-direction: column;
-    gap: 3px;
+    align-items: center;
+    flex-direction: row;
+    gap: 8px;
+    min-height: 50px;
   }
 
   .workspace-heading h1 {
-    font-size: 1.45rem;
+    font-size: 1.35rem;
+  }
+
+  .workspace-heading .eyebrow {
+    font-size: 0.64rem;
+  }
+
+  .workspace-date {
+    max-width: 118px;
+    overflow: hidden;
+    text-align: right;
+    text-overflow: ellipsis;
   }
 
   .summary-grid {

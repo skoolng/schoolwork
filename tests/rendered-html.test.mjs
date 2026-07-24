@@ -26,6 +26,8 @@ test("classroom dashboard source is wired", async () => {
   assert.match(page, /selectedSubject/);
   assert.match(page, /DashboardView/);
   assert.match(page, /Alerts & notices/);
+  assert.match(page, /Classroom workspace/);
+  assert.doesNotMatch(page, /activeView\?\.label/);
   assert.match(page, /Latest classroom work/);
   assert.match(page, /Open notice centre/);
   assert.match(page, /snapshot\.classes\.map/);

@@ -1003,7 +1003,6 @@ export default function Home() {
     )
     .slice(0, 6);
 
-  const activeView = dashboardViews.find((item) => item.id === view);
   const showSubjectFilter = view === "assignments" || view === "classes";
 
   return (
@@ -1116,7 +1115,7 @@ export default function Home() {
             <header className="workspace-heading">
               <div>
                 <p className="eyebrow">{snapshot.studentName}</p>
-                <h1 id="dashboard-title">{activeView?.label ?? "Overview"}</h1>
+                <h1 id="dashboard-title">Classroom workspace</h1>
               </div>
               <span className="workspace-date">Updated {formatDate(snapshot.syncedAt)}</span>
             </header>
