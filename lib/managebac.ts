@@ -40,6 +40,21 @@ interface LinkResult {
   text: string;
 }
 
+interface ManageBacNotificationFeedItem {
+  id: number | string;
+  title?: string;
+  body?: string;
+  body_preview?: string;
+  created_at?: string;
+  sender?: { name?: string };
+  origin?: { name?: string };
+}
+
+interface ManageBacNotificationFeed {
+  items?: ManageBacNotificationFeedItem[];
+  notifications?: ManageBacNotificationFeedItem[];
+}
+
 interface ClassScrapeResult {
   classroom: ClassroomClass;
   taskLinks: LinkResult[];
@@ -253,7 +268,7 @@ export async function scrapeManageBac(credentials: Credentials): Promise<Classro
     sourceUrl: `${credentials.baseUrl}/student/home`,
     status: "ok",
     error: "",
-    notifications: parseNotifications(notificationsPage),
+    notifications: await fetchNotifications(notificationsPage, credentials.baseUrl),
     classes: classResults.map((result) => result.classroom),
     assignments: dedupeAssignments([...assignments, ...discussionAssignments]),
     calendar: parseCalendar(calendarPage),
@@ -358,7 +373,7 @@ async function scrapeAuthenticatedManageBac(
     sourceUrl: `${credentials.baseUrl}/student/home`,
     status: "ok",
     error: "",
-    notifications: parseNotifications(notificationsPage),
+    notifications: await fetchNotifications(notificationsPage, credentials.baseUrl),
     classes: classResults.map((result) => result.classroom),
     assignments: dedupeAssignments([...assignments, ...discussionAssignments]),
     calendar: parseCalendar(calendarPage),
@@ -367,6 +382,9 @@ async function scrapeAuthenticatedManageBac(
 
 function collectAttachments(snapshot: ClassroomSnapshot) {
   const attachments: Attachment[] = [];
+  for (const notification of snapshot.notifications) {
+    attachments.push(...(notification.attachments ?? []));
+  }
   for (const classroom of snapshot.classes) {
     attachments.push(...classroom.files);
     for (const item of [...classroom.stream, ...classroom.discussions]) {
@@ -931,6 +949,70 @@ function parseNotifications(page: PageResult): NotificationItem[] {
   }
 
   return items.slice(0, 10);
+}
+
+async function fetchNotifications(
+  page: PageResult,
+  baseUrl: string,
+): Promise<NotificationItem[]> {
+  const root = parse(page.text);
+  const trigger = root.querySelector(".js-messages-and-notifications-trigger");
+  const endpoint = trigger?.getAttribute("data-mnn-hub-endpoint")?.trim();
+  const token = trigger?.getAttribute("data-token")?.trim();
+
+  if (!endpoint || !token) return parseNotifications(page);
+
+  const feeds = await Promise.allSettled(
+    ["unread", "read"].map(async (kind) => {
+      const url = new URL("/api/frontend/v2/notifications", endpoint);
+      url.searchParams.set("kind", kind);
+      url.searchParams.set("page", "1");
+      url.searchParams.set("per_page", "100");
+      const response = await fetch(url, {
+        headers: {
+          accept: "application/json",
+          authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`ManageBac notifications returned ${response.status}.`);
+      }
+
+      return (await response.json()) as ManageBacNotificationFeed;
+    }),
+  );
+
+  const items = feeds.flatMap((result) =>
+    result.status === "fulfilled"
+      ? (result.value.items ?? result.value.notifications ?? [])
+      : [],
+  );
+
+  if (!items.length) return parseNotifications(page);
+
+  const unique = new Map<string, ManageBacNotificationFeedItem>();
+  for (const item of items) unique.set(String(item.id), item);
+
+  return [...unique.values()]
+    .sort(
+      (left, right) =>
+        new Date(right.created_at ?? "").getTime() -
+        new Date(left.created_at ?? "").getTime(),
+    )
+    .slice(0, 100)
+    .map((item) => {
+      const body = item.body ?? "";
+      return {
+        title: cleanHtml(item.title ?? "ManageBac notification"),
+        detail: clip(cleanHtml(body || item.body_preview || ""), 900),
+        url: new URL(`/student/notifications/${item.id}`, baseUrl).toString(),
+        createdAt: item.created_at,
+        sender: item.sender?.name,
+        origin: item.origin?.name,
+        attachments: parseAttachments(body, baseUrl),
+      };
+    });
 }
 
 function parseCalendar(page: PageResult): CalendarItem[] {

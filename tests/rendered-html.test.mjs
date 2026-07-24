@@ -36,6 +36,11 @@ test("classroom dashboard source is wired", async () => {
   assert.match(page, /From discussion/);
   assert.match(page, /ImageGallery/);
   assert.match(page, /Homework images/);
+  assert.match(page, /Parent Alerts/);
+  assert.match(page, /Mathematics SA-1 is now Monday, 27 July/);
+  assert.match(page, /deriveParentAlerts/);
+  assert.match(css, /parent-alerts/);
+  assert.match(css, /parent-alert-card/);
   assert.match(layout, /title:\s*"Schoolwork Dashboard"/);
   assert.match(css, /classroom-shell/);
   assert.match(css, /subject-heading/);
@@ -141,6 +146,9 @@ test("weekly journals and clickable notifications are wired", async () => {
   assert.match(workflow, /30 11 \* \* 5/);
   assert.match(workflow, /data\/weekly-journal/);
   assert.match(scraper, /student\\\/notifications\\\/.\+/);
+  assert.match(scraper, /api\/frontend\/v2\/notifications/);
+  assert.match(scraper, /data-mnn-hub-endpoint/);
+  assert.match(scraper, /collectAttachments/);
   assert.match(classroomData, /cleanNotifications/);
 });
 

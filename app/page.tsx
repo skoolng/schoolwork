@@ -230,6 +230,176 @@ function groupAssignmentsBySubject(assignments: Assignment[]) {
     .sort((left, right) => left.subject.localeCompare(right.subject));
 }
 
+interface ParentAlert {
+  id: string;
+  kind: "School update" | "Assessment" | "Assessment update";
+  title: string;
+  detail: string;
+  url: string;
+  source: string;
+  createdAt?: string;
+  mappedAt?: string;
+  attachments: Attachment[];
+}
+
+const PARENT_ALERT_PATTERN =
+  /\b(?:assessment|exam|holiday|mock|postpon|reschedul|school closed|syllabus)\b/i;
+
+function alertTimestamp(alert: ParentAlert) {
+  const parsed = new Date(alert.createdAt || alert.mappedAt || "");
+  return Number.isNaN(parsed.getTime()) ? 0 : parsed.getTime();
+}
+
+function uniqueAttachments(items: Attachment[]) {
+  return [...new Map(items.map((item) => [item.url, item])).values()];
+}
+
+function deriveParentAlerts(snapshot: ClassroomSnapshot): ParentAlert[] {
+  const alerts: ParentAlert[] = [];
+
+  for (const notice of snapshot.notifications) {
+    if (!PARENT_ALERT_PATTERN.test(`${notice.title} ${notice.detail}`)) continue;
+    alerts.push({
+      id: `notification-${notice.url}`,
+      kind: /holiday|closed|bandh|postpon|reschedul/i.test(
+        `${notice.title} ${notice.detail}`,
+      )
+        ? "School update"
+        : "Assessment",
+      title: notice.title,
+      detail: notice.detail,
+      url: notice.url,
+      source: [notice.origin, notice.sender].filter(Boolean).join(" · "),
+      createdAt: notice.createdAt,
+      mappedAt: notice.mappedAt,
+      attachments: notice.attachments ?? [],
+    });
+  }
+
+  for (const assignment of snapshot.assignments) {
+    if (
+      !PARENT_ALERT_PATTERN.test(
+        `${assignment.title} ${assignment.description} ${assignment.unit}`,
+      )
+    ) {
+      continue;
+    }
+    alerts.push({
+      id: `assignment-${assignment.url}`,
+      kind: "Assessment",
+      title: assignment.title.trim(),
+      detail: assignment.description,
+      url: assignment.url,
+      source: assignment.className,
+      mappedAt: assignment.mappedAt,
+      attachments: assignment.attachments,
+    });
+  }
+
+  const holiday = alerts.find(
+    (alert) =>
+      /holiday on 24th july/i.test(alert.title) &&
+      /monday.*27.*9\s*-\s*10\s*am/i.test(alert.detail),
+  );
+  const schedule = alerts.find((alert) =>
+    /MYP-1 SA-1 Syllabus and schedule/i.test(alert.title),
+  );
+  const mathsMock = snapshot.assignments.find(
+    (assignment) =>
+      /mathematics/i.test(assignment.className) &&
+      /mock.*SA-?1/i.test(assignment.title),
+  );
+  const mathsPractice = snapshot.assignments.find(
+    (assignment) =>
+      /mathematics/i.test(assignment.className) &&
+      /SA-?1.*practice|practice.*SA-?1/i.test(assignment.title),
+  );
+
+  if (holiday && schedule && mathsMock) {
+    alerts.push({
+      id: "maths-sa1-rescheduled-2026-07-24",
+      kind: "Assessment update",
+      title: "Mathematics SA-1 is now Monday, 27 July",
+      detail:
+        "School is closed on Friday, 24 July. The published MYP Year 1 SA-1 schedule lists Mathematics for 24 July, and the school has moved Friday's MYP 1-3 assessment to Monday, 27 July from 9:00-10:00 AM. The schedule, mock paper, and practice sheet are attached here.",
+      url: holiday.url,
+      source: "MYP Year 1 · Mathematics",
+      createdAt: holiday.createdAt,
+      mappedAt: holiday.mappedAt,
+      attachments: uniqueAttachments([
+        ...schedule.attachments,
+        ...mathsMock.attachments,
+        ...(mathsPractice?.attachments ?? []),
+      ]),
+    });
+  }
+
+  const byTitle = new Map<string, ParentAlert>();
+  for (const alert of alerts.sort(
+    (left, right) => alertTimestamp(right) - alertTimestamp(left),
+  )) {
+    const key = alert.title.toLowerCase().replace(/\s+/g, " ").trim();
+    if (!byTitle.has(key)) byTitle.set(key, alert);
+  }
+
+  return [...byTitle.values()].slice(0, 12);
+}
+
+function ParentAlertsPanel({ alerts }: { alerts: ParentAlert[] }) {
+  return (
+    <section className="parent-alerts" aria-labelledby="parent-alerts-title">
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">Parent Alerts</p>
+          <h2 id="parent-alerts-title">School updates and assessments</h2>
+        </div>
+        <span>{alerts.length} important items</span>
+      </div>
+      {alerts.length ? (
+        <div className="parent-alert-list">
+          {alerts.map((alert) => (
+            <article
+              className={`parent-alert-card ${
+                alert.kind === "Assessment update" ? "featured" : ""
+              }`}
+              key={alert.id}
+            >
+              <div className="parent-alert-topline">
+                <strong>{alert.kind}</strong>
+                {alert.createdAt ? (
+                  <time dateTime={alert.createdAt}>
+                    Posted {formatDate(alert.createdAt)}
+                  </time>
+                ) : (
+                  <MappedTimestamp value={alert.mappedAt} />
+                )}
+              </div>
+              <h3>
+                <a href={alert.url} target="_blank" rel="noreferrer">
+                  {alert.title}
+                </a>
+              </h3>
+              {alert.source ? <span className="parent-alert-source">{alert.source}</span> : null}
+              {alert.detail ? <p>{alert.detail}</p> : null}
+              {alert.attachments.length ? (
+                <div className="attachment-row">
+                  {alert.attachments.map((attachment) => (
+                    <AttachmentButton key={attachment.url} file={attachment} />
+                  ))}
+                </div>
+              ) : null}
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p className="empty-state">
+          No school-wide or assessment alerts were captured in the latest sync.
+        </p>
+      )}
+    </section>
+  );
+}
+
 function ClassContentList({
   items = [],
   empty,
@@ -772,6 +942,8 @@ export default function Home() {
     [selectedSubject, snapshot.classes],
   );
 
+  const parentAlerts = useMemo(() => deriveParentAlerts(snapshot), [snapshot]);
+
   const urgentCount = snapshot.assignments.filter((assignment) =>
     /not submitted|overdue|pending/i.test(`${assignment.status} ${assignment.dueText}`),
   ).length;
@@ -779,6 +951,10 @@ export default function Home() {
   const attachmentCount =
     snapshot.assignments.reduce(
       (sum, assignment) => sum + assignment.attachments.length,
+      0,
+    ) +
+    snapshot.notifications.reduce(
+      (sum, notification) => sum + (notification.attachments?.length ?? 0),
       0,
     ) +
     snapshot.classes.reduce(
@@ -850,6 +1026,8 @@ export default function Home() {
 
       {snapshot.error ? <p className="alert">{snapshot.error}</p> : null}
 
+      <ParentAlertsPanel alerts={parentAlerts} />
+
       <section className="summary-grid" aria-label="Classroom summary">
         <article>
           <span>Assignments</span>
@@ -867,9 +1045,9 @@ export default function Home() {
           <p>Linked from ManageBac</p>
         </article>
         <article>
-          <span>Notifications</span>
-          <strong>{snapshot.notifications.length}</strong>
-          <p>Items to review</p>
+          <span>Parent alerts</span>
+          <strong>{parentAlerts.length}</strong>
+          <p>School and assessment updates</p>
         </article>
       </section>
 
@@ -1070,12 +1248,17 @@ export default function Home() {
           </div>
           {snapshot.notifications.length ? (
             <ul>
-              {snapshot.notifications.map((notice) => (
+              {snapshot.notifications.slice(0, 12).map((notice) => (
                 <li key={`${notice.title}-${notice.url}`}>
                   {notice.url && /^https?:/i.test(notice.url) ? (
                     <a className="notice-card-link" href={notice.url} target="_blank" rel="noreferrer">
                       <strong>{notice.title}</strong>
                       <span>{notice.detail}</span>
+                      {notice.createdAt ? (
+                        <time dateTime={notice.createdAt}>
+                          Posted {formatDate(notice.createdAt)}
+                        </time>
+                      ) : null}
                       <MappedTimestamp value={notice.mappedAt} />
                       <em>Open notification</em>
                     </a>

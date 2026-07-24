@@ -156,6 +156,92 @@ h3 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.parent-alerts {
+  background: #f2eee4;
+  border: 1px solid #d5ccba;
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+}
+
+.parent-alerts > .section-heading > span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.parent-alert-list {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.parent-alert-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--blue);
+  display: grid;
+  gap: 9px;
+  min-width: 0;
+  padding: 16px;
+}
+
+.parent-alert-card.featured {
+  background: #fff8e4;
+  border-color: #d8b95e;
+  border-left-color: #bc7b18;
+  grid-column: 1 / -1;
+}
+
+.parent-alert-topline {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.parent-alert-topline strong {
+  background: #e5eef4;
+  color: var(--blue);
+  font-size: 0.76rem;
+  padding: 5px 8px;
+  text-transform: uppercase;
+}
+
+.parent-alert-card.featured .parent-alert-topline strong {
+  background: #f3dfaa;
+  color: #6f470c;
+}
+
+.parent-alert-topline time,
+.parent-alert-source {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.parent-alert-card h3 {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.parent-alert-card h3 a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.parent-alert-card h3 a:hover,
+.parent-alert-card h3 a:focus-visible {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+.parent-alert-card p {
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin: 0;
+}
+
 .summary-grid article,
 .assignment-card,
 .class-card,
@@ -564,6 +650,12 @@ dd {
 
 .notice-card-link .mapped-time {
   margin: 2px 0;
+}
+
+.notice-card-link time:not(.mapped-time) {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
 }
 
 .class-grid,
@@ -1269,6 +1361,7 @@ body.workspace-open {
 
   .hero-panel,
   .summary-grid,
+  .parent-alert-list,
   .class-grid,
   .lower-grid,
   .subject-picker,

@@ -52,6 +52,10 @@ export interface NotificationItem {
   title: string;
   detail: string;
   url: string;
+  createdAt?: string;
+  sender?: string;
+  origin?: string;
+  attachments?: Attachment[];
   mappedAt?: string;
 }
 
