@@ -20,6 +20,14 @@ import type {
   WeeklyJournalIndexItem,
   WeeklyJournalUnit,
 } from "../lib/types";
+import {
+  emptyPersonalization,
+  type ItemNote,
+  type PersonalizationDocument,
+  type PersonalizationItem,
+  type PersonalizationMutation,
+  type PersonalizationUpload,
+} from "../lib/personalization";
 
 const FileWorkspaceContext = createContext<
   ((file: Attachment) => void) | null
@@ -27,6 +35,15 @@ const FileWorkspaceContext = createContext<
 const DetailWorkspaceContext = createContext<
   ((item: DetailWorkspaceItem) => void) | null
 >(null);
+const PersonalizationContext = createContext<{
+  document: PersonalizationDocument;
+  isSaving: boolean;
+  error: string;
+  toggleFavorite: (item: PersonalizationItem) => void;
+  editNote: (item: PersonalizationItem) => void;
+  createNote: () => void;
+  deleteNote: (noteId: string) => void;
+} | null>(null);
 
 function useFileWorkspace() {
   const openFile = useContext(FileWorkspaceContext);
@@ -41,7 +58,13 @@ function useDetailWorkspace() {
 }
 
 type ClassSection = "stream" | "tasks" | "discussions" | "calendar" | "files";
-type DashboardView = "overview" | "alerts" | "assignments" | "classes" | "journal";
+type DashboardView =
+  | "overview"
+  | "alerts"
+  | "assignments"
+  | "classes"
+  | "journal"
+  | "saved";
 
 interface DetailWorkspaceItem {
   id: string;
@@ -62,6 +85,7 @@ const dashboardViews: { id: DashboardView; label: string; shortLabel: string }[]
   { id: "assignments", label: "Assignments", shortLabel: "Work" },
   { id: "classes", label: "Classroom", shortLabel: "Classes" },
   { id: "journal", label: "Weekly journal", shortLabel: "Journal" },
+  { id: "saved", label: "Favorites & notes", shortLabel: "Saved" },
 ];
 
 const classSections: { id: ClassSection; label: string }[] = [
@@ -141,6 +165,87 @@ function fileKind(file: Attachment) {
   return "file";
 }
 
+function usePersonalization() {
+  const context = useContext(PersonalizationContext);
+  if (!context) throw new Error("Personalization workspace is unavailable.");
+  return context;
+}
+
+function detailToPersonalization(item: DetailWorkspaceItem): PersonalizationItem {
+  return {
+    id: item.id,
+    category: item.kind,
+    title: item.title,
+    summary: item.detail,
+    source: item.source,
+    sourceUrl: item.url,
+    createdAt: item.createdAt ?? item.mappedAt,
+    attachments: item.attachments,
+  };
+}
+
+function personalizationToDetail(item: PersonalizationItem): DetailWorkspaceItem {
+  return {
+    id: item.id,
+    kind: item.category,
+    title: item.title,
+    detail: item.summary,
+    url: item.sourceUrl ?? "",
+    source: item.source,
+    createdAt: item.createdAt,
+    attachments: item.attachments,
+  };
+}
+
+function fileToPersonalization(file: Attachment): PersonalizationItem {
+  return {
+    id: `file-${file.url}`,
+    category: "File",
+    title: file.name || hostOnly(file.url),
+    summary: "",
+    source: hostOnly(file.sourceUrl || file.url),
+    sourceUrl: file.sourceUrl || file.url,
+    createdAt: file.mappedAt,
+    attachments: [file],
+  };
+}
+
+function SavedItemActions({
+  item,
+  compact = false,
+}: {
+  item: PersonalizationItem;
+  compact?: boolean;
+}) {
+  const { document, editNote, isSaving, toggleFavorite } = usePersonalization();
+  const favorite = document.favorites.some((entry) => entry.item.id === item.id);
+  const note = document.itemNotes.some((entry) => entry.item.id === item.id);
+
+  return (
+    <div className={`saved-item-actions ${compact ? "compact" : ""}`}>
+      <button
+        className={favorite ? "active" : ""}
+        type="button"
+        aria-pressed={favorite}
+        disabled={isSaving}
+        onClick={() => toggleFavorite(item)}
+        title={favorite ? "Remove from favorites" : "Add to favorites"}
+      >
+        <span aria-hidden="true">★</span>
+        {favorite ? "Favorited" : "Favorite"}
+      </button>
+      <button
+        className={note ? "active" : ""}
+        type="button"
+        disabled={isSaving}
+        onClick={() => editNote(item)}
+      >
+        {note ? "Edit note" : "Add note"}
+      </button>
+    </div>
+  );
+}
+
 function AttachmentButton({ file }: { file: Attachment }) {
   const openFile = useFileWorkspace();
   return (
@@ -213,6 +318,7 @@ function FileWorkspace({ file, onClose }: { file: Attachment | null; onClose: ()
           ) : null}
           <a href={file.url} download={file.name || undefined}>Download</a>
           <a href={file.url} target="_blank" rel="noreferrer">Open original</a>
+          <SavedItemActions item={fileToPersonalization(file)} compact />
         </div>
 
         <div className={`workspace-canvas ${kind}`}>
@@ -325,6 +431,7 @@ function DetailWorkspace({
         </div>
 
         <footer>
+          <SavedItemActions item={detailToPersonalization(item)} />
           {item.url && /^https?:/i.test(item.url) ? (
             <a href={item.url} target="_blank" rel="noreferrer">Open original</a>
           ) : null}
@@ -580,6 +687,10 @@ function ParentAlertsPanel({
                     <button type="button" onClick={() => openDetail(alert)}>View details</button>
                   ) : null}
                   <a href={alert.url} target="_blank" rel="noreferrer">Open source</a>
+                  <SavedItemActions
+                    item={detailToPersonalization(alert)}
+                    compact
+                  />
                 </div>
               </article>
             );
@@ -636,6 +747,12 @@ function ClassContentList({
               >
                 View details
               </button>
+              <SavedItemActions
+                item={detailToPersonalization(
+                  classContentToDetail(content, source, kind),
+                )}
+                compact
+              />
             </div>
           ) : null}
         </li>
@@ -720,6 +837,12 @@ function ClassLearningPanel({
                       </a>
                       <span>{assignment.dueText || "Due date not listed"}</span>
                       <MappedTimestamp value={assignment.mappedAt} />
+                      <SavedItemActions
+                        compact
+                        item={detailToPersonalization(
+                          assignmentToDetail(assignment),
+                        )}
+                      />
                     </li>
                   ))}
                 </ul>
@@ -738,6 +861,19 @@ function ClassLearningPanel({
                       </a>
                       <p>{unit.detail}</p>
                       <MappedTimestamp value={unit.mappedAt} />
+                      <SavedItemActions
+                        compact
+                        item={{
+                          id: `class-unit-${unit.url}`,
+                          category: "Class unit",
+                          title: unit.title,
+                          summary: unit.detail,
+                          source: item.name,
+                          sourceUrl: unit.url,
+                          createdAt: unit.mappedAt,
+                          attachments: [],
+                        }}
+                      />
                     </li>
                   ))}
                 </ul>
@@ -758,6 +894,19 @@ function ClassLearningPanel({
                   </a>
                   <span>{entry.dateText}</span>
                   <MappedTimestamp value={entry.mappedAt} />
+                  <SavedItemActions
+                    compact
+                    item={{
+                      id: `calendar-${entry.url}-${entry.title}`,
+                      category: "Calendar",
+                      title: entry.title,
+                      summary: entry.dateText,
+                      source: item.name,
+                      sourceUrl: entry.url,
+                      createdAt: entry.mappedAt,
+                      attachments: [],
+                    }}
+                  />
                 </li>
               ))}
             </ul>
@@ -783,8 +932,34 @@ function ClassLearningPanel({
 }
 
 type JournalWorkspaceItem =
-  | { kind: "project"; project: WeeklyJournalHomeProject }
-  | { kind: "unit"; subject: string; unit: WeeklyJournalUnit };
+  | { kind: "project"; project: WeeklyJournalHomeProject; weekKey: string }
+  | {
+      kind: "unit";
+      subject: string;
+      unit: WeeklyJournalUnit;
+      weekKey: string;
+    };
+
+function journalToPersonalization(item: JournalWorkspaceItem): PersonalizationItem {
+  if (item.kind === "project") {
+    return {
+      id: `journal-project-${item.weekKey}-${item.project.title}`,
+      category: "Weekly journal project",
+      title: item.project.title,
+      summary: item.project.purpose,
+      source: `${item.weekKey} · ${item.project.subjectLinks.join(" · ")}`,
+      attachments: [],
+    };
+  }
+  return {
+    id: `journal-unit-${item.weekKey}-${item.subject}-${item.unit.name}`,
+    category: "Weekly journal",
+    title: item.unit.name,
+    summary: item.unit.summary,
+    source: `${item.weekKey} · ${item.subject}`,
+    attachments: [],
+  };
+}
 
 function JournalDetailWorkspace({
   item,
@@ -933,6 +1108,7 @@ function JournalDetailWorkspace({
         )}
 
         <footer>
+          <SavedItemActions item={journalToPersonalization(item)} />
           <button type="button" onClick={onClose}>Done</button>
         </footer>
       </section>
@@ -1073,10 +1249,24 @@ function WeeklyJournalPanel({
                     <button
                       className="row-view-button"
                       type="button"
-                      onClick={() => setActiveJournalDetail({ kind: "project", project })}
+                      onClick={() =>
+                        setActiveJournalDetail({
+                          kind: "project",
+                          project,
+                          weekKey: journal.weekKey,
+                        })
+                      }
                     >
                       View project
                     </button>
+                    <SavedItemActions
+                      compact
+                      item={journalToPersonalization({
+                        kind: "project",
+                        project,
+                        weekKey: journal.weekKey,
+                      })}
+                    />
                   </article>
                 ))}
               </div>
@@ -1101,17 +1291,34 @@ function WeeklyJournalPanel({
                 </header>
                 <div className="journal-units">
                   {subject.units.map((unit) => (
-                    <button
+                    <div
                       className="journal-unit-row"
                       key={`${subject.subject}-${unit.name}`}
-                      type="button"
-                      onClick={() =>
-                        setActiveJournalDetail({ kind: "unit", subject: subject.subject, unit })
-                      }
                     >
-                      <span>{unit.name}</span>
-                      <strong>View details</strong>
-                    </button>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setActiveJournalDetail({
+                            kind: "unit",
+                            subject: subject.subject,
+                            unit,
+                            weekKey: journal.weekKey,
+                          })
+                        }
+                      >
+                        <span>{unit.name}</span>
+                        <strong>View details</strong>
+                      </button>
+                      <SavedItemActions
+                        compact
+                        item={journalToPersonalization({
+                          kind: "unit",
+                          subject: subject.subject,
+                          unit,
+                          weekKey: journal.weekKey,
+                        })}
+                      />
+                    </div>
                   ))}
                 </div>
               </article>
@@ -1131,6 +1338,302 @@ function WeeklyJournalPanel({
   );
 }
 
+async function filesToUploads(files: File[]) {
+  const uploads: PersonalizationUpload[] = [];
+  for (const file of files) {
+    const bytes = new Uint8Array(await file.arrayBuffer());
+    let binary = "";
+    const chunkSize = 0x8000;
+    for (let offset = 0; offset < bytes.length; offset += chunkSize) {
+      binary += String.fromCharCode(...bytes.subarray(offset, offset + chunkSize));
+    }
+    uploads.push({
+      name: file.name,
+      contentType: file.type || "application/octet-stream",
+      contentBase64: btoa(binary),
+    });
+  }
+  return uploads;
+}
+
+function NoteEditor({
+  item,
+  existing,
+  standalone,
+  isSaving,
+  onClose,
+  onSave,
+}: {
+  item: PersonalizationItem | null;
+  existing?: ItemNote;
+  standalone: boolean;
+  isSaving: boolean;
+  onClose: () => void;
+  onSave: (value: { title: string; text: string; files: File[] }) => void;
+}) {
+  const [title, setTitle] = useState(
+    standalone ? "" : item?.title ?? "",
+  );
+  const [text, setText] = useState(existing?.text ?? "");
+  const [files, setFiles] = useState<File[]>([]);
+
+  useEffect(() => {
+    if (!item && !standalone) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && !isSaving) onClose();
+    };
+    document.addEventListener("keydown", onKeyDown);
+    document.body.classList.add("detail-workspace-open");
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.classList.remove("detail-workspace-open");
+    };
+  }, [isSaving, item, onClose, standalone]);
+
+  if (!item && !standalone) return null;
+
+  return (
+    <div className="detail-workspace-backdrop" role="presentation" onMouseDown={onClose}>
+      <section
+        className="detail-workspace note-editor"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="note-editor-title"
+        onMouseDown={(event) => event.stopPropagation()}
+      >
+        <header>
+          <div>
+            <p className="eyebrow">{standalone ? "My Notes" : "Item note"}</p>
+            <h2 id="note-editor-title">
+              {standalone ? "Add a note" : item?.title}
+            </h2>
+          </div>
+          <button
+            className="workspace-close"
+            type="button"
+            onClick={onClose}
+            disabled={isSaving}
+          >
+            Close
+          </button>
+        </header>
+        <form
+          className="note-editor-form"
+          onSubmit={(event) => {
+            event.preventDefault();
+            onSave({ title, text, files });
+          }}
+        >
+          {standalone ? (
+            <label>
+              <span>Title</span>
+              <input
+                value={title}
+                onChange={(event) => setTitle(event.target.value)}
+                maxLength={200}
+                placeholder="What is this note about?"
+              />
+            </label>
+          ) : null}
+          <label>
+            <span>Note</span>
+            <textarea
+              value={text}
+              onChange={(event) => setText(event.target.value)}
+              maxLength={20000}
+              rows={9}
+              placeholder="Add context, a reminder, or a follow-up question"
+            />
+          </label>
+          <label className="note-upload">
+            <span>Files and images</span>
+            <input
+              type="file"
+              multiple
+              accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.csv,image/png,image/jpeg,image/gif,image/webp"
+              onChange={(event) => setFiles(Array.from(event.target.files ?? []))}
+            />
+            <small>Up to 8 files, 5 MB each</small>
+          </label>
+          {existing?.attachments.length ? (
+            <div className="note-existing-files">
+              <span>Already attached</span>
+              {existing.attachments.map((attachment) => (
+                <AttachmentButton key={attachment.url} file={attachment} />
+              ))}
+            </div>
+          ) : null}
+          {files.length ? (
+            <ul className="selected-files">
+              {files.map((file) => (
+                <li key={`${file.name}-${file.size}`}>
+                  <span>{file.name}</span>
+                  <small>{Math.ceil(file.size / 1024)} KB</small>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+          <footer>
+            <button type="button" onClick={onClose} disabled={isSaving}>
+              Cancel
+            </button>
+            <button type="submit" disabled={isSaving}>
+              {isSaving ? "Saving..." : "Save note"}
+            </button>
+          </footer>
+        </form>
+      </section>
+    </div>
+  );
+}
+
+function SavedWorkspace() {
+  const {
+    createNote,
+    deleteNote,
+    document,
+    editNote,
+    error,
+    isSaving,
+    toggleFavorite,
+  } = usePersonalization();
+  const openDetail = useDetailWorkspace();
+  const itemNotes = new Map(
+    document.itemNotes.map((note) => [note.item.id, note]),
+  );
+  const savedItems = new Map<string, PersonalizationItem>();
+  for (const favorite of document.favorites) {
+    savedItems.set(favorite.item.id, favorite.item);
+  }
+  for (const note of document.itemNotes) {
+    savedItems.set(note.item.id, note.item);
+  }
+
+  return (
+    <section className="saved-workspace" aria-labelledby="saved-workspace-title">
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">Parent workspace</p>
+          <h2 id="saved-workspace-title">Favorites, annotations, and My Notes</h2>
+        </div>
+        <span>{savedItems.size + document.notes.length} saved items</span>
+      </div>
+      {error ? <p className="personalization-error">{error}</p> : null}
+      <div className="saved-columns">
+        <section className="saved-panel" aria-labelledby="favorites-notes-title">
+          <div className="saved-panel-heading">
+            <div>
+              <p className="eyebrow">School items</p>
+              <h3 id="favorites-notes-title">Favorites & notes</h3>
+            </div>
+            <strong>{savedItems.size}</strong>
+          </div>
+          {savedItems.size ? (
+            <div className="saved-list">
+              {[...savedItems.values()].map((item) => {
+                const note = itemNotes.get(item.id);
+                return (
+                  <article className="saved-row" key={item.id}>
+                    <div className="saved-row-heading">
+                      <span>{item.category}</span>
+                      <time>{item.createdAt ? formatDate(item.createdAt) : item.source}</time>
+                    </div>
+                    <h4>{item.title}</h4>
+                    {item.summary ? <p className="truncated-copy">{item.summary}</p> : null}
+                    {note?.text ? (
+                      <blockquote>
+                        <strong>My note</strong>
+                        <span>{note.text}</span>
+                      </blockquote>
+                    ) : null}
+                    {note?.attachments.length ? (
+                      <div className="attachment-row compact-attachments">
+                        {note.attachments.map((attachment) => (
+                          <AttachmentButton key={attachment.url} file={attachment} />
+                        ))}
+                      </div>
+                    ) : null}
+                    <div className="row-actions">
+                      <button
+                        type="button"
+                        onClick={() => openDetail(personalizationToDetail(item))}
+                      >
+                        View details
+                      </button>
+                      <button type="button" onClick={() => editNote(item)}>
+                        {note ? "Edit note" : "Add note"}
+                      </button>
+                      <button
+                        type="button"
+                        disabled={isSaving}
+                        onClick={() => toggleFavorite(item)}
+                      >
+                        {document.favorites.some(
+                          (favorite) => favorite.item.id === item.id,
+                        )
+                          ? "Remove favorite"
+                          : "Add favorite"}
+                      </button>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          ) : (
+            <p className="empty-state">
+              Favorite an alert, assignment, classroom item, or journal entry to keep it here.
+            </p>
+          )}
+        </section>
+
+        <section className="saved-panel" aria-labelledby="my-notes-title">
+          <div className="saved-panel-heading">
+            <div>
+              <p className="eyebrow">Parent-created</p>
+              <h3 id="my-notes-title">My Notes</h3>
+            </div>
+            <button type="button" onClick={createNote}>New note</button>
+          </div>
+          {document.notes.length ? (
+            <div className="saved-list">
+              {document.notes.map((note) => (
+                <article className="saved-row my-note-row" key={note.id}>
+                  <div className="saved-row-heading">
+                    <span>My Notes</span>
+                    <time>{formatDate(note.updatedAt)}</time>
+                  </div>
+                  <h4>{note.title}</h4>
+                  {note.text ? <p>{note.text}</p> : null}
+                  {note.attachments.length ? (
+                    <div className="attachment-row compact-attachments">
+                      {note.attachments.map((attachment) => (
+                        <AttachmentButton key={attachment.url} file={attachment} />
+                      ))}
+                    </div>
+                  ) : null}
+                  <div className="row-actions">
+                    <button
+                      type="button"
+                      disabled={isSaving}
+                      onClick={() => deleteNote(note.id)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <p className="empty-state">
+              Add a private working note with text, documents, or images.
+            </p>
+          )}
+        </section>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   const [snapshot, setSnapshot] = useState<ClassroomSnapshot>(emptySnapshot);
   const [students, setStudents] = useState<StudentSummary[]>(defaultStudents);
@@ -1146,6 +1649,12 @@ export default function Home() {
   const [weeklyJournal, setWeeklyJournal] = useState<WeeklyJournal | null>(null);
   const [journalIndex, setJournalIndex] = useState<WeeklyJournalIndexItem[]>([]);
   const [selectedJournalWeek, setSelectedJournalWeek] = useState("");
+  const [personalization, setPersonalization] =
+    useState<PersonalizationDocument>(() => emptyPersonalization("advika"));
+  const [personalizationSaving, setPersonalizationSaving] = useState(false);
+  const [personalizationError, setPersonalizationError] = useState("");
+  const [noteTarget, setNoteTarget] = useState<PersonalizationItem | null>(null);
+  const [newNoteOpen, setNewNoteOpen] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -1202,6 +1711,56 @@ export default function Home() {
       });
     return () => { cancelled = true; };
   }, [selectedStudent, selectedJournalWeek]);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(
+      `/api/personalization?student=${encodeURIComponent(selectedStudent)}`,
+      { cache: "no-store" },
+    )
+      .then((response) => (response.ok ? response.json() : Promise.reject()))
+      .then((data) => {
+        if (!cancelled && data.document) setPersonalization(data.document);
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setPersonalizationError(
+            "Favorites and notes could not be loaded right now.",
+          );
+        }
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedStudent]);
+
+  async function mutatePersonalization(mutation: PersonalizationMutation) {
+    setPersonalizationSaving(true);
+    setPersonalizationError("");
+    try {
+      const response = await fetch(
+        `/api/personalization?student=${encodeURIComponent(selectedStudent)}`,
+        {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(mutation),
+        },
+      );
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || "The change could not be saved.");
+      }
+      setPersonalization(data.document);
+      return true;
+    } catch (error) {
+      setPersonalizationError(
+        error instanceof Error ? error.message : "The change could not be saved.",
+      );
+      return false;
+    } finally {
+      setPersonalizationSaving(false);
+    }
+  }
 
   const subjectOptions = useMemo(
     () => {
@@ -1299,10 +1858,44 @@ export default function Home() {
     .slice(0, 6);
 
   const showSubjectFilter = view === "assignments" || view === "classes";
+  const noteForTarget = noteTarget
+    ? personalization.itemNotes.find(
+        (note) => note.item.id === noteTarget.id,
+      )
+    : undefined;
+  const personalizationContext = {
+    document: personalization,
+    isSaving: personalizationSaving,
+    error: personalizationError,
+    toggleFavorite: (item: PersonalizationItem) => {
+      const favorite = personalization.favorites.some(
+        (entry) => entry.item.id === item.id,
+      );
+      void mutatePersonalization({
+        action: "set_favorite",
+        item,
+        favorite: !favorite,
+      });
+    },
+    editNote: (item: PersonalizationItem) => {
+      setActiveDetail(null);
+      setActiveFile(null);
+      setNewNoteOpen(false);
+      setNoteTarget(item);
+    },
+    createNote: () => {
+      setNoteTarget(null);
+      setNewNoteOpen(true);
+    },
+    deleteNote: (noteId: string) => {
+      void mutatePersonalization({ action: "delete_note", noteId });
+    },
+  };
 
   return (
-    <FileWorkspaceContext.Provider value={setActiveFile}>
-    <DetailWorkspaceContext.Provider value={setActiveDetail}>
+    <PersonalizationContext.Provider value={personalizationContext}>
+      <FileWorkspaceContext.Provider value={setActiveFile}>
+      <DetailWorkspaceContext.Provider value={setActiveDetail}>
       <div className="enterprise-app">
         <header className="app-header">
           <div className="brand-lockup">
@@ -1327,11 +1920,14 @@ export default function Home() {
               aria-labelledby="student-switcher-title"
               value={selectedStudent}
               onChange={(event) => {
+                const student = event.target.value;
                 setIsLoading(true);
-                setSelectedStudent(event.target.value);
+                setSelectedStudent(student);
                 setSelectedSubject("all");
                 setQuery("");
                 setSelectedJournalWeek("");
+                setPersonalization(emptyPersonalization(student));
+                setPersonalizationError("");
               }}
             >
               {students.map((student) => (
@@ -1499,6 +2095,12 @@ export default function Home() {
                                 ? "Discussion"
                                 : assignment.dueText || "No due date"}
                             </span>
+                            <SavedItemActions
+                              compact
+                              item={detailToPersonalization(
+                                assignmentToDetail(assignment),
+                              )}
+                            />
                           </li>
                         ))}
                       </ul>
@@ -1518,11 +2120,27 @@ export default function Home() {
                   </div>
                   <div className="notice-strip">
                     {snapshot.notifications.slice(0, 4).map((notice) => (
-                      <a href={notice.url} target="_blank" rel="noreferrer" key={`${notice.title}-${notice.url}`}>
+                      <article key={`${notice.title}-${notice.url}`}>
                         <strong>{notice.title}</strong>
                         <span>{notice.detail}</span>
                         {notice.createdAt ? <time dateTime={notice.createdAt}>{formatDate(notice.createdAt)}</time> : null}
-                      </a>
+                        <div className="row-actions">
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setActiveDetail(notificationToDetail(notice))
+                            }
+                          >
+                            View details
+                          </button>
+                          <SavedItemActions
+                            compact
+                            item={detailToPersonalization(
+                              notificationToDetail(notice),
+                            )}
+                          />
+                        </div>
+                      </article>
                     ))}
                   </div>
                 </section>
@@ -1542,7 +2160,7 @@ export default function Home() {
                     </div>
                     {snapshot.notifications.length ? (
                       <ul>
-                        {snapshot.notifications.slice(0, 20).map((notice) => {
+                        {snapshot.notifications.map((notice) => {
                           const isLong = notice.detail.length > 180;
                           return (
                             <li key={`${notice.title}-${notice.url}`}>
@@ -1573,6 +2191,12 @@ export default function Home() {
                                       Open source
                                     </a>
                                   ) : null}
+                                  <SavedItemActions
+                                    compact
+                                    item={detailToPersonalization(
+                                      notificationToDetail(notice),
+                                    )}
+                                  />
                                 </div>
                               </article>
                             </li>
@@ -1601,6 +2225,19 @@ export default function Home() {
                             {item.url ? (
                               <a href={item.url} target="_blank" rel="noreferrer">Open</a>
                             ) : null}
+                            <SavedItemActions
+                              compact
+                              item={{
+                                id: `calendar-${item.url}-${item.title}`,
+                                category: "Calendar",
+                                title: item.title,
+                                summary: item.dateText,
+                                source: snapshot.studentName,
+                                sourceUrl: item.url,
+                                createdAt: item.mappedAt,
+                                attachments: [],
+                              }}
+                            />
                           </li>
                         ))}
                       </ul>
@@ -1691,6 +2328,12 @@ export default function Home() {
                           <a href={assignment.url} target="_blank" rel="noreferrer">
                             Open source
                           </a>
+                          <SavedItemActions
+                            compact
+                            item={detailToPersonalization(
+                              assignmentToDetail(assignment),
+                            )}
+                          />
                         </div>
                       </article>
                     ))}
@@ -1759,6 +2402,8 @@ export default function Home() {
           onSelectWeek={setSelectedJournalWeek}
         />
             ) : null}
+
+            {view === "saved" ? <SavedWorkspace /> : null}
           </main>
         </div>
 
@@ -1789,7 +2434,54 @@ export default function Home() {
         key={`file-${activeFile?.url ?? "closed"}`}
         onClose={() => setActiveFile(null)}
       />
-    </DetailWorkspaceContext.Provider>
-    </FileWorkspaceContext.Provider>
+      <NoteEditor
+        key={
+          newNoteOpen
+            ? `new-note-${selectedStudent}`
+            : `item-note-${noteTarget?.id ?? "closed"}`
+        }
+        item={noteTarget}
+        existing={noteForTarget}
+        standalone={newNoteOpen}
+        isSaving={personalizationSaving}
+        onClose={() => {
+          if (!personalizationSaving) {
+            setNoteTarget(null);
+            setNewNoteOpen(false);
+          }
+        }}
+        onSave={async ({ title, text, files }) => {
+          try {
+            const uploads = await filesToUploads(files);
+            const saved = noteTarget
+              ? await mutatePersonalization({
+                  action: "save_item_note",
+                  item: noteTarget,
+                  text,
+                  uploads,
+                })
+              : await mutatePersonalization({
+                  action: "create_note",
+                  title,
+                  text,
+                  uploads,
+                });
+            if (saved) {
+              setNoteTarget(null);
+              setNewNoteOpen(false);
+              setView("saved");
+            }
+          } catch (error) {
+            setPersonalizationError(
+              error instanceof Error
+                ? error.message
+                : "The files could not be prepared.",
+            );
+          }
+        }}
+      />
+      </DetailWorkspaceContext.Provider>
+      </FileWorkspaceContext.Provider>
+    </PersonalizationContext.Provider>
   );
 }

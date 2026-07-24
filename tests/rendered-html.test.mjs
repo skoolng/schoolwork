@@ -51,6 +51,12 @@ test("classroom dashboard source is wired", async () => {
   assert.match(page, /View project/);
   assert.match(page, /journal-unit-row/);
   assert.match(page, /notificationToDetail/);
+  assert.match(page, /Favorites & notes/);
+  assert.match(page, /My Notes/);
+  assert.match(page, /SavedItemActions/);
+  assert.match(page, /NoteEditor/);
+  assert.match(page, /filesToUploads/);
+  assert.match(page, /\/api\/personalization/);
   assert.match(css, /parent-alerts/);
   assert.match(css, /parent-alert-card/);
   assert.match(css, /detail-workspace/);
@@ -58,6 +64,9 @@ test("classroom dashboard source is wired", async () => {
   assert.match(css, /nested-submenu/);
   assert.match(css, /row-view-button/);
   assert.match(css, /detail-facts/);
+  assert.match(css, /saved-item-actions/);
+  assert.match(css, /saved-columns/);
+  assert.match(css, /note-editor-form/);
   assert.match(layout, /title:\s*"Schoolwork Dashboard"/);
   assert.match(css, /classroom-shell/);
   assert.match(css, /enterprise-app/);
@@ -172,7 +181,39 @@ test("weekly journals and clickable notifications are wired", async () => {
   assert.match(scraper, /api\/frontend\/v2\/notifications/);
   assert.match(scraper, /data-mnn-hub-endpoint/);
   assert.match(scraper, /collectAttachments/);
+  assert.match(scraper, /enrichNotification/);
+  assert.match(scraper, /notificationPageContent/);
+  assert.doesNotMatch(
+    scraper,
+    /detail:\s*clip\(cleanHtml\(body \|\| item\.body_preview \|\| ""\),\s*900\)/,
+  );
   assert.match(classroomData, /cleanNotifications/);
+});
+
+test("favorites and notes persist through the scoped GitHub endpoint", async () => {
+  const [route, types, envExample] = await Promise.all([
+    readFile(new URL("../app/api/personalization/route.ts", import.meta.url), "utf8"),
+    readFile(new URL("../lib/personalization.ts", import.meta.url), "utf8"),
+    readFile(new URL("../.env.example", import.meta.url), "utf8"),
+  ]);
+
+  assert.match(route, /GITHUB_PERSONALIZATION_TOKEN/);
+  assert.match(route, /data\/personalization\/\$\{studentKey\}\/index\.json/);
+  assert.match(route, /Cross-origin writes are not allowed/);
+  assert.match(route, /MAX_UPLOAD_BYTES/);
+  assert.match(route, /\/git\/blobs/);
+  assert.match(route, /\/git\/trees/);
+  assert.match(route, /\/git\/commits/);
+  assert.match(route, /force:\s*false/);
+  assert.match(route, /set_favorite/);
+  assert.match(route, /save_item_note/);
+  assert.match(route, /create_note/);
+  assert.match(types, /PersonalizationDocument/);
+  assert.match(types, /FavoriteItem/);
+  assert.match(types, /ItemNote/);
+  assert.match(types, /MyNote/);
+  assert.match(envExample, /GITHUB_PERSONALIZATION_TOKEN=/);
+  assert.match(envExample, /GITHUB_PERSONALIZATION_REPO=skoolng\/schoolwork/);
 });
 
 test("ManageBac scraper consolidates every class section", async () => {

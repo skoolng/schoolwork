@@ -268,7 +268,11 @@ export async function scrapeManageBac(credentials: Credentials): Promise<Classro
     sourceUrl: `${credentials.baseUrl}/student/home`,
     status: "ok",
     error: "",
-    notifications: await fetchNotifications(notificationsPage, credentials.baseUrl),
+    notifications: await fetchNotifications(
+      session,
+      notificationsPage,
+      credentials.baseUrl,
+    ),
     classes: classResults.map((result) => result.classroom),
     assignments: dedupeAssignments([...assignments, ...discussionAssignments]),
     calendar: parseCalendar(calendarPage),
@@ -373,7 +377,11 @@ async function scrapeAuthenticatedManageBac(
     sourceUrl: `${credentials.baseUrl}/student/home`,
     status: "ok",
     error: "",
-    notifications: await fetchNotifications(notificationsPage, credentials.baseUrl),
+    notifications: await fetchNotifications(
+      session,
+      notificationsPage,
+      credentials.baseUrl,
+    ),
     classes: classResults.map((result) => result.classroom),
     assignments: dedupeAssignments([...assignments, ...discussionAssignments]),
     calendar: parseCalendar(calendarPage),
@@ -951,7 +959,67 @@ function parseNotifications(page: PageResult): NotificationItem[] {
   return items.slice(0, 10);
 }
 
+function notificationPageContent(page: PageResult, title: string) {
+  const root = parse(page.text);
+  const candidates = [
+    ".notification-body",
+    ".notification__body",
+    ".message-body",
+    ".message-content",
+    ".mnn-notification-body",
+    "[data-notification-body]",
+    "article",
+  ].flatMap((selector) =>
+    root.querySelectorAll(selector).map((element) => cleanHtml(element.innerHTML)),
+  );
+  const content =
+    candidates
+      .filter((candidate) => candidate.length > 40)
+      .sort((left, right) => right.length - left.length)[0] ?? "";
+
+  return content.startsWith(title) ? content.slice(title.length).trim() : content;
+}
+
+function uniqueNotificationAttachments(attachments: Attachment[]) {
+  const seen = new Set<string>();
+  return attachments.filter((attachment) => {
+    if (seen.has(attachment.url)) return false;
+    seen.add(attachment.url);
+    return true;
+  });
+}
+
+async function enrichNotification(
+  session: ManageBacSession,
+  notification: NotificationItem,
+) {
+  if (!/^https?:\/\/[^/]+\/student\/notifications\/.+/i.test(notification.url)) {
+    return notification;
+  }
+
+  try {
+    const page = await session.fetchFollowing(notification.url);
+    const pageContent = notificationPageContent(page, notification.title);
+    const attachments = uniqueNotificationAttachments([
+      ...(notification.attachments ?? []),
+      ...parseAttachments(page.text, page.url),
+    ]);
+
+    return {
+      ...notification,
+      detail:
+        pageContent.length > notification.detail.length
+          ? pageContent
+          : notification.detail,
+      attachments,
+    };
+  } catch {
+    return notification;
+  }
+}
+
 async function fetchNotifications(
+  session: ManageBacSession,
   page: PageResult,
   baseUrl: string,
 ): Promise<NotificationItem[]> {
@@ -960,7 +1028,11 @@ async function fetchNotifications(
   const endpoint = trigger?.getAttribute("data-mnn-hub-endpoint")?.trim();
   const token = trigger?.getAttribute("data-token")?.trim();
 
-  if (!endpoint || !token) return parseNotifications(page);
+  if (!endpoint || !token) {
+    return mapWithConcurrency(parseNotifications(page), 4, (notification) =>
+      enrichNotification(session, notification),
+    );
+  }
 
   const feeds = await Promise.allSettled(
     ["unread", "read"].map(async (kind) => {
@@ -989,12 +1061,16 @@ async function fetchNotifications(
       : [],
   );
 
-  if (!items.length) return parseNotifications(page);
+  if (!items.length) {
+    return mapWithConcurrency(parseNotifications(page), 4, (notification) =>
+      enrichNotification(session, notification),
+    );
+  }
 
   const unique = new Map<string, ManageBacNotificationFeedItem>();
   for (const item of items) unique.set(String(item.id), item);
 
-  return [...unique.values()]
+  const notifications = [...unique.values()]
     .sort(
       (left, right) =>
         new Date(right.created_at ?? "").getTime() -
@@ -1005,7 +1081,7 @@ async function fetchNotifications(
       const body = item.body ?? "";
       return {
         title: cleanHtml(item.title ?? "ManageBac notification"),
-        detail: clip(cleanHtml(body || item.body_preview || ""), 900),
+        detail: cleanHtml(body || item.body_preview || ""),
         url: new URL(`/student/notifications/${item.id}`, baseUrl).toString(),
         createdAt: item.created_at,
         sender: item.sender?.name,
@@ -1013,6 +1089,10 @@ async function fetchNotifications(
         attachments: parseAttachments(body, baseUrl),
       };
     });
+
+  return mapWithConcurrency(notifications, 5, (notification) =>
+    enrichNotification(session, notification),
+  );
 }
 
 function parseCalendar(page: PageResult): CalendarItem[] {
