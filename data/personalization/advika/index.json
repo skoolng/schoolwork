@@ -1,7 +1,7 @@
 {
   "version": 1,
   "studentKey": "advika",
-  "updatedAt": "2026-07-24T18:28:50.859Z",
+  "updatedAt": "2026-07-26T04:14:09.402Z",
   "favorites": [
     {
       "item": {
@@ -15,37 +15,6 @@
         "attachments": []
       },
       "addedAt": "2026-07-24T18:28:50.859Z"
-    },
-    {
-      "item": {
-        "id": "maths-sa1-rescheduled-2026-07-24",
-        "category": "Assessment update",
-        "title": "Mathematics SA-1 is now Monday, 27 July",
-        "summary": "School is closed on Friday, 24 July. The published MYP Year 1 SA-1 schedule lists Mathematics for 24 July, and the school has moved Friday's MYP 1-3 assessment to Monday, 27 July from 9:00-10:00 AM. The schedule, mock paper, and practice sheet are attached here.",
-        "source": "MYP Year 1 · Mathematics",
-        "sourceUrl": "https://thegaudium.managebac.com/student/notifications/1342273360",
-        "createdAt": "2026-07-23T13:49:05.462Z",
-        "attachments": [
-          {
-            "name": "_MYP-1_Summative_Assessment-1_SA1__July_2026.docx.pdf",
-            "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/3205b88c6cd26ce6991f-_MYP-1_Summative_Assessment-1_SA1__July_2026.docx.pdf",
-            "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaTluYVdRNkx5OXRZVzVoWjJWaVlXTXZRWE56WlhRdk1Ua3dPRFEyT0RNeVAyVjRjR2x5WlhOZmFXNEdPZ1pGVkE9PSIsImV4cCI6bnVsbCwicHVyIjoiZGVmYXVsdCJ9fQ==--f3a52da7d23aa9f5f74a0f60eafada160ce83ba6"
-          },
-          {
-            "name": "MYP1_Mock_SA1.docx.pdf",
-            "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/e1ffe9f8856aff3c2dae-MYP1_Mock_SA1.docx.pdf",
-            "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaTluYVdRNkx5OXRZVzVoWjJWaVlXTXZRWE56WlhRdk1Ua3dPVEl4TXpRM1AyVjRjR2x5WlhOZmFXNEdPZ1pGVkE9PSIsImV4cCI6bnVsbCwicHVyIjoiZGVmYXVsdCJ9fQ==--d33891003dad7c5077dd66f667a929e805356cf9",
-            "mappedAt": "2026-07-20T12:01:26.880Z"
-          },
-          {
-            "name": "MYP1_Unit1_Practice_sheet__SA-1_.docx",
-            "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/ee6e2520aa0884e749b0-MYP1_Unit1_Practice_sheet__SA-1_.docx",
-            "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaTluYVdRNkx5OXRZVzVoWjJWaVlXTXZRWE56WlhRdk1Ua3dPVEEzTnpFM1AyVjRjR2x5WlhOZmFXNEdPZ1pGVkE9PSIsImV4cCI6bnVsbCwicHVyIjoiZGVmYXVsdCJ9fQ==--ed7b80114baceb9793aeb83e9f07ee94cff29e28",
-            "mappedAt": "2026-07-19T10:26:02.561Z"
-          }
-        ]
-      },
-      "addedAt": "2026-07-24T17:13:11.466Z"
     }
   ],
   "itemNotes": [
