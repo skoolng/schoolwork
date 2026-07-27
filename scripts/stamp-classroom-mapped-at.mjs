@@ -16,10 +16,21 @@ const studentDir = path.resolve("data/classroom", studentKey);
 const historyDir = path.join(studentDir, "history");
 const earliestMappedAt = new Map();
 
+function stableUrl(value) {
+  try {
+    const url = new URL(value);
+    url.search = "";
+    url.hash = "";
+    return url.toString();
+  } catch {
+    return value;
+  }
+}
+
 function identity(kind, item, parent = "root") {
+  const sourceUrl = item?.sourceUrl || item?.url;
   const value =
-    item?.url ||
-    item?.sourceUrl ||
+    (sourceUrl ? stableUrl(sourceUrl) : "") ||
     [item?.title, item?.name, item?.dateText, item?.dueText]
       .filter(Boolean)
       .join("|");
