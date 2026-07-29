@@ -1,0 +1,44 @@
+name: School email sync and archive
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 9 * * 1-5"
+    - cron: "0 11 * * 1-5"
+
+concurrency:
+  group: school-email-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
+      GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
+      GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
+      SCHOOL_EMAIL_QUERY: "from:thegaudium.com after:2026/07/01"
+      SCHOOL_EMAIL_STUDENTS: "advika,adrika"
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Archive school email
+        if: env.GMAIL_CLIENT_ID != '' && env.GMAIL_CLIENT_SECRET != '' && env.GMAIL_REFRESH_TOKEN != ''
+        run: node scripts/sync-school-email.mjs
+
+      - name: Persist school communications
+        if: env.GMAIL_CLIENT_ID != '' && env.GMAIL_CLIENT_SECRET != '' && env.GMAIL_REFRESH_TOKEN != ''
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/classroom/*/school-communications.json data/classroom/*/assets
+          git diff --cached --quiet && exit 0
+          git commit -m "Archive school email communications"
+          git pull --rebase origin main
+          git push
