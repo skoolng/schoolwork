@@ -9,7 +9,7 @@ on:
     - cron: "30 1 * * 1-5"
     - cron: "30 5 * * 1-5"
     - cron: "30 9 * * 1-5"
-    - cron: "0 12 * * 1-5"
+    - cron: "0 11 * * 1-5"
 
 concurrency:
   group: managebac-sync
@@ -30,17 +30,45 @@ jobs:
           SIWC_BYPASS_TOKEN: ${{ secrets.SIWC_BYPASS_TOKEN }}
         run: |
           set -euo pipefail
+          successful_syncs=0
           for student in advika adrika; do
             response="/tmp/classroom-${student}.json"
-            curl --fail-with-body --show-error --silent \
+            request="/tmp/classroom-${student}-request.json"
+            latest="data/classroom/${student}/latest.json"
+            if [[ -f "$latest" ]]; then
+              jq '
+                [
+                  .. | objects |
+                  select(
+                    (.sourceUrl? | type) == "string" and
+                    (.url? | type) == "string"
+                  ) |
+                  { key: .sourceUrl, value: .url }
+                ] |
+                from_entries |
+                { knownAssets: . }
+              ' "$latest" > "$request"
+            else
+              printf '{"knownAssets":{}}\n' > "$request"
+            fi
+
+            if curl --fail-with-body --show-error --silent \
               --retry 2 \
               --request POST \
               --header "x-sync-secret: ${SYNC_SECRET}" \
               --header "OAI-Sites-Authorization: Bearer ${SIWC_BYPASS_TOKEN}" \
+              --header "content-type: application/json" \
+              --data-binary "@${request}" \
               --output "$response" \
-              "${SYNC_URL}?student=${student}"
-            jq -e '.ok == true and (.archives | length == 1)' "$response" >/dev/null
+              "${SYNC_URL}?student=${student}" &&
+              jq -e '.ok == true and (.archives | length == 1)' "$response" >/dev/null; then
+              successful_syncs=$((successful_syncs + 1))
+            else
+              rm -f "$response"
+              printf '%s\n' "$student" >> /tmp/failed-students
+            fi
           done
+          [[ "$successful_syncs" -gt 0 ]]
 
       - name: Persist snapshots and assets in the repository
         shell: bash
@@ -50,6 +78,7 @@ jobs:
 
           for student in advika adrika; do
             response="/tmp/classroom-${student}.json"
+            [[ -f "$response" ]] || continue
             synced_at=$(jq -r '.archives[0].snapshot.syncedAt' "$response")
             history_name=$(printf '%s' "$synced_at" | tr ':.' '--')
             student_dir="data/classroom/${student}"
@@ -72,22 +101,41 @@ jobs:
             done
           done
 
-          jq -n \
-            --slurpfile advika /tmp/classroom-advika.json \
-            --slurpfile adrika /tmp/classroom-adrika.json \
-            --argjson previous "$(test -f data/classroom/index.json && cat data/classroom/index.json || printf '{\"students\":[]}')" \
-            '{students: [
-              [$advika[0].archives[0], $adrika[0].archives[0]][] |
-              . as $item |
-              ([$previous.students[]? | select(.key == $item.student)][0] // {}) as $old |
-              {
-                key: $item.student,
-                name: $item.snapshot.studentName,
-                syncedAt: $item.snapshot.syncedAt,
-                status: $item.snapshot.status,
-                historyCount: (($old.historyCount // 0) + 1)
-              }
-            ]}' > data/classroom/index.json
+          index_tmp="/tmp/classroom-index.json"
+          if [[ -f data/classroom/index.json ]]; then
+            cp data/classroom/index.json "$index_tmp"
+          else
+            printf '{"students":[]}\n' > "$index_tmp"
+          fi
+
+          for student in advika adrika; do
+            response="/tmp/classroom-${student}.json"
+            [[ -f "$response" ]] || continue
+            name=$(jq -r '.archives[0].snapshot.studentName' "$response")
+            synced_at=$(jq -r '.archives[0].snapshot.syncedAt' "$response")
+            status=$(jq -r '.archives[0].snapshot.status' "$response")
+            jq \
+              --arg key "$student" \
+              --arg name "$name" \
+              --arg syncedAt "$synced_at" \
+              --arg status "$status" \
+              '
+                ([.students[]? | select(.key == $key)][0] // {}) as $old |
+                .students = (
+                  [.students[]? | select(.key != $key)] +
+                  [{
+                    key: $key,
+                    name: $name,
+                    syncedAt: $syncedAt,
+                    status: $status,
+                    historyCount: (($old.historyCount // 0) + 1)
+                  }]
+                ) |
+                .students |= sort_by(.name)
+              ' "$index_tmp" > "${index_tmp}.next"
+            mv "${index_tmp}.next" "$index_tmp"
+          done
+          mv "$index_tmp" data/classroom/index.json
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -96,3 +144,11 @@ jobs:
           git commit -m "Archive classroom snapshot and assets"
           git pull --rebase origin main
           git push
+
+      - name: Report partial sync failures
+        if: always()
+        run: |
+          if [[ -s /tmp/failed-students ]]; then
+            echo "Sync failed for: $(paste -sd, /tmp/failed-students)"
+            exit 1
+          fi
