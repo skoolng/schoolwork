@@ -15,6 +15,7 @@ if (!studentKey || !responsePath || !outputPath) {
 const studentDir = path.resolve("data/classroom", studentKey);
 const historyDir = path.join(studentDir, "history");
 const earliestMappedAt = new Map();
+let previousLatest = null;
 
 function stableUrl(value) {
   try {
@@ -104,6 +105,74 @@ async function readJsonIfPresent(filePath) {
   }
 }
 
+function recordKey(item) {
+  return stableUrl(item?.sourceUrl || item?.url || "") ||
+    [item?.externalId, item?.title, item?.name, item?.dateText, item?.dueText]
+      .filter(Boolean)
+      .join("|")
+      .toLowerCase();
+}
+
+function mergeRecords(current, previous) {
+  const merged = { ...previous, ...current };
+  for (const field of ["detail", "description", "dateText", "dueText", "status", "unit"]) {
+    if (!merged[field] && previous?.[field]) merged[field] = previous[field];
+  }
+  for (const field of ["attachments", "images"]) {
+    if (current?.[field] || previous?.[field]) {
+      merged[field] = mergeRecordArrays(current?.[field] ?? [], previous?.[field] ?? []);
+    }
+  }
+  return merged;
+}
+
+function mergeRecordArrays(current = [], previous = []) {
+  const merged = new Map();
+  for (const item of [...current, ...previous]) {
+    const key = recordKey(item);
+    if (!key) continue;
+    const existing = merged.get(key);
+    merged.set(key, existing ? mergeRecords(existing, item) : item);
+  }
+  return [...merged.values()];
+}
+
+function mergeClassrooms(current = [], previous = []) {
+  const previousByKey = new Map(previous.map((item) => [recordKey(item), item]));
+  const currentKeys = new Set();
+  const merged = current.map((classroom) => {
+    const key = recordKey(classroom);
+    currentKeys.add(key);
+    const old = previousByKey.get(key);
+    if (!old) return classroom;
+    return {
+      ...old,
+      ...classroom,
+      latestActivity: classroom.latestActivity || old.latestActivity || "",
+      stream: mergeRecordArrays(classroom.stream, old.stream),
+      discussions: mergeRecordArrays(classroom.discussions, old.discussions),
+      units: mergeRecordArrays(classroom.units, old.units),
+      calendar: mergeRecordArrays(classroom.calendar, old.calendar),
+      files: mergeRecordArrays(classroom.files, old.files),
+    };
+  });
+  for (const classroom of previous) {
+    if (!currentKeys.has(recordKey(classroom))) merged.push(classroom);
+  }
+  return merged;
+}
+
+function mergeSnapshot(current, previous) {
+  if (!previous) return current;
+  return {
+    ...current,
+    notifications: mergeRecordArrays(current.notifications, previous.notifications),
+    assignments: mergeRecordArrays(current.assignments, previous.assignments),
+    calendar: mergeRecordArrays(current.calendar, previous.calendar),
+    classes: mergeClassrooms(current.classes, previous.classes),
+  };
+}
+
 const historicalFiles = await readdir(historyDir).catch((error) => {
   if (error?.code === "ENOENT") return [];
   throw error;
@@ -114,14 +183,15 @@ for (const filename of historicalFiles.filter((value) => value.endsWith(".json")
   if (snapshot) rememberSnapshot(snapshot);
 }
 
-const previousLatest = await readJsonIfPresent(path.join(studentDir, "latest.json"));
+previousLatest = await readJsonIfPresent(path.join(studentDir, "latest.json"));
 if (previousLatest) rememberSnapshot(previousLatest);
 
 const response = JSON.parse(await readFile(responsePath, "utf8"));
-const snapshot = response?.archives?.[0]?.snapshot;
-if (!snapshot?.syncedAt) {
+const incomingSnapshot = response?.archives?.[0]?.snapshot;
+if (!incomingSnapshot?.syncedAt) {
   throw new Error("Sync response does not contain a timestamped classroom snapshot.");
 }
+const snapshot = mergeSnapshot(incomingSnapshot, previousLatest);
 
 snapshot.notifications = (snapshot.notifications ?? []).filter(
   (notification) =>
