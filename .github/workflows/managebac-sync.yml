@@ -18,49 +18,36 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install sync dependencies
+        run: npm ci --ignore-scripts
+
       - name: Sync and download classroom archives
         env:
-          SYNC_URL: ${{ secrets.SYNC_URL }}
-          SYNC_SECRET: ${{ secrets.SYNC_SECRET }}
-          SIWC_BYPASS_TOKEN: ${{ secrets.SIWC_BYPASS_TOKEN }}
+          MANAGEBAC_BASE_URL: https://thegaudium.managebac.com
+          MANAGEBAC_LOGIN: ${{ secrets.MANAGEBAC_LOGIN }}
+          MANAGEBAC_PASSWORD: ${{ secrets.MANAGEBAC_PASSWORD }}
+          MANAGEBAC_ADRIKA_LOGIN: ${{ secrets.MANAGEBAC_ADRIKA_LOGIN }}
+          MANAGEBAC_ADRIKA_PASSWORD: ${{ secrets.MANAGEBAC_ADRIKA_PASSWORD }}
         run: |
           set -euo pipefail
           successful_syncs=0
           for student in advika adrika; do
             response="/tmp/classroom-${student}.json"
-            request="/tmp/classroom-${student}-request.json"
-            latest="data/classroom/${student}/latest.json"
-            if [[ -f "$latest" ]]; then
-              jq '
-                [
-                  .. | objects |
-                  select(
-                    (.sourceUrl? | type) == "string" and
-                    (.url? | type) == "string"
-                  ) |
-                  { key: .sourceUrl, value: .url }
-                ] |
-                from_entries |
-                { knownAssets: . }
-              ' "$latest" > "$request"
-            else
-              printf '{"knownAssets":{}}\n' > "$request"
-            fi
-
-            if curl --fail-with-body --show-error --silent \
-              --retry 2 \
-              --request POST \
-              --header "x-sync-secret: ${SYNC_SECRET}" \
-              --header "OAI-Sites-Authorization: Bearer ${SIWC_BYPASS_TOKEN}" \
-              --header "content-type: application/json" \
-              --data-binary "@${request}" \
-              --output "$response" \
-              "${SYNC_URL}?student=${student}" &&
+            if node_modules/.bin/tsx \
+              scripts/sync-managebac-direct.mts \
+              "$student" \
+              "$response" &&
               jq -e '.ok == true and (.archives | length == 1)' "$response" >/dev/null; then
               successful_syncs=$((successful_syncs + 1))
             else
