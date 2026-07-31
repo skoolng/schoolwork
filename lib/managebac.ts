@@ -1,4 +1,4 @@
-import { parse } from "node-html-parser";
+import { parse, type HTMLElement } from "node-html-parser";
 import type {
   Assignment,
   Attachment,
@@ -17,11 +17,15 @@ const DISCUSSION_LINK_PATTERN = /\/student\/classes\/\d+\/discussions\/\d+/;
 const DISCUSSION_INDEX_PATTERN = /\/student\/classes\/\d+\/discussions\/?$/;
 const UNIT_LINK_PATTERN = /\/student\/classes\/\d+\/units\/\d+\/presentations/;
 const ASSET_PATTERN = /\/attachments\/|\/files\/|\/download(?:s)?\/|\.(?:pdf|docx?|xlsx?|pptx?|mp3|mp4|m4a|wav|jpe?g|png)(?:\?|$)/i;
+const FILE_BROWSER_LINK_PATTERN = /\/files\/(?:category|folder)(?:\/|$)/i;
 const DISCUSSION_ASSIGNMENT_PATTERN = /\b(?:home\s*(?:assignment|learning|task|work)|assignment|assessment|complete|create|deadline|draw|exercise|find|finish|learn|listen|memorise|notebook|practice|practise|prepare|question\s*answers?|reading\s*comprehension|revise|solve|submit|task|test|watch|worksheet|write)\b/i;
 const IMAGE_ASSIGNMENT_PATTERN = /\b(?:exercise|fraction|home\s*work|problem|practice|practise|question|revision|task|test|worksheet)\b/i;
 const NON_ASSIGNMENT_IMAGE_PATTERN = /\b(?:announcement|celebration|competition|event|parliament|poster|register|registration|schedule|time\s*table|timetable)\b/i;
 const IMAGE_NAME_PATTERN = /\.(?:avif|gif|jpe?g|png|webp)(?:\?|$)/i;
 const MAX_DISCUSSION_PAGES = 50;
+const MAX_NOTIFICATION_PAGES = 100;
+const MAX_ARCHIVED_ASSETS_PER_SYNC = 24;
+const MAX_ARCHIVED_BYTES_PER_SYNC = 12 * 1024 * 1024;
 
 interface Credentials {
   baseUrl: string;
@@ -53,6 +57,11 @@ interface ManageBacNotificationFeedItem {
 interface ManageBacNotificationFeed {
   items?: ManageBacNotificationFeedItem[];
   notifications?: ManageBacNotificationFeedItem[];
+  meta?: {
+    page?: number;
+    total_pages?: number;
+    has_more?: boolean;
+  };
 }
 
 interface ClassScrapeResult {
@@ -122,9 +131,25 @@ class ManageBacSession {
     return response;
   }
 
+  private async requestWithRetry(url: string, init: RequestInit = {}) {
+    let response = await this.request(url, init);
+    for (
+      let attempt = 0;
+      attempt < 3 && [429, 500, 502, 503, 504].includes(response.status);
+      attempt += 1
+    ) {
+      await response.body?.cancel();
+      await new Promise((resolve) =>
+        setTimeout(resolve, 400 * 2 ** attempt),
+      );
+      response = await this.request(url, init);
+    }
+    return response;
+  }
+
   async fetchFollowing(url: string, init: RequestInit = {}): Promise<PageResult> {
     let current = url;
-    let response = await this.request(current, init);
+    let response = await this.requestWithRetry(current, init);
 
     for (
       let index = 0;
@@ -134,7 +159,19 @@ class ManageBacSession {
       const location = response.headers.get("location");
       if (!location) break;
       current = new URL(location, current).toString();
-      response = await this.request(current, { method: "GET" });
+      response = await this.requestWithRetry(current, { method: "GET" });
+    }
+
+    if ([429, 500, 502, 503, 504].includes(response.status)) {
+      throw new Error(
+        `ManageBac request failed with ${response.status}: ${current}`,
+      );
+    }
+    if (
+      new URL(url).pathname !== "/login" &&
+      new URL(current).pathname === "/login"
+    ) {
+      throw new Error("ManageBac session expired while collecting classroom data.");
     }
 
     return {
@@ -243,17 +280,16 @@ export async function scrapeManageBac(credentials: Credentials): Promise<Classro
     ...extractLinks(overdueTasks.text, overdueTasks.url),
   ])
     .filter((link) => TASK_LINK_PATTERN.test(new URL(link.url).pathname))
-    .filter((link) => !/submit coursework/i.test(link.text))
-    .slice(0, 40);
+    .filter((link) => !/submit coursework/i.test(link.text));
 
-  const classResults = await mapWithConcurrency(classLinks, 3, (link) =>
+  const classResults = await mapWithConcurrency(classLinks, 1, (link) =>
     scrapeClass(session, link),
   );
   const taskLinks = dedupeLinks([
     ...globalTaskLinks,
     ...classResults.flatMap((result) => result.taskLinks),
-  ]).slice(0, 60);
-  const assignments = await mapWithConcurrency(taskLinks, 5, async (link) =>
+  ]);
+  const assignments = await mapWithConcurrency(taskLinks, 2, async (link) =>
     parseAssignment(link, await session.fetchFollowing(link.url)),
   );
   const discussionAssignments = classResults.flatMap((result) =>
@@ -261,9 +297,13 @@ export async function scrapeManageBac(credentials: Credentials): Promise<Classro
       .filter(isDiscussionAssignment)
       .map((discussion) => discussionToAssignment(result.classroom.name, discussion)),
   );
+  const allAssignments = dedupeAssignments([
+    ...assignments,
+    ...discussionAssignments,
+  ]);
 
   return {
-    studentName: extractStudentName(home.text) || "Advika Lakshmi",
+    studentName: extractStudentName(home.text),
     syncedAt: new Date().toISOString(),
     sourceUrl: `${credentials.baseUrl}/student/home`,
     status: "ok",
@@ -273,8 +313,11 @@ export async function scrapeManageBac(credentials: Credentials): Promise<Classro
       notificationsPage,
       credentials.baseUrl,
     ),
-    classes: classResults.map((result) => result.classroom),
-    assignments: dedupeAssignments([...assignments, ...discussionAssignments]),
+    classes: hydrateClassContent(
+      classResults.map((result) => result.classroom),
+      allAssignments,
+    ),
+    assignments: allAssignments,
     calendar: parseCalendar(calendarPage),
   };
 }
@@ -282,6 +325,7 @@ export async function scrapeManageBac(credentials: Credentials): Promise<Classro
 export async function scrapeManageBacWithAssets(
   credentials: Credentials,
   studentKey: string,
+  knownAssets: Record<string, string> = {},
 ): Promise<ArchivedClassroomSnapshot> {
   const session = new ManageBacSession(credentials.baseUrl);
   const home = await session.login(credentials.login, credentials.password);
@@ -290,34 +334,69 @@ export async function scrapeManageBacWithAssets(
   const uniqueAttachments = attachments.filter(
     (attachment, index, items) =>
       isDownloadableAttachment(attachment) &&
-      items.findIndex((candidate) => candidate.url === attachment.url) === index,
+      items.findIndex(
+        (candidate) =>
+          stableAssetIdentity(candidate.url) ===
+          stableAssetIdentity(attachment.url),
+      ) === index,
   );
-  const archivedByUrl = new Map<
+  const archivedByIdentity = new Map<
     string,
-    { archivedUrl: string; asset: ArchivedAsset }
+    { archivedUrl: string; asset?: ArchivedAsset }
   >();
 
-  await mapWithConcurrency(uniqueAttachments, 3, async (attachment) => {
+  for (const [sourceUrl, archivedUrl] of Object.entries(knownAssets)) {
+    const identity = stableAssetIdentity(sourceUrl);
+    if (identity && /^https?:/i.test(archivedUrl)) {
+      archivedByIdentity.set(identity, { archivedUrl });
+    }
+  }
+
+  let archivedBytes = 0;
+  let archivedCount = 0;
+  for (const attachment of uniqueAttachments) {
     const sourceUrl = attachment.url;
-    const downloaded = await session.downloadFollowing(sourceUrl);
-    const hash = await shortHash(sourceUrl);
-    const filename = safeFilename(attachment.name, downloaded.contentType);
-    const path = `data/classroom/${studentKey}/assets/${hash}-${filename}`;
-    const archivedUrl =
-      `https://raw.githubusercontent.com/skoolng/schoolwork/main/${path}`;
-    archivedByUrl.set(sourceUrl, {
-      archivedUrl,
-      asset: {
-        path,
-        content: downloaded.content,
-        contentType: downloaded.contentType,
-        sourceUrl,
-      },
-    });
-  });
+    const identity = stableAssetIdentity(sourceUrl);
+    if (
+      archivedByIdentity.has(identity) ||
+      archivedCount >= MAX_ARCHIVED_ASSETS_PER_SYNC ||
+      archivedBytes >= MAX_ARCHIVED_BYTES_PER_SYNC
+    ) {
+      continue;
+    }
+
+    try {
+      const downloaded = await session.downloadFollowing(sourceUrl);
+      if (
+        archivedBytes > 0 &&
+        archivedBytes + downloaded.content.byteLength >
+          MAX_ARCHIVED_BYTES_PER_SYNC
+      ) {
+        continue;
+      }
+      const hash = await shortHash(identity);
+      const filename = safeFilename(attachment.name, downloaded.contentType);
+      const path = `data/classroom/${studentKey}/assets/${hash}-${filename}`;
+      const archivedUrl =
+        `https://raw.githubusercontent.com/skoolng/schoolwork/main/${path}`;
+      archivedByIdentity.set(identity, {
+        archivedUrl,
+        asset: {
+          path,
+          content: downloaded.content,
+          contentType: downloaded.contentType,
+          sourceUrl,
+        },
+      });
+      archivedBytes += downloaded.content.byteLength;
+      archivedCount += 1;
+    } catch {
+      // A single inaccessible attachment must not block classroom updates.
+    }
+  }
 
   for (const attachment of attachments) {
-    const archived = archivedByUrl.get(attachment.url);
+    const archived = archivedByIdentity.get(stableAssetIdentity(attachment.url));
     if (!archived) continue;
     attachment.sourceUrl = attachment.url;
     attachment.url = archived.archivedUrl;
@@ -325,7 +404,9 @@ export async function scrapeManageBacWithAssets(
 
   return {
     snapshot,
-    assets: [...archivedByUrl.values()].map(({ asset }) => asset),
+    assets: [...archivedByIdentity.values()].flatMap(({ asset }) =>
+      asset ? [asset] : [],
+    ),
   };
 }
 
@@ -352,17 +433,16 @@ async function scrapeAuthenticatedManageBac(
     ...extractLinks(overdueTasks.text, overdueTasks.url),
   ])
     .filter((link) => TASK_LINK_PATTERN.test(new URL(link.url).pathname))
-    .filter((link) => !/submit coursework/i.test(link.text))
-    .slice(0, 40);
+    .filter((link) => !/submit coursework/i.test(link.text));
 
-  const classResults = await mapWithConcurrency(classLinks, 3, (link) =>
+  const classResults = await mapWithConcurrency(classLinks, 1, (link) =>
     scrapeClass(session, link),
   );
   const taskLinks = dedupeLinks([
     ...globalTaskLinks,
     ...classResults.flatMap((result) => result.taskLinks),
-  ]).slice(0, 60);
-  const assignments = await mapWithConcurrency(taskLinks, 5, async (link) =>
+  ]);
+  const assignments = await mapWithConcurrency(taskLinks, 2, async (link) =>
     parseAssignment(link, await session.fetchFollowing(link.url)),
   );
   const discussionAssignments = classResults.flatMap((result) =>
@@ -370,9 +450,13 @@ async function scrapeAuthenticatedManageBac(
       .filter(isDiscussionAssignment)
       .map((discussion) => discussionToAssignment(result.classroom.name, discussion)),
   );
+  const allAssignments = dedupeAssignments([
+    ...assignments,
+    ...discussionAssignments,
+  ]);
 
   return {
-    studentName: extractStudentName(home.text) || "Advika Lakshmi",
+    studentName: extractStudentName(home.text),
     syncedAt: new Date().toISOString(),
     sourceUrl: `${credentials.baseUrl}/student/home`,
     status: "ok",
@@ -382,8 +466,11 @@ async function scrapeAuthenticatedManageBac(
       notificationsPage,
       credentials.baseUrl,
     ),
-    classes: classResults.map((result) => result.classroom),
-    assignments: dedupeAssignments([...assignments, ...discussionAssignments]),
+    classes: hydrateClassContent(
+      classResults.map((result) => result.classroom),
+      allAssignments,
+    ),
+    assignments: allAssignments,
     calendar: parseCalendar(calendarPage),
   };
 }
@@ -474,16 +561,35 @@ async function mapWithConcurrency<T, R>(
 }
 
 function cleanHtml(html: string) {
-  return html
-    .replace(/<script[\s\S]*?<\/script>/gi, " ")
-    .replace(/<style[\s\S]*?<\/style>/gi, " ")
-    .replace(/<[^>]+>/g, " ")
+  return readableHtml(html)
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function readableHtml(html: string) {
+  const root = parse(html);
+  root
+    .querySelectorAll(
+      "script, style, svg, template, .add-emoji-button, .btn-reaction, [data-success-text]",
+    )
+    .forEach((node) => node.remove());
+  const withBreaks = root.innerHTML
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<\/(?:div|p|li|h[1-6]|blockquote|tr)>/gi, "\n");
+  const text = parse(withBreaks).textContent;
+
+  return text
     .replace(/&nbsp;/g, " ")
     .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
     .replace(/&#39;/g, "'")
     .replace(/&quot;/g, '"')
     .replace(/&mdash;/g, "-")
-    .replace(/\s+/g, " ")
+    .replace(/\r/g, "")
+    .replace(/[ \t]+/g, " ")
+    .replace(/ *\n */g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
     .trim();
 }
 
@@ -493,11 +599,20 @@ function clip(value: string, max = 360) {
 }
 
 function extractLinks(html: string, baseUrl: string): LinkResult[] {
-  return [...html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi)]
-    .map((match) => ({
-      url: new URL(match[1], baseUrl).toString(),
-      text: cleanHtml(match[2]),
-    }))
+  return parse(html)
+    .querySelectorAll("a")
+    .map((node) => {
+      const href = node.getAttribute("href")?.replace(/&amp;/gi, "&") ?? "";
+      try {
+        return {
+          url: new URL(href, baseUrl).toString(),
+          text: cleanHtml(node.innerHTML),
+        };
+      } catch {
+        return null;
+      }
+    })
+    .filter((link): link is LinkResult => Boolean(link))
     .filter((link) => link.text || !link.url.startsWith("javascript:"));
 }
 
@@ -515,6 +630,38 @@ function dedupeAssignments(assignments: Assignment[]) {
   const byUrl = new Map<string, Assignment>();
   for (const assignment of assignments) byUrl.set(assignment.url, assignment);
   return [...byUrl.values()].sort((a, b) => a.className.localeCompare(b.className));
+}
+
+function hydrateClassContent(
+  classes: ClassroomClass[],
+  assignments: Assignment[],
+) {
+  const assignmentsByUrl = new Map(
+    assignments.map((assignment) => [
+      stableAssetIdentity(assignment.url),
+      assignment,
+    ]),
+  );
+
+  return classes.map((classroom) => ({
+    ...classroom,
+    stream: classroom.stream.map((content) => {
+      const assignment = assignmentsByUrl.get(
+        stableAssetIdentity(content.url),
+      );
+      if (!assignment) return content;
+      const attachments = uniqueNotificationAttachments([
+        ...(content.attachments ?? []),
+        ...assignment.attachments,
+      ]);
+      return {
+        ...content,
+        detail: assignment.description || content.detail,
+        attachments,
+        images: attachments.filter(isImageAttachment),
+      };
+    }),
+  }));
 }
 
 function extractStudentName(html: string) {
@@ -593,54 +740,110 @@ function parseClass(
 }
 
 function parseClassContent(page: PageResult, kind: "stream" | "discussions") {
-  const matches = [
-    ...page.text.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi),
-  ];
-  const accepted = matches.filter((match) => {
-    const url = new URL(match[1], page.url);
-    const path = url.pathname;
-    if (CLASS_SECTION_PATTERN.test(path)) return false;
-    if (kind === "discussions") return DISCUSSION_LINK_PATTERN.test(path);
-    return (
-      TASK_LINK_PATTERN.test(path) ||
-      DISCUSSION_LINK_PATTERN.test(path) ||
-      UNIT_LINK_PATTERN.test(path) ||
-      isAssetUrl(url.toString())
-    );
-  });
-
+  const root = parse(page.text);
+  root.querySelectorAll("script, style, svg, template").forEach((node) => node.remove());
   const seen = new Set<string>();
-  return accepted
-    .map((match) => {
-      const url = new URL(match[1], page.url).toString();
-      const title = cleanHtml(match[2]) || attachmentName(url);
-      const start = Math.max(0, (match.index ?? 0) - 500);
-      const end = Math.min(page.text.length, (match.index ?? 0) + match[0].length + 1200);
-      const contextHtml = page.text.slice(start, end);
-      const context = cleanHtml(contextHtml);
+  return root
+    .querySelectorAll("a")
+    .map((node) => {
+      const href = node.getAttribute("href")?.replace(/&amp;/gi, "&");
+      if (!href) return null;
+      const url = new URL(href, page.url);
+      const path = url.pathname;
+      const linkText = cleanHtml(node.innerHTML);
+      if (CLASS_SECTION_PATTERN.test(path)) return null;
+      if (/^export$/i.test(linkText)) return null;
+      if (
+        kind === "discussions"
+          ? !DISCUSSION_LINK_PATTERN.test(path)
+          : !(
+              TASK_LINK_PATTERN.test(path) ||
+              DISCUSSION_LINK_PATTERN.test(path) ||
+              UNIT_LINK_PATTERN.test(path) ||
+              isAssetUrl(url.toString())
+            )
+      ) {
+        return null;
+      }
+
+      const contextNode = nearestContentContainer(node);
+      const contextHtml = contextNode?.innerHTML ?? node.parentNode?.toString() ?? "";
+      const context = readableHtml(contextHtml);
+      const title = linkText || attachmentName(url.toString());
       const dateText =
         context.match(/\b\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{4}\b/i)?.[0] ??
         context.match(MONTH_DAY)?.[0] ??
         "";
-      const attachments = parseAttachments(contextHtml, page.url).filter(
-        (attachment) => attachment.url !== url,
-      );
+      const attachments = parseAttachments(contextHtml, page.url);
+      if (
+        isAssetUrl(url.toString()) &&
+        !attachments.some((attachment) => attachment.url === url.toString())
+      ) {
+        attachments.unshift({ name: title, url: url.toString() });
+      }
+      const detail = contentDetail(context, title, attachments);
 
       return {
         title: clip(title, 140),
-        detail: clip(context.replace(title, ""), 360),
+        detail,
         dateText,
-        url,
+        url: url.toString(),
         attachments,
         images: attachments.filter(isImageAttachment),
       };
     })
+    .filter((item): item is NonNullable<typeof item> => Boolean(item))
     .filter((item) => {
-      if (!item.title || seen.has(item.url)) return false;
-      seen.add(item.url);
+      const key = stableAssetIdentity(item.url);
+      if (!item.title || seen.has(key)) return false;
+      seen.add(key);
       return true;
-    })
-    .slice(0, 8);
+    });
+}
+
+function nearestContentContainer(node: HTMLElement) {
+  let current = node.parentNode as HTMLElement | null;
+  let fallback = current;
+  for (let depth = 0; current && depth < 8; depth += 1) {
+    const className = current.getAttribute?.("class") ?? "";
+    const tagName = current.tagName?.toLowerCase();
+    if (
+      /(?:activity|card|class-stream|feed|message|portfolio|post|resource|stream-item|timeline)/i.test(
+        className,
+      ) ||
+      tagName === "article" ||
+      tagName === "li"
+    ) {
+      return current;
+    }
+    if (
+      tagName === "div" &&
+      current.textContent.length >= 40 &&
+      current.textContent.length <= 20_000
+    ) {
+      fallback = current;
+    }
+    current = current.parentNode as HTMLElement | null;
+  }
+  return fallback;
+}
+
+function contentDetail(
+  context: string,
+  title: string,
+  attachments: Attachment[],
+) {
+  let detail = context;
+  for (const removable of [title, ...attachments.map((item) => item.name)]) {
+    if (removable) detail = detail.replaceAll(removable, " ");
+  }
+  return detail
+    .replace(/\b(?:Export|Share Link|All Students Tagged)\b/gi, " ")
+    .replace(/\b\d+(?:\.\d+)?\s*(?:KB|MB|GB)\b/gi, " ")
+    .replace(/[ \t]+/g, " ")
+    .replace(/ *\n */g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
 }
 
 function discussionPageNumber(url: string) {
@@ -761,14 +964,16 @@ function parseDiscussionPage(page: PageResult) {
         (image, index, items) =>
           items.findIndex((candidate) => candidate.url === image.url) === index,
       );
-      let detail = body?.textContent.replace(/\s+/g, " ").trim() ?? "";
+      let detail = body ? readableHtml(body.innerHTML) : "";
       if (detail.startsWith(title)) detail = detail.slice(title.length).trim();
       for (const attachment of attachments) {
-        detail = detail.replace(attachment.name, " ");
+        detail = detail.replaceAll(attachment.name, " ");
       }
       detail = detail
         .replace(/\b\d+(?:\.\d+)?\s*(?:KB|MB|GB)\b/gi, " ")
-        .replace(/\s+/g, " ")
+        .replace(/[ \t]+/g, " ")
+        .replace(/ *\n */g, "\n")
+        .replace(/\n{3,}/g, "\n\n")
         .trim();
       const posted = card.textContent
         .replace(/\s+/g, " ")
@@ -778,7 +983,7 @@ function parseDiscussionPage(page: PageResult) {
 
       return {
         title,
-        detail: clip(detail, 520),
+        detail,
         dateText: posted ?? "",
         url,
         attachments,
@@ -832,25 +1037,51 @@ function discussionToAssignment(
 }
 
 function parseUnits(page: PageResult) {
+  const root = parse(page.text);
   const seen = new Set<string>();
-  return extractLinks(page.text, page.url)
-    .filter((link) => UNIT_LINK_PATTERN.test(new URL(link.url).pathname))
-    .filter((link) => {
-      if (!link.text || seen.has(link.url)) return false;
-      seen.add(link.url);
-      return true;
+  return root
+    .querySelectorAll("a")
+    .map((node) => {
+      const href = node.getAttribute("href")?.replace(/&amp;/gi, "&");
+      if (!href) return null;
+      const url = new URL(href, page.url).toString();
+      if (!UNIT_LINK_PATTERN.test(new URL(url).pathname)) return null;
+      const title = cleanHtml(node.innerHTML);
+      const container = nearestContentContainer(node);
+      const detail = contentDetail(
+        container ? readableHtml(container.innerHTML) : "",
+        title,
+        [],
+      );
+      return {
+        title: clip(title, 140),
+        detail,
+        url,
+      };
     })
-    .slice(0, 8)
-    .map((link) => ({
-      title: clip(link.text, 140),
-      detail: "Open the unit planner for learning goals, lessons, and tasks.",
-      url: link.url,
-    }));
+    .filter((unit): unit is NonNullable<typeof unit> => Boolean(unit?.title))
+    .filter((unit) => {
+      if (seen.has(unit.url)) return false;
+      seen.add(unit.url);
+      return true;
+    });
 }
 
 function isAssetUrl(url: string) {
   const parsed = new URL(url);
+  if (FILE_BROWSER_LINK_PATTERN.test(parsed.pathname)) return false;
   return ASSET_PATTERN.test(`${parsed.pathname}${parsed.search}`);
+}
+
+function stableAssetIdentity(url: string) {
+  try {
+    const parsed = new URL(url);
+    parsed.search = "";
+    parsed.hash = "";
+    return parsed.toString();
+  } catch {
+    return url;
+  }
 }
 
 function attachmentName(url: string) {
@@ -871,7 +1102,6 @@ function parseAttachments(html: string, baseUrl: string): Attachment[] {
       seen.add(link.url);
       return true;
     })
-    .slice(0, 8)
     .map((link) => ({
       name: clip(
         (link.text || attachmentName(link.url))
@@ -883,33 +1113,94 @@ function parseAttachments(html: string, baseUrl: string): Attachment[] {
     }));
 }
 
+function parseInlineImages(
+  html: string,
+  baseUrl: string,
+  label: string,
+): Attachment[] {
+  const seen = new Set<string>();
+  return parse(html)
+    .querySelectorAll("img")
+    .map((node, index) => {
+      const src = node.getAttribute("src")?.trim();
+      if (!src || /^(?:data|blob):/i.test(src)) return null;
+      const url = new URL(src, baseUrl).toString();
+      if (seen.has(url)) return null;
+      seen.add(url);
+      return {
+        name: clip(
+          node.getAttribute("alt") ||
+            node.getAttribute("data-name") ||
+            `${label} template ${index + 1}`,
+          140,
+        ),
+        url,
+      };
+    })
+    .filter((item): item is NonNullable<typeof item> => Boolean(item));
+}
+
 function parseFiles(page: PageResult) {
-  return parseAttachments(page.text, page.url).slice(0, 12);
+  return parseAttachments(page.text, page.url).filter((attachment) => {
+    try {
+      return !FILE_BROWSER_LINK_PATTERN.test(new URL(attachment.url).pathname);
+    } catch {
+      return false;
+    }
+  });
 }
 
 function parseAssignment(link: { url: string; text: string }, page: PageResult): Assignment {
-  const text = cleanHtml(page.text);
-  const title = page.text.match(/<title>ManageBac \| ([^<]+)/i)?.[1] || link.text;
+  const root = parse(page.text);
+  const taskRoot = root.querySelector(".core-task-show") ?? root;
+  const title =
+    cleanHtml(taskRoot.querySelector(".short-assignment .title")?.innerHTML ?? "") ||
+    page.text.match(/<title>ManageBac \| ([^<]+)/i)?.[1]?.trim() ||
+    link.text.trim();
+  const text = readableHtml(page.text);
+  const classLink = root
+    .querySelectorAll("a")
+    .find((node) =>
+      /^\/student\/classes\/\d+\/?$/.test(node.getAttribute("href") ?? ""),
+    );
   const className =
+    classLink?.textContent.trim() ??
     text.match(/Classes\s+IB MYP\s+(.+?)\s+Tasks & Units/i)?.[1] ??
     text.match(/Classes\s+(.+?)\s+Tasks & Units/i)?.[1] ??
     "";
-  const taskIndex = Math.max(0, text.indexOf(title));
-  const taskText = text.slice(taskIndex, taskIndex + 2200);
-  const dateText = taskText.match(MONTH_DAY)?.[0] ?? "";
+  const month = taskRoot.querySelector(".date-badge .month")?.textContent.trim() ?? "";
+  const day = taskRoot.querySelector(".date-badge .day")?.textContent.trim() ?? "";
+  const taskText = readableHtml(taskRoot.innerHTML);
+  const dateText = [month, day].filter(Boolean).join(" ") || taskText.match(MONTH_DAY)?.[0] || "";
   const dueTime =
+    taskRoot.querySelector(".due-date")?.textContent.trim() ??
     taskText.match(
       /\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+at\s+\d{1,2}:\d{2}\s+(?:AM|PM)/i,
-    )?.[0] ?? "";
+    )?.[0] ??
+    "";
   const status =
+    taskRoot.querySelector(".badge-label")?.textContent.trim() ??
     taskText.match(/\b(?:Not Submitted|Submitted|Pending|N\/A|Late|Overdue)\b/i)?.[0] ?? "";
   const unit =
+    taskRoot
+      .querySelector('a[href*="/units/"][href*="/presentations"]')
+      ?.textContent.trim() ??
     taskText.match(/(?:Not Submitted|Submitted|Pending|N\/A)\s+(.+?)\s+Starts\s+/i)?.[1] ??
     "";
+  const descriptionNode =
+    taskRoot.querySelector(".core-task-details .fr-view") ??
+    taskRoot.querySelector('[data-controller="rte-preview"]');
+  const descriptionHtml = descriptionNode?.innerHTML ?? "";
   const description =
-    taskText.match(/Description\s+(.+?)(?:\s+Assessment|\s+Guidance|\s+Submit Coursework|\s+Members|\s+Files\s+More|$)/i)?.[1] ??
+    readableHtml(descriptionHtml) ||
+    taskText.match(/Description\s+(.+?)(?:\s+Assessment|\s+Guidance|\s+Submit Coursework|\s+Members|\s+Files\s+More|$)/i)?.[1] ||
     "";
-  const attachments = parseAttachments(page.text, page.url);
+  const linkedAttachments = parseAttachments(descriptionHtml, page.url);
+  const inlineImages = parseInlineImages(descriptionHtml, page.url, title);
+  const attachments = uniqueNotificationAttachments([
+    ...linkedAttachments,
+    ...inlineImages,
+  ]);
 
   return {
     title,
@@ -917,10 +1208,13 @@ function parseAssignment(link: { url: string; text: string }, page: PageResult):
     dueText: [dateText, dueTime].filter(Boolean).join(" - "),
     status,
     unit: clip(unit, 120),
-    description: clip(description, 420),
+    description,
     url: link.url,
     attachments,
-    images: attachments.filter(isImageAttachment),
+    images: uniqueNotificationAttachments([
+      ...attachments.filter(isImageAttachment),
+      ...inlineImages,
+    ]),
     source: "task",
   };
 }
@@ -942,7 +1236,7 @@ function parseNotifications(page: PageResult): NotificationItem[] {
       }
     });
 
-  const items: NotificationItem[] = links.slice(0, 8).map((link) => ({
+  const items: NotificationItem[] = links.map((link) => ({
     title: link.text || "ManageBac notification",
     detail: "Open in ManageBac for full context.",
     url: link.url,
@@ -956,7 +1250,7 @@ function parseNotifications(page: PageResult): NotificationItem[] {
     });
   }
 
-  return items.slice(0, 10);
+  return items;
 }
 
 function notificationPageContent(page: PageResult, title: string) {
@@ -970,7 +1264,7 @@ function notificationPageContent(page: PageResult, title: string) {
     "[data-notification-body]",
     "article",
   ].flatMap((selector) =>
-    root.querySelectorAll(selector).map((element) => cleanHtml(element.innerHTML)),
+    root.querySelectorAll(selector).map((element) => readableHtml(element.innerHTML)),
   );
   const content =
     candidates
@@ -983,8 +1277,9 @@ function notificationPageContent(page: PageResult, title: string) {
 function uniqueNotificationAttachments(attachments: Attachment[]) {
   const seen = new Set<string>();
   return attachments.filter((attachment) => {
-    if (seen.has(attachment.url)) return false;
-    seen.add(attachment.url);
+    const key = stableAssetIdentity(attachment.sourceUrl || attachment.url);
+    if (seen.has(key)) return false;
+    seen.add(key);
     return true;
   });
 }
@@ -1036,9 +1331,13 @@ async function fetchNotifications(
 
   const feeds = await Promise.allSettled(
     ["unread", "read"].map(async (kind) => {
+      const items: ManageBacNotificationFeedItem[] = [];
+      let page = 1;
+
+      while (page <= MAX_NOTIFICATION_PAGES) {
       const url = new URL("/api/frontend/v2/notifications", endpoint);
       url.searchParams.set("kind", kind);
-      url.searchParams.set("page", "1");
+        url.searchParams.set("page", String(page));
       url.searchParams.set("per_page", "100");
       const response = await fetch(url, {
         headers: {
@@ -1051,13 +1350,24 @@ async function fetchNotifications(
         throw new Error(`ManageBac notifications returned ${response.status}.`);
       }
 
-      return (await response.json()) as ManageBacNotificationFeed;
+        const feed = (await response.json()) as ManageBacNotificationFeed;
+        items.push(...(feed.items ?? feed.notifications ?? []));
+        const hasMore =
+          feed.meta?.has_more === true ||
+          page < (feed.meta?.total_pages ?? page);
+        if (!hasMore) return items;
+        page += 1;
+      }
+
+      throw new Error(
+        `ManageBac ${kind} notifications exceeded ${MAX_NOTIFICATION_PAGES} pages.`,
+      );
     }),
   );
 
   const items = feeds.flatMap((result) =>
     result.status === "fulfilled"
-      ? (result.value.items ?? result.value.notifications ?? [])
+      ? result.value
       : [],
   );
 
@@ -1076,17 +1386,18 @@ async function fetchNotifications(
         new Date(right.created_at ?? "").getTime() -
         new Date(left.created_at ?? "").getTime(),
     )
-    .slice(0, 100)
     .map((item) => {
       const body = item.body ?? "";
       return {
         title: cleanHtml(item.title ?? "ManageBac notification"),
-        detail: cleanHtml(body || item.body_preview || ""),
+        detail: readableHtml(body || item.body_preview || ""),
         url: new URL(`/student/notifications/${item.id}`, baseUrl).toString(),
         createdAt: item.created_at,
         sender: item.sender?.name,
         origin: item.origin?.name,
         attachments: parseAttachments(body, baseUrl),
+        channel: "managebac" as const,
+        externalId: String(item.id),
       };
     });
 
@@ -1098,7 +1409,6 @@ async function fetchNotifications(
 function parseCalendar(page: PageResult): CalendarItem[] {
   return extractLinks(page.text, page.url)
     .filter((link) => TASK_LINK_PATTERN.test(new URL(link.url).pathname))
-    .slice(0, 12)
     .map((link) => ({
       title: link.text.replace(/^\d{1,2}:\d{2}\s+(?:AM|PM)\s+/i, ""),
       dateText: link.text.match(/^\d{1,2}:\d{2}\s+(?:AM|PM)/i)?.[0] ?? "Upcoming",
