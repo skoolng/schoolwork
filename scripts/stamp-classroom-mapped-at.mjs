@@ -16,6 +16,7 @@ const studentDir = path.resolve("data/classroom", studentKey);
 const historyDir = path.join(studentDir, "history");
 const earliestMappedAt = new Map();
 let previousLatest = null;
+let historicalSnapshot = null;
 
 function stableUrl(value) {
   try {
@@ -180,18 +181,24 @@ const historicalFiles = await readdir(historyDir).catch((error) => {
 
 for (const filename of historicalFiles.filter((value) => value.endsWith(".json")).sort()) {
   const snapshot = await readJsonIfPresent(path.join(historyDir, filename));
-  if (snapshot) rememberSnapshot(snapshot);
+  if (snapshot) {
+    rememberSnapshot(snapshot);
+    historicalSnapshot = mergeSnapshot(snapshot, historicalSnapshot);
+  }
 }
 
 previousLatest = await readJsonIfPresent(path.join(studentDir, "latest.json"));
-if (previousLatest) rememberSnapshot(previousLatest);
+if (previousLatest) {
+  rememberSnapshot(previousLatest);
+  historicalSnapshot = mergeSnapshot(previousLatest, historicalSnapshot);
+}
 
 const response = JSON.parse(await readFile(responsePath, "utf8"));
 const incomingSnapshot = response?.archives?.[0]?.snapshot;
 if (!incomingSnapshot?.syncedAt) {
   throw new Error("Sync response does not contain a timestamped classroom snapshot.");
 }
-const snapshot = mergeSnapshot(incomingSnapshot, previousLatest);
+const snapshot = mergeSnapshot(incomingSnapshot, historicalSnapshot);
 
 snapshot.notifications = (snapshot.notifications ?? []).filter(
   (notification) =>
