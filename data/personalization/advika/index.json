@@ -1,8 +1,21 @@
 {
   "version": 1,
   "studentKey": "advika",
-  "updatedAt": "2026-08-19T11:56:28.589Z",
+  "updatedAt": "2026-08-19T11:56:36.150Z",
   "favorites": [
+    {
+      "item": {
+        "id": "assignment-https://thegaudium.managebac.com/student/classes/12990853/core_tasks/48541043",
+        "category": "Assignment",
+        "title": "Homework",
+        "summary": "Fill in the blanks using the appropriate form of the words or phrases in the brackets.\nMaya ________ (start) learning French three years ago because she ________ (want) to communicate with her cousins who live in France. At first, she found the language difficult, but she ________ (not/give) up. She ________ (attend) lessons twice a week and ________ (practise) speaking whenever she had an opportunity. Her teacher, ________ (who/which) had lived in Paris for several years, often introduced the class to French culture. Maya ________ (can/could) now hold a simple conversation, although she still makes mistakes. Recently, she ________ (have/has) begun watching French films with subtitles. She believes that ________ (a/an/the) regular practice is the best way to improve. If she continues working hard, she ________ (will/might) become fluent one day.",
+        "source": "English (MYP Year 1) C",
+        "sourceUrl": "https://thegaudium.managebac.com/student/classes/12990853/core_tasks/48541043",
+        "createdAt": "2026-08-19T09:59:34.364Z",
+        "attachments": []
+      },
+      "addedAt": "2026-08-19T11:56:36.150Z"
+    },
     {
       "item": {
         "id": "assignment-https://thegaudium.managebac.com/student/classes/12992676/discussions/28799326",
