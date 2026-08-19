@@ -1,8 +1,21 @@
 {
   "version": 1,
   "studentKey": "advika",
-  "updatedAt": "2026-07-26T04:14:09.402Z",
+  "updatedAt": "2026-08-19T11:56:28.589Z",
   "favorites": [
+    {
+      "item": {
+        "id": "assignment-https://thegaudium.managebac.com/student/classes/12992676/discussions/28799326",
+        "category": "Discussion assignment",
+        "title": "Settlement Patterns",
+        "summary": "Dear Students,\nRefer to Page.80 in your Individuals and Societies Hodder Resource book and note down brief explanations on the different types of settlement pattern. Please do not copy the information as it is, try to frame it in your own words and write.\nKeep your notebooks ready for correction tomorrow.",
+        "source": "Individuals and Societies (MYP Year 1) C",
+        "sourceUrl": "https://thegaudium.managebac.com/student/classes/12992676/discussions/28799326",
+        "createdAt": "2026-08-19T09:59:34.364Z",
+        "attachments": []
+      },
+      "addedAt": "2026-08-19T11:56:28.589Z"
+    },
     {
       "item": {
         "id": "assignment-https://thegaudium.managebac.com/student/classes/12992681/discussions/28691102",
