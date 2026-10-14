@@ -1,6 +1,6 @@
 {
   "studentName": "Adrika Lakshmi Saragadam",
-  "syncedAt": "2026-10-14T10:30:33.834Z",
+  "syncedAt": "2026-10-14T14:39:28.742Z",
   "sourceUrl": "https://thegaudium.managebac.com/student/home",
   "status": "ok",
   "error": "",
@@ -12,7 +12,13 @@
       "createdAt": "2026-10-13T06:43:21.514Z",
       "sender": "Salma K",
       "origin": "IB Middle Years Class of 2031: MYP1E (MYP Year 1)",
-      "attachments": [],
+      "attachments": [
+        {
+          "name": "MYP_1_E_-_TWC_Time_Slots.docx",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/adrika/assets/224e27ba326b9e9baaed-MYP_1_E_-_TWC_Time_Slots.docx",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaTluYVdRNkx5OXRZVzVoWjJWaVlXTXZRWE56WlhRdk1UazBPVFE0TXpBMVAyVjRjR2x5WlhOZmFXNEdPZ1pGVkE9PSIsImV4cCI6bnVsbCwicHVyIjoiZGVmYXVsdCJ9fQ==--091e6e16008151b5f70dcc8cd1de05ae6de6305f"
+        }
+      ],
       "channel": "managebac",
       "externalId": "1393420927",
       "mappedAt": "2026-10-13T07:55:32.365Z"
@@ -48,7 +54,13 @@
       "createdAt": "2026-10-10T08:14:36.392Z",
       "sender": "Preeti Dhankar",
       "origin": "IB MYP Design (MYP Year 1) E",
-      "attachments": [],
+      "attachments": [
+        {
+          "name": "MYP1_Results_LaunchLab.png",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/adrika/assets/b3da4dbd0078db56064a-MYP1_Results_LaunchLab.png",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaTluYVdRNkx5OXRZVzVoWjJWaVlXTXZRWE56WlhRdk1UazBOemt4TlRjM1AyVjRjR2x5WlhOZmFXNEdPZ1pGVkE9PSIsImV4cCI6bnVsbCwicHVyIjoiZGVmYXVsdCJ9fQ==--c79c0151d6543e5939d455e571cfcf2775c59b5a"
+        }
+      ],
       "channel": "managebac",
       "externalId": "1391482568",
       "mappedAt": "2026-10-12T07:35:37.885Z"
@@ -3706,7 +3718,7 @@
           "title": "IBMYP_Language___literature_guide__1_.pdf",
           "detail": "Madhavi Vinod\nJune 10, 2026\n\nENGLISH LANGUAGE AND LITERATURE GUIDE\nIBMYP Language & literature guide (1).pdf\n\nFile\n\n0\n\nComments0",
           "dateText": "June 10",
-          "url": "https://cdn.ca.managebac.com/uploads/asset/file/190241026/IBMYP_Language___literature_guide__1_.pdf?Expires=1791981005&Signature=C9xD2KiDw3oDogyHxAuvg32nxmw4kPISuSltOap5W7P4wXyjoTVvU5SpN98CQV6EetTXj0Me7I3DQU-BXWKRZ9nrmybIjmOSE-F0wgtKuls-IQmUAWBhQVexjomyOQvgn6gRict4q5EPobvhtRl2OUOUNKhVvb4kK0WdpdNBq7BjDJKW3x3-ZfPyAiUHKWLtFkROj~ppf1~Wd5LGmu1pQKiYGUTaE7ynhekX8JoxNRAMTn03i4XqxzRJRmjDrqHCMCidTh90daWc-e78sSatcQq7ckR9PZW4Mi6L53h0FIhaYUOVlb273akAs-dlxim0~-2FJt6ia7w40HXMO~AUMA__&Key-Pair-Id=K2RK6WSQIEDQ9F",
+          "url": "https://cdn.ca.managebac.com/uploads/asset/file/190241026/IBMYP_Language___literature_guide__1_.pdf?Expires=1791995942&Signature=XCpogVt9CFGTllCqUQW7q3PpCPTS3l9DicIVO9Dh2IexYx7~bEt6RipDglyWN8KG0bgVDv1n~aFMD6wWBv9KuhkxNyDGpQFaR6Apt~x1HLHfH6KDBBozGlmdvT-PRDgJzVYOt-kaoAIwL~wQ07IUX1HSGBtmIEpj~~SHfxBsW~qxYvAIy8K33lh-IPbIQQDaL6hCN-jyRK-4Xddb7TKzBOFymh1P7~v40B2oT0XXLwLRo0VapmItwSn417DOsq29~NCpwI4NJNbz8urYxjFfTl4wJo5dBBne0~MeuGXCusIUyTbuTmEBQFTecr2~Zs3utRBjZmsODEzfmIPLwF9XyA__&Key-Pair-Id=K2RK6WSQIEDQ9F",
           "attachments": [
             {
               "name": "Export",
@@ -3717,7 +3729,7 @@
             {
               "name": "IBMYP_Language___literature_guide__1_.pdf",
               "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/adrika/assets/083833e9cc2c2dc6fdd0-IBMYP_Language___literature_guide__1_.pdf",
-              "sourceUrl": "https://cdn.ca.managebac.com/uploads/asset/file/190241026/IBMYP_Language___literature_guide__1_.pdf?Expires=1791981005&Signature=C9xD2KiDw3oDogyHxAuvg32nxmw4kPISuSltOap5W7P4wXyjoTVvU5SpN98CQV6EetTXj0Me7I3DQU-BXWKRZ9nrmybIjmOSE-F0wgtKuls-IQmUAWBhQVexjomyOQvgn6gRict4q5EPobvhtRl2OUOUNKhVvb4kK0WdpdNBq7BjDJKW3x3-ZfPyAiUHKWLtFkROj~ppf1~Wd5LGmu1pQKiYGUTaE7ynhekX8JoxNRAMTn03i4XqxzRJRmjDrqHCMCidTh90daWc-e78sSatcQq7ckR9PZW4Mi6L53h0FIhaYUOVlb273akAs-dlxim0~-2FJt6ia7w40HXMO~AUMA__&Key-Pair-Id=K2RK6WSQIEDQ9F",
+              "sourceUrl": "https://cdn.ca.managebac.com/uploads/asset/file/190241026/IBMYP_Language___literature_guide__1_.pdf?Expires=1791995942&Signature=XCpogVt9CFGTllCqUQW7q3PpCPTS3l9DicIVO9Dh2IexYx7~bEt6RipDglyWN8KG0bgVDv1n~aFMD6wWBv9KuhkxNyDGpQFaR6Apt~x1HLHfH6KDBBozGlmdvT-PRDgJzVYOt-kaoAIwL~wQ07IUX1HSGBtmIEpj~~SHfxBsW~qxYvAIy8K33lh-IPbIQQDaL6hCN-jyRK-4Xddb7TKzBOFymh1P7~v40B2oT0XXLwLRo0VapmItwSn417DOsq29~NCpwI4NJNbz8urYxjFfTl4wJo5dBBne0~MeuGXCusIUyTbuTmEBQFTecr2~Zs3utRBjZmsODEzfmIPLwF9XyA__&Key-Pair-Id=K2RK6WSQIEDQ9F",
               "mappedAt": "2026-07-27T09:55:18.161Z"
             }
           ],

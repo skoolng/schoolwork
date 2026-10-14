@@ -1,6 +1,6 @@
 {
   "studentName": "Advika Lakshmi",
-  "syncedAt": "2026-10-14T10:29:41.851Z",
+  "syncedAt": "2026-10-14T14:37:49.185Z",
   "sourceUrl": "https://thegaudium.managebac.com/student/home",
   "status": "ok",
   "error": "",
@@ -12,7 +12,13 @@
       "createdAt": "2026-10-13T09:48:16.743Z",
       "sender": "Vaishali Rajasekaran",
       "origin": "IB MYP Individuals and Societies (MYP Year 1) C",
-      "attachments": [],
+      "attachments": [
+        {
+          "name": "MYP_1C_-_24th_October_2026_TWC__Time_Slots__-_1C.pdf",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/5bffe752328ab4eaaf48-MYP_1C_-_24th_October_2026_TWC__Time_Slots__-_1C.pdf",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaTluYVdRNkx5OXRZVzVoWjJWaVlXTXZRWE56WlhRdk1UazBPVFkyTnpFMFAyVjRjR2x5WlhOZmFXNEdPZ1pGVkE9PSIsImV4cCI6bnVsbCwicHVyIjoiZGVmYXVsdCJ9fQ==--55f9acd8f71e428294edc1dd832f5f27cba50b80"
+        }
+      ],
       "channel": "managebac",
       "externalId": "1393655927",
       "mappedAt": "2026-10-13T12:54:14.428Z"
@@ -36,7 +42,13 @@
       "createdAt": "2026-10-10T08:14:36.058Z",
       "sender": "Preeti Dhankar",
       "origin": "IB MYP Design (MYP Year 1) C",
-      "attachments": [],
+      "attachments": [
+        {
+          "name": "MYP1_Results_LaunchLab.png",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/b3da4dbd0078db56064a-MYP1_Results_LaunchLab.png",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaTluYVdRNkx5OXRZVzVoWjJWaVlXTXZRWE56WlhRdk1UazBOemt4TlRjM1AyVjRjR2x5WlhOZmFXNEdPZ1pGVkE9PSIsImV4cCI6bnVsbCwicHVyIjoiZGVmYXVsdCJ9fQ==--c79c0151d6543e5939d455e571cfcf2775c59b5a"
+        }
+      ],
       "channel": "managebac",
       "externalId": "1391482533",
       "mappedAt": "2026-10-12T07:34:24.636Z"
