@@ -1,6 +1,6 @@
 {
   "studentName": "Advika Lakshmi",
-  "syncedAt": "2026-10-21T15:46:10.800Z",
+  "syncedAt": "2026-10-22T06:15:01.353Z",
   "sourceUrl": "https://thegaudium.managebac.com/student/home",
   "status": "ok",
   "error": "",
@@ -4785,13 +4785,13 @@
         },
         {
           "title": "How can maps provide us with a sense of time and place?",
-          "detail": "Starts\nW4 Oct\n\n12 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
+          "detail": "Starts\nW4 Oct\n\nCurrent Unit\n\n12 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
           "url": "https://thegaudium.managebac.com/student/classes/12992676/units/1298740/presentations#show_at_a_glance",
           "mappedAt": "2026-07-19T10:07:56.106Z"
         },
         {
           "title": "How can maps provide us with a sense of time, place and space?",
-          "detail": "Starts\nW4 Oct\n\n7 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
+          "detail": "Starts\nW4 Oct\n\nCurrent Unit\n\n7 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
           "url": "https://thegaudium.managebac.com/student/classes/12992676/units/1541872/presentations#show_at_a_glance",
           "mappedAt": "2026-07-27T09:54:44.452Z"
         },
@@ -5562,7 +5562,7 @@
         },
         {
           "title": "Cell and its organelles",
-          "detail": "Starts\nW4 Oct\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
+          "detail": "Starts\nW4 Oct\n\nCurrent Unit\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
           "url": "https://thegaudium.managebac.com/student/classes/12991873/units/1861719/presentations#show_at_a_glance",
           "mappedAt": "2026-07-27T09:54:44.452Z"
         },
@@ -7044,7 +7044,7 @@
         },
         {
           "title": "3. Designing for better world",
-          "detail": "Starts\nW4 Oct\n\n11 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
+          "detail": "Starts\nW4 Oct\n\nCurrent Unit\n\n11 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
           "url": "https://thegaudium.managebac.com/student/classes/12992684/units/2000217/presentations#show_at_a_glance",
           "mappedAt": "2026-07-19T10:07:56.106Z"
         },
@@ -7957,26 +7957,6 @@
       "images": [],
       "source": "discussion",
       "mappedAt": "2026-07-19T10:07:56.106Z"
-    },
-    {
-      "title": "SA-2 Task sheet",
-      "className": "Mathematics (MYP Year 1) C",
-      "dueText": "Sep 1 - Tuesday at  1:45 PM",
-      "status": "Pending",
-      "unit": "UNIT 4 : Data Speaks: Understanding our Neighborhood",
-      "description": "Dear Students,\nPlease read the instructions carefully and complete the SA-2 task.\nThe completed task must be submitted by Monday, 7th September 2026. Please note that no extensions will be provided, and submissions will not be accepted after the deadline. Make sure to plan your work accordingly and submit the task on time.\nAll the best Students\nFairness_Community_Task_Sheet_MYP1.pdf2.04 MB",
-      "url": "https://thegaudium.managebac.com/student/classes/12992681/core_tasks/48648578",
-      "attachments": [
-        {
-          "name": "Fairness_Community_Task_Sheet_MYP1.pdf",
-          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/173a79e4a57e06e74bbe-Fairness_Community_Task_Sheet_MYP1.pdf",
-          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaTluYVdRNkx5OXRZVzVoWjJWaVlXTXZRWE56WlhRdk1Ua3hPRGt5TWpBNFAyVjRjR2x5WlhOZmFXNEdPZ1pGVkE9PSIsImV4cCI6bnVsbCwicHVyIjoiZGVmYXVsdCJ9fQ==--e9fbfe58a4a54233b5be8d3c18f8d389a01d3d16",
-          "mappedAt": "2026-09-01T10:22:15.029Z"
-        }
-      ],
-      "images": [],
-      "source": "task",
-      "mappedAt": "2026-09-01T10:22:15.029Z"
     },
     {
       "title": "Term-1 Mock Paper",
@@ -9666,6 +9646,26 @@
       "images": [],
       "source": "task",
       "mappedAt": "2026-10-09T07:34:39.608Z"
+    },
+    {
+      "title": "SA-2 Task sheet",
+      "className": "Mathematics (MYP Year 1) C",
+      "dueText": "Sep 1 - Tuesday at  1:45 PM",
+      "status": "Pending",
+      "unit": "UNIT 4 : Data Speaks: Understanding our Neighborhood",
+      "description": "Dear Students,\nPlease read the instructions carefully and complete the SA-2 task.\nThe completed task must be submitted by Monday, 7th September 2026. Please note that no extensions will be provided, and submissions will not be accepted after the deadline. Make sure to plan your work accordingly and submit the task on time.\nAll the best Students\nFairness_Community_Task_Sheet_MYP1.pdf2.04 MB",
+      "url": "https://thegaudium.managebac.com/student/classes/12992681/core_tasks/48648578",
+      "attachments": [
+        {
+          "name": "Fairness_Community_Task_Sheet_MYP1.pdf",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/173a79e4a57e06e74bbe-Fairness_Community_Task_Sheet_MYP1.pdf",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaTluYVdRNkx5OXRZVzVoWjJWaVlXTXZRWE56WlhRdk1Ua3hPRGt5TWpBNFAyVjRjR2x5WlhOZmFXNEdPZ1pGVkE9PSIsImV4cCI6bnVsbCwicHVyIjoiZGVmYXVsdCJ9fQ==--e9fbfe58a4a54233b5be8d3c18f8d389a01d3d16",
+          "mappedAt": "2026-09-01T10:22:15.029Z"
+        }
+      ],
+      "images": [],
+      "source": "task",
+      "mappedAt": "2026-09-01T10:22:15.029Z"
     },
     {
       "title": "Upload your game file",
