@@ -1,10 +1,10 @@
 {
   "studentKey": "advika",
   "studentName": "Advika Lakshmi",
-  "weekKey": "2026-10-12_2026-10-18",
-  "weekStart": "2026-10-12",
-  "weekEnd": "2026-10-18",
-  "generatedAt": "2026-10-16T15:25:01.274Z",
+  "weekKey": "2026-10-19_2026-10-25",
+  "weekStart": "2026-10-19",
+  "weekEnd": "2026-10-25",
+  "generatedAt": "2026-10-23T15:47:55.703Z",
   "overallSummary": "Advika's learning this week moved across 11 subjects, with a strong emphasis on explaining ideas, applying them in a new situation, and reflecting on how work could improve. The most useful parent role is to ask for evidence and reasoning—not to reteach every lesson or supply the answer.",
   "parentOverview": "ManageBac shows the learning opportunities and work recorded for the week; it does not by itself prove mastery. Use this guide to listen for what Advika can explain independently, notice where prompts are needed, and agree on one small next step. A confident explanation, a relevant example, and the ability to correct a mistake are stronger signs of understanding than task completion alone.",
   "strengths": [
@@ -18,7 +18,7 @@
     "English: choose the most urgent of 18 pending items, agree on a 20-minute start, and check that submission is complete.",
     "Design: choose the most urgent of 12 pending items, agree on a 20-minute start, and check that submission is complete.",
     "Individuals & Societies: choose the most urgent of 3 pending items, agree on a 20-minute start, and check that submission is complete.",
-    "Physical and Health Education: choose the most urgent of 2 pending items, agree on a 20-minute start, and check that submission is complete."
+    "Visual Arts: choose the most urgent of 2 pending items, agree on a 20-minute start, and check that submission is complete."
   ],
   "mentoringPlan": {
     "conversationStarters": [
@@ -158,7 +158,7 @@
     "English: choose the most urgent of 18 pending items, agree on a 20-minute start, and check that submission is complete.",
     "Design: choose the most urgent of 12 pending items, agree on a 20-minute start, and check that submission is complete.",
     "Individuals & Societies: choose the most urgent of 3 pending items, agree on a 20-minute start, and check that submission is complete.",
-    "Physical and Health Education: choose the most urgent of 2 pending items, agree on a 20-minute start, and check that submission is complete."
+    "Visual Arts: choose the most urgent of 2 pending items, agree on a 20-minute start, and check that submission is complete."
   ],
   "subjects": [
     {
@@ -367,7 +367,7 @@
     },
     {
       "subject": "Individuals & Societies",
-      "summary": "This week connected Settlements: Where Do We Live?, What does it Mean to be a Global Citizen?. Explain how rights, responsibilities, interdependence, and informed action shape global citizenship. Consider an issue from more than one stakeholder's perspective. Use evidence to propose a realistic action at local and global scales. Classroom evidence included Summative Assessment (Unit II) and TWC Time slot (24th October).",
+      "summary": "This week connected Settlements: Where Do We Live?, What does it Mean to be a Global Citizen?. Explain how rights, responsibilities, interdependence, and informed action shape global citizenship. Consider an issue from more than one stakeholder's perspective. Use evidence to propose a realistic action at local and global scales. Classroom evidence included Summative Assessment (Unit II) and Instructions for tomorrow.",
       "parentTakeaway": "The student names who is affected and distinguishes an opinion from supporting evidence.",
       "units": [
         {
@@ -375,9 +375,9 @@
           "summary": "The learning focus was to explain how rights, responsibilities, interdependence, and informed action shape global citizenship and to consider an issue from more than one stakeholder's perspective.",
           "activities": [
             "Summative Assessment (Unit II)",
+            "Instructions for tomorrow",
             "TWC Time slot (24th October)",
-            "Origin and Purpose guiding quetsions",
-            "Revision Class Link"
+            "Origin and Purpose guiding quetsions"
           ],
           "learningGoals": [
             "Explain how rights, responsibilities, interdependence, and informed action shape global citizenship.",
@@ -420,8 +420,8 @@
           "activities": [
             "Pre-Assessment Task",
             "Homework",
-            "TWC Time slot (24th October)",
-            "Origin and Purpose guiding quetsions"
+            "Instructions for tomorrow",
+            "TWC Time slot (24th October)"
           ],
           "learningGoals": [
             "Explain how rights, responsibilities, interdependence, and informed action shape global citizenship.",
@@ -763,87 +763,6 @@
       ]
     },
     {
-      "subject": "Physical and Health Education",
-      "summary": "This week connected Aesthetic Movements Aerobics, Sports Training -Fitness Components. Differentiate health-related and skill-related components of fitness. Connect a training activity to the component it develops. Plan exercise safely using warm-up, technique, recovery, and gradual progression. Classroom evidence included PHE – SA 2_Aerobics and PHE_SA1.",
-      "parentTakeaway": "The student matches an activity to a fitness component and explains the connection.",
-      "units": [
-        {
-          "name": "Aesthetic Movements Aerobics",
-          "summary": "The learning focus was to differentiate health-related and skill-related components of fitness and to connect a training activity to the component it develops.",
-          "activities": [
-            "PHE – SA 2_Aerobics"
-          ],
-          "learningGoals": [
-            "Differentiate health-related and skill-related components of fitness.",
-            "Connect a training activity to the component it develops.",
-            "Plan exercise safely using warm-up, technique, recovery, and gradual progression."
-          ],
-          "evidenceToListenFor": [
-            "The student matches an activity to a fitness component and explains the connection.",
-            "The student proposes a safe, measurable way to improve over time."
-          ],
-          "commonMisconceptions": [
-            "Fitness only means endurance or appearance.",
-            "More intensity is always better; recovery and correct technique are part of progress."
-          ],
-          "parentGuidance": [
-            "Focus discussion on energy, technique, consistency, and wellbeing rather than body shape.",
-            "Let the student design a short routine and explain the purpose of each movement."
-          ],
-          "homeExtension": "Design and lead a 15-minute family circuit covering three fitness components, then record effort and one improvement.",
-          "questions": [
-            "Teach me the most important idea from “Aesthetic Movements Aerobics” without looking at your notes.",
-            "Use “PHE – SA 2_Aerobics” to show how you applied that idea, not only what you completed.",
-            "What mistake might someone make in this topic, and how would you correct it?",
-            "Where could you use this learning outside school? Give a specific example."
-          ],
-          "videos": [
-            {
-              "title": "The Five Components of Fitness",
-              "url": "https://www.youtube.com/watch?v=NhpJiU9EUJA"
-            }
-          ]
-        },
-        {
-          "name": "Sports Training -Fitness Components",
-          "summary": "The learning focus was to differentiate health-related and skill-related components of fitness and to connect a training activity to the component it develops.",
-          "activities": [
-            "PHE_SA1"
-          ],
-          "learningGoals": [
-            "Differentiate health-related and skill-related components of fitness.",
-            "Connect a training activity to the component it develops.",
-            "Plan exercise safely using warm-up, technique, recovery, and gradual progression."
-          ],
-          "evidenceToListenFor": [
-            "The student matches an activity to a fitness component and explains the connection.",
-            "The student proposes a safe, measurable way to improve over time."
-          ],
-          "commonMisconceptions": [
-            "Fitness only means endurance or appearance.",
-            "More intensity is always better; recovery and correct technique are part of progress."
-          ],
-          "parentGuidance": [
-            "Focus discussion on energy, technique, consistency, and wellbeing rather than body shape.",
-            "Let the student design a short routine and explain the purpose of each movement."
-          ],
-          "homeExtension": "Design and lead a 15-minute family circuit covering three fitness components, then record effort and one improvement.",
-          "questions": [
-            "Teach me the most important idea from “Sports Training -Fitness Components” without looking at your notes.",
-            "Use “PHE_SA1” to show how you applied that idea, not only what you completed.",
-            "What mistake might someone make in this topic, and how would you correct it?",
-            "Where could you use this learning outside school? Give a specific example."
-          ],
-          "videos": [
-            {
-              "title": "The Five Components of Fitness",
-              "url": "https://www.youtube.com/watch?v=NhpJiU9EUJA"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "subject": "Design",
       "summary": "This week connected Unit-1: Designing for Interaction, Staying Safe in the Digital World. Understand sprites, events, motion, looks, sound, control, sensing, and operator blocks. Arrange instructions in a logical sequence to create an interactive response. Research user needs and define success criteria before building a solution. Classroom evidence included NLP Extension and Upload your game file.",
       "parentTakeaway": "The student can predict what a block sequence will do before running it.",
@@ -933,6 +852,87 @@
             {
               "title": "Getting Started with PictoBlox — STEMpedia",
               "url": "https://www.youtube.com/watch?v=wB7ONAcT55I"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Physical and Health Education",
+      "summary": "This week connected Aesthetic Movements Aerobics, Sports Training -Fitness Components. Differentiate health-related and skill-related components of fitness. Connect a training activity to the component it develops. Plan exercise safely using warm-up, technique, recovery, and gradual progression. Classroom evidence included PHE – SA 2_Aerobics and PHE_SA1.",
+      "parentTakeaway": "The student matches an activity to a fitness component and explains the connection.",
+      "units": [
+        {
+          "name": "Aesthetic Movements Aerobics",
+          "summary": "The learning focus was to differentiate health-related and skill-related components of fitness and to connect a training activity to the component it develops.",
+          "activities": [
+            "PHE – SA 2_Aerobics"
+          ],
+          "learningGoals": [
+            "Differentiate health-related and skill-related components of fitness.",
+            "Connect a training activity to the component it develops.",
+            "Plan exercise safely using warm-up, technique, recovery, and gradual progression."
+          ],
+          "evidenceToListenFor": [
+            "The student matches an activity to a fitness component and explains the connection.",
+            "The student proposes a safe, measurable way to improve over time."
+          ],
+          "commonMisconceptions": [
+            "Fitness only means endurance or appearance.",
+            "More intensity is always better; recovery and correct technique are part of progress."
+          ],
+          "parentGuidance": [
+            "Focus discussion on energy, technique, consistency, and wellbeing rather than body shape.",
+            "Let the student design a short routine and explain the purpose of each movement."
+          ],
+          "homeExtension": "Design and lead a 15-minute family circuit covering three fitness components, then record effort and one improvement.",
+          "questions": [
+            "Teach me the most important idea from “Aesthetic Movements Aerobics” without looking at your notes.",
+            "Use “PHE – SA 2_Aerobics” to show how you applied that idea, not only what you completed.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "The Five Components of Fitness",
+              "url": "https://www.youtube.com/watch?v=NhpJiU9EUJA"
+            }
+          ]
+        },
+        {
+          "name": "Sports Training -Fitness Components",
+          "summary": "The learning focus was to differentiate health-related and skill-related components of fitness and to connect a training activity to the component it develops.",
+          "activities": [
+            "PHE_SA1"
+          ],
+          "learningGoals": [
+            "Differentiate health-related and skill-related components of fitness.",
+            "Connect a training activity to the component it develops.",
+            "Plan exercise safely using warm-up, technique, recovery, and gradual progression."
+          ],
+          "evidenceToListenFor": [
+            "The student matches an activity to a fitness component and explains the connection.",
+            "The student proposes a safe, measurable way to improve over time."
+          ],
+          "commonMisconceptions": [
+            "Fitness only means endurance or appearance.",
+            "More intensity is always better; recovery and correct technique are part of progress."
+          ],
+          "parentGuidance": [
+            "Focus discussion on energy, technique, consistency, and wellbeing rather than body shape.",
+            "Let the student design a short routine and explain the purpose of each movement."
+          ],
+          "homeExtension": "Design and lead a 15-minute family circuit covering three fitness components, then record effort and one improvement.",
+          "questions": [
+            "Teach me the most important idea from “Sports Training -Fitness Components” without looking at your notes.",
+            "Use “PHE_SA1” to show how you applied that idea, not only what you completed.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "The Five Components of Fitness",
+              "url": "https://www.youtube.com/watch?v=NhpJiU9EUJA"
             }
           ]
         }
