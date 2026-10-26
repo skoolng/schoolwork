@@ -1,10 +1,40 @@
 {
   "studentName": "Advika Lakshmi",
-  "syncedAt": "2026-10-26T11:25:38.070Z",
+  "syncedAt": "2026-10-26T16:16:40.615Z",
   "sourceUrl": "https://thegaudium.managebac.com/student/home",
   "status": "ok",
   "error": "",
   "notifications": [
+    {
+      "title": "Term-1 Feedback",
+      "detail": "Dr.Padmaja Kakumanu has posted the following discussion in IB Middle Years Class of 2031: MYP1C (MYP Year 1):\n\nDear Parents,\nGreetings of the day.Thank you to all the parents who have attended the MYP Term-1 TWC and witnessed the student projects under Kautuka 3.0.\nRequest you to give your valuable feedback on Term-1 completion using the QR code.\n\nRegards\nDr.Padmaja Kakumanu\nMYP Coordinator\n\nClick here to view the full discussion thread.",
+      "url": "https://thegaudium.managebac.com/student/notifications/1404029391",
+      "createdAt": "2026-10-26T16:07:30.749Z",
+      "sender": "Dr.Padmaja Kakumanu",
+      "origin": "IB Middle Years Class of 2031: MYP1C (MYP Year 1)",
+      "attachments": [],
+      "channel": "managebac",
+      "externalId": "1404029391",
+      "mappedAt": "2026-10-26T16:16:40.615Z"
+    },
+    {
+      "title": "Unit-3-How do living things work ?",
+      "detail": "Sreelakshmi Buddharaju has posted the following discussion in IB MYP Sciences (MYP Year 1) C:\n\nCharacteristics_of_Living_Things__1_.pdf9.13 MB\nWhen you get time go through the material posted. Once discussed in the class we can make a note in our notebooks.\n\nClick here to view the full discussion thread.",
+      "url": "https://thegaudium.managebac.com/student/notifications/1404021313",
+      "createdAt": "2026-10-26T15:53:23.279Z",
+      "sender": "Sreelakshmi Buddharaju",
+      "origin": "IB MYP Sciences (MYP Year 1) C",
+      "attachments": [
+        {
+          "name": "Characteristics_of_Living_Things__1_.pdf",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/548801cd2bff455ee58c-Characteristics_of_Living_Things__1_.pdf",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTU4NjQ4MTI_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--7287a13a8b7aa5f3d377a9e9a5907048888b7299"
+        }
+      ],
+      "channel": "managebac",
+      "externalId": "1404021313",
+      "mappedAt": "2026-10-26T16:16:40.615Z"
+    },
     {
       "title": "Term 2 Syllabus – MYP Integrated Sciences",
       "detail": "Sreelakshmi Buddharaju has posted the following discussion in IB MYP Sciences (MYP Year 1) C:\n\nUnit 3: How Do Living Things Work? (Cellular Organization and Ecosystems)\n1. Characteristics and Structure of Living Things\nCharacteristics of living organisms – MRS GREN:\nMovement\n\nRespiration\n\nSensitivity\n\nGrowth\n\nReproduction\n\nExcretion\n\nNutrition\n\nTypes of cells\n\n2. Cells and Their Organelles\nCell as the basic unit of life\n\nStructure of a cell\n\nCell organelles and their functions:\nCell membrane\n\nCytoplasm\n\nNucleus\n\nMitochondria\n\nRibosomes\n\nVacuole\n\nChloroplast (plant cells)\n\nCell wall (plant cells)\n\n3. Microscope and Its Functions\nIntroduction to the microscope\n\nParts of a microscope\n\nFunctions of microscope parts\n\nUse of a microscope to observe cells\n\n4. Practical Investigation\nOnion peel experiment – Observation of plant cells under a microscope\n\n5. Plant and Animal Cells\nStructure of plant cells\n\nStructure of animal cells\n\nSimilarities between plant and animal cells\n\nDifferences between plant and animal cells\n\n6. Specialized Cells and Their Functions\nRed blood cells (RBCs)\n\nWhite blood cells (WBCs)\n\nNeurons (nerve cells)\n\nMuscle cells\n\nRoot hair cells\n\nPalisade cells\n\n7. Levels of Organization in Living Organisms\nCells\n\nTissues\n\nOrgans\n\nOrgan systems\n\nOrganisms\n\n8. Ecosystem Components\nBiotic factors (living components)\n\nAbiotic factors (non-living components)\n\nInteractions between biotic and abiotic components\n\n9. Habitats\nDefinition of a habitat\n\nTypes of habitats\n\n10. Food Chains and Food Webs\nDefinition of a food chain\n\nProducers, consumers, and decomposers\n\nDefinition of a food web\n\nInterconnection of food chains\n\nEnergy flow in ecosystems\n\nUnit 4: What Makes Change Happen? (Energy and Energy Transformations)\n1. Introduction to Energy\nDefinition of energy\n\nImportance of energy in everyday life\n\nDifferent forms of energy\n\n2. Sources of Energy\nRenewable energy sources\n\nNon-renewable energy sources\n\nExamples of renewable and non-renewable energy sources\n\n3. Forms of Mechanical Energy\nPotential energy\n\nKinetic energy\n\nMechanical energy\n\n4. Energy Transformations\nMeaning of energy transformation\n\nConversion of energy from one form to another\n\nExamples of energy transformations in everyday life\n\n5. Transfer of Heat Energy\nConduction\n\nConvection\n\nRadiation\n\nExamples and applications of the three modes of heat transfer\n\n6. Water Cycle and Energy Transformations\nStages of the water cycle:\nEvaporation\n\nCondensation\n\nPrecipitation\n\nCollection\n\nRole of solar energy in the water cycle\n\nEnergy transformations during the water cycle\n\nClick here to view the full discussion thread.",
@@ -4902,9 +4932,25 @@
     {
       "name": "Sciences (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12991873",
-      "latestActivity": "Today Term 2 Syllabus – MYP Integrated Sciences Sreelakshmi Buddharaju updated a message on Oct 26, 2026 at 11:52 AM New October 03, 2026 Questions and Answer keys from FA , SA and Mock paper for Revision Sreelakshmi Buddharaju added a message on Oct 3, 2026 at 6:40 AM October 01, 2026 Online class...",
+      "latestActivity": "Today Unit-3-How do living things work ? Sreelakshmi Buddharaju added a message on Oct 26, 2026 at 9:23 PM New Term 2 Syllabus – MYP Integrated Sciences Sreelakshmi Buddharaju updated a message on Oct 26, 2026 at 11:52 AM New October 03, 2026 Questions and Answer keys from FA , SA and Mock paper fo...",
       "stream": [],
       "discussions": [
+        {
+          "title": "Unit-3-How do living things work ?",
+          "detail": "When you get time go through the material posted. Once discussed in the class we can make a note in our notebooks.",
+          "dateText": "Monday, Oct 26, 2026 at 9:23 PM",
+          "url": "https://thegaudium.managebac.com/student/classes/12991873/discussions/29213492",
+          "attachments": [
+            {
+              "name": "Characteristics_of_Living_Things__1_.pdf",
+              "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/548801cd2bff455ee58c-Characteristics_of_Living_Things__1_.pdf",
+              "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTU4NjQ4MTI_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--7287a13a8b7aa5f3d377a9e9a5907048888b7299",
+              "mappedAt": "2026-10-26T16:16:40.615Z"
+            }
+          ],
+          "images": [],
+          "mappedAt": "2026-10-26T16:16:40.615Z"
+        },
         {
           "title": "Term 2 Syllabus – MYP Integrated Sciences",
           "detail": "Unit 3: How Do Living Things Work?\n(Cellular Organization and Ecosystems)\n1. Characteristics and Structure of Living Things\nCharacteristics of living organisms – MRS GREN:\nMovement\n\nRespiration\n\nSensitivity\n\nGrowth\n\nReproduction\n\nExcretion\n\nNutrition\n\nTypes of cells\n\n2. Cells and Their Organelles\nCell as the basic unit of life\n\nStructure of a cell\n\nCell organelles and their functions:\nCell membrane\n\nCytoplasm\n\nNucleus\n\nMitochondria\n\nRibosomes\n\nVacuole\n\nChloroplast (plant cells)\n\nCell wall (plant cells)\n\n3. Microscope and Its Functions\nIntroduction to the microscope\n\nParts of a microscope\n\nFunctions of microscope parts\n\nUse of a microscope to observe cells\n\n4. Practical Investigation\nOnion peel experiment – Observation of plant cells under a microscope\n\n5. Plant and Animal Cells\nStructure of plant cells\n\nStructure of animal cells\n\nSimilarities between plant and animal cells\n\nDifferences between plant and animal cells\n\n6. Levels of Organization in Living Organisms\nCells\n\nTissues\n\nOrgans\n\nOrgan systems\n\nOrganisms\n\n7. Ecosystem Components\nBiotic factors (living components)\n\nAbiotic factors (non-living components)\n\nInteractions between biotic and abiotic components\n\n8. Habitats\nDefinition of a habitat\n\nTypes of habitats\n\n09. Food Chains and Food Webs\nDefinition of a food chain\n\nProducers, consumers, and decomposers\n\nDefinition of a food web\n\nInterconnection of food chains\n\nEnergy flow in ecosystems\n\nUnit 4: What Makes Change Happen?\n(Energy and Energy Transformations)\n1. Introduction to Energy\nDefinition of energy\n\nImportance of energy in everyday life\n\nDifferent forms of energy\n\n2. Sources of Energy\nRenewable energy sources\n\nNon-renewable energy sources\n\nExamples of renewable and non-renewable energy sources\n\n3. Forms of Mechanical Energy\nPotential energy\n\nKinetic energy\n\nMechanical energy\n\n4. Energy Transformations\nMeaning of energy transformation\n\nConversion of energy from one form to another\n\nExamples of energy transformations in everyday life\n\n5. Transfer of Heat Energy\nConduction\n\nConvection\n\nRadiation\n\nExamples and applications of the three modes of heat transfer\n\n6. Water Cycle and Energy Transformations\nStages of the water cycle:\nEvaporation\n\nCondensation\n\nPrecipitation\n\nCollection\n\nRole of solar energy in the water cycle\n\nEnergy transformations during the water cycle",
