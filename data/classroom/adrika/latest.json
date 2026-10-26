@@ -1,10 +1,22 @@
 {
   "studentName": "Adrika Lakshmi Saragadam",
-  "syncedAt": "2026-10-26T16:18:04.435Z",
+  "syncedAt": "2026-10-26T17:05:37.147Z",
   "sourceUrl": "https://thegaudium.managebac.com/student/home",
   "status": "ok",
   "error": "",
   "notifications": [
+    {
+      "title": "Mandatory School Uniform",
+      "detail": "Dr.Padmaja Kakumanu has posted the following discussion in IB Middle Years Class of 2031: MYP1E (MYP Year 1):\n\nDear Students ,\nAs informed to you all before ,all the students should attend the school in proper school uniform except during coaching days.Non adherence to this will lead to sending the students back home with effect from tomorrow. It is mandatory for all students to wear the ID cards in the campus without fail,\nAll the girl students should tie up hair properly and no one is allowed to leave their hair open in the school premises.\nRegards\nMYPC\n\nClick here to view the full discussion thread.",
+      "url": "https://thegaudium.managebac.com/student/notifications/1404038257",
+      "createdAt": "2026-10-26T16:25:38.978Z",
+      "sender": "Dr.Padmaja Kakumanu",
+      "origin": "IB Middle Years Class of 2031: MYP1E (MYP Year 1)",
+      "attachments": [],
+      "channel": "managebac",
+      "externalId": "1404038257",
+      "mappedAt": "2026-10-26T17:05:37.147Z"
+    },
     {
       "title": "Term-1 Feedback",
       "detail": "Dr.Padmaja Kakumanu has posted the following discussion in IB Middle Years Class of 2031: MYP1E (MYP Year 1):\n\nDear Parents,\nGreetings of the day.Thank you to all the parents who have attended the MYP Term-1 TWC and witnessed the student projects under Kautuka 3.0.\nRequest you to give your valuable feedback on Term-1 completion using the QR code.\n\nRegards\nDr.Padmaja Kakumanu\nMYP Coordinator\n\nClick here to view the full discussion thread.",
@@ -3796,7 +3808,7 @@
           "title": "IBMYP_Language___literature_guide__1_.pdf",
           "detail": "Madhavi Vinod\nJune 10, 2026\n\nENGLISH LANGUAGE AND LITERATURE GUIDE\nIBMYP Language & literature guide (1).pdf\n\nFile\n\n0\n\nComments0",
           "dateText": "June 10",
-          "url": "https://cdn.ca.managebac.com/uploads/asset/file/190241026/IBMYP_Language___literature_guide__1_.pdf?Expires=1793038657&Signature=UqoiwMa1SvXzvny1UbIr0pCvUSZymD9Y7L9dq1XJ0xFhdDqVPPitKW~sj-ZQl71IQgDV-5yqexrfTjGGxAGFnQk5SFCJZlJvJw3RmivFhxtt0yKfnhssz1SyxpAXSrjN1U4WkLKhaL0iXhS6REe5SGDaQMupwzkyaaKR0B1mKl-TqsimtJsRTydzDq9LviYH0Gbyjlf~sDtCAlbRRfFEbpw4xdAdjNj9Sfv-xopsX~RsncLZuzz~mnVoSttIHYwsSdqLlInJX-5C6MhUwRyqUNLwP71fXhxTymtAIlCe0wkzmblaH4pHkpEhzlwK2EF1oPwRxKKF30d3yRkc-bwcZg__&Key-Pair-Id=K2RK6WSQIEDQ9F",
+          "url": "https://cdn.ca.managebac.com/uploads/asset/file/190241026/IBMYP_Language___literature_guide__1_.pdf?Expires=1793041509&Signature=pnBXBhJb0Dm9AVNzdEmEzluXc90DyRCnlI4k8WXijTXWipEBo3v-qQu2nuXpFScifJVRaSk4YP2ukko3r3VwLzMlipDFByxxarSCaWjuRPCdSBQLGiHmvT7o49cuf8vWDHy~IH13F3uWrUEHx93cmTb09xhbKK9gXPZC1SS6q5wrNAIx5GlmyKSKGk78tVYYiR2btZe8eDQV0~MIWiEFSU1aLUuw5U3J8EAqaLCKPX7jQkMHfvbZh-viy4zqZM8GBrmuiLPwTKy2wDu1YgJbxjbeXB7R2n3fnHjw-qIxV9aaDqrOqVIMcxUqr~SxHTcXVDRDRlRvcN-o25RCIow0Ug__&Key-Pair-Id=K2RK6WSQIEDQ9F",
           "attachments": [
             {
               "name": "Export",
@@ -3807,7 +3819,7 @@
             {
               "name": "IBMYP_Language___literature_guide__1_.pdf",
               "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/adrika/assets/083833e9cc2c2dc6fdd0-IBMYP_Language___literature_guide__1_.pdf",
-              "sourceUrl": "https://cdn.ca.managebac.com/uploads/asset/file/190241026/IBMYP_Language___literature_guide__1_.pdf?Expires=1793038657&Signature=UqoiwMa1SvXzvny1UbIr0pCvUSZymD9Y7L9dq1XJ0xFhdDqVPPitKW~sj-ZQl71IQgDV-5yqexrfTjGGxAGFnQk5SFCJZlJvJw3RmivFhxtt0yKfnhssz1SyxpAXSrjN1U4WkLKhaL0iXhS6REe5SGDaQMupwzkyaaKR0B1mKl-TqsimtJsRTydzDq9LviYH0Gbyjlf~sDtCAlbRRfFEbpw4xdAdjNj9Sfv-xopsX~RsncLZuzz~mnVoSttIHYwsSdqLlInJX-5C6MhUwRyqUNLwP71fXhxTymtAIlCe0wkzmblaH4pHkpEhzlwK2EF1oPwRxKKF30d3yRkc-bwcZg__&Key-Pair-Id=K2RK6WSQIEDQ9F",
+              "sourceUrl": "https://cdn.ca.managebac.com/uploads/asset/file/190241026/IBMYP_Language___literature_guide__1_.pdf?Expires=1793041509&Signature=pnBXBhJb0Dm9AVNzdEmEzluXc90DyRCnlI4k8WXijTXWipEBo3v-qQu2nuXpFScifJVRaSk4YP2ukko3r3VwLzMlipDFByxxarSCaWjuRPCdSBQLGiHmvT7o49cuf8vWDHy~IH13F3uWrUEHx93cmTb09xhbKK9gXPZC1SS6q5wrNAIx5GlmyKSKGk78tVYYiR2btZe8eDQV0~MIWiEFSU1aLUuw5U3J8EAqaLCKPX7jQkMHfvbZh-viy4zqZM8GBrmuiLPwTKy2wDu1YgJbxjbeXB7R2n3fnHjw-qIxV9aaDqrOqVIMcxUqr~SxHTcXVDRDRlRvcN-o25RCIow0Ug__&Key-Pair-Id=K2RK6WSQIEDQ9F",
               "mappedAt": "2026-07-27T09:55:18.161Z"
             }
           ],
