@@ -1,10 +1,28 @@
 {
   "studentName": "Advika Lakshmi",
-  "syncedAt": "2026-10-27T06:29:43.378Z",
+  "syncedAt": "2026-10-27T10:49:20.434Z",
   "sourceUrl": "https://thegaudium.managebac.com/student/home",
   "status": "ok",
   "error": "",
   "notifications": [
+    {
+      "title": "Generalise the rule",
+      "detail": "Sabitha Karunam has posted the following discussion in IB MYP Mathematics (MYP Year 1) C:\n\nDear Students, Complete the task.\nScreenshot_2026-10-27_140722.png203.74 KB\n\nClick here to view the full discussion thread.",
+      "url": "https://thegaudium.managebac.com/student/notifications/1404589365",
+      "createdAt": "2026-10-27T08:43:19.729Z",
+      "sender": "Sabitha Karunam",
+      "origin": "IB MYP Mathematics (MYP Year 1) C",
+      "attachments": [
+        {
+          "name": "Screenshot_2026-10-27_140722.png",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/1033d545c499a5472f92-Screenshot_2026-10-27_140722.png",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTU5MTc1NzQ_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--958562638000179b95e011140d22768e9aae48f9"
+        }
+      ],
+      "channel": "managebac",
+      "externalId": "1404589365",
+      "mappedAt": "2026-10-27T10:49:20.434Z"
+    },
     {
       "title": "Mandatory School Uniform",
       "detail": "Dr.Padmaja Kakumanu has posted the following discussion in IB Middle Years Class of 2031: MYP1C (MYP Year 1):\n\nDear Students ,\nAs informed to you all before ,all the students should attend the school in proper school uniform except during coaching days.Non adherence to this will lead to sending the students back home with effect from tomorrow. It is mandatory for all students to wear the ID cards in the campus without fail,\nAll the girl students should tie up hair properly and no one is allowed to leave their hair open in the school premises.\nRegards\nMYPC\n\nClick here to view the full discussion thread.",
@@ -5836,9 +5854,32 @@
     {
       "name": "Mathematics (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12992681",
-      "latestActivity": "September 30, 2026 Online class link Sabitha Karunam added a message on Sep 30, 2026 at 9:56 AM September 29, 2026 Online class for Term-1 exam (Doubts Clarification) Sabitha Karunam added a message on Sep 29, 2026 at 5:10 PM September 24, 2026 Term-1 Mock Paper Sabitha Karunam added a message on S...",
+      "latestActivity": "Today Generalise the rule Sabitha Karunam added a message on Oct 27, 2026 at 2:13 PM New September 30, 2026 Online class link Sabitha Karunam added a message on Sep 30, 2026 at 9:56 AM September 29, 2026 Online class for Term-1 exam (Doubts Clarification) Sabitha Karunam added a message on Sep 29,...",
       "stream": [],
       "discussions": [
+        {
+          "title": "Generalise the rule",
+          "detail": "Dear Students, Complete the task.",
+          "dateText": "Tuesday, Oct 27, 2026 at 2:13 PM",
+          "url": "https://thegaudium.managebac.com/student/classes/12992681/discussions/29217793",
+          "attachments": [
+            {
+              "name": "Screenshot_2026-10-27_140722.png",
+              "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/1033d545c499a5472f92-Screenshot_2026-10-27_140722.png",
+              "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTU5MTc1NzQ_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--958562638000179b95e011140d22768e9aae48f9",
+              "mappedAt": "2026-10-27T10:49:20.434Z"
+            }
+          ],
+          "images": [
+            {
+              "name": "Screenshot_2026-10-27_140722.png",
+              "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/1033d545c499a5472f92-Screenshot_2026-10-27_140722.png",
+              "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTU5MTc1NzQ_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--958562638000179b95e011140d22768e9aae48f9",
+              "mappedAt": "2026-10-27T10:49:20.434Z"
+            }
+          ],
+          "mappedAt": "2026-10-27T10:49:20.434Z"
+        },
         {
           "title": "Online class link",
           "detail": "Dear Students, Join the link\n\nhttps://meet.google.com/hwi-qbpn-zpg",
@@ -8107,6 +8148,33 @@
       "images": [],
       "source": "task",
       "mappedAt": "2026-09-01T10:22:15.029Z"
+    },
+    {
+      "title": "Generalise the rule",
+      "className": "Mathematics (MYP Year 1) C",
+      "dueText": "",
+      "status": "Shared in Discussion",
+      "unit": "Class discussion",
+      "description": "Dear Students, Complete the task.",
+      "url": "https://thegaudium.managebac.com/student/classes/12992681/discussions/29217793",
+      "attachments": [
+        {
+          "name": "Screenshot_2026-10-27_140722.png",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/1033d545c499a5472f92-Screenshot_2026-10-27_140722.png",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTU5MTc1NzQ_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--958562638000179b95e011140d22768e9aae48f9",
+          "mappedAt": "2026-10-27T10:49:20.434Z"
+        }
+      ],
+      "images": [
+        {
+          "name": "Screenshot_2026-10-27_140722.png",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/1033d545c499a5472f92-Screenshot_2026-10-27_140722.png",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTU5MTc1NzQ_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--958562638000179b95e011140d22768e9aae48f9",
+          "mappedAt": "2026-10-27T10:49:20.434Z"
+        }
+      ],
+      "source": "discussion",
+      "mappedAt": "2026-10-27T10:49:20.434Z"
     },
     {
       "title": "Term-1 Mock Paper",
