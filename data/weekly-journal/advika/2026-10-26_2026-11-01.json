@@ -1,0 +1,1063 @@
+{
+  "studentKey": "advika",
+  "studentName": "Advika Lakshmi",
+  "weekKey": "2026-10-26_2026-11-01",
+  "weekStart": "2026-10-26",
+  "weekEnd": "2026-11-01",
+  "generatedAt": "2026-10-30T17:04:30.115Z",
+  "overallSummary": "Advika's learning this week moved across 11 subjects, with a strong emphasis on explaining ideas, applying them in a new situation, and reflecting on how work could improve. The most useful parent role is to ask for evidence and reasoning—not to reteach every lesson or supply the answer.",
+  "parentOverview": "ManageBac shows the learning opportunities and work recorded for the week; it does not by itself prove mastery. Use this guide to listen for what Advika can explain independently, notice where prompts are needed, and agree on one small next step. A confident explanation, a relevant example, and the ability to correct a mistake are stronger signs of understanding than task completion alone.",
+  "strengths": [
+    "English: Explain the central ideas and vocabulary connected to “Y1_Unit 2: Pitch Perfect: the Art of Persuasion”.",
+    "French (i) Phases 1, 2: Introduce self, family, and friends using accurate core vocabulary.",
+    "Individuals & Societies: Explain how rights, responsibilities, interdependence, and informed action shape global citizenship.",
+    "Sciences: Frame a testable research question and an evidence-based hypothesis.",
+    "Mathematics: Recognize number properties, factors, multiples, and patterns."
+  ],
+  "growthAreas": [
+    "English: choose the most urgent of 18 pending items, agree on a 20-minute start, and check that submission is complete.",
+    "Design: choose the most urgent of 12 pending items, agree on a 20-minute start, and check that submission is complete.",
+    "Individuals & Societies: choose the most urgent of 3 pending items, agree on a 20-minute start, and check that submission is complete.",
+    "Visual Arts: choose the most urgent of 2 pending items, agree on a 20-minute start, and check that submission is complete."
+  ],
+  "mentoringPlan": {
+    "conversationStarters": [
+      "What is one idea from Y1_Unit 2: Pitch Perfect: the Art of Persuasion that you understand differently now?",
+      "Show me a piece of work you are proud of. What decision did you make, and why?",
+      "Choose one difficult moment from this week. What strategy did you try before asking for help?",
+      "Which school idea could help us solve a problem at home or in our community?"
+    ],
+    "coachingTips": [
+      "Begin with 'Teach me' and wait at least ten seconds; retrieval is more useful than rapid prompting.",
+      "Ask for an example, a non-example, or evidence before deciding whether the idea is understood.",
+      "Praise the strategy—planning, checking, revising, or persisting—rather than speed or talent.",
+      "If the student is stuck, reduce the task to the first visible step and let them choose the next action."
+    ],
+    "weeklyRoutine": [
+      {
+        "label": "Plan · 10 min",
+        "action": "Choose one pending task and one learning goal; write the first action for each."
+      },
+      {
+        "label": "Explain · 10 min",
+        "action": "The student teaches one unit without notes; the parent asks one evidence question."
+      },
+      {
+        "label": "Create · 30–45 min",
+        "action": "Complete one recommended home project with Advika making the decisions."
+      },
+      {
+        "label": "Reflect · 10 min",
+        "action": "Name one success, one correction, and one specific goal for the next week."
+      }
+    ]
+  },
+  "homeProjects": [
+    {
+      "title": "Interactive modern myth",
+      "purpose": "Combine narrative craft with computational thinking by turning a myth into a choice-based PictoBlox story.",
+      "estimatedTime": "2 sessions of 35 minutes",
+      "materials": [
+        "Paper and pencil",
+        "PictoBlox",
+        "Optional voice recorder"
+      ],
+      "steps": [
+        "Plan a hero, setting, problem, and two meaningful choices on paper.",
+        "Storyboard three scenes and decide which event triggers each scene.",
+        "Build the story with sprites, dialogue, motion, and at least one branch.",
+        "Ask a family member to test it; record one problem and improve it."
+      ],
+      "parentRole": "Be the first user. Ask what each choice reveals about the character instead of suggesting the code or story solution.",
+      "lookFor": [
+        "A clear story sequence",
+        "Blocks used with purpose",
+        "Improvement after user feedback"
+      ],
+      "reflectionQuestions": [
+        "Which choice changes the story most?",
+        "What did testing reveal that planning did not?"
+      ],
+      "subjectLinks": [
+        "English",
+        "Design"
+      ]
+    },
+    {
+      "title": "Kitchen-table fair test",
+      "purpose": "Practise scientific investigation and data reasoning with a safe experiment about melting ice.",
+      "estimatedTime": "45 minutes plus observation time",
+      "materials": [
+        "Two equal ice cubes",
+        "Two plates",
+        "Timer",
+        "Ruler or kitchen scale",
+        "Notebook"
+      ],
+      "steps": [
+        "Choose one factor to change, such as sunlight versus shade.",
+        "Write a research question, hypothesis, variables, and fair-test controls.",
+        "Measure at equal time intervals and repeat if practical.",
+        "Make a graph, write a data-based conclusion, and identify one limitation."
+      ],
+      "parentRole": "Check safety and measurement consistency. Do not rescue an unexpected result—ask what it might mean.",
+      "lookFor": [
+        "Only one planned variable changes",
+        "A labelled data table or graph",
+        "Conclusion refers to evidence"
+      ],
+      "reflectionQuestions": [
+        "How fair was the comparison?",
+        "What would make the evidence more reliable?"
+      ],
+      "subjectLinks": [
+        "Sciences",
+        "Mathematics"
+      ]
+    },
+    {
+      "title": "Three-day household plastic audit",
+      "purpose": "Turn global citizenship into informed local action using evidence rather than assumptions.",
+      "estimatedTime": "10 minutes daily for 3 days, then 30 minutes",
+      "materials": [
+        "Collection sheet",
+        "Pencil",
+        "Optional spreadsheet",
+        "Reusable containers for comparison"
+      ],
+      "steps": [
+        "Define categories such as packaging, bottles, delivery items, and personal care.",
+        "Count discarded plastic for three days without changing normal habits.",
+        "Graph the categories and identify the largest source.",
+        "Propose one realistic seven-day change and explain who must participate."
+      ],
+      "parentRole": "Help collect accurate data and discuss trade-offs such as cost, convenience, hygiene, and access.",
+      "lookFor": [
+        "Consistent categories",
+        "A claim supported by the audit",
+        "A specific and feasible action"
+      ],
+      "reflectionQuestions": [
+        "What surprised you?",
+        "Which change would have the greatest realistic impact?"
+      ],
+      "subjectLinks": [
+        "Individuals & Societies",
+        "Mathematics"
+      ]
+    }
+  ],
+  "highlights": [
+    "English: Explain the central ideas and vocabulary connected to “Y1_Unit 2: Pitch Perfect: the Art of Persuasion”.",
+    "French (i) Phases 1, 2: Introduce self, family, and friends using accurate core vocabulary.",
+    "Individuals & Societies: Explain how rights, responsibilities, interdependence, and informed action shape global citizenship.",
+    "Sciences: Frame a testable research question and an evidence-based hypothesis.",
+    "Mathematics: Recognize number properties, factors, multiples, and patterns."
+  ],
+  "attentionItems": [
+    "English: choose the most urgent of 18 pending items, agree on a 20-minute start, and check that submission is complete.",
+    "Design: choose the most urgent of 12 pending items, agree on a 20-minute start, and check that submission is complete.",
+    "Individuals & Societies: choose the most urgent of 3 pending items, agree on a 20-minute start, and check that submission is complete.",
+    "Visual Arts: choose the most urgent of 2 pending items, agree on a 20-minute start, and check that submission is complete."
+  ],
+  "subjects": [
+    {
+      "subject": "English",
+      "summary": "This week connected Y1_Unit 2: Pitch Perfect: the Art of Persuasion, Pitch Perfect - The Art of Persuasion, Myths and legends: A mirror of reality?. Explain the central ideas and vocabulary connected to “Y1_Unit 2: Pitch Perfect: the Art of Persuasion”. Apply the learning to a new example and justify the choices made. Reflect on feedback, challenges, and a sensible next step. Classroom evidence included Mock Paper and Homework.",
+      "parentTakeaway": "The student explains the idea in their own words and gives a relevant example.",
+      "units": [
+        {
+          "name": "Y1_Unit 2: Pitch Perfect: the Art of Persuasion",
+          "summary": "The learning focus was to explain the central ideas and vocabulary connected to “Y1_Unit 2: Pitch Perfect: the Art of Persuasion” and to apply the learning to a new example and justify the choices made.",
+          "activities": [
+            "Mock Paper",
+            "Homework",
+            "Formative Assessment",
+            "Sample Paper"
+          ],
+          "learningGoals": [
+            "Explain the central ideas and vocabulary connected to “Y1_Unit 2: Pitch Perfect: the Art of Persuasion”.",
+            "Apply the learning to a new example and justify the choices made.",
+            "Reflect on feedback, challenges, and a sensible next step."
+          ],
+          "evidenceToListenFor": [
+            "The student explains the idea in their own words and gives a relevant example.",
+            "The student can identify what they would improve in a second attempt."
+          ],
+          "commonMisconceptions": [
+            "Completing the activity is the same as understanding the underlying idea."
+          ],
+          "parentGuidance": [
+            "Ask the student to teach the idea before offering explanations.",
+            "Request one example, one non-example, and one real-world connection."
+          ],
+          "homeExtension": "Create a one-page explainer for “Y1_Unit 2: Pitch Perfect: the Art of Persuasion” with an example, a diagram, and a reflection.",
+          "questions": [
+            "Teach me the most important idea from “Y1_Unit 2: Pitch Perfect: the Art of Persuasion” without looking at your notes.",
+            "Read a short section from “Mock Paper” and point out one deliberate writing choice and its effect on the reader.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "Persuasive Writing for Kids — Episode 1",
+              "url": "https://www.youtube.com/watch?v=hD9arWXIddM"
+            }
+          ]
+        },
+        {
+          "name": "Pitch Perfect - The Art of Persuasion",
+          "summary": "The learning focus was to explain the central ideas and vocabulary connected to “Pitch Perfect - The Art of Persuasion” and to apply the learning to a new example and justify the choices made.",
+          "activities": [
+            "Homework",
+            "Revision class today at 10.20am",
+            "Term 1 Instructions",
+            "Answer Key"
+          ],
+          "learningGoals": [
+            "Explain the central ideas and vocabulary connected to “Pitch Perfect - The Art of Persuasion”.",
+            "Apply the learning to a new example and justify the choices made.",
+            "Reflect on feedback, challenges, and a sensible next step."
+          ],
+          "evidenceToListenFor": [
+            "The student explains the idea in their own words and gives a relevant example.",
+            "The student can identify what they would improve in a second attempt."
+          ],
+          "commonMisconceptions": [
+            "Completing the activity is the same as understanding the underlying idea."
+          ],
+          "parentGuidance": [
+            "Ask the student to teach the idea before offering explanations.",
+            "Request one example, one non-example, and one real-world connection."
+          ],
+          "homeExtension": "Create a one-page explainer for “Pitch Perfect - The Art of Persuasion” with an example, a diagram, and a reflection.",
+          "questions": [
+            "Teach me the most important idea from “Pitch Perfect - The Art of Persuasion” without looking at your notes.",
+            "Read a short section from “Homework” and point out one deliberate writing choice and its effect on the reader.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "Persuasive Writing for Kids — Episode 1",
+              "url": "https://www.youtube.com/watch?v=hD9arWXIddM"
+            }
+          ]
+        },
+        {
+          "name": "Myths and legends: A mirror of reality?",
+          "summary": "The learning focus was to build an engaging narrative opening with a clear character, setting, and problem and to reveal character through actions, dialogue, thoughts, and reactions instead of direct labels.",
+          "activities": [
+            "Revision Task",
+            "Sample Writing Task",
+            "Show, Don't Tell",
+            "Homework"
+          ],
+          "learningGoals": [
+            "Build an engaging narrative opening with a clear character, setting, and problem.",
+            "Reveal character through actions, dialogue, thoughts, and reactions instead of direct labels.",
+            "Use myths and legends to explore how beliefs and values shape a story."
+          ],
+          "evidenceToListenFor": [
+            "The student can point to a sentence and explain how it creates mood or reveals character.",
+            "The story has a purposeful sequence rather than a list of unrelated events."
+          ],
+          "commonMisconceptions": [
+            "Adding more adjectives automatically makes writing vivid.",
+            "A myth is only fantasy; strong myths also communicate a culture's values or fears."
+          ],
+          "parentGuidance": [
+            "Ask for one sensory detail at a time: what could the character see, hear, or feel?",
+            "Let the student revise one paragraph aloud instead of correcting the whole piece for them."
+          ],
+          "homeExtension": "Turn a familiar family or community story into a 6-panel modern myth, showing the hero's traits through choices.",
+          "questions": [
+            "Teach me the most important idea from “Myths and legends: A mirror of reality?” without looking at your notes.",
+            "Read a short section from “Revision Task” and point out one deliberate writing choice and its effect on the reader.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "Persuasive Writing for Kids — Episode 1",
+              "url": "https://www.youtube.com/watch?v=hD9arWXIddM"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "French (i) Phases 1, 2",
+      "summary": "This week connected La maison, Unit 1: Me and Myself. Introduce self, family, and friends using accurate core vocabulary. Build complete sentences with appropriate pronouns, verbs, and simple descriptions. Listen and respond without relying entirely on written prompts. Classroom evidence included Formative Assessment II.",
+      "parentTakeaway": "The student can speak for 30–60 seconds with understandable pronunciation.",
+      "units": [
+        {
+          "name": "La maison",
+          "summary": "The learning focus was to introduce self, family, and friends using accurate core vocabulary and to build complete sentences with appropriate pronouns, verbs, and simple descriptions.",
+          "activities": [
+            "Formative Assessment II"
+          ],
+          "learningGoals": [
+            "Introduce self, family, and friends using accurate core vocabulary.",
+            "Build complete sentences with appropriate pronouns, verbs, and simple descriptions.",
+            "Listen and respond without relying entirely on written prompts."
+          ],
+          "evidenceToListenFor": [
+            "The student can speak for 30–60 seconds with understandable pronunciation.",
+            "The student adapts a sentence to describe a different person rather than memorizing one script."
+          ],
+          "commonMisconceptions": [
+            "Translating every English word in the same order produces natural French.",
+            "Reading accurately is the same as speaking independently."
+          ],
+          "parentGuidance": [
+            "Practise in short daily bursts and respond to meaning before correcting pronunciation.",
+            "Use family photos and ask one follow-up question at a time."
+          ],
+          "homeExtension": "Create a labelled family gallery and record a one-minute French audio tour introducing three people.",
+          "questions": [
+            "Teach me the most important idea from “La maison” without looking at your notes.",
+            "Without reading, introduce yourself or a family member in French using complete sentences from “La maison”.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "Family Words in French — Learn French With Alexa",
+              "url": "https://www.youtube.com/watch?v=L5-3kpXaEi4"
+            }
+          ]
+        },
+        {
+          "name": "Unit 1: Me and Myself",
+          "summary": "The learning focus was to introduce self, family, and friends using accurate core vocabulary and to build complete sentences with appropriate pronouns, verbs, and simple descriptions.",
+          "activities": [],
+          "learningGoals": [
+            "Introduce self, family, and friends using accurate core vocabulary.",
+            "Build complete sentences with appropriate pronouns, verbs, and simple descriptions.",
+            "Listen and respond without relying entirely on written prompts."
+          ],
+          "evidenceToListenFor": [
+            "The student can speak for 30–60 seconds with understandable pronunciation.",
+            "The student adapts a sentence to describe a different person rather than memorizing one script."
+          ],
+          "commonMisconceptions": [
+            "Translating every English word in the same order produces natural French.",
+            "Reading accurately is the same as speaking independently."
+          ],
+          "parentGuidance": [
+            "Practise in short daily bursts and respond to meaning before correcting pronunciation.",
+            "Use family photos and ask one follow-up question at a time."
+          ],
+          "homeExtension": "Create a labelled family gallery and record a one-minute French audio tour introducing three people.",
+          "questions": [
+            "Teach me the most important idea from “Unit 1: Me and Myself” without looking at your notes.",
+            "Without reading, introduce yourself or a family member in French using complete sentences from “Unit 1: Me and Myself”.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "Family Words in French — Learn French With Alexa",
+              "url": "https://www.youtube.com/watch?v=L5-3kpXaEi4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Individuals & Societies",
+      "summary": "This week connected Settlements: Where Do We Live?, What does it Mean to be a Global Citizen?. Explain how rights, responsibilities, interdependence, and informed action shape global citizenship. Consider an issue from more than one stakeholder's perspective. Use evidence to propose a realistic action at local and global scales. Classroom evidence included Summative Assessment (Unit II) and Instructions for tomorrow.",
+      "parentTakeaway": "The student names who is affected and distinguishes an opinion from supporting evidence.",
+      "units": [
+        {
+          "name": "Settlements: Where Do We Live?",
+          "summary": "The learning focus was to explain how rights, responsibilities, interdependence, and informed action shape global citizenship and to consider an issue from more than one stakeholder's perspective.",
+          "activities": [
+            "Summative Assessment (Unit II)",
+            "Instructions for tomorrow",
+            "TWC Time slot (24th October)",
+            "Origin and Purpose guiding quetsions"
+          ],
+          "learningGoals": [
+            "Explain how rights, responsibilities, interdependence, and informed action shape global citizenship.",
+            "Consider an issue from more than one stakeholder's perspective.",
+            "Use evidence to propose a realistic action at local and global scales."
+          ],
+          "evidenceToListenFor": [
+            "The student names who is affected and distinguishes an opinion from supporting evidence.",
+            "A proposed action is specific, feasible, and linked to the cause of the problem."
+          ],
+          "commonMisconceptions": [
+            "Global citizenship only means helping people in other countries.",
+            "A large problem has no meaningful local action; small actions matter when they are targeted and sustained."
+          ],
+          "parentGuidance": [
+            "Ask whose voice may be missing and what evidence would change the student's view.",
+            "Compare one household action with one policy or community action; discuss the value of both."
+          ],
+          "homeExtension": "Complete a three-day household plastic audit, graph the categories, and write a short action proposal to reduce the largest source.",
+          "questions": [
+            "Teach me the most important idea from “Settlements: Where Do We Live?” without looking at your notes.",
+            "Connect “Summative Assessment (Unit II)” to a real community issue. Explain who is affected, why it matters, and one responsible action.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "What Is Global Citizenship for Kids?",
+              "url": "https://www.youtube.com/watch?v=1fugHkJzDao"
+            },
+            {
+              "title": "Maps for Kids — Learn Bright",
+              "url": "https://www.youtube.com/watch?v=UZaTK7B0doE"
+            }
+          ]
+        },
+        {
+          "name": "What does it Mean to be a Global Citizen?",
+          "summary": "The learning focus was to explain how rights, responsibilities, interdependence, and informed action shape global citizenship and to consider an issue from more than one stakeholder's perspective.",
+          "activities": [
+            "Pre-Assessment Task",
+            "Homework",
+            "Instructions for tomorrow",
+            "TWC Time slot (24th October)"
+          ],
+          "learningGoals": [
+            "Explain how rights, responsibilities, interdependence, and informed action shape global citizenship.",
+            "Consider an issue from more than one stakeholder's perspective.",
+            "Use evidence to propose a realistic action at local and global scales."
+          ],
+          "evidenceToListenFor": [
+            "The student names who is affected and distinguishes an opinion from supporting evidence.",
+            "A proposed action is specific, feasible, and linked to the cause of the problem."
+          ],
+          "commonMisconceptions": [
+            "Global citizenship only means helping people in other countries.",
+            "A large problem has no meaningful local action; small actions matter when they are targeted and sustained."
+          ],
+          "parentGuidance": [
+            "Ask whose voice may be missing and what evidence would change the student's view.",
+            "Compare one household action with one policy or community action; discuss the value of both."
+          ],
+          "homeExtension": "Complete a three-day household plastic audit, graph the categories, and write a short action proposal to reduce the largest source.",
+          "questions": [
+            "Teach me the most important idea from “What does it Mean to be a Global Citizen?” without looking at your notes.",
+            "Connect “Pre-Assessment Task” to a real community issue. Explain who is affected, why it matters, and one responsible action.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "What Is Global Citizenship for Kids?",
+              "url": "https://www.youtube.com/watch?v=1fugHkJzDao"
+            },
+            {
+              "title": "Maps for Kids — Learn Bright",
+              "url": "https://www.youtube.com/watch?v=UZaTK7B0doE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Sciences",
+      "summary": "This week connected Unit-3-How do living things work ?, Term 2 Syllabus – MYP Integrated Sciences, 1. What do Scientists do?. Frame a testable research question and an evidence-based hypothesis. Identify independent, dependent, and controlled variables for a fair investigation. Present data clearly, interpret patterns, draw a supported conclusion, and suggest improvements. Classroom evidence included Unit-3-How do living things work ? and Term 2 Syllabus – MYP Integrated Sciences.",
+      "parentTakeaway": "The student explains what is changed, what is measured, and what must stay the same.",
+      "units": [
+        {
+          "name": "Unit-3-How do living things work ?",
+          "summary": "The learning focus was to frame a testable research question and an evidence-based hypothesis and to identify independent, dependent, and controlled variables for a fair investigation.",
+          "activities": [
+            "Unit-3-How do living things work ?",
+            "Term 2 Syllabus – MYP Integrated Sciences",
+            "Questions and Answer keys from FA , SA and Mock paper for Revision",
+            "Online class on Saturday 3 October 2026"
+          ],
+          "learningGoals": [
+            "Frame a testable research question and an evidence-based hypothesis.",
+            "Identify independent, dependent, and controlled variables for a fair investigation.",
+            "Present data clearly, interpret patterns, draw a supported conclusion, and suggest improvements."
+          ],
+          "evidenceToListenFor": [
+            "The student explains what is changed, what is measured, and what must stay the same.",
+            "A conclusion refers to actual data rather than simply saying the hypothesis was correct."
+          ],
+          "commonMisconceptions": [
+            "A hypothesis is a guess with no reason; it should make a justified prediction.",
+            "One successful result proves a claim; repeated measurements and method quality affect confidence."
+          ],
+          "parentGuidance": [
+            "Use everyday scenarios and ask the student to identify variables before discussing answers.",
+            "Praise a well-explained limitation or improvement, not only a 'correct' result."
+          ],
+          "homeExtension": "Run a fair home investigation comparing how quickly ice melts in two locations; record repeated measurements and graph the results.",
+          "questions": [
+            "Teach me the most important idea from “Unit-3-How do living things work ?” without looking at your notes.",
+            "For “Unit-3-How do living things work ?”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "Scientific Method for Kids — Learn Bright",
+              "url": "https://www.youtube.com/watch?v=qQBZbinoOrI"
+            }
+          ]
+        },
+        {
+          "name": "Term 2 Syllabus – MYP Integrated Sciences",
+          "summary": "The learning focus was to frame a testable research question and an evidence-based hypothesis and to identify independent, dependent, and controlled variables for a fair investigation.",
+          "activities": [
+            "Unit-3-How do living things work ?",
+            "Term 2 Syllabus – MYP Integrated Sciences",
+            "Questions and Answer keys from FA , SA and Mock paper for Revision",
+            "Online class on Saturday 3 October 2026"
+          ],
+          "learningGoals": [
+            "Frame a testable research question and an evidence-based hypothesis.",
+            "Identify independent, dependent, and controlled variables for a fair investigation.",
+            "Present data clearly, interpret patterns, draw a supported conclusion, and suggest improvements."
+          ],
+          "evidenceToListenFor": [
+            "The student explains what is changed, what is measured, and what must stay the same.",
+            "A conclusion refers to actual data rather than simply saying the hypothesis was correct."
+          ],
+          "commonMisconceptions": [
+            "A hypothesis is a guess with no reason; it should make a justified prediction.",
+            "One successful result proves a claim; repeated measurements and method quality affect confidence."
+          ],
+          "parentGuidance": [
+            "Use everyday scenarios and ask the student to identify variables before discussing answers.",
+            "Praise a well-explained limitation or improvement, not only a 'correct' result."
+          ],
+          "homeExtension": "Run a fair home investigation comparing how quickly ice melts in two locations; record repeated measurements and graph the results.",
+          "questions": [
+            "Teach me the most important idea from “Term 2 Syllabus – MYP Integrated Sciences” without looking at your notes.",
+            "For “Unit-3-How do living things work ?”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "Scientific Method for Kids — Learn Bright",
+              "url": "https://www.youtube.com/watch?v=qQBZbinoOrI"
+            }
+          ]
+        },
+        {
+          "name": "1. What do Scientists do?",
+          "summary": "The learning focus was to frame a testable research question and an evidence-based hypothesis and to identify independent, dependent, and controlled variables for a fair investigation.",
+          "activities": [
+            "Unit-3-How do living things work ?",
+            "Term 2 Syllabus – MYP Integrated Sciences",
+            "Questions and Answer keys from FA , SA and Mock paper for Revision",
+            "Online class on Saturday 3 October 2026"
+          ],
+          "learningGoals": [
+            "Frame a testable research question and an evidence-based hypothesis.",
+            "Identify independent, dependent, and controlled variables for a fair investigation.",
+            "Present data clearly, interpret patterns, draw a supported conclusion, and suggest improvements."
+          ],
+          "evidenceToListenFor": [
+            "The student explains what is changed, what is measured, and what must stay the same.",
+            "A conclusion refers to actual data rather than simply saying the hypothesis was correct."
+          ],
+          "commonMisconceptions": [
+            "A hypothesis is a guess with no reason; it should make a justified prediction.",
+            "One successful result proves a claim; repeated measurements and method quality affect confidence."
+          ],
+          "parentGuidance": [
+            "Use everyday scenarios and ask the student to identify variables before discussing answers.",
+            "Praise a well-explained limitation or improvement, not only a 'correct' result."
+          ],
+          "homeExtension": "Run a fair home investigation comparing how quickly ice melts in two locations; record repeated measurements and graph the results.",
+          "questions": [
+            "Teach me the most important idea from “1. What do Scientists do?” without looking at your notes.",
+            "For “Unit-3-How do living things work ?”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "Scientific Method for Kids — Learn Bright",
+              "url": "https://www.youtube.com/watch?v=qQBZbinoOrI"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Mathematics",
+      "summary": "This week connected UNIT 4 : Data Speaks: Understanding our Neighborhood, Models & Representations: Numbers in Our World. Recognize number properties, factors, multiples, and patterns. Represent mathematical thinking with models, symbols, and ordered steps. Check whether an answer is reasonable using estimation or an alternative strategy. Classroom evidence included SA-2 Task sheet and Generalise the rule.",
+      "parentTakeaway": "The student explains why a method works instead of only reciting a rule.",
+      "units": [
+        {
+          "name": "UNIT 4 : Data Speaks: Understanding our Neighborhood",
+          "summary": "The learning focus was to recognize number properties, factors, multiples, and patterns and to represent mathematical thinking with models, symbols, and ordered steps.",
+          "activities": [
+            "SA-2 Task sheet",
+            "Generalise the rule",
+            "Online class link",
+            "Online class for Term-1 exam (Doubts Clarification)"
+          ],
+          "learningGoals": [
+            "Recognize number properties, factors, multiples, and patterns.",
+            "Represent mathematical thinking with models, symbols, and ordered steps.",
+            "Check whether an answer is reasonable using estimation or an alternative strategy."
+          ],
+          "evidenceToListenFor": [
+            "The student explains why a method works instead of only reciting a rule.",
+            "The student checks the answer and can represent it in a second way."
+          ],
+          "commonMisconceptions": [
+            "Treating a memorized procedure as proof without checking its meaning.",
+            "A calculator result is automatically reasonable; estimation should be used as a check."
+          ],
+          "parentGuidance": [
+            "Ask 'How do you know?' and 'Can you show it another way?' before confirming an answer.",
+            "Use prices, recipes, or sports statistics so the mathematics has a visible purpose."
+          ],
+          "homeExtension": "Plan a ₹1,000 family snack budget with two discounts, compare offers, and justify the best choice using fractions or percentages.",
+          "questions": [
+            "Teach me the most important idea from “UNIT 4 : Data Speaks: Understanding our Neighborhood” without looking at your notes.",
+            "Create and solve a new problem based on “SA-2 Task sheet”. Show every step and explain why each step is valid.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "Math Antics — Factoring",
+              "url": "https://www.youtube.com/watch?v=0NvLtTwnUHs"
+            },
+            {
+              "title": "Math Antics — Fractions and Decimals",
+              "url": "https://www.youtube.com/watch?v=Mst8iZjIpFE"
+            }
+          ]
+        },
+        {
+          "name": "Models & Representations: Numbers in Our World",
+          "summary": "The learning focus was to recognize number properties, factors, multiples, and patterns and to represent mathematical thinking with models, symbols, and ordered steps.",
+          "activities": [
+            "Generalise the rule",
+            "Online class link",
+            "Online class for Term-1 exam (Doubts Clarification)",
+            "Term-1 Mock Paper"
+          ],
+          "learningGoals": [
+            "Recognize number properties, factors, multiples, and patterns.",
+            "Represent mathematical thinking with models, symbols, and ordered steps.",
+            "Check whether an answer is reasonable using estimation or an alternative strategy."
+          ],
+          "evidenceToListenFor": [
+            "The student explains why a method works instead of only reciting a rule.",
+            "The student checks the answer and can represent it in a second way."
+          ],
+          "commonMisconceptions": [
+            "Treating a memorized procedure as proof without checking its meaning.",
+            "A calculator result is automatically reasonable; estimation should be used as a check."
+          ],
+          "parentGuidance": [
+            "Ask 'How do you know?' and 'Can you show it another way?' before confirming an answer.",
+            "Use prices, recipes, or sports statistics so the mathematics has a visible purpose."
+          ],
+          "homeExtension": "Plan a ₹1,000 family snack budget with two discounts, compare offers, and justify the best choice using fractions or percentages.",
+          "questions": [
+            "Teach me the most important idea from “Models & Representations: Numbers in Our World” without looking at your notes.",
+            "Create and solve a new problem based on “Generalise the rule”. Show every step and explain why each step is valid.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "Math Antics — Factoring",
+              "url": "https://www.youtube.com/watch?v=0NvLtTwnUHs"
+            },
+            {
+              "title": "Math Antics — Fractions and Decimals",
+              "url": "https://www.youtube.com/watch?v=Mst8iZjIpFE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "MYP 1 DANCE",
+      "summary": "This week connected Stars on the Stage - Enacting Dance Performance 2026-27. Explain the central ideas and vocabulary connected to “Stars on the Stage - Enacting Dance Performance 2026-27”. Apply the learning to a new example and justify the choices made. Reflect on feedback, challenges, and a sensible next step.",
+      "parentTakeaway": "The student explains the idea in their own words and gives a relevant example.",
+      "units": [
+        {
+          "name": "Stars on the Stage - Enacting Dance Performance 2026-27",
+          "summary": "The learning focus was to explain the central ideas and vocabulary connected to “Stars on the Stage - Enacting Dance Performance 2026-27” and to apply the learning to a new example and justify the choices made.",
+          "activities": [],
+          "learningGoals": [
+            "Explain the central ideas and vocabulary connected to “Stars on the Stage - Enacting Dance Performance 2026-27”.",
+            "Apply the learning to a new example and justify the choices made.",
+            "Reflect on feedback, challenges, and a sensible next step."
+          ],
+          "evidenceToListenFor": [
+            "The student explains the idea in their own words and gives a relevant example.",
+            "The student can identify what they would improve in a second attempt."
+          ],
+          "commonMisconceptions": [
+            "Completing the activity is the same as understanding the underlying idea."
+          ],
+          "parentGuidance": [
+            "Ask the student to teach the idea before offering explanations.",
+            "Request one example, one non-example, and one real-world connection."
+          ],
+          "homeExtension": "Create a one-page explainer for “Stars on the Stage - Enacting Dance Performance 2026-27” with an example, a diagram, and a reflection.",
+          "questions": [
+            "Teach me the most important idea from “Stars on the Stage - Enacting Dance Performance 2026-27” without looking at your notes.",
+            "Use “Stars on the Stage - Enacting Dance Performance 2026-27” to show how you applied that idea, not only what you completed.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": []
+        }
+      ]
+    },
+    {
+      "subject": "Visual Arts",
+      "summary": "This week connected IDENTITY THROUGH ART ELEMENTS. Use line, shape, colour, pattern, and composition deliberately to communicate identity. Investigate the origin, materials, symbols, purpose, and cultural significance of an art form. Distinguish respectful inspiration from copying cultural imagery without context. Classroom evidence included Warli Art Form Investigation.",
+      "parentTakeaway": "The student explains why a visual choice supports the intended meaning.",
+      "units": [
+        {
+          "name": "IDENTITY THROUGH ART ELEMENTS",
+          "summary": "The learning focus was to use line, shape, colour, pattern, and composition deliberately to communicate identity and to investigate the origin, materials, symbols, purpose, and cultural significance of an art form.",
+          "activities": [
+            "Warli Art Form Investigation"
+          ],
+          "learningGoals": [
+            "Use line, shape, colour, pattern, and composition deliberately to communicate identity.",
+            "Investigate the origin, materials, symbols, purpose, and cultural significance of an art form.",
+            "Distinguish respectful inspiration from copying cultural imagery without context."
+          ],
+          "evidenceToListenFor": [
+            "The student explains why a visual choice supports the intended meaning.",
+            "Research includes cultural context and sources, not only copied images."
+          ],
+          "commonMisconceptions": [
+            "Art analysis is just describing what is visible.",
+            "Traditional art is decorative only; it can record community, ritual, history, and daily life."
+          ],
+          "parentGuidance": [
+            "Ask what the artist wanted the viewer to notice first and how the composition achieves that.",
+            "Encourage experimentation with two thumbnail sketches before the final piece."
+          ],
+          "homeExtension": "Design a respectful Warli-inspired scene of a present-day family routine, with a short note explaining the symbols and context.",
+          "questions": [
+            "Teach me the most important idea from “IDENTITY THROUGH ART ELEMENTS” without looking at your notes.",
+            "Use “Warli Art Form Investigation” to show how you applied that idea, not only what you completed.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "The Elements of Art — Scratch Garden",
+              "url": "https://www.youtube.com/watch?v=IkvH7HaqCYk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Design",
+      "summary": "This week connected Unit-1: Designing for Interaction, Staying Safe in the Digital World. Understand sprites, events, motion, looks, sound, control, sensing, and operator blocks. Arrange instructions in a logical sequence to create an interactive response. Research user needs and define success criteria before building a solution. Classroom evidence included NLP Extension and Upload your game file.",
+      "parentTakeaway": "The student can predict what a block sequence will do before running it.",
+      "units": [
+        {
+          "name": "Unit-1: Designing for Interaction",
+          "summary": "The learning focus was to understand sprites, events, motion, looks, sound, control, sensing, and operator blocks and to arrange instructions in a logical sequence to create an interactive response.",
+          "activities": [
+            "NLP Extension",
+            "Upload your game file",
+            "Face Detection Extension",
+            "Pictoblox Extensions"
+          ],
+          "learningGoals": [
+            "Understand sprites, events, motion, looks, sound, control, sensing, and operator blocks.",
+            "Arrange instructions in a logical sequence to create an interactive response.",
+            "Research user needs and define success criteria before building a solution."
+          ],
+          "evidenceToListenFor": [
+            "The student can predict what a block sequence will do before running it.",
+            "The student can explain a bug, change one block, and test whether the change solved it."
+          ],
+          "commonMisconceptions": [
+            "A program is correct if it runs once; good design must work reliably for different users.",
+            "Research is separate from designing; research should directly shape features and success criteria."
+          ],
+          "parentGuidance": [
+            "Ask the student to sketch the algorithm in plain language before opening PictoBlox.",
+            "When something fails, ask 'What did you expect? What happened? Which block controls that?'"
+          ],
+          "homeExtension": "Build a three-question interactive safety quiz in PictoBlox with feedback for correct and incorrect answers.",
+          "questions": [
+            "Teach me the most important idea from “Unit-1: Designing for Interaction” without looking at your notes.",
+            "Demonstrate the sequence or design behind “NLP Extension”, then explain how you would test and improve it for a user.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "Online Privacy for Kids",
+              "url": "https://www.youtube.com/watch?v=yiKeLOKc1tw"
+            },
+            {
+              "title": "Getting Started with PictoBlox — STEMpedia",
+              "url": "https://www.youtube.com/watch?v=wB7ONAcT55I"
+            }
+          ]
+        },
+        {
+          "name": "Staying Safe in the Digital World",
+          "summary": "The learning focus was to understand sprites, events, motion, looks, sound, control, sensing, and operator blocks and to arrange instructions in a logical sequence to create an interactive response.",
+          "activities": [
+            "Launch Lab 2026 - Theme for the Graphic Design",
+            "Results of LaunchLab 2026!",
+            "Final Submission Reminder",
+            "Design Championship 2026 – International Design & Coding Competition"
+          ],
+          "learningGoals": [
+            "Understand sprites, events, motion, looks, sound, control, sensing, and operator blocks.",
+            "Arrange instructions in a logical sequence to create an interactive response.",
+            "Research user needs and define success criteria before building a solution."
+          ],
+          "evidenceToListenFor": [
+            "The student can predict what a block sequence will do before running it.",
+            "The student can explain a bug, change one block, and test whether the change solved it."
+          ],
+          "commonMisconceptions": [
+            "A program is correct if it runs once; good design must work reliably for different users.",
+            "Research is separate from designing; research should directly shape features and success criteria."
+          ],
+          "parentGuidance": [
+            "Ask the student to sketch the algorithm in plain language before opening PictoBlox.",
+            "When something fails, ask 'What did you expect? What happened? Which block controls that?'"
+          ],
+          "homeExtension": "Build a three-question interactive safety quiz in PictoBlox with feedback for correct and incorrect answers.",
+          "questions": [
+            "Teach me the most important idea from “Staying Safe in the Digital World” without looking at your notes.",
+            "Demonstrate the sequence or design behind “Launch Lab 2026 - Theme for the Graphic Design”, then explain how you would test and improve it for a user.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "Online Privacy for Kids",
+              "url": "https://www.youtube.com/watch?v=yiKeLOKc1tw"
+            },
+            {
+              "title": "Getting Started with PictoBlox — STEMpedia",
+              "url": "https://www.youtube.com/watch?v=wB7ONAcT55I"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Physical and Health Education",
+      "summary": "This week connected Aesthetic Movements Aerobics, Sports Training -Fitness Components. Differentiate health-related and skill-related components of fitness. Connect a training activity to the component it develops. Plan exercise safely using warm-up, technique, recovery, and gradual progression. Classroom evidence included PHE – SA 2_Aerobics and PHE_SA1.",
+      "parentTakeaway": "The student matches an activity to a fitness component and explains the connection.",
+      "units": [
+        {
+          "name": "Aesthetic Movements Aerobics",
+          "summary": "The learning focus was to differentiate health-related and skill-related components of fitness and to connect a training activity to the component it develops.",
+          "activities": [
+            "PHE – SA 2_Aerobics"
+          ],
+          "learningGoals": [
+            "Differentiate health-related and skill-related components of fitness.",
+            "Connect a training activity to the component it develops.",
+            "Plan exercise safely using warm-up, technique, recovery, and gradual progression."
+          ],
+          "evidenceToListenFor": [
+            "The student matches an activity to a fitness component and explains the connection.",
+            "The student proposes a safe, measurable way to improve over time."
+          ],
+          "commonMisconceptions": [
+            "Fitness only means endurance or appearance.",
+            "More intensity is always better; recovery and correct technique are part of progress."
+          ],
+          "parentGuidance": [
+            "Focus discussion on energy, technique, consistency, and wellbeing rather than body shape.",
+            "Let the student design a short routine and explain the purpose of each movement."
+          ],
+          "homeExtension": "Design and lead a 15-minute family circuit covering three fitness components, then record effort and one improvement.",
+          "questions": [
+            "Teach me the most important idea from “Aesthetic Movements Aerobics” without looking at your notes.",
+            "Use “PHE – SA 2_Aerobics” to show how you applied that idea, not only what you completed.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "The Five Components of Fitness",
+              "url": "https://www.youtube.com/watch?v=NhpJiU9EUJA"
+            }
+          ]
+        },
+        {
+          "name": "Sports Training -Fitness Components",
+          "summary": "The learning focus was to differentiate health-related and skill-related components of fitness and to connect a training activity to the component it develops.",
+          "activities": [
+            "PHE_SA1"
+          ],
+          "learningGoals": [
+            "Differentiate health-related and skill-related components of fitness.",
+            "Connect a training activity to the component it develops.",
+            "Plan exercise safely using warm-up, technique, recovery, and gradual progression."
+          ],
+          "evidenceToListenFor": [
+            "The student matches an activity to a fitness component and explains the connection.",
+            "The student proposes a safe, measurable way to improve over time."
+          ],
+          "commonMisconceptions": [
+            "Fitness only means endurance or appearance.",
+            "More intensity is always better; recovery and correct technique are part of progress."
+          ],
+          "parentGuidance": [
+            "Focus discussion on energy, technique, consistency, and wellbeing rather than body shape.",
+            "Let the student design a short routine and explain the purpose of each movement."
+          ],
+          "homeExtension": "Design and lead a 15-minute family circuit covering three fitness components, then record effort and one improvement.",
+          "questions": [
+            "Teach me the most important idea from “Sports Training -Fitness Components” without looking at your notes.",
+            "Use “PHE_SA1” to show how you applied that idea, not only what you completed.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "The Five Components of Fitness",
+              "url": "https://www.youtube.com/watch?v=NhpJiU9EUJA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Vocal",
+      "summary": "This week connected Creative Music(Improvisational Music), Fundamentals of Scales. Recognize and perform steady beat, rhythm patterns, scales, and expressive musical elements. Plan, rehearse, perform, and reflect on a short musical idea. Use tempo, dynamics, and articulation to communicate mood. Classroom evidence included Exploring Body Percussion.",
+      "parentTakeaway": "The student keeps a steady pulse and can restart after an error.",
+      "units": [
+        {
+          "name": "Creative Music(Improvisational Music)",
+          "summary": "The learning focus was to recognize and perform steady beat, rhythm patterns, scales, and expressive musical elements and to plan, rehearse, perform, and reflect on a short musical idea.",
+          "activities": [
+            "Exploring Body Percussion"
+          ],
+          "learningGoals": [
+            "Recognize and perform steady beat, rhythm patterns, scales, and expressive musical elements.",
+            "Plan, rehearse, perform, and reflect on a short musical idea.",
+            "Use tempo, dynamics, and articulation to communicate mood."
+          ],
+          "evidenceToListenFor": [
+            "The student keeps a steady pulse and can restart after an error.",
+            "The student names one musical choice and explains its effect on the listener."
+          ],
+          "commonMisconceptions": [
+            "Playing every note correctly is the only measure of a successful performance.",
+            "Faster practice produces faster improvement; slow, accurate repetition is often more effective."
+          ],
+          "parentGuidance": [
+            "Ask for a short performance twice and let the student choose one improvement between attempts.",
+            "Record the performance so reflection is based on evidence rather than memory."
+          ],
+          "homeExtension": "Create and record a 30-second body-percussion or guitar pattern with a clear beginning, variation, and ending.",
+          "questions": [
+            "Teach me the most important idea from “Creative Music(Improvisational Music)” without looking at your notes.",
+            "Use “Exploring Body Percussion” to show how you applied that idea, not only what you completed.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "Music Scales Explained in 6 Minutes",
+              "url": "https://www.youtube.com/watch?v=PG_u4NDJtwU"
+            }
+          ]
+        },
+        {
+          "name": "Fundamentals of Scales",
+          "summary": "The learning focus was to recognize and perform steady beat, rhythm patterns, scales, and expressive musical elements and to plan, rehearse, perform, and reflect on a short musical idea.",
+          "activities": [],
+          "learningGoals": [
+            "Recognize and perform steady beat, rhythm patterns, scales, and expressive musical elements.",
+            "Plan, rehearse, perform, and reflect on a short musical idea.",
+            "Use tempo, dynamics, and articulation to communicate mood."
+          ],
+          "evidenceToListenFor": [
+            "The student keeps a steady pulse and can restart after an error.",
+            "The student names one musical choice and explains its effect on the listener."
+          ],
+          "commonMisconceptions": [
+            "Playing every note correctly is the only measure of a successful performance.",
+            "Faster practice produces faster improvement; slow, accurate repetition is often more effective."
+          ],
+          "parentGuidance": [
+            "Ask for a short performance twice and let the student choose one improvement between attempts.",
+            "Record the performance so reflection is based on evidence rather than memory."
+          ],
+          "homeExtension": "Create and record a 30-second body-percussion or guitar pattern with a clear beginning, variation, and ending.",
+          "questions": [
+            "Teach me the most important idea from “Fundamentals of Scales” without looking at your notes.",
+            "Use “Fundamentals of Scales” to show how you applied that idea, not only what you completed.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "Music Scales Explained in 6 Minutes",
+              "url": "https://www.youtube.com/watch?v=PG_u4NDJtwU"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Guitar",
+      "summary": "This week connected Fundamentals of Scales. Recognize and perform steady beat, rhythm patterns, scales, and expressive musical elements. Plan, rehearse, perform, and reflect on a short musical idea. Use tempo, dynamics, and articulation to communicate mood.",
+      "parentTakeaway": "The student keeps a steady pulse and can restart after an error.",
+      "units": [
+        {
+          "name": "Fundamentals of Scales",
+          "summary": "The learning focus was to recognize and perform steady beat, rhythm patterns, scales, and expressive musical elements and to plan, rehearse, perform, and reflect on a short musical idea.",
+          "activities": [],
+          "learningGoals": [
+            "Recognize and perform steady beat, rhythm patterns, scales, and expressive musical elements.",
+            "Plan, rehearse, perform, and reflect on a short musical idea.",
+            "Use tempo, dynamics, and articulation to communicate mood."
+          ],
+          "evidenceToListenFor": [
+            "The student keeps a steady pulse and can restart after an error.",
+            "The student names one musical choice and explains its effect on the listener."
+          ],
+          "commonMisconceptions": [
+            "Playing every note correctly is the only measure of a successful performance.",
+            "Faster practice produces faster improvement; slow, accurate repetition is often more effective."
+          ],
+          "parentGuidance": [
+            "Ask for a short performance twice and let the student choose one improvement between attempts.",
+            "Record the performance so reflection is based on evidence rather than memory."
+          ],
+          "homeExtension": "Create and record a 30-second body-percussion or guitar pattern with a clear beginning, variation, and ending.",
+          "questions": [
+            "Teach me the most important idea from “Fundamentals of Scales” without looking at your notes.",
+            "Use “Fundamentals of Scales” to show how you applied that idea, not only what you completed.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "Music Scales Explained in 6 Minutes",
+              "url": "https://www.youtube.com/watch?v=PG_u4NDJtwU"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

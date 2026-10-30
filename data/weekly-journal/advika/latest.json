@@ -1,10 +1,10 @@
 {
   "studentKey": "advika",
   "studentName": "Advika Lakshmi",
-  "weekKey": "2026-10-19_2026-10-25",
-  "weekStart": "2026-10-19",
-  "weekEnd": "2026-10-25",
-  "generatedAt": "2026-10-23T15:47:55.703Z",
+  "weekKey": "2026-10-26_2026-11-01",
+  "weekStart": "2026-10-26",
+  "weekEnd": "2026-11-01",
+  "generatedAt": "2026-10-30T17:04:30.115Z",
   "overallSummary": "Advika's learning this week moved across 11 subjects, with a strong emphasis on explaining ideas, applying them in a new situation, and reflecting on how work could improve. The most useful parent role is to ask for evidence and reasoning—not to reteach every lesson or supply the answer.",
   "parentOverview": "ManageBac shows the learning opportunities and work recorded for the week; it does not by itself prove mastery. Use this guide to listen for what Advika can explain independently, notice where prompts are needed, and agree on one small next step. A confident explanation, a relevant example, and the ability to correct a mistake are stronger signs of understanding than task completion alone.",
   "strengths": [
@@ -462,17 +462,17 @@
     },
     {
       "subject": "Sciences",
-      "summary": "This week connected Questions and Answer keys from FA , SA and Mock paper for Revision, Online class on Saturday 3 October 2026, 1. What do Scientists do?. Frame a testable research question and an evidence-based hypothesis. Identify independent, dependent, and controlled variables for a fair investigation. Present data clearly, interpret patterns, draw a supported conclusion, and suggest improvements. Classroom evidence included Questions and Answer keys from FA , SA and Mock paper for Revision and Online class on Saturday 3 October 2026.",
+      "summary": "This week connected Unit-3-How do living things work ?, Term 2 Syllabus – MYP Integrated Sciences, 1. What do Scientists do?. Frame a testable research question and an evidence-based hypothesis. Identify independent, dependent, and controlled variables for a fair investigation. Present data clearly, interpret patterns, draw a supported conclusion, and suggest improvements. Classroom evidence included Unit-3-How do living things work ? and Term 2 Syllabus – MYP Integrated Sciences.",
       "parentTakeaway": "The student explains what is changed, what is measured, and what must stay the same.",
       "units": [
         {
-          "name": "Questions and Answer keys from FA , SA and Mock paper for Revision",
+          "name": "Unit-3-How do living things work ?",
           "summary": "The learning focus was to frame a testable research question and an evidence-based hypothesis and to identify independent, dependent, and controlled variables for a fair investigation.",
           "activities": [
+            "Unit-3-How do living things work ?",
+            "Term 2 Syllabus – MYP Integrated Sciences",
             "Questions and Answer keys from FA , SA and Mock paper for Revision",
-            "Online class on Saturday 3 October 2026",
-            "Term-1 Integrated science Revision Paper",
-            "Criterion-B-Revision"
+            "Online class on Saturday 3 October 2026"
           ],
           "learningGoals": [
             "Frame a testable research question and an evidence-based hypothesis.",
@@ -493,8 +493,8 @@
           ],
           "homeExtension": "Run a fair home investigation comparing how quickly ice melts in two locations; record repeated measurements and graph the results.",
           "questions": [
-            "Teach me the most important idea from “Questions and Answer keys from FA , SA and Mock paper for Revision” without looking at your notes.",
-            "For “Questions and Answer keys from FA , SA and Mock paper for Revision”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
+            "Teach me the most important idea from “Unit-3-How do living things work ?” without looking at your notes.",
+            "For “Unit-3-How do living things work ?”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
             "What mistake might someone make in this topic, and how would you correct it?",
             "Where could you use this learning outside school? Give a specific example."
           ],
@@ -506,13 +506,13 @@
           ]
         },
         {
-          "name": "Online class on Saturday 3 October 2026",
+          "name": "Term 2 Syllabus – MYP Integrated Sciences",
           "summary": "The learning focus was to frame a testable research question and an evidence-based hypothesis and to identify independent, dependent, and controlled variables for a fair investigation.",
           "activities": [
+            "Unit-3-How do living things work ?",
+            "Term 2 Syllabus – MYP Integrated Sciences",
             "Questions and Answer keys from FA , SA and Mock paper for Revision",
-            "Online class on Saturday 3 October 2026",
-            "Term-1 Integrated science Revision Paper",
-            "Criterion-B-Revision"
+            "Online class on Saturday 3 October 2026"
           ],
           "learningGoals": [
             "Frame a testable research question and an evidence-based hypothesis.",
@@ -533,8 +533,8 @@
           ],
           "homeExtension": "Run a fair home investigation comparing how quickly ice melts in two locations; record repeated measurements and graph the results.",
           "questions": [
-            "Teach me the most important idea from “Online class on Saturday 3 October 2026” without looking at your notes.",
-            "For “Questions and Answer keys from FA , SA and Mock paper for Revision”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
+            "Teach me the most important idea from “Term 2 Syllabus – MYP Integrated Sciences” without looking at your notes.",
+            "For “Unit-3-How do living things work ?”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
             "What mistake might someone make in this topic, and how would you correct it?",
             "Where could you use this learning outside school? Give a specific example."
           ],
@@ -549,10 +549,10 @@
           "name": "1. What do Scientists do?",
           "summary": "The learning focus was to frame a testable research question and an evidence-based hypothesis and to identify independent, dependent, and controlled variables for a fair investigation.",
           "activities": [
+            "Unit-3-How do living things work ?",
+            "Term 2 Syllabus – MYP Integrated Sciences",
             "Questions and Answer keys from FA , SA and Mock paper for Revision",
-            "Online class on Saturday 3 October 2026",
-            "Term-1 Integrated science Revision Paper",
-            "Criterion-B-Revision"
+            "Online class on Saturday 3 October 2026"
           ],
           "learningGoals": [
             "Frame a testable research question and an evidence-based hypothesis.",
@@ -574,7 +574,7 @@
           "homeExtension": "Run a fair home investigation comparing how quickly ice melts in two locations; record repeated measurements and graph the results.",
           "questions": [
             "Teach me the most important idea from “1. What do Scientists do?” without looking at your notes.",
-            "For “Questions and Answer keys from FA , SA and Mock paper for Revision”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
+            "For “Unit-3-How do living things work ?”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
             "What mistake might someone make in this topic, and how would you correct it?",
             "Where could you use this learning outside school? Give a specific example."
           ],
@@ -589,7 +589,7 @@
     },
     {
       "subject": "Mathematics",
-      "summary": "This week connected UNIT 4 : Data Speaks: Understanding our Neighborhood, Models & Representations: Numbers in Our World. Recognize number properties, factors, multiples, and patterns. Represent mathematical thinking with models, symbols, and ordered steps. Check whether an answer is reasonable using estimation or an alternative strategy. Classroom evidence included SA-2 Task sheet and Online class link.",
+      "summary": "This week connected UNIT 4 : Data Speaks: Understanding our Neighborhood, Models & Representations: Numbers in Our World. Recognize number properties, factors, multiples, and patterns. Represent mathematical thinking with models, symbols, and ordered steps. Check whether an answer is reasonable using estimation or an alternative strategy. Classroom evidence included SA-2 Task sheet and Generalise the rule.",
       "parentTakeaway": "The student explains why a method works instead of only reciting a rule.",
       "units": [
         {
@@ -597,9 +597,9 @@
           "summary": "The learning focus was to recognize number properties, factors, multiples, and patterns and to represent mathematical thinking with models, symbols, and ordered steps.",
           "activities": [
             "SA-2 Task sheet",
+            "Generalise the rule",
             "Online class link",
-            "Online class for Term-1 exam (Doubts Clarification)",
-            "Term-1 Mock Paper"
+            "Online class for Term-1 exam (Doubts Clarification)"
           ],
           "learningGoals": [
             "Recognize number properties, factors, multiples, and patterns.",
@@ -640,10 +640,10 @@
           "name": "Models & Representations: Numbers in Our World",
           "summary": "The learning focus was to recognize number properties, factors, multiples, and patterns and to represent mathematical thinking with models, symbols, and ordered steps.",
           "activities": [
+            "Generalise the rule",
             "Online class link",
             "Online class for Term-1 exam (Doubts Clarification)",
-            "Term-1 Mock Paper",
-            "Term-1 Practice sheet"
+            "Term-1 Mock Paper"
           ],
           "learningGoals": [
             "Recognize number properties, factors, multiples, and patterns.",
@@ -665,7 +665,7 @@
           "homeExtension": "Plan a ₹1,000 family snack budget with two discounts, compare offers, and justify the best choice using fractions or percentages.",
           "questions": [
             "Teach me the most important idea from “Models & Representations: Numbers in Our World” without looking at your notes.",
-            "Create and solve a new problem based on “Online class link”. Show every step and explain why each step is valid.",
+            "Create and solve a new problem based on “Generalise the rule”. Show every step and explain why each step is valid.",
             "What mistake might someone make in this topic, and how would you correct it?",
             "Where could you use this learning outside school? Give a specific example."
           ],

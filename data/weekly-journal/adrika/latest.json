@@ -1,10 +1,10 @@
 {
   "studentKey": "adrika",
   "studentName": "Adrika Lakshmi Saragadam",
-  "weekKey": "2026-10-19_2026-10-25",
-  "weekStart": "2026-10-19",
-  "weekEnd": "2026-10-25",
-  "generatedAt": "2026-10-23T15:47:56.697Z",
+  "weekKey": "2026-10-26_2026-11-01",
+  "weekStart": "2026-10-26",
+  "weekEnd": "2026-11-01",
+  "generatedAt": "2026-10-30T17:04:31.943Z",
   "overallSummary": "Adrika's learning this week moved across 9 subjects, with a strong emphasis on explaining ideas, applying them in a new situation, and reflecting on how work could improve. The most useful parent role is to ask for evidence and reasoning—not to reteach every lesson or supply the answer.",
   "parentOverview": "ManageBac shows the learning opportunities and work recorded for the week; it does not by itself prove mastery. Use this guide to listen for what Adrika can explain independently, notice where prompts are needed, and agree on one small next step. A confident explanation, a relevant example, and the ability to correct a mistake are stronger signs of understanding than task completion alone.",
   "strengths": [
@@ -471,17 +471,57 @@
     },
     {
       "subject": "Sciences",
-      "summary": "This week connected Online class on Saturday 3 October 2026, Term-1 Integrated science Revision Paper, 1. What do Scientists do?. Frame a testable research question and an evidence-based hypothesis. Identify independent, dependent, and controlled variables for a fair investigation. Present data clearly, interpret patterns, draw a supported conclusion, and suggest improvements. Classroom evidence included Online class on Saturday 3 October 2026 and Term-1 Integrated science Revision Paper.",
+      "summary": "This week connected Term 2 Syllabus – MYP Integrated Sciences, Online class on Saturday 3 October 2026, 1. What do Scientists do?. Frame a testable research question and an evidence-based hypothesis. Identify independent, dependent, and controlled variables for a fair investigation. Present data clearly, interpret patterns, draw a supported conclusion, and suggest improvements. Classroom evidence included Term 2 Syllabus – MYP Integrated Sciences and Online class on Saturday 3 October 2026.",
       "parentTakeaway": "The student explains what is changed, what is measured, and what must stay the same.",
       "units": [
+        {
+          "name": "Term 2 Syllabus – MYP Integrated Sciences",
+          "summary": "The learning focus was to frame a testable research question and an evidence-based hypothesis and to identify independent, dependent, and controlled variables for a fair investigation.",
+          "activities": [
+            "Term 2 Syllabus – MYP Integrated Sciences",
+            "Online class on Saturday 3 October 2026",
+            "Term-1 Integrated science Revision Paper",
+            "Kautuka 3.0"
+          ],
+          "learningGoals": [
+            "Frame a testable research question and an evidence-based hypothesis.",
+            "Identify independent, dependent, and controlled variables for a fair investigation.",
+            "Present data clearly, interpret patterns, draw a supported conclusion, and suggest improvements."
+          ],
+          "evidenceToListenFor": [
+            "The student explains what is changed, what is measured, and what must stay the same.",
+            "A conclusion refers to actual data rather than simply saying the hypothesis was correct."
+          ],
+          "commonMisconceptions": [
+            "A hypothesis is a guess with no reason; it should make a justified prediction.",
+            "One successful result proves a claim; repeated measurements and method quality affect confidence."
+          ],
+          "parentGuidance": [
+            "Use everyday scenarios and ask the student to identify variables before discussing answers.",
+            "Praise a well-explained limitation or improvement, not only a 'correct' result."
+          ],
+          "homeExtension": "Run a fair home investigation comparing how quickly ice melts in two locations; record repeated measurements and graph the results.",
+          "questions": [
+            "Teach me the most important idea from “Term 2 Syllabus – MYP Integrated Sciences” without looking at your notes.",
+            "For “Term 2 Syllabus – MYP Integrated Sciences”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "Scientific Method for Kids — Learn Bright",
+              "url": "https://www.youtube.com/watch?v=qQBZbinoOrI"
+            }
+          ]
+        },
         {
           "name": "Online class on Saturday 3 October 2026",
           "summary": "The learning focus was to frame a testable research question and an evidence-based hypothesis and to identify independent, dependent, and controlled variables for a fair investigation.",
           "activities": [
+            "Term 2 Syllabus – MYP Integrated Sciences",
             "Online class on Saturday 3 October 2026",
             "Term-1 Integrated science Revision Paper",
-            "Kautuka 3.0",
-            "Criterion D – Pen-and-Paper Assessment Preparation"
+            "Kautuka 3.0"
           ],
           "learningGoals": [
             "Frame a testable research question and an evidence-based hypothesis.",
@@ -503,47 +543,7 @@
           "homeExtension": "Run a fair home investigation comparing how quickly ice melts in two locations; record repeated measurements and graph the results.",
           "questions": [
             "Teach me the most important idea from “Online class on Saturday 3 October 2026” without looking at your notes.",
-            "For “Online class on Saturday 3 October 2026”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
-            "What mistake might someone make in this topic, and how would you correct it?",
-            "Where could you use this learning outside school? Give a specific example."
-          ],
-          "videos": [
-            {
-              "title": "Scientific Method for Kids — Learn Bright",
-              "url": "https://www.youtube.com/watch?v=qQBZbinoOrI"
-            }
-          ]
-        },
-        {
-          "name": "Term-1 Integrated science Revision Paper",
-          "summary": "The learning focus was to frame a testable research question and an evidence-based hypothesis and to identify independent, dependent, and controlled variables for a fair investigation.",
-          "activities": [
-            "Online class on Saturday 3 October 2026",
-            "Term-1 Integrated science Revision Paper",
-            "Kautuka 3.0",
-            "Criterion D – Pen-and-Paper Assessment Preparation"
-          ],
-          "learningGoals": [
-            "Frame a testable research question and an evidence-based hypothesis.",
-            "Identify independent, dependent, and controlled variables for a fair investigation.",
-            "Present data clearly, interpret patterns, draw a supported conclusion, and suggest improvements."
-          ],
-          "evidenceToListenFor": [
-            "The student explains what is changed, what is measured, and what must stay the same.",
-            "A conclusion refers to actual data rather than simply saying the hypothesis was correct."
-          ],
-          "commonMisconceptions": [
-            "A hypothesis is a guess with no reason; it should make a justified prediction.",
-            "One successful result proves a claim; repeated measurements and method quality affect confidence."
-          ],
-          "parentGuidance": [
-            "Use everyday scenarios and ask the student to identify variables before discussing answers.",
-            "Praise a well-explained limitation or improvement, not only a 'correct' result."
-          ],
-          "homeExtension": "Run a fair home investigation comparing how quickly ice melts in two locations; record repeated measurements and graph the results.",
-          "questions": [
-            "Teach me the most important idea from “Term-1 Integrated science Revision Paper” without looking at your notes.",
-            "For “Online class on Saturday 3 October 2026”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
+            "For “Term 2 Syllabus – MYP Integrated Sciences”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
             "What mistake might someone make in this topic, and how would you correct it?",
             "Where could you use this learning outside school? Give a specific example."
           ],
@@ -558,10 +558,10 @@
           "name": "1. What do Scientists do?",
           "summary": "The learning focus was to frame a testable research question and an evidence-based hypothesis and to identify independent, dependent, and controlled variables for a fair investigation.",
           "activities": [
+            "Term 2 Syllabus – MYP Integrated Sciences",
             "Online class on Saturday 3 October 2026",
             "Term-1 Integrated science Revision Paper",
-            "Kautuka 3.0",
-            "Criterion D – Pen-and-Paper Assessment Preparation"
+            "Kautuka 3.0"
           ],
           "learningGoals": [
             "Frame a testable research question and an evidence-based hypothesis.",
@@ -583,7 +583,7 @@
           "homeExtension": "Run a fair home investigation comparing how quickly ice melts in two locations; record repeated measurements and graph the results.",
           "questions": [
             "Teach me the most important idea from “1. What do Scientists do?” without looking at your notes.",
-            "For “Online class on Saturday 3 October 2026”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
+            "For “Term 2 Syllabus – MYP Integrated Sciences”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
             "What mistake might someone make in this topic, and how would you correct it?",
             "Where could you use this learning outside school? Give a specific example."
           ],
@@ -598,17 +598,17 @@
     },
     {
       "subject": "Mathematics",
-      "summary": "This week connected Virtual Session for Revision_Math Term1 Assessment, MYP1_Term1_Sample Paper, Models & Representations: Numbers in Our World. Recognize number properties, factors, multiples, and patterns. Represent mathematical thinking with models, symbols, and ordered steps. Check whether an answer is reasonable using estimation or an alternative strategy. Classroom evidence included Virtual Session for Revision_Math Term1 Assessment and MYP1_Term1_Sample Paper.",
+      "summary": "This week connected Algebraic Expressions, Algabraic Expressions, Models & Representations: Numbers in Our World. Recognize number properties, factors, multiples, and patterns. Represent mathematical thinking with models, symbols, and ordered steps. Check whether an answer is reasonable using estimation or an alternative strategy. Classroom evidence included Algebraic Expressions and Algabraic Expressions.",
       "parentTakeaway": "The student explains why a method works instead of only reciting a rule.",
       "units": [
         {
-          "name": "Virtual Session for Revision_Math Term1 Assessment",
+          "name": "Algebraic Expressions",
           "summary": "The learning focus was to recognize number properties, factors, multiples, and patterns and to represent mathematical thinking with models, symbols, and ordered steps.",
           "activities": [
+            "Algebraic Expressions",
+            "Algabraic Expressions",
             "Virtual Session for Revision_Math Term1 Assessment",
-            "MYP1_Term1_Sample Paper",
-            "Practice Sheet_Numerical Reasoning",
-            "Term -1 Practice sheet"
+            "MYP1_Term1_Sample Paper"
           ],
           "learningGoals": [
             "Recognize number properties, factors, multiples, and patterns.",
@@ -629,8 +629,8 @@
           ],
           "homeExtension": "Plan a ₹1,000 family snack budget with two discounts, compare offers, and justify the best choice using fractions or percentages.",
           "questions": [
-            "Teach me the most important idea from “Virtual Session for Revision_Math Term1 Assessment” without looking at your notes.",
-            "Create and solve a new problem based on “Virtual Session for Revision_Math Term1 Assessment”. Show every step and explain why each step is valid.",
+            "Teach me the most important idea from “Algebraic Expressions” without looking at your notes.",
+            "Create and solve a new problem based on “Algebraic Expressions”. Show every step and explain why each step is valid.",
             "What mistake might someone make in this topic, and how would you correct it?",
             "Where could you use this learning outside school? Give a specific example."
           ],
@@ -646,13 +646,13 @@
           ]
         },
         {
-          "name": "MYP1_Term1_Sample Paper",
+          "name": "Algabraic Expressions",
           "summary": "The learning focus was to recognize number properties, factors, multiples, and patterns and to represent mathematical thinking with models, symbols, and ordered steps.",
           "activities": [
+            "Algebraic Expressions",
+            "Algabraic Expressions",
             "Virtual Session for Revision_Math Term1 Assessment",
-            "MYP1_Term1_Sample Paper",
-            "Practice Sheet_Numerical Reasoning",
-            "Term -1 Practice sheet"
+            "MYP1_Term1_Sample Paper"
           ],
           "learningGoals": [
             "Recognize number properties, factors, multiples, and patterns.",
@@ -673,8 +673,8 @@
           ],
           "homeExtension": "Plan a ₹1,000 family snack budget with two discounts, compare offers, and justify the best choice using fractions or percentages.",
           "questions": [
-            "Teach me the most important idea from “MYP1_Term1_Sample Paper” without looking at your notes.",
-            "Create and solve a new problem based on “Virtual Session for Revision_Math Term1 Assessment”. Show every step and explain why each step is valid.",
+            "Teach me the most important idea from “Algabraic Expressions” without looking at your notes.",
+            "Create and solve a new problem based on “Algebraic Expressions”. Show every step and explain why each step is valid.",
             "What mistake might someone make in this topic, and how would you correct it?",
             "Where could you use this learning outside school? Give a specific example."
           ],
@@ -693,10 +693,10 @@
           "name": "Models & Representations: Numbers in Our World",
           "summary": "The learning focus was to recognize number properties, factors, multiples, and patterns and to represent mathematical thinking with models, symbols, and ordered steps.",
           "activities": [
+            "Algebraic Expressions",
+            "Algabraic Expressions",
             "Virtual Session for Revision_Math Term1 Assessment",
-            "MYP1_Term1_Sample Paper",
-            "Practice Sheet_Numerical Reasoning",
-            "Term -1 Practice sheet"
+            "MYP1_Term1_Sample Paper"
           ],
           "learningGoals": [
             "Recognize number properties, factors, multiples, and patterns.",
@@ -718,7 +718,7 @@
           "homeExtension": "Plan a ₹1,000 family snack budget with two discounts, compare offers, and justify the best choice using fractions or percentages.",
           "questions": [
             "Teach me the most important idea from “Models & Representations: Numbers in Our World” without looking at your notes.",
-            "Create and solve a new problem based on “Virtual Session for Revision_Math Term1 Assessment”. Show every step and explain why each step is valid.",
+            "Create and solve a new problem based on “Algebraic Expressions”. Show every step and explain why each step is valid.",
             "What mistake might someone make in this topic, and how would you correct it?",
             "Where could you use this learning outside school? Give a specific example."
           ],
