@@ -1,10 +1,28 @@
 {
   "studentName": "Advika Lakshmi",
-  "syncedAt": "2026-11-04T07:41:19.909Z",
+  "syncedAt": "2026-11-04T13:13:54.677Z",
   "sourceUrl": "https://thegaudium.managebac.com/student/home",
   "status": "ok",
   "error": "",
   "notifications": [
+    {
+      "title": "Algebra notes",
+      "detail": "Sabitha Karunam has posted the following discussion in IB MYP Mathematics (MYP Year 1) C:\n\nDear Students, complete the task and write the definitions in math notebook.\nAlgebra_Notes__2_.pdf49.22 KB\n\nClick here to view the full discussion thread.",
+      "url": "https://thegaudium.managebac.com/student/notifications/1411265603",
+      "createdAt": "2026-11-04T07:57:37.123Z",
+      "sender": "Sabitha Karunam",
+      "origin": "IB MYP Mathematics (MYP Year 1) C",
+      "attachments": [
+        {
+          "name": "Algebra_Notes__2_.pdf",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/1d1868887af365132397-Algebra_Notes__2_.pdf",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTY0NzY3MzI_ZXhwaXJlc19pbiIsInB1ciI6ImF0dGFjaG1lbnRfZW1iZWQifX0=--89e5f036d0253619744f17b05cf54b8ba07a7009"
+        }
+      ],
+      "channel": "managebac",
+      "externalId": "1411265603",
+      "mappedAt": "2026-11-04T13:13:54.677Z"
+    },
     {
       "title": "Cell Theory",
       "detail": "Sreelakshmi Buddharaju has posted the following discussion in IB MYP Sciences (MYP Year 1) C:\n\nGo through the material posted.\nCell_–_The_Building_Block_of_Life.pdf3.7 MB\n\nClick here to view the full discussion thread.",
@@ -5063,7 +5081,7 @@
     {
       "name": "Sciences (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12991873",
-      "latestActivity": "Yesterday Cell Theory Sreelakshmi Buddharaju added a message on Nov 3, 2026 at 4:41 PM New October 26, 2026 Unit-3-How do living things work ? Sreelakshmi Buddharaju added a message on Oct 26, 2026 at 9:23 PM Term 2 Syllabus – MYP Integrated Sciences Sreelakshmi Buddharaju updated a message on Oct...",
+      "latestActivity": "Yesterday Cell Theory Sreelakshmi Buddharaju added a message on Nov 3, 2026 at 4:41 PM October 26, 2026 Unit-3-How do living things work ? Sreelakshmi Buddharaju added a message on Oct 26, 2026 at 9:23 PM Term 2 Syllabus – MYP Integrated Sciences Sreelakshmi Buddharaju updated a message on Oct 26,...",
       "stream": [],
       "discussions": [
         {
@@ -5971,9 +5989,44 @@
     {
       "name": "Mathematics (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12992681",
-      "latestActivity": "Yesterday Algebraic Expressions Sabitha Karunam added a message on Nov 3, 2026 at 2:11 PM New November 02, 2026 Algebra intro Sabitha Karunam added a message on Nov 2, 2026 at 10:57 AM October 27, 2026 Generalise the rule Sabitha Karunam added a message on Oct 27, 2026 at 2:13 PM September 30, 2026...",
+      "latestActivity": "Today Algebra notes Sabitha Karunam added a message on Nov 4, 2026 at 1:27 PM New Yesterday Algebraic Expressions Sabitha Karunam added a message on Nov 3, 2026 at 2:11 PM November 02, 2026 Algebra intro Sabitha Karunam added a message on Nov 2, 2026 at 10:57 AM October 27, 2026 Generalise the rule...",
       "stream": [],
       "discussions": [
+        {
+          "title": "Algebra notes",
+          "detail": "Dear Students, complete the task and write the definitions in math notebook.",
+          "dateText": "Wednesday, Nov 4, 2026 at 1:27 PM",
+          "url": "https://thegaudium.managebac.com/student/classes/12992681/discussions/29265299",
+          "attachments": [
+            {
+              "name": "Algebra_Notes__2_.pdf",
+              "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/9b73124559a1ec8c53bd-Algebra_Notes__2_.pdf",
+              "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTY0NzY3MzI_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--917d00029a0d5783426168c4ab51b5e4c0d497fb",
+              "mappedAt": "2026-11-04T13:13:54.677Z"
+            }
+          ],
+          "images": [
+            {
+              "name": "Discussion image 1",
+              "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/2be651a1a6fd3e9690ea-Discussion-image-1.png",
+              "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTY0NzY3MDA_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--b49c57d8f7372d77641e1bd0b777b48726cbab59",
+              "mappedAt": "2026-11-04T13:13:54.677Z"
+            },
+            {
+              "name": "Discussion image 2",
+              "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/e15992592c354c26a22c-Discussion-image-2.png",
+              "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTY0NzY3MTE_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--ee566e49632046a28ca5aea52ce038704d28b7d9",
+              "mappedAt": "2026-11-04T13:13:54.677Z"
+            },
+            {
+              "name": "Discussion image 3",
+              "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/8c4b4c034086024edaa4-Discussion-image-3.png",
+              "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTY0NzY3MjA_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--3ff3b9eb072df05fbaee46d0ba945d11a1636245",
+              "mappedAt": "2026-11-04T13:13:54.677Z"
+            }
+          ],
+          "mappedAt": "2026-11-04T13:13:54.677Z"
+        },
         {
           "title": "Algebraic Expressions",
           "detail": "Dear Students, Complete the task in Math notebook.",
@@ -7133,7 +7186,7 @@
     {
       "name": "Design (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12992684",
-      "latestActivity": "October 10, 2026 Results of LaunchLab 2026! Preeti Dhankar updated a message on Oct 10, 2026 at 1:45 PM September 30, 2026 Criteria D Summative Criterion D - SA Wednesday at 11:25 AM Priya Chandana updated a task on Sep 30, 2026 at 1:43 PM Final Submission Reminder Salma K added a message on Sep 30...",
+      "latestActivity": "Today Unit-2: Designing for Expression Priya Chandana added a unit on Nov 4, 2026 at 1:13 PM New October 10, 2026 Results of LaunchLab 2026! Preeti Dhankar updated a message on Oct 10, 2026 at 1:45 PM September 30, 2026 Criteria D Summative Criterion D - SA Wednesday at 11:25 AM Priya Chandana upda...",
       "stream": [],
       "discussions": [
         {
@@ -7263,43 +7316,49 @@
       "units": [
         {
           "title": "Staying Safe in the Digital World",
-          "detail": "Starts\nW3 Apr\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n1. Cyber Smart Designer\n\nStarts\nW2 Jun\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nUnit-1: Designing for Interaction\n\nStarts\nW2 Jun\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nWhat role might our classroom walls play in our learning?\n\nStarts\nW3 Jun\n\nCurrent Unit\n\n20 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n2. Compassion by Design\n\nStarts\nW1 Aug\n\n8 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n3. Designing for better world\n\nStarts\nW4 Oct\n\nCurrent Unit\n\n11 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nHow can we make a toy to improve the life of a refugee child?\n\nStarts\nW2 Nov\n\n12 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
+          "detail": "Starts\nW3 Apr\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n1. Cyber Smart Designer\n\nStarts\nW2 Jun\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nUnit-1: Designing for Interaction\n\nStarts\nW2 Jun\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nWhat role might our classroom walls play in our learning?\n\nStarts\nW3 Jun\n\nCurrent Unit\n\n20 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n2. Compassion by Design\n\nStarts\nW1 Aug\n\n8 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n3. Designing for better world\n\nStarts\nW4 Oct\n\nCurrent Unit\n\n11 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nUnit-2: Designing for Expression\n\nStarts\nW1 Nov\n\nCurrent Unit\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nHow can we make a toy to improve the life of a refugee child?\n\nStarts\nW2 Nov\n\n12 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
           "url": "https://thegaudium.managebac.com/student/classes/12992684/units/2053940/presentations#show_at_a_glance",
           "mappedAt": "2026-07-19T10:07:56.106Z"
         },
         {
           "title": "1. Cyber Smart Designer",
-          "detail": "Staying Safe in the Digital World\n\nStarts\nW3 Apr\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nStarts\nW2 Jun\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nUnit-1: Designing for Interaction\n\nStarts\nW2 Jun\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nWhat role might our classroom walls play in our learning?\n\nStarts\nW3 Jun\n\nCurrent Unit\n\n20 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n2. Compassion by Design\n\nStarts\nW1 Aug\n\n8 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n3. Designing for better world\n\nStarts\nW4 Oct\n\nCurrent Unit\n\n11 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nHow can we make a toy to improve the life of a refugee child?\n\nStarts\nW2 Nov\n\n12 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
+          "detail": "Staying Safe in the Digital World\n\nStarts\nW3 Apr\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nStarts\nW2 Jun\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nUnit-1: Designing for Interaction\n\nStarts\nW2 Jun\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nWhat role might our classroom walls play in our learning?\n\nStarts\nW3 Jun\n\nCurrent Unit\n\n20 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n2. Compassion by Design\n\nStarts\nW1 Aug\n\n8 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n3. Designing for better world\n\nStarts\nW4 Oct\n\nCurrent Unit\n\n11 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nUnit-2: Designing for Expression\n\nStarts\nW1 Nov\n\nCurrent Unit\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nHow can we make a toy to improve the life of a refugee child?\n\nStarts\nW2 Nov\n\n12 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
           "url": "https://thegaudium.managebac.com/student/classes/12992684/units/1940808/presentations#show_at_a_glance",
           "mappedAt": "2026-07-19T10:07:56.106Z"
         },
         {
           "title": "Unit-1: Designing for Interaction",
-          "detail": "Staying Safe in the Digital World\n\nStarts\nW3 Apr\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n1. Cyber Smart Designer\n\nStarts\nW2 Jun\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nStarts\nW2 Jun\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nWhat role might our classroom walls play in our learning?\n\nStarts\nW3 Jun\n\nCurrent Unit\n\n20 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n2. Compassion by Design\n\nStarts\nW1 Aug\n\n8 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n3. Designing for better world\n\nStarts\nW4 Oct\n\nCurrent Unit\n\n11 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nHow can we make a toy to improve the life of a refugee child?\n\nStarts\nW2 Nov\n\n12 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
+          "detail": "Staying Safe in the Digital World\n\nStarts\nW3 Apr\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n1. Cyber Smart Designer\n\nStarts\nW2 Jun\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nStarts\nW2 Jun\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nWhat role might our classroom walls play in our learning?\n\nStarts\nW3 Jun\n\nCurrent Unit\n\n20 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n2. Compassion by Design\n\nStarts\nW1 Aug\n\n8 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n3. Designing for better world\n\nStarts\nW4 Oct\n\nCurrent Unit\n\n11 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nUnit-2: Designing for Expression\n\nStarts\nW1 Nov\n\nCurrent Unit\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nHow can we make a toy to improve the life of a refugee child?\n\nStarts\nW2 Nov\n\n12 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
           "url": "https://thegaudium.managebac.com/student/classes/12992684/units/2056776/presentations#show_at_a_glance",
           "mappedAt": "2026-07-19T10:07:56.106Z"
         },
         {
           "title": "What role might our classroom walls play in our learning?",
-          "detail": "Staying Safe in the Digital World\n\nStarts\nW3 Apr\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n1. Cyber Smart Designer\n\nStarts\nW2 Jun\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nUnit-1: Designing for Interaction\n\nStarts\nW2 Jun\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nStarts\nW3 Jun\n\nCurrent Unit\n\n20 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n2. Compassion by Design\n\nStarts\nW1 Aug\n\n8 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n3. Designing for better world\n\nStarts\nW4 Oct\n\nCurrent Unit\n\n11 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nHow can we make a toy to improve the life of a refugee child?\n\nStarts\nW2 Nov\n\n12 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
+          "detail": "Staying Safe in the Digital World\n\nStarts\nW3 Apr\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n1. Cyber Smart Designer\n\nStarts\nW2 Jun\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nUnit-1: Designing for Interaction\n\nStarts\nW2 Jun\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nStarts\nW3 Jun\n\nCurrent Unit\n\n20 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n2. Compassion by Design\n\nStarts\nW1 Aug\n\n8 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n3. Designing for better world\n\nStarts\nW4 Oct\n\nCurrent Unit\n\n11 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nUnit-2: Designing for Expression\n\nStarts\nW1 Nov\n\nCurrent Unit\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nHow can we make a toy to improve the life of a refugee child?\n\nStarts\nW2 Nov\n\n12 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
           "url": "https://thegaudium.managebac.com/student/classes/12992684/units/1790117/presentations#show_at_a_glance",
           "mappedAt": "2026-07-19T10:07:56.106Z"
         },
         {
           "title": "2. Compassion by Design",
-          "detail": "Staying Safe in the Digital World\n\nStarts\nW3 Apr\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n1. Cyber Smart Designer\n\nStarts\nW2 Jun\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nUnit-1: Designing for Interaction\n\nStarts\nW2 Jun\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nWhat role might our classroom walls play in our learning?\n\nStarts\nW3 Jun\n\nCurrent Unit\n\n20 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nStarts\nW1 Aug\n\n8 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n3. Designing for better world\n\nStarts\nW4 Oct\n\nCurrent Unit\n\n11 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nHow can we make a toy to improve the life of a refugee child?\n\nStarts\nW2 Nov\n\n12 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
+          "detail": "Staying Safe in the Digital World\n\nStarts\nW3 Apr\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n1. Cyber Smart Designer\n\nStarts\nW2 Jun\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nUnit-1: Designing for Interaction\n\nStarts\nW2 Jun\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nWhat role might our classroom walls play in our learning?\n\nStarts\nW3 Jun\n\nCurrent Unit\n\n20 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nStarts\nW1 Aug\n\n8 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n3. Designing for better world\n\nStarts\nW4 Oct\n\nCurrent Unit\n\n11 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nUnit-2: Designing for Expression\n\nStarts\nW1 Nov\n\nCurrent Unit\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nHow can we make a toy to improve the life of a refugee child?\n\nStarts\nW2 Nov\n\n12 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
           "url": "https://thegaudium.managebac.com/student/classes/12992684/units/1949320/presentations#show_at_a_glance",
           "mappedAt": "2026-07-19T10:07:56.106Z"
         },
         {
           "title": "3. Designing for better world",
-          "detail": "Staying Safe in the Digital World\n\nStarts\nW3 Apr\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n1. Cyber Smart Designer\n\nStarts\nW2 Jun\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nUnit-1: Designing for Interaction\n\nStarts\nW2 Jun\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nWhat role might our classroom walls play in our learning?\n\nStarts\nW3 Jun\n\nCurrent Unit\n\n20 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n2. Compassion by Design\n\nStarts\nW1 Aug\n\n8 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nStarts\nW4 Oct\n\nCurrent Unit\n\n11 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nHow can we make a toy to improve the life of a refugee child?\n\nStarts\nW2 Nov\n\n12 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
+          "detail": "Staying Safe in the Digital World\n\nStarts\nW3 Apr\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n1. Cyber Smart Designer\n\nStarts\nW2 Jun\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nUnit-1: Designing for Interaction\n\nStarts\nW2 Jun\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nWhat role might our classroom walls play in our learning?\n\nStarts\nW3 Jun\n\nCurrent Unit\n\n20 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n2. Compassion by Design\n\nStarts\nW1 Aug\n\n8 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nStarts\nW4 Oct\n\nCurrent Unit\n\n11 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nUnit-2: Designing for Expression\n\nStarts\nW1 Nov\n\nCurrent Unit\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nHow can we make a toy to improve the life of a refugee child?\n\nStarts\nW2 Nov\n\n12 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
           "url": "https://thegaudium.managebac.com/student/classes/12992684/units/2000217/presentations#show_at_a_glance",
           "mappedAt": "2026-07-19T10:07:56.106Z"
         },
         {
+          "title": "Unit-2: Designing for Expression",
+          "detail": "Staying Safe in the Digital World\n\nStarts\nW3 Apr\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n1. Cyber Smart Designer\n\nStarts\nW2 Jun\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nUnit-1: Designing for Interaction\n\nStarts\nW2 Jun\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nWhat role might our classroom walls play in our learning?\n\nStarts\nW3 Jun\n\nCurrent Unit\n\n20 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n2. Compassion by Design\n\nStarts\nW1 Aug\n\n8 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n3. Designing for better world\n\nStarts\nW4 Oct\n\nCurrent Unit\n\n11 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nStarts\nW1 Nov\n\nCurrent Unit\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nHow can we make a toy to improve the life of a refugee child?\n\nStarts\nW2 Nov\n\n12 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
+          "url": "https://thegaudium.managebac.com/student/classes/12992684/units/2132928/presentations#show_at_a_glance",
+          "mappedAt": "2026-11-04T13:13:54.677Z"
+        },
+        {
           "title": "How can we make a toy to improve the life of a refugee child?",
-          "detail": "Staying Safe in the Digital World\n\nStarts\nW3 Apr\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n1. Cyber Smart Designer\n\nStarts\nW2 Jun\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nUnit-1: Designing for Interaction\n\nStarts\nW2 Jun\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nWhat role might our classroom walls play in our learning?\n\nStarts\nW3 Jun\n\nCurrent Unit\n\n20 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n2. Compassion by Design\n\nStarts\nW1 Aug\n\n8 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n3. Designing for better world\n\nStarts\nW4 Oct\n\nCurrent Unit\n\n11 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nStarts\nW2 Nov\n\n12 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
+          "detail": "Staying Safe in the Digital World\n\nStarts\nW3 Apr\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n1. Cyber Smart Designer\n\nStarts\nW2 Jun\n\n6 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nUnit-1: Designing for Interaction\n\nStarts\nW2 Jun\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nWhat role might our classroom walls play in our learning?\n\nStarts\nW3 Jun\n\nCurrent Unit\n\n20 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n2. Compassion by Design\n\nStarts\nW1 Aug\n\n8 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\n3. Designing for better world\n\nStarts\nW4 Oct\n\nCurrent Unit\n\n11 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nUnit-2: Designing for Expression\n\nStarts\nW1 Nov\n\nCurrent Unit\n\n10 Weeks\n\n0\n\nLessons\n\n0\n\nTasks\n\nStarts\nW2 Nov\n\n12 Weeks\n\n0\n\nLessons\n\n0\n\nTasks",
           "url": "https://thegaudium.managebac.com/student/classes/12992684/units/1867869/presentations#show_at_a_glance",
           "mappedAt": "2026-07-19T10:07:56.106Z"
         }
@@ -8310,6 +8369,45 @@
       "images": [],
       "source": "task",
       "mappedAt": "2026-09-01T10:22:15.029Z"
+    },
+    {
+      "title": "Algebra notes",
+      "className": "Mathematics (MYP Year 1) C",
+      "dueText": "",
+      "status": "Shared in Discussion",
+      "unit": "Class discussion",
+      "description": "Dear Students, complete the task and write the definitions in math notebook.",
+      "url": "https://thegaudium.managebac.com/student/classes/12992681/discussions/29265299",
+      "attachments": [
+        {
+          "name": "Algebra_Notes__2_.pdf",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/9b73124559a1ec8c53bd-Algebra_Notes__2_.pdf",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTY0NzY3MzI_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--917d00029a0d5783426168c4ab51b5e4c0d497fb",
+          "mappedAt": "2026-11-04T13:13:54.677Z"
+        }
+      ],
+      "images": [
+        {
+          "name": "Discussion image 1",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/2be651a1a6fd3e9690ea-Discussion-image-1.png",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTY0NzY3MDA_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--b49c57d8f7372d77641e1bd0b777b48726cbab59",
+          "mappedAt": "2026-11-04T13:13:54.677Z"
+        },
+        {
+          "name": "Discussion image 2",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/e15992592c354c26a22c-Discussion-image-2.png",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTY0NzY3MTE_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--ee566e49632046a28ca5aea52ce038704d28b7d9",
+          "mappedAt": "2026-11-04T13:13:54.677Z"
+        },
+        {
+          "name": "Discussion image 3",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/8c4b4c034086024edaa4-Discussion-image-3.png",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTY0NzY3MjA_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--3ff3b9eb072df05fbaee46d0ba945d11a1636245",
+          "mappedAt": "2026-11-04T13:13:54.677Z"
+        }
+      ],
+      "source": "discussion",
+      "mappedAt": "2026-11-04T13:13:54.677Z"
     },
     {
       "title": "Algebraic Expressions",
