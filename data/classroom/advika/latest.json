@@ -1,10 +1,28 @@
 {
   "studentName": "Advika Lakshmi",
-  "syncedAt": "2026-11-05T08:01:44.752Z",
+  "syncedAt": "2026-11-05T13:27:22.571Z",
   "sourceUrl": "https://thegaudium.managebac.com/student/home",
   "status": "ok",
   "error": "",
   "notifications": [
+    {
+      "title": "Weekend task",
+      "detail": "Sabitha Karunam has posted the following discussion in IB MYP Mathematics (MYP Year 1) C:\n\nDear Students, Complete the task.\nCollecting_Like_Terms-_5th_Nov.pdf598.19 KB\n\nClick here to view the full discussion thread.",
+      "url": "https://thegaudium.managebac.com/student/notifications/1412507063",
+      "createdAt": "2026-11-05T09:56:17.484Z",
+      "sender": "Sabitha Karunam",
+      "origin": "IB MYP Mathematics (MYP Year 1) C",
+      "attachments": [
+        {
+          "name": "Collecting_Like_Terms-_5th_Nov.pdf",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/2de924dd6426a10ab38e-Collecting_Like_Terms-_5th_Nov.pdf",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTY1ODAyMDI_ZXhwaXJlc19pbiIsInB1ciI6ImF0dGFjaG1lbnRfZW1iZWQifX0=--70c43864d2a31db5c4bf55a45b470a1d06cdc1c8"
+        }
+      ],
+      "channel": "managebac",
+      "externalId": "1412507063",
+      "mappedAt": "2026-11-05T13:27:22.571Z"
+    },
     {
       "title": "Updated Task",
       "detail": "Salma K has just updated the Task Activity: Understand the Emojis in IB MYP Design (MYP Year 1) C.\nWhen: November 6, 2026 at 1:20 PM\n\nWhat emotion does each emoji show?\n\nCan the same emoji mean something different to another person?\n\nWhich four emotions would you like to include in your emoji token set?\n\nNotebook task – Think and Write\nWrite any four emotions you want to represent using emoji tokens.\n\nWhat colours would you choose for these emojis?\n\nWhat materials can you use to make the tokens?\n\nView full details",
@@ -6013,9 +6031,25 @@
     {
       "name": "Mathematics (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12992681",
-      "latestActivity": "Yesterday Algebra notes Sabitha Karunam added a message on Nov 4, 2026 at 1:27 PM November 03, 2026 Algebraic Expressions Sabitha Karunam added a message on Nov 3, 2026 at 2:11 PM November 02, 2026 Algebra intro Sabitha Karunam added a message on Nov 2, 2026 at 10:57 AM October 27, 2026 Generalise...",
+      "latestActivity": "Today Weekend task Sabitha Karunam added a message on Nov 5, 2026 at 3:26 PM New Yesterday Algebra notes Sabitha Karunam added a message on Nov 4, 2026 at 1:27 PM November 03, 2026 Algebraic Expressions Sabitha Karunam added a message on Nov 3, 2026 at 2:11 PM November 02, 2026 Algebra intro Sabith...",
       "stream": [],
       "discussions": [
+        {
+          "title": "Weekend task",
+          "detail": "Dear Students, Complete the task.",
+          "dateText": "Thursday, Nov 5, 2026 at 3:26 PM",
+          "url": "https://thegaudium.managebac.com/student/classes/12992681/discussions/29274425",
+          "attachments": [
+            {
+              "name": "Collecting_Like_Terms-_5th_Nov.pdf",
+              "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/dab1d57f18deffc8f253-Collecting_Like_Terms-_5th_Nov.pdf",
+              "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTY1ODAyMDI_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--abd57adfb3ba560639f242987436b289b94f291b",
+              "mappedAt": "2026-11-05T13:27:22.571Z"
+            }
+          ],
+          "images": [],
+          "mappedAt": "2026-11-05T13:27:22.571Z"
+        },
         {
           "title": "Algebra notes",
           "detail": "Dear Students, complete the task and write the definitions in math notebook.",
@@ -8420,6 +8454,26 @@
       "images": [],
       "source": "task",
       "mappedAt": "2026-09-01T10:22:15.029Z"
+    },
+    {
+      "title": "Weekend task",
+      "className": "Mathematics (MYP Year 1) C",
+      "dueText": "",
+      "status": "Shared in Discussion",
+      "unit": "Class discussion",
+      "description": "Dear Students, Complete the task.",
+      "url": "https://thegaudium.managebac.com/student/classes/12992681/discussions/29274425",
+      "attachments": [
+        {
+          "name": "Collecting_Like_Terms-_5th_Nov.pdf",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/dab1d57f18deffc8f253-Collecting_Like_Terms-_5th_Nov.pdf",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTY1ODAyMDI_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--abd57adfb3ba560639f242987436b289b94f291b",
+          "mappedAt": "2026-11-05T13:27:22.571Z"
+        }
+      ],
+      "images": [],
+      "source": "discussion",
+      "mappedAt": "2026-11-05T13:27:22.571Z"
     },
     {
       "title": "Algebra notes",
