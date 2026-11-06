@@ -1,10 +1,10 @@
 {
   "studentKey": "advika",
   "studentName": "Advika Lakshmi",
-  "weekKey": "2026-10-26_2026-11-01",
-  "weekStart": "2026-10-26",
-  "weekEnd": "2026-11-01",
-  "generatedAt": "2026-10-30T17:04:30.115Z",
+  "weekKey": "2026-11-02_2026-11-08",
+  "weekStart": "2026-11-02",
+  "weekEnd": "2026-11-08",
+  "generatedAt": "2026-11-06T18:08:56.131Z",
   "overallSummary": "Advika's learning this week moved across 11 subjects, with a strong emphasis on explaining ideas, applying them in a new situation, and reflecting on how work could improve. The most useful parent role is to ask for evidence and reasoning—not to reteach every lesson or supply the answer.",
   "parentOverview": "ManageBac shows the learning opportunities and work recorded for the week; it does not by itself prove mastery. Use this guide to listen for what Advika can explain independently, notice where prompts are needed, and agree on one small next step. A confident explanation, a relevant example, and the ability to correct a mistake are stronger signs of understanding than task completion alone.",
   "strengths": [
@@ -16,7 +16,7 @@
   ],
   "growthAreas": [
     "English: choose the most urgent of 18 pending items, agree on a 20-minute start, and check that submission is complete.",
-    "Design: choose the most urgent of 12 pending items, agree on a 20-minute start, and check that submission is complete.",
+    "Design: choose the most urgent of 13 pending items, agree on a 20-minute start, and check that submission is complete.",
     "Individuals & Societies: choose the most urgent of 3 pending items, agree on a 20-minute start, and check that submission is complete.",
     "Visual Arts: choose the most urgent of 2 pending items, agree on a 20-minute start, and check that submission is complete."
   ],
@@ -156,7 +156,7 @@
   ],
   "attentionItems": [
     "English: choose the most urgent of 18 pending items, agree on a 20-minute start, and check that submission is complete.",
-    "Design: choose the most urgent of 12 pending items, agree on a 20-minute start, and check that submission is complete.",
+    "Design: choose the most urgent of 13 pending items, agree on a 20-minute start, and check that submission is complete.",
     "Individuals & Societies: choose the most urgent of 3 pending items, agree on a 20-minute start, and check that submission is complete.",
     "Visual Arts: choose the most urgent of 2 pending items, agree on a 20-minute start, and check that submission is complete."
   ],
@@ -462,17 +462,57 @@
     },
     {
       "subject": "Sciences",
-      "summary": "This week connected Unit-3-How do living things work ?, Term 2 Syllabus – MYP Integrated Sciences, 1. What do Scientists do?. Frame a testable research question and an evidence-based hypothesis. Identify independent, dependent, and controlled variables for a fair investigation. Present data clearly, interpret patterns, draw a supported conclusion, and suggest improvements. Classroom evidence included Unit-3-How do living things work ? and Term 2 Syllabus – MYP Integrated Sciences.",
+      "summary": "This week connected Cell Theory, Unit-3-How do living things work ?, 1. What do Scientists do?. Frame a testable research question and an evidence-based hypothesis. Identify independent, dependent, and controlled variables for a fair investigation. Present data clearly, interpret patterns, draw a supported conclusion, and suggest improvements. Classroom evidence included Cell Theory and Unit-3-How do living things work ?.",
       "parentTakeaway": "The student explains what is changed, what is measured, and what must stay the same.",
       "units": [
+        {
+          "name": "Cell Theory",
+          "summary": "The learning focus was to frame a testable research question and an evidence-based hypothesis and to identify independent, dependent, and controlled variables for a fair investigation.",
+          "activities": [
+            "Cell Theory",
+            "Unit-3-How do living things work ?",
+            "Term 2 Syllabus – MYP Integrated Sciences",
+            "Questions and Answer keys from FA , SA and Mock paper for Revision"
+          ],
+          "learningGoals": [
+            "Frame a testable research question and an evidence-based hypothesis.",
+            "Identify independent, dependent, and controlled variables for a fair investigation.",
+            "Present data clearly, interpret patterns, draw a supported conclusion, and suggest improvements."
+          ],
+          "evidenceToListenFor": [
+            "The student explains what is changed, what is measured, and what must stay the same.",
+            "A conclusion refers to actual data rather than simply saying the hypothesis was correct."
+          ],
+          "commonMisconceptions": [
+            "A hypothesis is a guess with no reason; it should make a justified prediction.",
+            "One successful result proves a claim; repeated measurements and method quality affect confidence."
+          ],
+          "parentGuidance": [
+            "Use everyday scenarios and ask the student to identify variables before discussing answers.",
+            "Praise a well-explained limitation or improvement, not only a 'correct' result."
+          ],
+          "homeExtension": "Run a fair home investigation comparing how quickly ice melts in two locations; record repeated measurements and graph the results.",
+          "questions": [
+            "Teach me the most important idea from “Cell Theory” without looking at your notes.",
+            "For “Cell Theory”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "Scientific Method for Kids — Learn Bright",
+              "url": "https://www.youtube.com/watch?v=qQBZbinoOrI"
+            }
+          ]
+        },
         {
           "name": "Unit-3-How do living things work ?",
           "summary": "The learning focus was to frame a testable research question and an evidence-based hypothesis and to identify independent, dependent, and controlled variables for a fair investigation.",
           "activities": [
+            "Cell Theory",
             "Unit-3-How do living things work ?",
             "Term 2 Syllabus – MYP Integrated Sciences",
-            "Questions and Answer keys from FA , SA and Mock paper for Revision",
-            "Online class on Saturday 3 October 2026"
+            "Questions and Answer keys from FA , SA and Mock paper for Revision"
           ],
           "learningGoals": [
             "Frame a testable research question and an evidence-based hypothesis.",
@@ -494,47 +534,7 @@
           "homeExtension": "Run a fair home investigation comparing how quickly ice melts in two locations; record repeated measurements and graph the results.",
           "questions": [
             "Teach me the most important idea from “Unit-3-How do living things work ?” without looking at your notes.",
-            "For “Unit-3-How do living things work ?”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
-            "What mistake might someone make in this topic, and how would you correct it?",
-            "Where could you use this learning outside school? Give a specific example."
-          ],
-          "videos": [
-            {
-              "title": "Scientific Method for Kids — Learn Bright",
-              "url": "https://www.youtube.com/watch?v=qQBZbinoOrI"
-            }
-          ]
-        },
-        {
-          "name": "Term 2 Syllabus – MYP Integrated Sciences",
-          "summary": "The learning focus was to frame a testable research question and an evidence-based hypothesis and to identify independent, dependent, and controlled variables for a fair investigation.",
-          "activities": [
-            "Unit-3-How do living things work ?",
-            "Term 2 Syllabus – MYP Integrated Sciences",
-            "Questions and Answer keys from FA , SA and Mock paper for Revision",
-            "Online class on Saturday 3 October 2026"
-          ],
-          "learningGoals": [
-            "Frame a testable research question and an evidence-based hypothesis.",
-            "Identify independent, dependent, and controlled variables for a fair investigation.",
-            "Present data clearly, interpret patterns, draw a supported conclusion, and suggest improvements."
-          ],
-          "evidenceToListenFor": [
-            "The student explains what is changed, what is measured, and what must stay the same.",
-            "A conclusion refers to actual data rather than simply saying the hypothesis was correct."
-          ],
-          "commonMisconceptions": [
-            "A hypothesis is a guess with no reason; it should make a justified prediction.",
-            "One successful result proves a claim; repeated measurements and method quality affect confidence."
-          ],
-          "parentGuidance": [
-            "Use everyday scenarios and ask the student to identify variables before discussing answers.",
-            "Praise a well-explained limitation or improvement, not only a 'correct' result."
-          ],
-          "homeExtension": "Run a fair home investigation comparing how quickly ice melts in two locations; record repeated measurements and graph the results.",
-          "questions": [
-            "Teach me the most important idea from “Term 2 Syllabus – MYP Integrated Sciences” without looking at your notes.",
-            "For “Unit-3-How do living things work ?”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
+            "For “Cell Theory”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
             "What mistake might someone make in this topic, and how would you correct it?",
             "Where could you use this learning outside school? Give a specific example."
           ],
@@ -549,10 +549,10 @@
           "name": "1. What do Scientists do?",
           "summary": "The learning focus was to frame a testable research question and an evidence-based hypothesis and to identify independent, dependent, and controlled variables for a fair investigation.",
           "activities": [
+            "Cell Theory",
             "Unit-3-How do living things work ?",
             "Term 2 Syllabus – MYP Integrated Sciences",
-            "Questions and Answer keys from FA , SA and Mock paper for Revision",
-            "Online class on Saturday 3 October 2026"
+            "Questions and Answer keys from FA , SA and Mock paper for Revision"
           ],
           "learningGoals": [
             "Frame a testable research question and an evidence-based hypothesis.",
@@ -574,7 +574,7 @@
           "homeExtension": "Run a fair home investigation comparing how quickly ice melts in two locations; record repeated measurements and graph the results.",
           "questions": [
             "Teach me the most important idea from “1. What do Scientists do?” without looking at your notes.",
-            "For “Unit-3-How do living things work ?”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
+            "For “Cell Theory”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
             "What mistake might someone make in this topic, and how would you correct it?",
             "Where could you use this learning outside school? Give a specific example."
           ],
@@ -589,7 +589,7 @@
     },
     {
       "subject": "Mathematics",
-      "summary": "This week connected UNIT 4 : Data Speaks: Understanding our Neighborhood, Models & Representations: Numbers in Our World. Recognize number properties, factors, multiples, and patterns. Represent mathematical thinking with models, symbols, and ordered steps. Check whether an answer is reasonable using estimation or an alternative strategy. Classroom evidence included SA-2 Task sheet and Generalise the rule.",
+      "summary": "This week connected UNIT 4 : Data Speaks: Understanding our Neighborhood, Models & Representations: Numbers in Our World. Recognize number properties, factors, multiples, and patterns. Represent mathematical thinking with models, symbols, and ordered steps. Check whether an answer is reasonable using estimation or an alternative strategy. Classroom evidence included SA-2 Task sheet and Weekend task.",
       "parentTakeaway": "The student explains why a method works instead of only reciting a rule.",
       "units": [
         {
@@ -597,9 +597,9 @@
           "summary": "The learning focus was to recognize number properties, factors, multiples, and patterns and to represent mathematical thinking with models, symbols, and ordered steps.",
           "activities": [
             "SA-2 Task sheet",
-            "Generalise the rule",
-            "Online class link",
-            "Online class for Term-1 exam (Doubts Clarification)"
+            "Weekend task",
+            "Algebra notes",
+            "Algebraic Expressions"
           ],
           "learningGoals": [
             "Recognize number properties, factors, multiples, and patterns.",
@@ -640,10 +640,10 @@
           "name": "Models & Representations: Numbers in Our World",
           "summary": "The learning focus was to recognize number properties, factors, multiples, and patterns and to represent mathematical thinking with models, symbols, and ordered steps.",
           "activities": [
-            "Generalise the rule",
-            "Online class link",
-            "Online class for Term-1 exam (Doubts Clarification)",
-            "Term-1 Mock Paper"
+            "Weekend task",
+            "Algebra notes",
+            "Algebraic Expressions",
+            "Algebra intro"
           ],
           "learningGoals": [
             "Recognize number properties, factors, multiples, and patterns.",
@@ -665,7 +665,7 @@
           "homeExtension": "Plan a ₹1,000 family snack budget with two discounts, compare offers, and justify the best choice using fractions or percentages.",
           "questions": [
             "Teach me the most important idea from “Models & Representations: Numbers in Our World” without looking at your notes.",
-            "Create and solve a new problem based on “Generalise the rule”. Show every step and explain why each step is valid.",
+            "Create and solve a new problem based on “Weekend task”. Show every step and explain why each step is valid.",
             "What mistake might someone make in this topic, and how would you correct it?",
             "Where could you use this learning outside school? Give a specific example."
           ],
@@ -764,9 +764,53 @@
     },
     {
       "subject": "Design",
-      "summary": "This week connected Unit-1: Designing for Interaction, Staying Safe in the Digital World. Understand sprites, events, motion, looks, sound, control, sensing, and operator blocks. Arrange instructions in a logical sequence to create an interactive response. Research user needs and define success criteria before building a solution. Classroom evidence included NLP Extension and Upload your game file.",
+      "summary": "This week connected Unit-2: Designing for Expression, Unit-1: Designing for Interaction, Staying Safe in the Digital World. Understand sprites, events, motion, looks, sound, control, sensing, and operator blocks. Arrange instructions in a logical sequence to create an interactive response. Research user needs and define success criteria before building a solution. Classroom evidence included Activity: Understand the Emojis and Launch Lab 2026 - Theme for the Graphic Design.",
       "parentTakeaway": "The student can predict what a block sequence will do before running it.",
       "units": [
+        {
+          "name": "Unit-2: Designing for Expression",
+          "summary": "The learning focus was to understand sprites, events, motion, looks, sound, control, sensing, and operator blocks and to arrange instructions in a logical sequence to create an interactive response.",
+          "activities": [
+            "Activity: Understand the Emojis",
+            "Launch Lab 2026 - Theme for the Graphic Design",
+            "Results of LaunchLab 2026!",
+            "Final Submission Reminder"
+          ],
+          "learningGoals": [
+            "Understand sprites, events, motion, looks, sound, control, sensing, and operator blocks.",
+            "Arrange instructions in a logical sequence to create an interactive response.",
+            "Research user needs and define success criteria before building a solution."
+          ],
+          "evidenceToListenFor": [
+            "The student can predict what a block sequence will do before running it.",
+            "The student can explain a bug, change one block, and test whether the change solved it."
+          ],
+          "commonMisconceptions": [
+            "A program is correct if it runs once; good design must work reliably for different users.",
+            "Research is separate from designing; research should directly shape features and success criteria."
+          ],
+          "parentGuidance": [
+            "Ask the student to sketch the algorithm in plain language before opening PictoBlox.",
+            "When something fails, ask 'What did you expect? What happened? Which block controls that?'"
+          ],
+          "homeExtension": "Build a three-question interactive safety quiz in PictoBlox with feedback for correct and incorrect answers.",
+          "questions": [
+            "Teach me the most important idea from “Unit-2: Designing for Expression” without looking at your notes.",
+            "Demonstrate the sequence or design behind “Activity: Understand the Emojis”, then explain how you would test and improve it for a user.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "Online Privacy for Kids",
+              "url": "https://www.youtube.com/watch?v=yiKeLOKc1tw"
+            },
+            {
+              "title": "Getting Started with PictoBlox — STEMpedia",
+              "url": "https://www.youtube.com/watch?v=wB7ONAcT55I"
+            }
+          ]
+        },
         {
           "name": "Unit-1: Designing for Interaction",
           "summary": "The learning focus was to understand sprites, events, motion, looks, sound, control, sensing, and operator blocks and to arrange instructions in a logical sequence to create an interactive response.",
