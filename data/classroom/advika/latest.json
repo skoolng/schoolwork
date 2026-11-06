@@ -1,10 +1,28 @@
 {
   "studentName": "Advika Lakshmi",
-  "syncedAt": "2026-11-05T18:24:57.289Z",
+  "syncedAt": "2026-11-06T08:06:38.125Z",
   "sourceUrl": "https://thegaudium.managebac.com/student/home",
   "status": "ok",
   "error": "",
   "notifications": [
+    {
+      "title": "MYP September- October - News Letter",
+      "detail": "Dr.Padmaja Kakumanu has posted the following discussion in IB Middle Years Class of 2031: MYP1C (MYP Year 1):\n\nDear Parents and Students,\nPlease find the MYP September- October News Letter\n\nIB_MYP_September_October_Newsletter.pdf3 MB\n\nClick here to view the full discussion thread.",
+      "url": "https://thegaudium.managebac.com/student/notifications/1413341818",
+      "createdAt": "2026-11-06T07:27:06.948Z",
+      "sender": "Dr.Padmaja Kakumanu",
+      "origin": "IB Middle Years Class of 2031: MYP1C (MYP Year 1)",
+      "attachments": [
+        {
+          "name": "IB_MYP_September_October_Newsletter.pdf",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/59778e9a6e6477c2d62e-IB_MYP_September_October_Newsletter.pdf",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTY2NTY0NjY_ZXhwaXJlc19pbiIsInB1ciI6ImF0dGFjaG1lbnRfZW1iZWQifX0=--cc9174ace5bbfbaf418e88818ec64d6e78d38a1e"
+        }
+      ],
+      "channel": "managebac",
+      "externalId": "1413341818",
+      "mappedAt": "2026-11-06T08:06:38.125Z"
+    },
     {
       "title": "Weekend task",
       "detail": "Sabitha Karunam has posted the following discussion in IB MYP Mathematics (MYP Year 1) C:\n\nDear Students, Complete the task.\nCollecting_Like_Terms-_5th_Nov.pdf598.19 KB\n\nClick here to view the full discussion thread.",
@@ -4156,7 +4174,7 @@
     {
       "name": "English (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12990853",
-      "latestActivity": "Today Myths and legends: A mirror of reality?_2026-27 Madhavi Vinod updated a unit on Nov 5, 2026 at 12:34 PM New Unit 4_Connecting Through the Camera_2026-27 Madhavi Vinod added a unit on Nov 5, 2026 at 11:52 AM New Unit 3_Stories in Frames_2026-27 Madhavi Vinod updated a unit on Nov 5, 2026 at 11...",
+      "latestActivity": "Yesterday Myths and legends: A mirror of reality?_2026-27 Madhavi Vinod updated a unit on Nov 5, 2026 at 12:34 PM Unit 4_Connecting Through the Camera_2026-27 Madhavi Vinod added a unit on Nov 5, 2026 at 11:52 AM Unit 3_Stories in Frames_2026-27 Madhavi Vinod updated a unit on Nov 5, 2026 at 11:51...",
       "stream": [],
       "discussions": [
         {
@@ -6031,12 +6049,12 @@
     {
       "name": "Mathematics (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12992681",
-      "latestActivity": "Today Weekend task Sabitha Karunam added a message on Nov 5, 2026 at 3:26 PM New Yesterday Algebra notes Sabitha Karunam added a message on Nov 4, 2026 at 1:27 PM November 03, 2026 Algebraic Expressions Sabitha Karunam added a message on Nov 3, 2026 at 2:11 PM November 02, 2026 Algebra intro Sabith...",
+      "latestActivity": "Yesterday Weekend task Sabitha Karunam added a message on Nov 5, 2026 at 3:26 PM New November 04, 2026 Algebra notes Sabitha Karunam added a message on Nov 4, 2026 at 1:27 PM November 03, 2026 Algebraic Expressions Sabitha Karunam added a message on Nov 3, 2026 at 2:11 PM November 02, 2026 Algebra...",
       "stream": [],
       "discussions": [
         {
           "title": "Weekend task",
-          "detail": "Dear Students, Complete the task.\n\n1 Comment\n\n- Last comment on\nThursday, Nov 5, 2026 at 8:35 PM\n\n- Open Discussion",
+          "detail": "Dear Students, Complete the task.\n\n5 Comments\n\n- Last comment on\nFriday, Nov 6, 2026 at 9:14 AM\n\n- Open Discussion",
           "dateText": "Thursday, Nov 5, 2026 at 3:26 PM",
           "url": "https://thegaudium.managebac.com/student/classes/12992681/discussions/29274425",
           "attachments": [
@@ -7244,7 +7262,7 @@
     {
       "name": "Design (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12992684",
-      "latestActivity": "Today Activity: Understand the Emojis Formative Classwork Pending Friday at 1:20 PM Salma K updated a task on Nov 5, 2026 at 11:41 AM New Unit-2 Introduction Formative Classwork Wednesday at 1:10 PM Salma K updated a task on Nov 5, 2026 at 11:40 AM New Unit-1: Designing for Interaction Priya Chanda...",
+      "latestActivity": "Yesterday Activity: Understand the Emojis Formative Classwork Pending Friday at 1:20 PM Salma K updated a task on Nov 5, 2026 at 11:41 AM Unit-2 Introduction Formative Classwork Wednesday at 1:10 PM Salma K updated a task on Nov 5, 2026 at 11:40 AM Unit-1: Designing for Interaction Priya Chandana u...",
       "stream": [],
       "discussions": [
         {
@@ -8436,32 +8454,12 @@
       "mappedAt": "2026-07-19T10:07:56.106Z"
     },
     {
-      "title": "SA-2 Task sheet",
-      "className": "Mathematics (MYP Year 1) C",
-      "dueText": "Sep 1 - Tuesday at  1:45 PM",
-      "status": "Pending",
-      "unit": "UNIT 4 : Data Speaks: Understanding our Neighborhood",
-      "description": "Dear Students,\nPlease read the instructions carefully and complete the SA-2 task.\nThe completed task must be submitted by Monday, 7th September 2026. Please note that no extensions will be provided, and submissions will not be accepted after the deadline. Make sure to plan your work accordingly and submit the task on time.\nAll the best Students\nFairness_Community_Task_Sheet_MYP1.pdf2.04 MB",
-      "url": "https://thegaudium.managebac.com/student/classes/12992681/core_tasks/48648578",
-      "attachments": [
-        {
-          "name": "Fairness_Community_Task_Sheet_MYP1.pdf",
-          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/173a79e4a57e06e74bbe-Fairness_Community_Task_Sheet_MYP1.pdf",
-          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaTluYVdRNkx5OXRZVzVoWjJWaVlXTXZRWE56WlhRdk1Ua3hPRGt5TWpBNFAyVjRjR2x5WlhOZmFXNEdPZ1pGVkE9PSIsImV4cCI6bnVsbCwicHVyIjoiZGVmYXVsdCJ9fQ==--e9fbfe58a4a54233b5be8d3c18f8d389a01d3d16",
-          "mappedAt": "2026-09-01T10:22:15.029Z"
-        }
-      ],
-      "images": [],
-      "source": "task",
-      "mappedAt": "2026-09-01T10:22:15.029Z"
-    },
-    {
       "title": "Weekend task",
       "className": "Mathematics (MYP Year 1) C",
       "dueText": "",
       "status": "Shared in Discussion",
       "unit": "Class discussion",
-      "description": "Dear Students, Complete the task.\n\n1 Comment\n\n- Last comment on\nThursday, Nov 5, 2026 at 8:35 PM\n\n- Open Discussion",
+      "description": "Dear Students, Complete the task.\n\n5 Comments\n\n- Last comment on\nFriday, Nov 6, 2026 at 9:14 AM\n\n- Open Discussion",
       "url": "https://thegaudium.managebac.com/student/classes/12992681/discussions/29274425",
       "attachments": [
         {
@@ -10262,6 +10260,26 @@
       "images": [],
       "source": "task",
       "mappedAt": "2026-10-09T07:34:39.608Z"
+    },
+    {
+      "title": "SA-2 Task sheet",
+      "className": "Mathematics (MYP Year 1) C",
+      "dueText": "Sep 1 - Tuesday at  1:45 PM",
+      "status": "Pending",
+      "unit": "UNIT 4 : Data Speaks: Understanding our Neighborhood",
+      "description": "Dear Students,\nPlease read the instructions carefully and complete the SA-2 task.\nThe completed task must be submitted by Monday, 7th September 2026. Please note that no extensions will be provided, and submissions will not be accepted after the deadline. Make sure to plan your work accordingly and submit the task on time.\nAll the best Students\nFairness_Community_Task_Sheet_MYP1.pdf2.04 MB",
+      "url": "https://thegaudium.managebac.com/student/classes/12992681/core_tasks/48648578",
+      "attachments": [
+        {
+          "name": "Fairness_Community_Task_Sheet_MYP1.pdf",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/173a79e4a57e06e74bbe-Fairness_Community_Task_Sheet_MYP1.pdf",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaTluYVdRNkx5OXRZVzVoWjJWaVlXTXZRWE56WlhRdk1Ua3hPRGt5TWpBNFAyVjRjR2x5WlhOZmFXNEdPZ1pGVkE9PSIsImV4cCI6bnVsbCwicHVyIjoiZGVmYXVsdCJ9fQ==--e9fbfe58a4a54233b5be8d3c18f8d389a01d3d16",
+          "mappedAt": "2026-09-01T10:22:15.029Z"
+        }
+      ],
+      "images": [],
+      "source": "task",
+      "mappedAt": "2026-09-01T10:22:15.029Z"
     },
     {
       "title": "PHE – SA 2_Aerobics",
