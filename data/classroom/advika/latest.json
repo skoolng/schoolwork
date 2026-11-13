@@ -1,10 +1,28 @@
 {
   "studentName": "Advika Lakshmi",
-  "syncedAt": "2026-11-12T18:40:11.143Z",
+  "syncedAt": "2026-11-13T08:17:28.009Z",
   "sourceUrl": "https://thegaudium.managebac.com/student/home",
   "status": "ok",
   "error": "",
   "notifications": [
+    {
+      "title": "Weekend Task",
+      "detail": "Sabitha Karunam has posted the following discussion in IB MYP Mathematics (MYP Year 1) C:\n\nDear Students, Complete the task\nMYP1_Algebra_Like_Terms_Worksheet.docx21.73 KB\n\nClick here to view the full discussion thread.",
+      "url": "https://thegaudium.managebac.com/student/notifications/1419407942",
+      "createdAt": "2026-11-13T08:08:59.881Z",
+      "sender": "Sabitha Karunam",
+      "origin": "IB MYP Mathematics (MYP Year 1) C",
+      "attachments": [
+        {
+          "name": "MYP1_Algebra_Like_Terms_Worksheet.docx",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/9d0f01051c049e82c233-MYP1_Algebra_Like_Terms_Worksheet.docx",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTcxNzk3Mjc_ZXhwaXJlc19pbiIsInB1ciI6ImF0dGFjaG1lbnRfZW1iZWQifX0=--927be3774a7b30c6e745e6a49bf1eb7c8944c5b7"
+        }
+      ],
+      "channel": "managebac",
+      "externalId": "1419407942",
+      "mappedAt": "2026-11-13T08:17:28.009Z"
+    },
     {
       "title": "like & unlike terms operations",
       "detail": "Sabitha Karunam has posted the following discussion in IB MYP Mathematics (MYP Year 1) C:\n\nDear Students, complete the task in math notebook.\naddition_and_subtraction_of_algebra_like_terms.pdf354.96 KB\n\nClick here to view the full discussion thread.",
@@ -6176,9 +6194,25 @@
     {
       "name": "Mathematics (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12992681",
-      "latestActivity": "November 11, 2026 like & unlike terms operations Sabitha Karunam added a message on Nov 11, 2026 at 12:38 PM November 05, 2026 Weekend task Sabitha Karunam added a message on Nov 5, 2026 at 3:26 PM November 04, 2026 Algebra notes Sabitha Karunam added a message on Nov 4, 2026 at 1:27 PM November 03...",
+      "latestActivity": "Today Weekend Task Sabitha Karunam added a message on Nov 13, 2026 at 1:38 PM New November 11, 2026 like & unlike terms operations Sabitha Karunam added a message on Nov 11, 2026 at 12:38 PM November 05, 2026 Weekend task Sabitha Karunam added a message on Nov 5, 2026 at 3:26 PM November 04, 2026 A...",
       "stream": [],
       "discussions": [
+        {
+          "title": "Weekend Task",
+          "detail": "Dear Students, Complete the task",
+          "dateText": "Friday, Nov 13, 2026 at 1:38 PM",
+          "url": "https://thegaudium.managebac.com/student/classes/12992681/discussions/29320717",
+          "attachments": [
+            {
+              "name": "MYP1_Algebra_Like_Terms_Worksheet.docx",
+              "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/a74f2c7d391ac6ff7a08-MYP1_Algebra_Like_Terms_Worksheet.docx",
+              "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTcxNzk3Mjc_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--8226d0182638d7e49ef0db311bb7ba10d1c99fbc",
+              "mappedAt": "2026-11-13T08:17:28.009Z"
+            }
+          ],
+          "images": [],
+          "mappedAt": "2026-11-13T08:17:28.009Z"
+        },
         {
           "title": "like & unlike terms operations",
           "detail": "Dear Students, complete the task in math notebook.",
@@ -8621,6 +8655,26 @@
       "images": [],
       "source": "discussion",
       "mappedAt": "2026-07-19T10:07:56.106Z"
+    },
+    {
+      "title": "Weekend Task",
+      "className": "Mathematics (MYP Year 1) C",
+      "dueText": "",
+      "status": "Shared in Discussion",
+      "unit": "Class discussion",
+      "description": "Dear Students, Complete the task",
+      "url": "https://thegaudium.managebac.com/student/classes/12992681/discussions/29320717",
+      "attachments": [
+        {
+          "name": "MYP1_Algebra_Like_Terms_Worksheet.docx",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/a74f2c7d391ac6ff7a08-MYP1_Algebra_Like_Terms_Worksheet.docx",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTcxNzk3Mjc_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--8226d0182638d7e49ef0db311bb7ba10d1c99fbc",
+          "mappedAt": "2026-11-13T08:17:28.009Z"
+        }
+      ],
+      "images": [],
+      "source": "discussion",
+      "mappedAt": "2026-11-13T08:17:28.009Z"
     },
     {
       "title": "like & unlike terms operations",
