@@ -1,10 +1,22 @@
 {
   "studentName": "Advika Lakshmi",
-  "syncedAt": "2026-11-17T09:24:54.438Z",
+  "syncedAt": "2026-11-17T14:48:37.050Z",
   "sourceUrl": "https://thegaudium.managebac.com/student/home",
   "status": "ok",
   "error": "",
   "notifications": [
+    {
+      "title": "Venn Diagram",
+      "detail": "Vaishali Rajasekaran has posted the following discussion in IB MYP Individuals and Societies (MYP Year 1) C:\n\nComplete the Venn Diagram to compare and contrast the achievements of Egyptian and Sumerian civilizations. (If you haven't already completed in class)\nhttps://www.youtube.com/watch?v=hO1tzmi1V5g\nhttps://www.youtube.com/watch?v=xVf5kZA0HtQ\n\nClick here to view the full discussion thread.",
+      "url": "https://thegaudium.managebac.com/student/notifications/1422791628",
+      "createdAt": "2026-11-17T11:26:55.246Z",
+      "sender": "Vaishali Rajasekaran",
+      "origin": "IB MYP Individuals and Societies (MYP Year 1) C",
+      "attachments": [],
+      "channel": "managebac",
+      "externalId": "1422791628",
+      "mappedAt": "2026-11-17T14:48:37.050Z"
+    },
     {
       "title": "Division of Algebraic Expression",
       "detail": "Sabitha Karunam has posted the following discussion in IB MYP Mathematics (MYP Year 1) C:\n\nDear Students, Complete the task in Math notebook.\n\nClick here to view the full discussion thread.",
@@ -4813,9 +4825,18 @@
     {
       "name": "Individuals and Societies (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12992676",
-      "latestActivity": "Yesterday Analysing the statement of Inquiry Vaishali Rajasekaran added a message on Nov 16, 2026 at 1:37 PM November 10, 2026 Unit 3: Provocation Vaishali Rajasekaran updated a message on Nov 10, 2026 at 3:17 PM October 23, 2026 Instructions for tomorrow Vaishali Rajasekaran added a message on Oct...",
+      "latestActivity": "Today Venn Diagram Vaishali Rajasekaran added a message on Nov 17, 2026 at 4:56 PM New Yesterday Analysing the statement of Inquiry Vaishali Rajasekaran added a message on Nov 16, 2026 at 1:37 PM November 10, 2026 Unit 3: Provocation Vaishali Rajasekaran updated a message on Nov 10, 2026 at 3:17 PM...",
       "stream": [],
       "discussions": [
+        {
+          "title": "Venn Diagram",
+          "detail": "Complete the Venn Diagram to compare and contrast the achievements of Egyptian and Sumerian civilizations. (If you haven't already completed in class)\nhttps://www.youtube.com/watch?v=hO1tzmi1V5g\nhttps://www.youtube.com/watch?v=xVf5kZA0HtQ",
+          "dateText": "Tuesday, Nov 17, 2026 at 4:56 PM",
+          "url": "https://thegaudium.managebac.com/student/classes/12992676/discussions/29343672",
+          "attachments": [],
+          "images": [],
+          "mappedAt": "2026-11-17T14:48:37.050Z"
+        },
         {
           "title": "Analysing the statement of Inquiry",
           "detail": "Dear Students,\nComplete the Mindmap at home, if you weren't able to complete it in school. Please remember that this is a thinking based task and you are not supposed to research to answer the questions in the mindmap.\nWrite down three things that come to your mind when you hear the term “Civilization”.\n\nDo you think there is a connection between the terms “Civilization” and “Development” or are they completely unrelated? (70 Words)\n\nWhat role did the location of a Civilization play in its development? (70 Words)",
@@ -8428,6 +8449,19 @@
       "images": [],
       "source": "task",
       "mappedAt": "2026-09-02T09:50:48.754Z"
+    },
+    {
+      "title": "Venn Diagram",
+      "className": "Individuals and Societies (MYP Year 1) C",
+      "dueText": "",
+      "status": "Shared in Discussion",
+      "unit": "Class discussion",
+      "description": "Complete the Venn Diagram to compare and contrast the achievements of Egyptian and Sumerian civilizations. (If you haven't already completed in class)\nhttps://www.youtube.com/watch?v=hO1tzmi1V5g\nhttps://www.youtube.com/watch?v=xVf5kZA0HtQ",
+      "url": "https://thegaudium.managebac.com/student/classes/12992676/discussions/29343672",
+      "attachments": [],
+      "images": [],
+      "source": "discussion",
+      "mappedAt": "2026-11-17T14:48:37.050Z"
     },
     {
       "title": "Analysing the statement of Inquiry",
