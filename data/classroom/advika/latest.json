@@ -1,10 +1,40 @@
 {
   "studentName": "Advika Lakshmi",
-  "syncedAt": "2026-11-18T19:13:00.502Z",
+  "syncedAt": "2026-11-19T08:59:00.600Z",
   "sourceUrl": "https://thegaudium.managebac.com/student/home",
   "status": "ok",
   "error": "",
   "notifications": [
+    {
+      "title": "Substituting into Formulae",
+      "detail": "Sabitha Karunam has posted the following discussion in IB MYP Mathematics (MYP Year 1) C:\n\nDear Students, Complete the task in Math notebook\nSubstituting_in_to_formulae.pdf405.31 KB\n\nClick here to view the full discussion thread.",
+      "url": "https://thegaudium.managebac.com/student/notifications/1424796795",
+      "createdAt": "2026-11-19T08:38:56.387Z",
+      "sender": "Sabitha Karunam",
+      "origin": "IB MYP Mathematics (MYP Year 1) C",
+      "attachments": [
+        {
+          "name": "Substituting_in_to_formulae.pdf",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/82cc079c247670dd698d-Substituting_in_to_formulae.pdf",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTc2NjI3OTk_ZXhwaXJlc19pbiIsInB1ciI6ImF0dGFjaG1lbnRfZW1iZWQifX0=--ebb2817d33b4a31e8f801a33cc8ae332fafdaf34"
+        }
+      ],
+      "channel": "managebac",
+      "externalId": "1424796795",
+      "mappedAt": "2026-11-19T08:59:00.600Z"
+    },
+    {
+      "title": "New Event",
+      "detail": "Deepti Rokade has just added a new event Formative Assessment in IB MYP French (i) Phases 1, 2 (MYP Year 1).\nWhen: November 23, 2026 at 1:10 PM\nSujet : Mon prochain voyage\nImaginez que vous allez partir en vacances avec votre famille ou vos amis. Écrivez un carnet de voyage en utilisant le futur proche.\nDans votre carnet de voyage, mentionnez :\nOù vous allez partir en vacances.\n\nAvec qui vous allez voyager.\n\nComment vous allez voyager et où vous allez séjourner.\n\nQuels monuments ou lieux vous allez visiter.\n\nQuelles activités vous allez faire.\n\nQuels plats vous allez goûter.\n\nPourquoi vous êtes heureux/heureuse de ce voyage.\n\nConsignes :\nUtilisez le futur proche.\n\nOrganisez votre texte avec un titre, une introduction, les activités et une conclusion.\n\nAjoutez des expressions temporelles : demain, bientôt, le premier jour, ensuite, puis, enfin.\n\nUseful opening sentences:\nPendant les prochaines vacances, je vais…\n\nJe vais partir à…\n\nNous allons découvrir…\n\nLe premier jour, nous allons…\n\nEnsuite, nous allons…\n\nEnfin, nous allons rentrer…\n\nView full details",
+      "url": "https://thegaudium.managebac.com/student/notifications/1424421785",
+      "createdAt": "2026-11-19T03:27:11.160Z",
+      "sender": "Deepti Rokade",
+      "origin": "IB MYP French (i) Phases 1, 2 (MYP Year 1)",
+      "attachments": [],
+      "channel": "managebac",
+      "externalId": "1424421785",
+      "mappedAt": "2026-11-19T08:59:00.600Z"
+    },
     {
       "title": "SA-3 Dates and syllabus",
       "detail": "Sreelakshmi Buddharaju has posted the following discussion in IB MYP Sciences (MYP Year 1) C:\n\n_MYP-1_SA3.pdf234.14 KB\n\nClick here to view the full discussion thread.",
@@ -4761,7 +4791,7 @@
     {
       "name": "French (i) Phases 1, 2 (MYP Year 1)",
       "url": "https://thegaudium.managebac.com/student/classes/12989610",
-      "latestActivity": "November 11, 2026 Le_futur_proche.pptx Deepti Rokade added a file on Nov 11, 2026 at 2:06 PM November 02, 2026 Le_vocabulaire.pptx Deepti Rokade added a file on Nov 2, 2026 at 2:25 PM October 05, 2026 Term 1 Revision Class_MYP 1_French Event Google Classroom Tuesday — 30m: 12:05 PM - 12:35 PM Deept...",
+      "latestActivity": "Today Holiday_plans___Traverlogue.pptx Deepti Rokade added a file on Nov 19, 2026 at 8:57 AM New Formative Assessment Event Monday — 1h: 1:10 PM - 2:10 PM Deepti Rokade added an event on Nov 19, 2026 at 8:57 AM New November 11, 2026 Le_futur_proche.pptx Deepti Rokade added a file on Nov 11, 2026 at...",
       "stream": [],
       "discussions": [],
       "units": [
@@ -4939,7 +4969,7 @@
     {
       "name": "Individuals and Societies (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12992676",
-      "latestActivity": "Yesterday Outline the features of Maya and Inca Civilizations Vaishali Rajasekaran added a message on Nov 18, 2026 at 1:32 PM New November 17, 2026 Venn Diagram Vaishali Rajasekaran added a message on Nov 17, 2026 at 4:56 PM November 16, 2026 Analysing the statement of Inquiry Vaishali Rajasekaran...",
+      "latestActivity": "Yesterday Outline the features of Maya and Inca Civilizations Vaishali Rajasekaran added a message on Nov 18, 2026 at 1:32 PM November 17, 2026 Venn Diagram Vaishali Rajasekaran added a message on Nov 17, 2026 at 4:56 PM November 16, 2026 Analysing the statement of Inquiry Vaishali Rajasekaran adde...",
       "stream": [],
       "discussions": [
         {
@@ -6566,9 +6596,25 @@
     {
       "name": "Mathematics (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12992681",
-      "latestActivity": "Yesterday Substituting into Formulae Sabitha Karunam added a message on Nov 18, 2026 at 2:53 PM New November 17, 2026 Division of Algebraic Expression Sabitha Karunam added a message on Nov 17, 2026 at 2:02 PM November 13, 2026 Weekend Task Sabitha Karunam added a message on Nov 13, 2026 at 1:38 PM...",
+      "latestActivity": "Today Substituting into Formulae Sabitha Karunam added a message on Nov 19, 2026 at 2:08 PM New Yesterday Substituting into Formulae Sabitha Karunam added a message on Nov 18, 2026 at 2:53 PM New November 17, 2026 Division of Algebraic Expression Sabitha Karunam added a message on Nov 17, 2026 at 2...",
       "stream": [],
       "discussions": [
+        {
+          "title": "Substituting into Formulae",
+          "detail": "Dear Students, Complete the task in Math notebook",
+          "dateText": "Thursday, Nov 19, 2026 at 2:08 PM",
+          "url": "https://thegaudium.managebac.com/student/classes/12992681/discussions/29358080",
+          "attachments": [
+            {
+              "name": "Substituting_in_to_formulae.pdf",
+              "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/d42016eadba72c5af779-Substituting_in_to_formulae.pdf",
+              "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTc2NjI3OTk_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--be0552c0a61e041171f2297fc78d2da15b45a2d5",
+              "mappedAt": "2026-11-19T08:59:00.600Z"
+            }
+          ],
+          "images": [],
+          "mappedAt": "2026-11-19T08:59:00.600Z"
+        },
         {
           "title": "Substituting into Formulae",
           "detail": "Dear Students, Solve problems in Math notebook.",
@@ -7843,7 +7889,7 @@
     {
       "name": "Design (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12992684",
-      "latestActivity": "Yesterday Cyberabad Moves 2026 – Innovation Challenge Priya Chandana added a message on Nov 18, 2026 at 11:26 AM New November 07, 2026 Unit-2: Designing for Expression Salma K updated a unit on Nov 7, 2026 at 10:16 AM November 05, 2026 Activity: Understand the Emojis Formative Classwork Pending Fri...",
+      "latestActivity": "Yesterday Cyberabad Moves 2026 – Innovation Challenge Priya Chandana added a message on Nov 18, 2026 at 11:26 AM November 07, 2026 Unit-2: Designing for Expression Salma K updated a unit on Nov 7, 2026 at 10:16 AM November 05, 2026 Activity: Understand the Emojis Formative Classwork Pending Friday...",
       "stream": [],
       "discussions": [
         {
@@ -9133,6 +9179,26 @@
       "images": [],
       "source": "discussion",
       "mappedAt": "2026-07-19T10:07:56.106Z"
+    },
+    {
+      "title": "Substituting into Formulae",
+      "className": "Mathematics (MYP Year 1) C",
+      "dueText": "",
+      "status": "Shared in Discussion",
+      "unit": "Class discussion",
+      "description": "Dear Students, Complete the task in Math notebook",
+      "url": "https://thegaudium.managebac.com/student/classes/12992681/discussions/29358080",
+      "attachments": [
+        {
+          "name": "Substituting_in_to_formulae.pdf",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/d42016eadba72c5af779-Substituting_in_to_formulae.pdf",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTc2NjI3OTk_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--be0552c0a61e041171f2297fc78d2da15b45a2d5",
+          "mappedAt": "2026-11-19T08:59:00.600Z"
+        }
+      ],
+      "images": [],
+      "source": "discussion",
+      "mappedAt": "2026-11-19T08:59:00.600Z"
     },
     {
       "title": "Substituting into Formulae",
