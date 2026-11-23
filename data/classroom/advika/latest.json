@@ -1,6 +1,6 @@
 {
   "studentName": "Advika Lakshmi",
-  "syncedAt": "2026-11-23T09:20:00.095Z",
+  "syncedAt": "2026-11-23T16:22:51.155Z",
   "sourceUrl": "https://thegaudium.managebac.com/student/home",
   "status": "ok",
   "error": "",
@@ -8560,26 +8560,6 @@
       "mappedAt": "2026-11-05T08:01:44.752Z"
     },
     {
-      "title": "NLP Extension",
-      "className": "Design (MYP Year 1) C",
-      "dueText": "Sep 8 - Tuesday at 11:55 PM",
-      "status": "Pending",
-      "unit": "Unit-1: Designing for Interaction",
-      "description": "Smart_Light_Control-NLP.pdf378.61 KB",
-      "url": "https://thegaudium.managebac.com/student/classes/12992684/core_tasks/48846208",
-      "attachments": [
-        {
-          "name": "Smart_Light_Control-NLP.pdf",
-          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/c33dc53ae6f4727b417f-Smart_Light_Control-NLP.pdf",
-          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaTluYVdRNkx5OXRZVzVoWjJWaVlXTXZRWE56WlhRdk1Ua3lNamMxTWpZMlAyVjRjR2x5WlhOZmFXNEdPZ1pGVkE9PSIsImV4cCI6bnVsbCwicHVyIjoiZGVmYXVsdCJ9fQ==--37d6afa93ea232490b8495b4c63265d6b978461b",
-          "mappedAt": "2026-09-16T06:15:34.321Z"
-        }
-      ],
-      "images": [],
-      "source": "task",
-      "mappedAt": "2026-09-16T06:15:34.321Z"
-    },
-    {
       "title": "Cyberabad Moves 2026 – Innovation Challenge",
       "className": "Design (MYP Year 1) C",
       "dueText": "",
@@ -11458,6 +11438,26 @@
       "images": [],
       "source": "task",
       "mappedAt": "2026-10-09T07:34:39.608Z"
+    },
+    {
+      "title": "NLP Extension",
+      "className": "Design (MYP Year 1) C",
+      "dueText": "Sep 8 - Tuesday at 11:55 PM",
+      "status": "Pending",
+      "unit": "Unit-1: Designing for Interaction",
+      "description": "Smart_Light_Control-NLP.pdf378.61 KB",
+      "url": "https://thegaudium.managebac.com/student/classes/12992684/core_tasks/48846208",
+      "attachments": [
+        {
+          "name": "Smart_Light_Control-NLP.pdf",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/c33dc53ae6f4727b417f-Smart_Light_Control-NLP.pdf",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaTluYVdRNkx5OXRZVzVoWjJWaVlXTXZRWE56WlhRdk1Ua3lNamMxTWpZMlAyVjRjR2x5WlhOZmFXNEdPZ1pGVkE9PSIsImV4cCI6bnVsbCwicHVyIjoiZGVmYXVsdCJ9fQ==--37d6afa93ea232490b8495b4c63265d6b978461b",
+          "mappedAt": "2026-09-16T06:15:34.321Z"
+        }
+      ],
+      "images": [],
+      "source": "task",
+      "mappedAt": "2026-09-16T06:15:34.321Z"
     },
     {
       "title": "Summative Assessment (Unit II)",

@@ -1,10 +1,28 @@
 {
   "studentName": "Adrika Lakshmi Saragadam",
-  "syncedAt": "2026-11-23T09:20:54.239Z",
+  "syncedAt": "2026-11-23T16:24:10.036Z",
   "sourceUrl": "https://thegaudium.managebac.com/student/home",
   "status": "ok",
   "error": "",
   "notifications": [
+    {
+      "title": "Formative Assessment",
+      "detail": "Sultana Arjuman has posted the following discussion in IB MYP Mathematics (MYP Year 1) E:\n\nDear Students,\nPlease find the attached Formative Assessment task. Complete and submit it on 27.11.26.\nY_1__Unit_3_Formative_Assessment_23.11.26.pdf400.14 KB\n\nClick here to view the full discussion thread.",
+      "url": "https://thegaudium.managebac.com/student/notifications/1427867984",
+      "createdAt": "2026-11-23T09:25:45.165Z",
+      "sender": "Sultana Arjuman",
+      "origin": "IB MYP Mathematics (MYP Year 1) E",
+      "attachments": [
+        {
+          "name": "Y_1__Unit_3_Formative_Assessment_23.11.26.pdf",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/adrika/assets/35ece3442e7b82cf1b0a-Y_1__Unit_3_Formative_Assessment_23.11.26.pdf",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTc5MjgzNTI_ZXhwaXJlc19pbiIsInB1ciI6ImF0dGFjaG1lbnRfZW1iZWQifX0=--83d005d062cdd725c67a4e5f55284a33b1b313ae"
+        }
+      ],
+      "channel": "managebac",
+      "externalId": "1427867984",
+      "mappedAt": "2026-11-23T16:24:10.036Z"
+    },
     {
       "title": "OP Analysis",
       "detail": "Vaishali Rajasekaran has posted the following discussion in IB MYP Individuals and Societies (MYP Year 1) E:\n\nOP_Analysis.pdf1.04 MB\n\nClick here to view the full discussion thread.",
@@ -4675,7 +4693,7 @@
           "title": "IBMYP_Language___literature_guide__1_.pdf",
           "detail": "Madhavi Vinod\nJune 10, 2026\n\nENGLISH LANGUAGE AND LITERATURE GUIDE\nIBMYP Language & literature guide (1).pdf\n\nFile\n\n0\n\nComments0",
           "dateText": "June 10",
-          "url": "https://cdn.ca.managebac.com/uploads/asset/file/190241026/IBMYP_Language___literature_guide__1_.pdf?Expires=1795432812&Signature=oj3OwMXdPk0APNx58MJAh87FNXBHdxMeiclCwwmztH7P3U-lqRWw-blkeiwA0bLNdLOebkizlHgDb6nPxYgoAcK-0R2hCNjAuUf1rlvsstETGNeaIgsiJtoicmF46eey4z~C8Y~pU4AgPKoXvvzz2pAJ2usciSWkCmjHVQLbDE0y25Y9BdGhCjlrl7arenaIerUSoQ3Nf-hZy3sc9SahOPqNFTNMJ7wcMuwuQCJoiUadJKyQ1ddmKp4Rpb3snLDZUJ~luOXsv66ge1dxNAK-eeTkYTR5WaU~FIlHSLRqBQNQY-PJT5O3mqtVsqJmKFlprobFHGpZtC7aEBESfP4TBA__&Key-Pair-Id=K2RK6WSQIEDQ9F",
+          "url": "https://cdn.ca.managebac.com/uploads/asset/file/190241026/IBMYP_Language___literature_guide__1_.pdf?Expires=1795458223&Signature=oW-LyOZdodxhoJl9UCR8LSRbNfkP3rSXw1hEFXF3I96nYjfgFI0dXHbClQYvvVRFglYr8t8H1rE9MIgw8XNLgauaQGtSgmHqh9jJqhTPEX~URhTX3awHS-K3AMiAr5s9byFX3rIws7BskAVGM0Mh7FQxBasGaNJ9heI7MYoTKwNROWOAFwMq1xDBkG3UXvMKm3CRw467lRRPTL99y-UJ~l9Tu~5a4m9XiQdtMhwDB6-rzB2ai3O9-em1gHpsAkvSgEW~SgKEsl1BJGsVtlSIpVlKZIUrf6161ymx0ZOn1BrWlq2V5cHwp71GWWsmrNQTSm7J9Yum9nQkkRGTeaKrQA__&Key-Pair-Id=K2RK6WSQIEDQ9F",
           "attachments": [
             {
               "name": "Export",
@@ -4686,7 +4704,7 @@
             {
               "name": "IBMYP_Language___literature_guide__1_.pdf",
               "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/adrika/assets/083833e9cc2c2dc6fdd0-IBMYP_Language___literature_guide__1_.pdf",
-              "sourceUrl": "https://cdn.ca.managebac.com/uploads/asset/file/190241026/IBMYP_Language___literature_guide__1_.pdf?Expires=1795432812&Signature=oj3OwMXdPk0APNx58MJAh87FNXBHdxMeiclCwwmztH7P3U-lqRWw-blkeiwA0bLNdLOebkizlHgDb6nPxYgoAcK-0R2hCNjAuUf1rlvsstETGNeaIgsiJtoicmF46eey4z~C8Y~pU4AgPKoXvvzz2pAJ2usciSWkCmjHVQLbDE0y25Y9BdGhCjlrl7arenaIerUSoQ3Nf-hZy3sc9SahOPqNFTNMJ7wcMuwuQCJoiUadJKyQ1ddmKp4Rpb3snLDZUJ~luOXsv66ge1dxNAK-eeTkYTR5WaU~FIlHSLRqBQNQY-PJT5O3mqtVsqJmKFlprobFHGpZtC7aEBESfP4TBA__&Key-Pair-Id=K2RK6WSQIEDQ9F",
+              "sourceUrl": "https://cdn.ca.managebac.com/uploads/asset/file/190241026/IBMYP_Language___literature_guide__1_.pdf?Expires=1795458223&Signature=oW-LyOZdodxhoJl9UCR8LSRbNfkP3rSXw1hEFXF3I96nYjfgFI0dXHbClQYvvVRFglYr8t8H1rE9MIgw8XNLgauaQGtSgmHqh9jJqhTPEX~URhTX3awHS-K3AMiAr5s9byFX3rIws7BskAVGM0Mh7FQxBasGaNJ9heI7MYoTKwNROWOAFwMq1xDBkG3UXvMKm3CRw467lRRPTL99y-UJ~l9Tu~5a4m9XiQdtMhwDB6-rzB2ai3O9-em1gHpsAkvSgEW~SgKEsl1BJGsVtlSIpVlKZIUrf6161ymx0ZOn1BrWlq2V5cHwp71GWWsmrNQTSm7J9Yum9nQkkRGTeaKrQA__&Key-Pair-Id=K2RK6WSQIEDQ9F",
               "mappedAt": "2026-07-27T09:55:18.161Z"
             }
           ],
@@ -5536,7 +5554,7 @@
         },
         {
           "title": "Ancient Civilisations: The Maya and the Inca",
-          "detail": "Situation\nImagine that you are a young historian preparing a special exhibition for a museum titled The Lost Worlds of Ancient Civilisations. The museum wants to introduce visitors to two remarkable civilisations of the Americas – the Maya and the Inca.\nYou have been selected to research these civilisations and create an informative exhibition that explains their achievements, lifestyles and contributions to the world.\nPlease research on any one of the Civilizations.\nTask 1: Investigating the Maya Civilisation\nResearch the Maya civilisation and prepare detailed information on the following aspects:\nLocation and Geography\n\nSettlements and Architecture\n\nGovernment and Society\n\nAgriculture and Trade\n\nReligion and Beliefs\n\nKnowledge and Achievements\n\nTask 2: Investigating the Inca Civilisation\nResearch the Inca civilisation and prepare detailed information on the following aspects:\nLocation and Geography\n\nSettlements and Architecture\n\nGovernment and Society\n\nAgriculture and Trade\n\nReligion and Beliefs\n\nKnowledge and Achievements\n\nResearch Guidelines\nUse at least three reliable secondary sources.\n\nYou may use textbooks, encyclopedias, museum websites and educational websites.\n\nDo not copy information directly. Read, understand and explain it in your own words.\n\nInclude the title and link of every website or book used.\n\nAdd image credits wherever necessary.\n\nMake sure your information is historically accurate.\n\nYou can write, type, make a poster or do a digital presentation.\nIncase you are doing anything digital then send it to the email id: shreya.das@thegaudium.com\nPlease be ready for it by Monday: 23rd November\nThank you.\n\n1 Comment\n\n- Last comment on\nSunday, Nov 22, 2026 at 8:23 PM\n\n- Open Discussion",
+          "detail": "Situation\nImagine that you are a young historian preparing a special exhibition for a museum titled The Lost Worlds of Ancient Civilisations. The museum wants to introduce visitors to two remarkable civilisations of the Americas – the Maya and the Inca.\nYou have been selected to research these civilisations and create an informative exhibition that explains their achievements, lifestyles and contributions to the world.\nPlease research on any one of the Civilizations.\nTask 1: Investigating the Maya Civilisation\nResearch the Maya civilisation and prepare detailed information on the following aspects:\nLocation and Geography\n\nSettlements and Architecture\n\nGovernment and Society\n\nAgriculture and Trade\n\nReligion and Beliefs\n\nKnowledge and Achievements\n\nTask 2: Investigating the Inca Civilisation\nResearch the Inca civilisation and prepare detailed information on the following aspects:\nLocation and Geography\n\nSettlements and Architecture\n\nGovernment and Society\n\nAgriculture and Trade\n\nReligion and Beliefs\n\nKnowledge and Achievements\n\nResearch Guidelines\nUse at least three reliable secondary sources.\n\nYou may use textbooks, encyclopedias, museum websites and educational websites.\n\nDo not copy information directly. Read, understand and explain it in your own words.\n\nInclude the title and link of every website or book used.\n\nAdd image credits wherever necessary.\n\nMake sure your information is historically accurate.\n\nYou can write, type, make a poster or do a digital presentation.\nIncase you are doing anything digital then send it to the email id: shreya.das@thegaudium.com\nPlease be ready for it by Monday: 23rd November\nThank you.\n\n2 Comments\n\n- Last comment on\nMonday, Nov 23, 2026 at 9:19 PM\n\n- Open Discussion",
           "dateText": "Friday, Nov 20, 2026 at 12:51 PM",
           "url": "https://thegaudium.managebac.com/student/classes/12992678/discussions/29365017",
           "attachments": [],
@@ -5956,7 +5974,7 @@
         {
           "name": "Civilization_MYP1.pdf",
           "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/adrika/assets/a8b783a7b5d812f4ec39-Civilization_MYP1.pdf",
-          "sourceUrl": "https://cdn.ca.managebac.com/uploads/asset/file/197580562/Civilization_MYP1.pdf?Expires=1795432819&Signature=mEEX4Bg165IzReD-5VFjDk0-MKbHh2XTaI2aKbREQkFCIbFydQklUcYERNTLTqavE9QINcFRXanUJe~b7Jdht~q~Fgkqg1~Nk1j6DoL2EAJ-SwNQUqYFPC4U2G4An2EZTDmRKK0G4J8UaS958fwYvTCCI0LI60xYZ0ZN3LOQMnunPDqXuJJe~PRPsiu4IqT1nJvKvoCjzXrFKJDyzulmUM8ZNstq6yNnFs3koWhl10RfSz2li7eAuoUlxrdJHY8SlmskbSO68Lnz2GRDRoSRaGshyPYCRm2E~JOrb5JX5Jwzff~vBVbmi7WbMjUjiyXVxIQKyU0Xg0t26IrL7PLF~w__&Key-Pair-Id=K2RK6WSQIEDQ9F",
+          "sourceUrl": "https://cdn.ca.managebac.com/uploads/asset/file/197580562/Civilization_MYP1.pdf?Expires=1795458228&Signature=NPXN5EiWk90QGwskzSLvsMOJ9vJpkwXgiwLqKtBfX9r~F0JKD9tJyngxWWcD0jbTzucCh7aHI6LYZ44zhWrNR-37f3N6YpZz8rfqy-P4yFiZQuzlk3UKJh4~pZSGv5sWD5438JOY-h-7TwZWAx4GgPsBXJdxpI7M2zjg0LZacCgFQA50Fj2xkkptrk3ub3yKUhSenRtr24zfOlnAOBIAWh-sV8AgwurwL~9SyRJ44ang~-G06Ap0ex~8HumUfSrHlGlLd7nnAOJdhU2csdQBxgTzfiUeNlY9DYJihs1mEA8PRzxy7y5lsgRw24xf3Rt8FWAa-MB61IYelB7qAfjGgg__&Key-Pair-Id=K2RK6WSQIEDQ9F",
           "mappedAt": "2026-11-18T14:30:19.074Z"
         },
         {
@@ -6526,9 +6544,25 @@
     {
       "name": "Mathematics (MYP Year 1) E",
       "url": "https://thegaudium.managebac.com/student/classes/12992683",
-      "latestActivity": "November 20, 2026 Understanding Simple Equations Sultana Arjuman added a message on Nov 20, 2026 at 1:56 PM November 19, 2026 Evaluate the given expressions Sultana Arjuman added a message on Nov 19, 2026 at 1:13 PM November 18, 2026 Substituting values into simple expressions Sultana Arjuman added...",
+      "latestActivity": "Today Formative Assessment Sultana Arjuman added a message on Nov 23, 2026 at 2:55 PM New November 20, 2026 Understanding Simple Equations Sultana Arjuman added a message on Nov 20, 2026 at 1:56 PM November 19, 2026 Evaluate the given expressions Sultana Arjuman added a message on Nov 19, 2026 at 1...",
       "stream": [],
       "discussions": [
+        {
+          "title": "Formative Assessment",
+          "detail": "Dear Students,\nPlease find the attached Formative Assessment task. Complete and submit it on 27.11.26.",
+          "dateText": "Monday, Nov 23, 2026 at 2:55 PM",
+          "url": "https://thegaudium.managebac.com/student/classes/12992683/discussions/29378756",
+          "attachments": [
+            {
+              "name": "Y_1__Unit_3_Formative_Assessment_23.11.26.pdf",
+              "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/adrika/assets/62624bfc65095d2be63a-Y_1__Unit_3_Formative_Assessment_23.11.26.pdf",
+              "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTc5MjgzNTI_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--760c071b92182c1c95b009ddd9acd713d2890509",
+              "mappedAt": "2026-11-23T16:24:10.036Z"
+            }
+          ],
+          "images": [],
+          "mappedAt": "2026-11-23T16:24:10.036Z"
+        },
         {
           "title": "Understanding Simple Equations",
           "detail": "1 Comment\n\n- Last comment on\nSunday, Nov 22, 2026 at 8:35 PM\n\n- Open Discussion",
@@ -8247,7 +8281,7 @@
       "dueText": "",
       "status": "Shared in Discussion",
       "unit": "Class discussion",
-      "description": "Situation\nImagine that you are a young historian preparing a special exhibition for a museum titled The Lost Worlds of Ancient Civilisations. The museum wants to introduce visitors to two remarkable civilisations of the Americas – the Maya and the Inca.\nYou have been selected to research these civilisations and create an informative exhibition that explains their achievements, lifestyles and contributions to the world.\nPlease research on any one of the Civilizations.\nTask 1: Investigating the Maya Civilisation\nResearch the Maya civilisation and prepare detailed information on the following aspects:\nLocation and Geography\n\nSettlements and Architecture\n\nGovernment and Society\n\nAgriculture and Trade\n\nReligion and Beliefs\n\nKnowledge and Achievements\n\nTask 2: Investigating the Inca Civilisation\nResearch the Inca civilisation and prepare detailed information on the following aspects:\nLocation and Geography\n\nSettlements and Architecture\n\nGovernment and Society\n\nAgriculture and Trade\n\nReligion and Beliefs\n\nKnowledge and Achievements\n\nResearch Guidelines\nUse at least three reliable secondary sources.\n\nYou may use textbooks, encyclopedias, museum websites and educational websites.\n\nDo not copy information directly. Read, understand and explain it in your own words.\n\nInclude the title and link of every website or book used.\n\nAdd image credits wherever necessary.\n\nMake sure your information is historically accurate.\n\nYou can write, type, make a poster or do a digital presentation.\nIncase you are doing anything digital then send it to the email id: shreya.das@thegaudium.com\nPlease be ready for it by Monday: 23rd November\nThank you.\n\n1 Comment\n\n- Last comment on\nSunday, Nov 22, 2026 at 8:23 PM\n\n- Open Discussion",
+      "description": "Situation\nImagine that you are a young historian preparing a special exhibition for a museum titled The Lost Worlds of Ancient Civilisations. The museum wants to introduce visitors to two remarkable civilisations of the Americas – the Maya and the Inca.\nYou have been selected to research these civilisations and create an informative exhibition that explains their achievements, lifestyles and contributions to the world.\nPlease research on any one of the Civilizations.\nTask 1: Investigating the Maya Civilisation\nResearch the Maya civilisation and prepare detailed information on the following aspects:\nLocation and Geography\n\nSettlements and Architecture\n\nGovernment and Society\n\nAgriculture and Trade\n\nReligion and Beliefs\n\nKnowledge and Achievements\n\nTask 2: Investigating the Inca Civilisation\nResearch the Inca civilisation and prepare detailed information on the following aspects:\nLocation and Geography\n\nSettlements and Architecture\n\nGovernment and Society\n\nAgriculture and Trade\n\nReligion and Beliefs\n\nKnowledge and Achievements\n\nResearch Guidelines\nUse at least three reliable secondary sources.\n\nYou may use textbooks, encyclopedias, museum websites and educational websites.\n\nDo not copy information directly. Read, understand and explain it in your own words.\n\nInclude the title and link of every website or book used.\n\nAdd image credits wherever necessary.\n\nMake sure your information is historically accurate.\n\nYou can write, type, make a poster or do a digital presentation.\nIncase you are doing anything digital then send it to the email id: shreya.das@thegaudium.com\nPlease be ready for it by Monday: 23rd November\nThank you.\n\n2 Comments\n\n- Last comment on\nMonday, Nov 23, 2026 at 9:19 PM\n\n- Open Discussion",
       "url": "https://thegaudium.managebac.com/student/classes/12992678/discussions/29365017",
       "attachments": [],
       "images": [],
@@ -8787,6 +8821,26 @@
       "images": [],
       "source": "discussion",
       "mappedAt": "2026-07-19T10:07:59.925Z"
+    },
+    {
+      "title": "Formative Assessment",
+      "className": "Mathematics (MYP Year 1) E",
+      "dueText": "",
+      "status": "Shared in Discussion",
+      "unit": "Class discussion",
+      "description": "Dear Students,\nPlease find the attached Formative Assessment task. Complete and submit it on 27.11.26.",
+      "url": "https://thegaudium.managebac.com/student/classes/12992683/discussions/29378756",
+      "attachments": [
+        {
+          "name": "Y_1__Unit_3_Formative_Assessment_23.11.26.pdf",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/adrika/assets/62624bfc65095d2be63a-Y_1__Unit_3_Formative_Assessment_23.11.26.pdf",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTc5MjgzNTI_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--760c071b92182c1c95b009ddd9acd713d2890509",
+          "mappedAt": "2026-11-23T16:24:10.036Z"
+        }
+      ],
+      "images": [],
+      "source": "discussion",
+      "mappedAt": "2026-11-23T16:24:10.036Z"
     },
     {
       "title": "Substituting values into simple expressions",
