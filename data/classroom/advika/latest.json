@@ -1,10 +1,22 @@
 {
   "studentName": "Advika Lakshmi",
-  "syncedAt": "2026-11-24T20:58:34.718Z",
+  "syncedAt": "2026-11-25T10:01:07.624Z",
   "sourceUrl": "https://thegaudium.managebac.com/student/home",
   "status": "ok",
   "error": "",
   "notifications": [
+    {
+      "title": "Generalise the rule",
+      "detail": "Sabitha Karunam has posted the following discussion in IB MYP Mathematics (MYP Year 1) C:\n\nDear Students, COmplete he task in Math notebook.\n\nClick here to view the full discussion thread.",
+      "url": "https://thegaudium.managebac.com/student/notifications/1430025824",
+      "createdAt": "2026-11-25T09:07:44.170Z",
+      "sender": "Sabitha Karunam",
+      "origin": "IB MYP Mathematics (MYP Year 1) C",
+      "attachments": [],
+      "channel": "managebac",
+      "externalId": "1430025824",
+      "mappedAt": "2026-11-25T10:01:07.624Z"
+    },
     {
       "title": "Cell Organelles",
       "detail": "Sreelakshmi Buddharaju has posted the following discussion in IB MYP Sciences (MYP Year 1) C:\n\nCell_organelles-Real_life_connections.pdf8.45 MB\n\nClick here to view the full discussion thread.",
@@ -5743,7 +5755,7 @@
     {
       "name": "Sciences (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12991873",
-      "latestActivity": "Yesterday Cell Organelles Sreelakshmi Buddharaju added a message on Nov 24, 2026 at 1:39 PM New November 19, 2026 Formative Assessment – Criterion B: Investigation of Human Cheek Cells Sreelakshmi Buddharaju added a message on Nov 19, 2026 at 9:11 PM November 18, 2026 SA-3 Dates and syllabus Sreela...",
+      "latestActivity": "Yesterday Cell Organelles Sreelakshmi Buddharaju added a message on Nov 24, 2026 at 1:39 PM November 19, 2026 Formative Assessment – Criterion B: Investigation of Human Cheek Cells Sreelakshmi Buddharaju added a message on Nov 19, 2026 at 9:11 PM November 18, 2026 SA-3 Dates and syllabus Sreelakshm...",
       "stream": [],
       "discussions": [
         {
@@ -6791,9 +6803,31 @@
     {
       "name": "Mathematics (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12992681",
-      "latestActivity": "November 23, 2026 Algebraic Equations Sabitha Karunam added a message on Nov 23, 2026 at 1:27 PM November 20, 2026 Solving an Equations(Liner equations) Sabitha Karunam added a message on Nov 20, 2026 at 2:41 PM November 19, 2026 Substituting into Formulae Sabitha Karunam added a message on Nov 19,...",
+      "latestActivity": "Today Generalise the rule Sabitha Karunam added a message on Nov 25, 2026 at 2:37 PM New November 23, 2026 Algebraic Equations Sabitha Karunam added a message on Nov 23, 2026 at 1:27 PM November 20, 2026 Solving an Equations(Liner equations) Sabitha Karunam added a message on Nov 20, 2026 at 2:41 P...",
       "stream": [],
       "discussions": [
+        {
+          "title": "Generalise the rule",
+          "detail": "Dear Students, COmplete he task in Math notebook.",
+          "dateText": "Wednesday, Nov 25, 2026 at 2:37 PM",
+          "url": "https://thegaudium.managebac.com/student/classes/12992681/discussions/29394114",
+          "attachments": [],
+          "images": [
+            {
+              "name": "Discussion image 1",
+              "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/f3429e256b6cb8e05fd3-Discussion-image-1.png",
+              "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTgxMzE1MTY_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--4a2a97f0c7a3abc37a8e1a87df32f0c1aab31f53",
+              "mappedAt": "2026-11-25T10:01:07.624Z"
+            },
+            {
+              "name": "Discussion image 2",
+              "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/ba0c24b1aa95e049e361-Discussion-image-2.png",
+              "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTgxMzE4MjU_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--377feedb0af6172e0fb1dc49bb2884bf805b5eb3",
+              "mappedAt": "2026-11-25T10:01:07.624Z"
+            }
+          ],
+          "mappedAt": "2026-11-25T10:01:07.624Z"
+        },
         {
           "title": "Algebraic Equations",
           "detail": "Dear Students, Solve the given problems. In math notebook.",
@@ -9432,6 +9466,32 @@
       "images": [],
       "source": "discussion",
       "mappedAt": "2026-07-19T10:07:56.106Z"
+    },
+    {
+      "title": "Generalise the rule",
+      "className": "Mathematics (MYP Year 1) C",
+      "dueText": "",
+      "status": "Shared in Discussion",
+      "unit": "Class discussion",
+      "description": "Dear Students, COmplete he task in Math notebook.",
+      "url": "https://thegaudium.managebac.com/student/classes/12992681/discussions/29394114",
+      "attachments": [],
+      "images": [
+        {
+          "name": "Discussion image 1",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/f3429e256b6cb8e05fd3-Discussion-image-1.png",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTgxMzE1MTY_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--4a2a97f0c7a3abc37a8e1a87df32f0c1aab31f53",
+          "mappedAt": "2026-11-25T10:01:07.624Z"
+        },
+        {
+          "name": "Discussion image 2",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/ba0c24b1aa95e049e361-Discussion-image-2.png",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTgxMzE4MjU_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--377feedb0af6172e0fb1dc49bb2884bf805b5eb3",
+          "mappedAt": "2026-11-25T10:01:07.624Z"
+        }
+      ],
+      "source": "discussion",
+      "mappedAt": "2026-11-25T10:01:07.624Z"
     },
     {
       "title": "Algebraic Equations",
