@@ -1,10 +1,28 @@
 {
   "studentName": "Advika Lakshmi",
-  "syncedAt": "2026-11-25T10:01:07.624Z",
+  "syncedAt": "2026-11-25T15:57:54.955Z",
   "sourceUrl": "https://thegaudium.managebac.com/student/home",
   "status": "ok",
   "error": "",
   "notifications": [
+    {
+      "title": "Article-TaskSheet",
+      "detail": "Vaishali Rajasekaran has posted the following discussion in IB MYP Individuals and Societies (MYP Year 1) C:\n\nWorld_Civilizations.docx__1_.pdf1.53 MB\nDear Students,\nComplete the worksheet started today in class at home. I have attached the article above for your reference.This work is due on Friday (25.11.26).\n\nClick here to view the full discussion thread.",
+      "url": "https://thegaudium.managebac.com/student/notifications/1430154427",
+      "createdAt": "2026-11-25T10:58:23.216Z",
+      "sender": "Vaishali Rajasekaran",
+      "origin": "IB MYP Individuals and Societies (MYP Year 1) C",
+      "attachments": [
+        {
+          "name": "World_Civilizations.docx__1_.pdf",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/54759b5944366bdb7591-World_Civilizations.docx__1_.pdf",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTgxNDIwOTI_ZXhwaXJlc19pbiIsInB1ciI6ImF0dGFjaG1lbnRfZW1iZWQifX0=--32099f101706d7430da81416f3676ec3eaf4576e"
+        }
+      ],
+      "channel": "managebac",
+      "externalId": "1430154427",
+      "mappedAt": "2026-11-25T15:57:54.955Z"
+    },
     {
       "title": "Generalise the rule",
       "detail": "Sabitha Karunam has posted the following discussion in IB MYP Mathematics (MYP Year 1) C:\n\nDear Students, COmplete he task in Math notebook.\n\nClick here to view the full discussion thread.",
@@ -5119,9 +5137,25 @@
     {
       "name": "Individuals and Societies (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12992676",
-      "latestActivity": "November 23, 2026 OP Analysis Vaishali Rajasekaran updated a message on Nov 23, 2026 at 2:46 PM November 19, 2026 Formative Assessment Vaishali Rajasekaran added a message on Nov 19, 2026 at 3:04 PM November 18, 2026 Outline the features of Maya and Inca Civilizations Vaishali Rajasekaran added a m...",
+      "latestActivity": "Today Article-TaskSheet Vaishali Rajasekaran added a message on Nov 25, 2026 at 4:28 PM New November 23, 2026 OP Analysis Vaishali Rajasekaran updated a message on Nov 23, 2026 at 2:46 PM November 19, 2026 Formative Assessment Vaishali Rajasekaran added a message on Nov 19, 2026 at 3:04 PM November...",
       "stream": [],
       "discussions": [
+        {
+          "title": "Article-TaskSheet",
+          "detail": "Dear Students,\nComplete the worksheet started today in class at home. I have attached the article above for your reference.This work is due on Friday (25.11.26).",
+          "dateText": "Wednesday, Nov 25, 2026 at 4:28 PM",
+          "url": "https://thegaudium.managebac.com/student/classes/12992676/discussions/29395185",
+          "attachments": [
+            {
+              "name": "World_Civilizations.docx__1_.pdf",
+              "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/d79be52e01583084fef7-World_Civilizations.docx__1_.pdf",
+              "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTgxNDIwOTI_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--f70dbaebebf6a854f4a94d65a85e55c1d67da268",
+              "mappedAt": "2026-11-25T15:57:54.955Z"
+            }
+          ],
+          "images": [],
+          "mappedAt": "2026-11-25T15:57:54.955Z"
+        },
         {
           "title": "OP Analysis",
           "detail": "",
@@ -6808,7 +6842,7 @@
       "discussions": [
         {
           "title": "Generalise the rule",
-          "detail": "Dear Students, COmplete he task in Math notebook.",
+          "detail": "Dear Students, COmplete he task in Math notebook.\n\n1 Comment\n\n- Last comment on\nWednesday, Nov 25, 2026 at 7:56 PM\n\n- Open Discussion",
           "dateText": "Wednesday, Nov 25, 2026 at 2:37 PM",
           "url": "https://thegaudium.managebac.com/student/classes/12992681/discussions/29394114",
           "attachments": [],
@@ -8986,6 +9020,26 @@
       "mappedAt": "2026-09-10T06:09:43.999Z"
     },
     {
+      "title": "Article-TaskSheet",
+      "className": "Individuals and Societies (MYP Year 1) C",
+      "dueText": "",
+      "status": "Shared in Discussion",
+      "unit": "Class discussion",
+      "description": "Dear Students,\nComplete the worksheet started today in class at home. I have attached the article above for your reference.This work is due on Friday (25.11.26).",
+      "url": "https://thegaudium.managebac.com/student/classes/12992676/discussions/29395185",
+      "attachments": [
+        {
+          "name": "World_Civilizations.docx__1_.pdf",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/d79be52e01583084fef7-World_Civilizations.docx__1_.pdf",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTgxNDIwOTI_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--f70dbaebebf6a854f4a94d65a85e55c1d67da268",
+          "mappedAt": "2026-11-25T15:57:54.955Z"
+        }
+      ],
+      "images": [],
+      "source": "discussion",
+      "mappedAt": "2026-11-25T15:57:54.955Z"
+    },
+    {
       "title": "Formative Assessment",
       "className": "Individuals and Societies (MYP Year 1) C",
       "dueText": "",
@@ -9473,7 +9527,7 @@
       "dueText": "",
       "status": "Shared in Discussion",
       "unit": "Class discussion",
-      "description": "Dear Students, COmplete he task in Math notebook.",
+      "description": "Dear Students, COmplete he task in Math notebook.\n\n1 Comment\n\n- Last comment on\nWednesday, Nov 25, 2026 at 7:56 PM\n\n- Open Discussion",
       "url": "https://thegaudium.managebac.com/student/classes/12992681/discussions/29394114",
       "attachments": [],
       "images": [
