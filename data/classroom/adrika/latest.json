@@ -1,10 +1,40 @@
 {
   "studentName": "Adrika Lakshmi Saragadam",
-  "syncedAt": "2026-11-25T20:21:02.893Z",
+  "syncedAt": "2026-11-26T09:45:40.761Z",
   "sourceUrl": "https://thegaudium.managebac.com/student/home",
   "status": "ok",
   "error": "",
   "notifications": [
+    {
+      "title": "New File Uploaded",
+      "detail": "Shreya Das has just uploaded a new file named Reference_material_MYP1.pdf in IB MYP Individuals and Societies (MYP Year 1) E.\nYou can find the file from the Files tab.",
+      "url": "https://thegaudium.managebac.com/student/notifications/1430687048",
+      "createdAt": "2026-11-26T04:27:22.726Z",
+      "sender": "Shreya Das",
+      "origin": "IB MYP Individuals and Societies (MYP Year 1) E",
+      "attachments": [],
+      "channel": "managebac",
+      "externalId": "1430687048",
+      "mappedAt": "2026-11-26T09:45:40.761Z"
+    },
+    {
+      "title": "LIDAR, Radio carbon dating",
+      "detail": "Shreya Das has posted the following discussion in IB MYP Individuals and Societies (MYP Year 1) E:\n\nReference_material_MYP1.pdf68.61 KB\n\nClick here to view the full discussion thread.",
+      "url": "https://thegaudium.managebac.com/student/notifications/1430686738",
+      "createdAt": "2026-11-26T04:26:50.990Z",
+      "sender": "Shreya Das",
+      "origin": "IB MYP Individuals and Societies (MYP Year 1) E",
+      "attachments": [
+        {
+          "name": "Reference_material_MYP1.pdf",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/adrika/assets/180e92a7999f66af5ca0-Reference_material_MYP1.pdf",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTgxOTg5ODE_ZXhwaXJlc19pbiIsInB1ciI6ImF0dGFjaG1lbnRfZW1iZWQifX0=--a08394bf83a6597fae34b4007c99b4800431b347"
+        }
+      ],
+      "channel": "managebac",
+      "externalId": "1430686738",
+      "mappedAt": "2026-11-26T09:45:40.761Z"
+    },
     {
       "title": "New Task: COMIC STRIP ANALYSIS",
       "detail": "Madhavi Vinod has just added a new Task COMIC STRIP ANALYSIS in IB MYP English (MYP Year 1) E.\nWhen: November 24, 2026 at 10:00 PM\n\nThe following questions are based on the three-panel comic strip featuring Garfield and Odie. They focus on characterisation, visual language, dialogue, humour and the creator's choices.\nAnalytical Questions\nIdentify  \nIdentify one visual detail that shows Garfield is feeling unhappy in the first panel. \nIdentify the technique used to show Garfield's growling sound, “GRRRR…...\n\nView full details",
@@ -4706,7 +4736,7 @@
           "title": "IBMYP_Language___literature_guide__1_.pdf",
           "detail": "Madhavi Vinod\nJune 10, 2026\n\nENGLISH LANGUAGE AND LITERATURE GUIDE\nIBMYP Language & literature guide (1).pdf\n\nFile\n\n0\n\nComments0",
           "dateText": "June 10",
-          "url": "https://cdn.ca.managebac.com/uploads/asset/file/190241026/IBMYP_Language___literature_guide__1_.pdf?Expires=1795645223&Signature=QzIXH6D0AzyZ~VpBKsGnuCGhc7oBmd5xjoqsgYRrEOatOsAbm~D5mvoyVoX~tlkzDaROVyuAZ8zGRq6IM-OrcWvIdBhw~FJD5HxYtXMQzlu97~EdBSHKWES~Kumcf~2doCIHvROK8S1yAiDmZkQ~STYqyxBmPqRnCjeMDhXCiU4gitgfB0-lpK95K4VTqtw~BQsH5AW8ue2-3RlMmH0xKD72KQ3uaVA5HNU-xtPROQzt9x-cjKlAqt~MZ19dQkpzNx1uZeFHHOKVa88sgSqs9h4NcWh01usM54cpqKI1M50b5t0QNljIlspOoEmqVRSlMIluZwYmEnlQtoQtVFSwUA__&Key-Pair-Id=K2RK6WSQIEDQ9F",
+          "url": "https://cdn.ca.managebac.com/uploads/asset/file/190241026/IBMYP_Language___literature_guide__1_.pdf?Expires=1795693503&Signature=Fx69x6Lwktx458YjReSIxOjDN5EqSLoGsKBSBYghSzUH-847SLZLe0PcqMOwYoP-XgE7IO~NmtmB8kitIgjKKvT0CvFNNQn33dFob-bOI1KIv4DqVsV3udH2-VoG1ymu7D9ZxggwwqsL8REzh2Q9L7z8D5mpA55PGYRo5O6no4fJIbeOSkhCMQdKccXZ9zFEYN4n8BWHFS5hroUQAtJ-4S7acGqZE96h4Wprc3G4EDmKyt-eatyc0nWBLlnayZXRB8UEP0Gw-dgTBrWvPlX6nVPZ6mZ9-YiqY80LNVR5ojbQCrvyVzimFEGXMrGI5spTyyjfr1tPj1oayEhstTAhGw__&Key-Pair-Id=K2RK6WSQIEDQ9F",
           "attachments": [
             {
               "name": "Export",
@@ -4717,7 +4747,7 @@
             {
               "name": "IBMYP_Language___literature_guide__1_.pdf",
               "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/adrika/assets/083833e9cc2c2dc6fdd0-IBMYP_Language___literature_guide__1_.pdf",
-              "sourceUrl": "https://cdn.ca.managebac.com/uploads/asset/file/190241026/IBMYP_Language___literature_guide__1_.pdf?Expires=1795645223&Signature=QzIXH6D0AzyZ~VpBKsGnuCGhc7oBmd5xjoqsgYRrEOatOsAbm~D5mvoyVoX~tlkzDaROVyuAZ8zGRq6IM-OrcWvIdBhw~FJD5HxYtXMQzlu97~EdBSHKWES~Kumcf~2doCIHvROK8S1yAiDmZkQ~STYqyxBmPqRnCjeMDhXCiU4gitgfB0-lpK95K4VTqtw~BQsH5AW8ue2-3RlMmH0xKD72KQ3uaVA5HNU-xtPROQzt9x-cjKlAqt~MZ19dQkpzNx1uZeFHHOKVa88sgSqs9h4NcWh01usM54cpqKI1M50b5t0QNljIlspOoEmqVRSlMIluZwYmEnlQtoQtVFSwUA__&Key-Pair-Id=K2RK6WSQIEDQ9F",
+              "sourceUrl": "https://cdn.ca.managebac.com/uploads/asset/file/190241026/IBMYP_Language___literature_guide__1_.pdf?Expires=1795693503&Signature=Fx69x6Lwktx458YjReSIxOjDN5EqSLoGsKBSBYghSzUH-847SLZLe0PcqMOwYoP-XgE7IO~NmtmB8kitIgjKKvT0CvFNNQn33dFob-bOI1KIv4DqVsV3udH2-VoG1ymu7D9ZxggwwqsL8REzh2Q9L7z8D5mpA55PGYRo5O6no4fJIbeOSkhCMQdKccXZ9zFEYN4n8BWHFS5hroUQAtJ-4S7acGqZE96h4Wprc3G4EDmKyt-eatyc0nWBLlnayZXRB8UEP0Gw-dgTBrWvPlX6nVPZ6mZ9-YiqY80LNVR5ojbQCrvyVzimFEGXMrGI5spTyyjfr1tPj1oayEhstTAhGw__&Key-Pair-Id=K2RK6WSQIEDQ9F",
               "mappedAt": "2026-07-27T09:55:18.161Z"
             }
           ],
@@ -5519,7 +5549,7 @@
     {
       "name": "Individuals and Societies (MYP Year 1) E",
       "url": "https://thegaudium.managebac.com/student/classes/12992678",
-      "latestActivity": "November 23, 2026 OP Analysis Vaishali Rajasekaran added a message on Nov 23, 2026 at 2:46 PM Formative Assessment Vaishali Rajasekaran updated a message on Nov 23, 2026 at 2:45 PM Mayan civilization Shreya Das added a message on Nov 23, 2026 at 2:44 PM November 20, 2026 Ancient Civilisations: The...",
+      "latestActivity": "Today Reference_material_MYP1.pdf Shreya Das added a file on Nov 26, 2026 at 9:57 AM New LIDAR, Radio carbon dating Shreya Das added a message on Nov 26, 2026 at 9:56 AM New November 23, 2026 OP Analysis Vaishali Rajasekaran added a message on Nov 23, 2026 at 2:46 PM Formative Assessment Vaishali R...",
       "stream": [],
       "discussions": [
         {
@@ -5530,6 +5560,22 @@
           "attachments": [],
           "images": [],
           "mappedAt": "2026-09-24T10:25:23.773Z"
+        },
+        {
+          "title": "LIDAR, Radio carbon dating",
+          "detail": "",
+          "dateText": "Thursday, Nov 26, 2026 at 9:56 AM",
+          "url": "https://thegaudium.managebac.com/student/classes/12992678/discussions/29399096",
+          "attachments": [
+            {
+              "name": "Reference_material_MYP1.pdf",
+              "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/adrika/assets/c967d98795c1ef543e00-Reference_material_MYP1.pdf",
+              "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTgxOTg5ODE_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--bc5198711ddb914a636d83c2c57ab9e1cdc3f6da",
+              "mappedAt": "2026-11-26T09:45:40.761Z"
+            }
+          ],
+          "images": [],
+          "mappedAt": "2026-11-26T09:45:40.761Z"
         },
         {
           "title": "OP Analysis",
@@ -5985,9 +6031,15 @@
       "calendar": [],
       "files": [
         {
+          "name": "Reference_material_MYP1.pdf",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/adrika/assets/31077622955c99d8fbbe-Reference_material_MYP1.pdf",
+          "sourceUrl": "https://cdn.ca.managebac.com/uploads/asset/file/198199069/Reference_material_MYP1.pdf?Expires=1795693510&Signature=FC0gQWu44avpqyPMUWrUI9sbt7Uj5MhiAG3bf77RAAg7dxhZKpTJFAST~h8EaygHSw5rMYSzBLRLOVclnMutEQ~IEhS9HXdJbWzhYt6jmn1HObc69drcVrMHGIPWgf~5FzLH3FtmGzeSOLu~5ZbUqSp4OFs6wZU5~4sNPA88U2g5vF5HbFAMFWT4j2GyV0vn2BBgF8RNL09wNB5wzZ0F5PMNDNgqmO-Q~bbXYV2CTYuZuN-3r849WBWcQjVrW42OTk8md23b9dpHjHNd3iF9953EosvmBUlmna0s~69QKWJiwrlk5FLojH-evvZyVFxT35YjaFHwrMQw4TxMc~SbMg__&Key-Pair-Id=K2RK6WSQIEDQ9F",
+          "mappedAt": "2026-11-26T09:45:40.761Z"
+        },
+        {
           "name": "Civilization_MYP1.pdf",
           "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/adrika/assets/a8b783a7b5d812f4ec39-Civilization_MYP1.pdf",
-          "sourceUrl": "https://cdn.ca.managebac.com/uploads/asset/file/197580562/Civilization_MYP1.pdf?Expires=1795645231&Signature=bKbTf4Df0VsnBZf8bBULI3GqOeOTnq2Qs2EyJYYBVFKOUbjGhDnyEnoTnY6aH6XBJlcHwG-IlpQ3-4p6JFmJ-2~gem3efHoYnnJrQY0gnJ7-CBDncxEQX5yF4cadKGVBZcWYz5HaPp0pJgzHkijIpJgjV8fhdQhzEvlIlOJTLY54L8~EcKOuTfVzEiMy5jF4PJVQHtjvRhe~m6Ki83TQ7S46AnK91GTl6ELqletS~ANYo70Wqr3qAx-sAQXf3iG5T~Sw9XZ-5yB3p9oAc5TSFfW39bhN1ZZzgDOUYZkHae4fs6ZHJOsj9JG8C6U~IQGGG9CXsACeNM-wOCYMI~ikhg__&Key-Pair-Id=K2RK6WSQIEDQ9F",
+          "sourceUrl": "https://cdn.ca.managebac.com/uploads/asset/file/197580562/Civilization_MYP1.pdf?Expires=1795693511&Signature=kme6ZTLb9cG2Zyxi-KGtZHO~lGEOO2OsCqedhZlXRLzRpLPp9hU8WqC8KlrLg~MygZ-GZKQba6W0RxinuKVfCHZffV~gABt12ikxHAP8uYkg51XiFjyMZwr8M4cyqeAlfHHP6~zG-DXJw~3XTUvN7coNyXeb2iyUIclbpk89s4bTIuekn5ac~GcoyEtNadAh81PTVugrAH-dCU8pzcxcaw3iTDd-cy5eg-a~6FTLxCj~YE5nr0uPR40aceGwZi7XSFx6Re1~8w36jNIH79hQpFFx6cWmZfT5q6MV2wilJ8KXsw33Q~RBhOhP-e-ay8XmGaNPPjqQtRNrhSVr-xxNpQ__&Key-Pair-Id=K2RK6WSQIEDQ9F",
           "mappedAt": "2026-11-18T14:30:19.074Z"
         },
         {

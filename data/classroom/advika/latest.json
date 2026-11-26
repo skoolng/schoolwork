@@ -1,10 +1,28 @@
 {
   "studentName": "Advika Lakshmi",
-  "syncedAt": "2026-11-25T20:20:13.266Z",
+  "syncedAt": "2026-11-26T09:44:29.920Z",
   "sourceUrl": "https://thegaudium.managebac.com/student/home",
   "status": "ok",
   "error": "",
   "notifications": [
+    {
+      "title": "New Task: Homework",
+      "detail": "Paul Pottakkaran has just added a new Task Homework in IB MYP English (MYP Year 1) C.\nWhen: November 27, 2026 at 9:00 AM\nMYP_1_FA_3.docx481.95 KB\nComplete the task\n\nView full details",
+      "url": "https://thegaudium.managebac.com/student/notifications/1431055700",
+      "createdAt": "2026-11-26T09:36:06.088Z",
+      "sender": "Paul Pottakkaran",
+      "origin": "IB MYP English (MYP Year 1) C",
+      "attachments": [
+        {
+          "name": "MYP_1_FA_3.docx",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/794e3d24b058cfcdba44-MYP_1_FA_3.docx",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTgyMjc3NDY_ZXhwaXJlc19pbiIsInB1ciI6ImF0dGFjaG1lbnRfZW1iZWQifX0=--43ae2d115dfe49cd6ecda2b0440d226af389e01a"
+        }
+      ],
+      "channel": "managebac",
+      "externalId": "1431055700",
+      "mappedAt": "2026-11-26T09:44:29.920Z"
+    },
     {
       "title": "Article-TaskSheet",
       "detail": "Vaishali Rajasekaran has posted the following discussion in IB MYP Individuals and Societies (MYP Year 1) C:\n\nWorld_Civilizations.docx__1_.pdf1.53 MB\nDear Students,\nComplete the worksheet started today in class at home. I have attached the article above for your reference.This work is due on Friday (25.11.26).\n\nClick here to view the full discussion thread.",
@@ -4707,7 +4725,7 @@
     {
       "name": "English (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12990853",
-      "latestActivity": "November 20, 2026 Formative Assessment Formative Classwork Pending Monday at 8:50 PM Paul Pottakkaran added a task on Nov 20, 2026 at 2:56 PM November 19, 2026 Homework Mocks Homework Pending Friday at 8:35 AM Paul Pottakkaran added a task on Nov 19, 2026 at 3:12 PM November 16, 2026 Roller Girl Pa...",
+      "latestActivity": "Today Homework Mocks Homework Pending Friday at 9:00 AM Paul Pottakkaran added a task on Nov 26, 2026 at 3:05 PM New November 20, 2026 Formative Assessment Formative Classwork Pending Monday at 8:50 PM Paul Pottakkaran added a task on Nov 20, 2026 at 2:56 PM November 19, 2026 Homework Mocks Homewor...",
       "stream": [],
       "discussions": [
         {
@@ -4959,7 +4977,7 @@
     {
       "name": "French (i) Phases 1, 2 (MYP Year 1)",
       "url": "https://thegaudium.managebac.com/student/classes/12989610",
-      "latestActivity": "November 19, 2026 Formative Assessment Event Monday — 1h: 1:10 PM - 2:10 PM Deepti Rokade updated an event on Nov 19, 2026 at 3:31 PM Holiday_plans___Traverlogue.pptx Deepti Rokade added a file on Nov 19, 2026 at 8:57 AM November 11, 2026 Le_futur_proche.pptx Deepti Rokade added a file on Nov 11, 2...",
+      "latestActivity": "Today Mes_vacances_prochaines.pptx Deepti Rokade added a file on Nov 26, 2026 at 11:02 AM New Mon_week-end.pptx Deepti Rokade added a file on Nov 26, 2026 at 11:02 AM New November 19, 2026 Formative Assessment Event Monday — 1h: 1:10 PM - 2:10 PM Deepti Rokade updated an event on Nov 19, 2026 at 3:...",
       "stream": [],
       "discussions": [],
       "units": [
@@ -6837,7 +6855,7 @@
     {
       "name": "Mathematics (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12992681",
-      "latestActivity": "Yesterday Generalise the rule Sabitha Karunam added a message on Nov 25, 2026 at 2:37 PM New November 23, 2026 Algebraic Equations Sabitha Karunam added a message on Nov 23, 2026 at 1:27 PM November 20, 2026 Solving an Equations(Liner equations) Sabitha Karunam added a message on Nov 20, 2026 at 2:...",
+      "latestActivity": "Yesterday Generalise the rule Sabitha Karunam added a message on Nov 25, 2026 at 2:37 PM November 23, 2026 Algebraic Equations Sabitha Karunam added a message on Nov 23, 2026 at 1:27 PM November 20, 2026 Solving an Equations(Liner equations) Sabitha Karunam added a message on Nov 20, 2026 at 2:41 P...",
       "stream": [],
       "discussions": [
         {
@@ -8790,6 +8808,26 @@
       "images": [],
       "source": "discussion",
       "mappedAt": "2026-07-27T09:54:44.452Z"
+    },
+    {
+      "title": "Homework",
+      "className": "English (MYP Year 1) C",
+      "dueText": "Nov 27 - Friday at  9:00 AM",
+      "status": "Pending",
+      "unit": "Unit 3_Stories in Frames_2026-27",
+      "description": "MYP_1_FA_3.docx481.95 KB\nComplete the task",
+      "url": "https://thegaudium.managebac.com/student/classes/12990853/core_tasks/49770048",
+      "attachments": [
+        {
+          "name": "MYP_1_FA_3.docx",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/85b1f5d73d74b3edd266-MYP_1_FA_3.docx",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTgyMjc3NDY_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--798f2aba00007ab060b766040bdded3e7a73e0e4",
+          "mappedAt": "2026-11-26T09:44:29.920Z"
+        }
+      ],
+      "images": [],
+      "source": "task",
+      "mappedAt": "2026-11-26T09:44:29.920Z"
     },
     {
       "title": "Formative Assessment",
