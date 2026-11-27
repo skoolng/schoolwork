@@ -1,14 +1,14 @@
 {
   "studentKey": "adrika",
   "studentName": "Adrika Lakshmi Saragadam",
-  "weekKey": "2026-11-16_2026-11-22",
-  "weekStart": "2026-11-16",
-  "weekEnd": "2026-11-22",
-  "generatedAt": "2026-11-20T19:10:47.197Z",
+  "weekKey": "2026-11-23_2026-11-29",
+  "weekStart": "2026-11-23",
+  "weekEnd": "2026-11-29",
+  "generatedAt": "2026-11-27T20:05:08.788Z",
   "overallSummary": "Adrika's learning this week moved across 9 subjects, with a strong emphasis on explaining ideas, applying them in a new situation, and reflecting on how work could improve. The most useful parent role is to ask for evidence and reasoning—not to reteach every lesson or supply the answer.",
   "parentOverview": "ManageBac shows the learning opportunities and work recorded for the week; it does not by itself prove mastery. Use this guide to listen for what Adrika can explain independently, notice where prompts are needed, and agree on one small next step. A confident explanation, a relevant example, and the ability to correct a mistake are stronger signs of understanding than task completion alone.",
   "strengths": [
-    "English: Explain the central ideas and vocabulary connected to “Unit 3_Stories in Frames_2026-27”.",
+    "English: Build an engaging narrative opening with a clear character, setting, and problem.",
     "LA FRENCH (Indrani ) Phases 1, 2: Introduce self, family, and friends using accurate core vocabulary.",
     "Individuals & Societies: Explain how rights, responsibilities, interdependence, and informed action shape global citizenship.",
     "Sciences: Frame a testable research question and an evidence-based hypothesis.",
@@ -16,13 +16,13 @@
   ],
   "growthAreas": [
     "Design: choose the most urgent of 13 pending items, agree on a 20-minute start, and check that submission is complete.",
-    "English: choose the most urgent of 8 pending items, agree on a 20-minute start, and check that submission is complete.",
+    "English: choose the most urgent of 9 pending items, agree on a 20-minute start, and check that submission is complete.",
     "Individuals & Societies: choose the most urgent of 6 pending items, agree on a 20-minute start, and check that submission is complete.",
     "Physical and Health Education: choose the most urgent of 3 pending items, agree on a 20-minute start, and check that submission is complete."
   ],
   "mentoringPlan": {
     "conversationStarters": [
-      "What is one idea from Unit 3_Stories in Frames_2026-27 that you understand differently now?",
+      "What is one idea from Stories in frames that you understand differently now?",
       "Show me a piece of work you are proud of. What decision did you make, and why?",
       "Choose one difficult moment from this week. What strategy did you try before asking for help?",
       "Which school idea could help us solve a problem at home or in our community?"
@@ -148,7 +148,7 @@
     }
   ],
   "highlights": [
-    "English: Explain the central ideas and vocabulary connected to “Unit 3_Stories in Frames_2026-27”.",
+    "English: Build an engaging narrative opening with a clear character, setting, and problem.",
     "LA FRENCH (Indrani ) Phases 1, 2: Introduce self, family, and friends using accurate core vocabulary.",
     "Individuals & Societies: Explain how rights, responsibilities, interdependence, and informed action shape global citizenship.",
     "Sciences: Frame a testable research question and an evidence-based hypothesis.",
@@ -156,16 +156,56 @@
   ],
   "attentionItems": [
     "Design: choose the most urgent of 13 pending items, agree on a 20-minute start, and check that submission is complete.",
-    "English: choose the most urgent of 8 pending items, agree on a 20-minute start, and check that submission is complete.",
+    "English: choose the most urgent of 9 pending items, agree on a 20-minute start, and check that submission is complete.",
     "Individuals & Societies: choose the most urgent of 6 pending items, agree on a 20-minute start, and check that submission is complete.",
     "Physical and Health Education: choose the most urgent of 3 pending items, agree on a 20-minute start, and check that submission is complete."
   ],
   "subjects": [
     {
       "subject": "English",
-      "summary": "This week connected Unit 3_Stories in Frames_2026-27, Myths and legends: A mirror of reality?_2026-27, Pitch Perfect: the Art of Persuasion_2026-27. Explain the central ideas and vocabulary connected to “Unit 3_Stories in Frames_2026-27”. Apply the learning to a new example and justify the choices made. Reflect on feedback, challenges, and a sensible next step. Classroom evidence included ANALYSIS-GRAPHIC NOVEL -ROLLER GIRL and SLIDE PRESENTATION-GRAPHIC NOVEL-ROLLER GIRL.",
-      "parentTakeaway": "The student explains the idea in their own words and gives a relevant example.",
+      "summary": "This week connected Stories in frames, Unit 3_Stories in Frames_2026-27, Myths and legends: A mirror of reality?_2026-27. Build an engaging narrative opening with a clear character, setting, and problem. Reveal character through actions, dialogue, thoughts, and reactions instead of direct labels. Use myths and legends to explore how beliefs and values shape a story. Classroom evidence included COMIC STRIP ANALYSIS and Analyzing an ad.",
+      "parentTakeaway": "The student can point to a sentence and explain how it creates mood or reveals character.",
       "units": [
+        {
+          "name": "Stories in frames",
+          "summary": "The learning focus was to build an engaging narrative opening with a clear character, setting, and problem and to reveal character through actions, dialogue, thoughts, and reactions instead of direct labels.",
+          "activities": [
+            "COMIC STRIP ANALYSIS",
+            "Analyzing an ad",
+            "STORY MAPPING",
+            "STORY EXPOSITION"
+          ],
+          "learningGoals": [
+            "Build an engaging narrative opening with a clear character, setting, and problem.",
+            "Reveal character through actions, dialogue, thoughts, and reactions instead of direct labels.",
+            "Use myths and legends to explore how beliefs and values shape a story."
+          ],
+          "evidenceToListenFor": [
+            "The student can point to a sentence and explain how it creates mood or reveals character.",
+            "The story has a purposeful sequence rather than a list of unrelated events."
+          ],
+          "commonMisconceptions": [
+            "Adding more adjectives automatically makes writing vivid.",
+            "A myth is only fantasy; strong myths also communicate a culture's values or fears."
+          ],
+          "parentGuidance": [
+            "Ask for one sensory detail at a time: what could the character see, hear, or feel?",
+            "Let the student revise one paragraph aloud instead of correcting the whole piece for them."
+          ],
+          "homeExtension": "Turn a familiar family or community story into a 6-panel modern myth, showing the hero's traits through choices.",
+          "questions": [
+            "Teach me the most important idea from “Stories in frames” without looking at your notes.",
+            "Read a short section from “COMIC STRIP ANALYSIS” and point out one deliberate writing choice and its effect on the reader.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "Persuasive Writing for Kids — Episode 1",
+              "url": "https://www.youtube.com/watch?v=hD9arWXIddM"
+            }
+          ]
+        },
         {
           "name": "Unit 3_Stories in Frames_2026-27",
           "summary": "The learning focus was to explain the central ideas and vocabulary connected to “Unit 3_Stories in Frames_2026-27” and to apply the learning to a new example and justify the choices made.",
@@ -244,52 +284,12 @@
               "url": "https://www.youtube.com/watch?v=hD9arWXIddM"
             }
           ]
-        },
-        {
-          "name": "Pitch Perfect: the Art of Persuasion_2026-27",
-          "summary": "The learning focus was to build an engaging narrative opening with a clear character, setting, and problem and to reveal character through actions, dialogue, thoughts, and reactions instead of direct labels.",
-          "activities": [
-            "CREATING A PRODUCT",
-            "Analyzing an ad",
-            "STORY MAPPING",
-            "STORY EXPOSITION"
-          ],
-          "learningGoals": [
-            "Build an engaging narrative opening with a clear character, setting, and problem.",
-            "Reveal character through actions, dialogue, thoughts, and reactions instead of direct labels.",
-            "Use myths and legends to explore how beliefs and values shape a story."
-          ],
-          "evidenceToListenFor": [
-            "The student can point to a sentence and explain how it creates mood or reveals character.",
-            "The story has a purposeful sequence rather than a list of unrelated events."
-          ],
-          "commonMisconceptions": [
-            "Adding more adjectives automatically makes writing vivid.",
-            "A myth is only fantasy; strong myths also communicate a culture's values or fears."
-          ],
-          "parentGuidance": [
-            "Ask for one sensory detail at a time: what could the character see, hear, or feel?",
-            "Let the student revise one paragraph aloud instead of correcting the whole piece for them."
-          ],
-          "homeExtension": "Turn a familiar family or community story into a 6-panel modern myth, showing the hero's traits through choices.",
-          "questions": [
-            "Teach me the most important idea from “Pitch Perfect: the Art of Persuasion_2026-27” without looking at your notes.",
-            "Read a short section from “CREATING A PRODUCT” and point out one deliberate writing choice and its effect on the reader.",
-            "What mistake might someone make in this topic, and how would you correct it?",
-            "Where could you use this learning outside school? Give a specific example."
-          ],
-          "videos": [
-            {
-              "title": "Persuasive Writing for Kids — Episode 1",
-              "url": "https://www.youtube.com/watch?v=hD9arWXIddM"
-            }
-          ]
         }
       ]
     },
     {
       "subject": "LA FRENCH (Indrani ) Phases 1, 2",
-      "summary": "This week connected Unit 2_My House_25-26 (ii), Unit 1_. Introduce self, family, and friends using accurate core vocabulary. Build complete sentences with appropriate pronouns, verbs, and simple descriptions. Listen and respond without relying entirely on written prompts. Classroom evidence included Unit 2 Formative assessments and Travelogue.",
+      "summary": "This week connected Unit 2_My House_25-26 (ii), Unit 1_. Introduce self, family, and friends using accurate core vocabulary. Build complete sentences with appropriate pronouns, verbs, and simple descriptions. Listen and respond without relying entirely on written prompts. Classroom evidence included Unit 2 Formative assessments and Les vacances.",
       "parentTakeaway": "The student can speak for 30–60 seconds with understandable pronunciation.",
       "units": [
         {
@@ -297,9 +297,9 @@
           "summary": "The learning focus was to introduce self, family, and friends using accurate core vocabulary and to build complete sentences with appropriate pronouns, verbs, and simple descriptions.",
           "activities": [
             "Unit 2 Formative assessments",
+            "Les vacances",
             "Travelogue",
-            "Dear Students, Please check the Email format and some examples of Mes vacances that we haved done today in our class.",
-            "les vacances"
+            "Dear Students, Please check the Email format and some examples of Mes vacances that we haved done today in our class."
           ],
           "learningGoals": [
             "Introduce self, family, and friends using accurate core vocabulary.",
@@ -336,10 +336,10 @@
           "name": "Unit 1_",
           "summary": "The learning focus was to introduce self, family, and friends using accurate core vocabulary and to build complete sentences with appropriate pronouns, verbs, and simple descriptions.",
           "activities": [
+            "Les vacances",
             "Travelogue",
             "Dear Students, Please check the Email format and some examples of Mes vacances that we haved done today in our class.",
-            "les vacances",
-            "Les vacances"
+            "les vacances"
           ],
           "learningGoals": [
             "Introduce self, family, and friends using accurate core vocabulary.",
@@ -429,8 +429,8 @@
           "activities": [
             "Homework",
             "Resources",
-            "Ancient Civilisations: The Maya and the Inca",
-            "Civilizations"
+            "LIDAR, Radio carbon dating",
+            "OP Analysis"
           ],
           "learningGoals": [
             "Explain how rights, responsibilities, interdependence, and informed action shape global citizenship.",
@@ -471,17 +471,17 @@
     },
     {
       "subject": "Sciences",
-      "summary": "This week connected Home work Task : Microscope and Science worksheet _ Onion Peel Experiment, Unit 3 reference documents, Unit-1 What do Scientists do ? SB-2026-27. Frame a testable research question and an evidence-based hypothesis. Identify independent, dependent, and controlled variables for a fair investigation. Present data clearly, interpret patterns, draw a supported conclusion, and suggest improvements. Classroom evidence included Home work Task : Microscope and Science worksheet _ Onion Peel Experiment and Unit 3 reference documents.",
+      "summary": "This week connected Functions of Cell Organelles, Animal cell lab experiment: Cheek cell experiment, Unit-1 What do Scientists do ? SB-2026-27. Frame a testable research question and an evidence-based hypothesis. Identify independent, dependent, and controlled variables for a fair investigation. Present data clearly, interpret patterns, draw a supported conclusion, and suggest improvements. Classroom evidence included Functions of Cell Organelles and Animal cell lab experiment: Cheek cell experiment.",
       "parentTakeaway": "The student explains what is changed, what is measured, and what must stay the same.",
       "units": [
         {
-          "name": "Home work Task : Microscope and Science worksheet _ Onion Peel Experiment",
+          "name": "Functions of Cell Organelles",
           "summary": "The learning focus was to frame a testable research question and an evidence-based hypothesis and to identify independent, dependent, and controlled variables for a fair investigation.",
           "activities": [
-            "Home work Task : Microscope and Science worksheet _ Onion Peel Experiment",
-            "Unit 3 reference documents",
-            "Term 2 Syllabus – MYP Integrated Sciences",
-            "Online class on Saturday 3 October 2026"
+            "Functions of Cell Organelles",
+            "Animal cell lab experiment: Cheek cell experiment",
+            "Ecosystem_Components__Habitats__Food_Chains_and_Food_Webs.",
+            "Home work Task : Microscope and Science worksheet _ Onion Peel Experiment"
           ],
           "learningGoals": [
             "Frame a testable research question and an evidence-based hypothesis.",
@@ -502,8 +502,8 @@
           ],
           "homeExtension": "Run a fair home investigation comparing how quickly ice melts in two locations; record repeated measurements and graph the results.",
           "questions": [
-            "Teach me the most important idea from “Home work Task : Microscope and Science worksheet _ Onion Peel Experiment” without looking at your notes.",
-            "For “Home work Task : Microscope and Science worksheet _ Onion Peel Experiment”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
+            "Teach me the most important idea from “Functions of Cell Organelles” without looking at your notes.",
+            "For “Functions of Cell Organelles”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
             "What mistake might someone make in this topic, and how would you correct it?",
             "Where could you use this learning outside school? Give a specific example."
           ],
@@ -515,13 +515,13 @@
           ]
         },
         {
-          "name": "Unit 3 reference documents",
+          "name": "Animal cell lab experiment: Cheek cell experiment",
           "summary": "The learning focus was to frame a testable research question and an evidence-based hypothesis and to identify independent, dependent, and controlled variables for a fair investigation.",
           "activities": [
-            "Home work Task : Microscope and Science worksheet _ Onion Peel Experiment",
-            "Unit 3 reference documents",
-            "Term 2 Syllabus – MYP Integrated Sciences",
-            "Online class on Saturday 3 October 2026"
+            "Functions of Cell Organelles",
+            "Animal cell lab experiment: Cheek cell experiment",
+            "Ecosystem_Components__Habitats__Food_Chains_and_Food_Webs.",
+            "Home work Task : Microscope and Science worksheet _ Onion Peel Experiment"
           ],
           "learningGoals": [
             "Frame a testable research question and an evidence-based hypothesis.",
@@ -542,8 +542,8 @@
           ],
           "homeExtension": "Run a fair home investigation comparing how quickly ice melts in two locations; record repeated measurements and graph the results.",
           "questions": [
-            "Teach me the most important idea from “Unit 3 reference documents” without looking at your notes.",
-            "For “Home work Task : Microscope and Science worksheet _ Onion Peel Experiment”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
+            "Teach me the most important idea from “Animal cell lab experiment: Cheek cell experiment” without looking at your notes.",
+            "For “Functions of Cell Organelles”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
             "What mistake might someone make in this topic, and how would you correct it?",
             "Where could you use this learning outside school? Give a specific example."
           ],
@@ -558,10 +558,10 @@
           "name": "Unit-1 What do Scientists do ? SB-2026-27",
           "summary": "The learning focus was to frame a testable research question and an evidence-based hypothesis and to identify independent, dependent, and controlled variables for a fair investigation.",
           "activities": [
-            "Home work Task : Microscope and Science worksheet _ Onion Peel Experiment",
-            "Unit 3 reference documents",
-            "Term 2 Syllabus – MYP Integrated Sciences",
-            "Online class on Saturday 3 October 2026"
+            "Functions of Cell Organelles",
+            "Animal cell lab experiment: Cheek cell experiment",
+            "Ecosystem_Components__Habitats__Food_Chains_and_Food_Webs.",
+            "Home work Task : Microscope and Science worksheet _ Onion Peel Experiment"
           ],
           "learningGoals": [
             "Frame a testable research question and an evidence-based hypothesis.",
@@ -583,7 +583,7 @@
           "homeExtension": "Run a fair home investigation comparing how quickly ice melts in two locations; record repeated measurements and graph the results.",
           "questions": [
             "Teach me the most important idea from “Unit-1 What do Scientists do ? SB-2026-27” without looking at your notes.",
-            "For “Home work Task : Microscope and Science worksheet _ Onion Peel Experiment”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
+            "For “Functions of Cell Organelles”, give a testable question, hypothesis, variables, fair-test controls, and the evidence you would collect.",
             "What mistake might someone make in this topic, and how would you correct it?",
             "Where could you use this learning outside school? Give a specific example."
           ],
@@ -598,17 +598,61 @@
     },
     {
       "subject": "Mathematics",
-      "summary": "This week connected Understanding Simple Equations, Evaluate the given expressions, Models & Representations: Numbers in Our World. Recognize number properties, factors, multiples, and patterns. Represent mathematical thinking with models, symbols, and ordered steps. Check whether an answer is reasonable using estimation or an alternative strategy. Classroom evidence included Understanding Simple Equations and Evaluate the given expressions.",
+      "summary": "This week connected Formative Assessment, Understanding Simple Equations, Models & Representations: Numbers in Our World. Recognize number properties, factors, multiples, and patterns. Represent mathematical thinking with models, symbols, and ordered steps. Check whether an answer is reasonable using estimation or an alternative strategy. Classroom evidence included Formative Assessment and Understanding Simple Equations.",
       "parentTakeaway": "The student explains why a method works instead of only reciting a rule.",
       "units": [
+        {
+          "name": "Formative Assessment",
+          "summary": "The learning focus was to recognize number properties, factors, multiples, and patterns and to represent mathematical thinking with models, symbols, and ordered steps.",
+          "activities": [
+            "Formative Assessment",
+            "Understanding Simple Equations",
+            "Evaluate the given expressions",
+            "Substituting values into simple expressions"
+          ],
+          "learningGoals": [
+            "Recognize number properties, factors, multiples, and patterns.",
+            "Represent mathematical thinking with models, symbols, and ordered steps.",
+            "Check whether an answer is reasonable using estimation or an alternative strategy."
+          ],
+          "evidenceToListenFor": [
+            "The student explains why a method works instead of only reciting a rule.",
+            "The student checks the answer and can represent it in a second way."
+          ],
+          "commonMisconceptions": [
+            "Treating a memorized procedure as proof without checking its meaning.",
+            "A calculator result is automatically reasonable; estimation should be used as a check."
+          ],
+          "parentGuidance": [
+            "Ask 'How do you know?' and 'Can you show it another way?' before confirming an answer.",
+            "Use prices, recipes, or sports statistics so the mathematics has a visible purpose."
+          ],
+          "homeExtension": "Plan a ₹1,000 family snack budget with two discounts, compare offers, and justify the best choice using fractions or percentages.",
+          "questions": [
+            "Teach me the most important idea from “Formative Assessment” without looking at your notes.",
+            "Create and solve a new problem based on “Formative Assessment”. Show every step and explain why each step is valid.",
+            "What mistake might someone make in this topic, and how would you correct it?",
+            "Where could you use this learning outside school? Give a specific example."
+          ],
+          "videos": [
+            {
+              "title": "Math Antics — Factoring",
+              "url": "https://www.youtube.com/watch?v=0NvLtTwnUHs"
+            },
+            {
+              "title": "Math Antics — Fractions and Decimals",
+              "url": "https://www.youtube.com/watch?v=Mst8iZjIpFE"
+            }
+          ]
+        },
         {
           "name": "Understanding Simple Equations",
           "summary": "The learning focus was to recognize number properties, factors, multiples, and patterns and to represent mathematical thinking with models, symbols, and ordered steps.",
           "activities": [
+            "Formative Assessment",
             "Understanding Simple Equations",
             "Evaluate the given expressions",
-            "Substituting values into simple expressions",
-            "Division of Algebraic Expressions"
+            "Substituting values into simple expressions"
           ],
           "learningGoals": [
             "Recognize number properties, factors, multiples, and patterns.",
@@ -630,51 +674,7 @@
           "homeExtension": "Plan a ₹1,000 family snack budget with two discounts, compare offers, and justify the best choice using fractions or percentages.",
           "questions": [
             "Teach me the most important idea from “Understanding Simple Equations” without looking at your notes.",
-            "Create and solve a new problem based on “Understanding Simple Equations”. Show every step and explain why each step is valid.",
-            "What mistake might someone make in this topic, and how would you correct it?",
-            "Where could you use this learning outside school? Give a specific example."
-          ],
-          "videos": [
-            {
-              "title": "Math Antics — Factoring",
-              "url": "https://www.youtube.com/watch?v=0NvLtTwnUHs"
-            },
-            {
-              "title": "Math Antics — Fractions and Decimals",
-              "url": "https://www.youtube.com/watch?v=Mst8iZjIpFE"
-            }
-          ]
-        },
-        {
-          "name": "Evaluate the given expressions",
-          "summary": "The learning focus was to recognize number properties, factors, multiples, and patterns and to represent mathematical thinking with models, symbols, and ordered steps.",
-          "activities": [
-            "Understanding Simple Equations",
-            "Evaluate the given expressions",
-            "Substituting values into simple expressions",
-            "Division of Algebraic Expressions"
-          ],
-          "learningGoals": [
-            "Recognize number properties, factors, multiples, and patterns.",
-            "Represent mathematical thinking with models, symbols, and ordered steps.",
-            "Check whether an answer is reasonable using estimation or an alternative strategy."
-          ],
-          "evidenceToListenFor": [
-            "The student explains why a method works instead of only reciting a rule.",
-            "The student checks the answer and can represent it in a second way."
-          ],
-          "commonMisconceptions": [
-            "Treating a memorized procedure as proof without checking its meaning.",
-            "A calculator result is automatically reasonable; estimation should be used as a check."
-          ],
-          "parentGuidance": [
-            "Ask 'How do you know?' and 'Can you show it another way?' before confirming an answer.",
-            "Use prices, recipes, or sports statistics so the mathematics has a visible purpose."
-          ],
-          "homeExtension": "Plan a ₹1,000 family snack budget with two discounts, compare offers, and justify the best choice using fractions or percentages.",
-          "questions": [
-            "Teach me the most important idea from “Evaluate the given expressions” without looking at your notes.",
-            "Create and solve a new problem based on “Understanding Simple Equations”. Show every step and explain why each step is valid.",
+            "Create and solve a new problem based on “Formative Assessment”. Show every step and explain why each step is valid.",
             "What mistake might someone make in this topic, and how would you correct it?",
             "Where could you use this learning outside school? Give a specific example."
           ],
@@ -693,10 +693,10 @@
           "name": "Models & Representations: Numbers in Our World",
           "summary": "The learning focus was to recognize number properties, factors, multiples, and patterns and to represent mathematical thinking with models, symbols, and ordered steps.",
           "activities": [
+            "Formative Assessment",
             "Understanding Simple Equations",
             "Evaluate the given expressions",
-            "Substituting values into simple expressions",
-            "Division of Algebraic Expressions"
+            "Substituting values into simple expressions"
           ],
           "learningGoals": [
             "Recognize number properties, factors, multiples, and patterns.",
@@ -718,7 +718,7 @@
           "homeExtension": "Plan a ₹1,000 family snack budget with two discounts, compare offers, and justify the best choice using fractions or percentages.",
           "questions": [
             "Teach me the most important idea from “Models & Representations: Numbers in Our World” without looking at your notes.",
-            "Create and solve a new problem based on “Understanding Simple Equations”. Show every step and explain why each step is valid.",
+            "Create and solve a new problem based on “Formative Assessment”. Show every step and explain why each step is valid.",
             "What mistake might someone make in this topic, and how would you correct it?",
             "Where could you use this learning outside school? Give a specific example."
           ],
