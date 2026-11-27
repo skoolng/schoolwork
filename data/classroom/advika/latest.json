@@ -1,10 +1,46 @@
 {
   "studentName": "Advika Lakshmi",
-  "syncedAt": "2026-11-26T19:56:55.891Z",
+  "syncedAt": "2026-11-27T09:50:10.567Z",
   "sourceUrl": "https://thegaudium.managebac.com/student/home",
   "status": "ok",
   "error": "",
   "notifications": [
+    {
+      "title": "SA-3 Mock paper",
+      "detail": "Sabitha Karunam has posted the following discussion in IB MYP Mathematics (MYP Year 1) C:\n\nDear Students, Complete the given mock paper and submit on Monday. this will be considered as FA3\nMYP_1_SA3_Practice_Sheet.pdf180.26 KB\n\nClick here to view the full discussion thread.",
+      "url": "https://thegaudium.managebac.com/student/notifications/1432015590",
+      "createdAt": "2026-11-27T09:28:49.905Z",
+      "sender": "Sabitha Karunam",
+      "origin": "IB MYP Mathematics (MYP Year 1) C",
+      "attachments": [
+        {
+          "name": "MYP_1_SA3_Practice_Sheet.pdf",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/492d7bcbae288539f339-MYP_1_SA3_Practice_Sheet.pdf",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTgzMTgxMjI_ZXhwaXJlc19pbiIsInB1ciI6ImF0dGFjaG1lbnRfZW1iZWQifX0=--0cc13bd23b7982fda10aabbd021a1a5e6a204c3f"
+        }
+      ],
+      "channel": "managebac",
+      "externalId": "1432015590",
+      "mappedAt": "2026-11-27T09:50:10.567Z"
+    },
+    {
+      "title": "Sample Paper",
+      "detail": "Paul Pottakkaran has posted the following discussion in IB MYP English (MYP Year 1) C:\n\nMYP_1_FA_3_with_answers.docx483.76 KB\n\nClick here to view the full discussion thread.",
+      "url": "https://thegaudium.managebac.com/student/notifications/1431967790",
+      "createdAt": "2026-11-27T08:48:32.258Z",
+      "sender": "Paul Pottakkaran",
+      "origin": "IB MYP English (MYP Year 1) C",
+      "attachments": [
+        {
+          "name": "MYP_1_FA_3_with_answers.docx",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/1b72fb7a02d2869a3827-MYP_1_FA_3_with_answers.docx",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTgzMTQyMDA_ZXhwaXJlc19pbiIsInB1ciI6ImF0dGFjaG1lbnRfZW1iZWQifX0=--0db7e667cfcf987bbe6659119d4c0852ea4b5ded"
+        }
+      ],
+      "channel": "managebac",
+      "externalId": "1431967790",
+      "mappedAt": "2026-11-27T09:50:10.567Z"
+    },
     {
       "title": "New Task: Homework",
       "detail": "Paul Pottakkaran has just added a new Task Homework in IB MYP English (MYP Year 1) C.\nWhen: November 27, 2026 at 9:00 AM\nMYP_1_FA_3.docx481.95 KB\nComplete the task\n\nView full details",
@@ -4725,9 +4761,25 @@
     {
       "name": "English (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12990853",
-      "latestActivity": "Yesterday Homework Mocks Homework Pending Friday at 9:00 AM Paul Pottakkaran added a task on Nov 26, 2026 at 3:05 PM New November 20, 2026 Formative Assessment Formative Classwork Pending Monday at 8:50 PM Paul Pottakkaran added a task on Nov 20, 2026 at 2:56 PM November 19, 2026 Homework Mocks Hom...",
+      "latestActivity": "Today Sample Paper Paul Pottakkaran added a message on Nov 27, 2026 at 2:18 PM New Yesterday Homework Mocks Homework Pending Friday at 9:00 AM Paul Pottakkaran added a task on Nov 26, 2026 at 3:05 PM November 20, 2026 Formative Assessment Formative Classwork Pending Monday at 8:50 PM Paul Pottakkar...",
       "stream": [],
       "discussions": [
+        {
+          "title": "Sample Paper",
+          "detail": "",
+          "dateText": "Friday, Nov 27, 2026 at 2:18 PM",
+          "url": "https://thegaudium.managebac.com/student/classes/12990853/discussions/29408905",
+          "attachments": [
+            {
+              "name": "MYP_1_FA_3_with_answers.docx",
+              "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/89588c6ae5b87f3f22a5-MYP_1_FA_3_with_answers.docx",
+              "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTgzMTQyMDA_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--e47b9270629a57725df4e704076582a6a561023b",
+              "mappedAt": "2026-11-27T09:50:10.567Z"
+            }
+          ],
+          "images": [],
+          "mappedAt": "2026-11-27T09:50:10.567Z"
+        },
         {
           "title": "Roller Girl",
           "detail": "2 Comments\n\n- Last comment on\nSunday, Nov 22, 2026 at 10:54 AM\n\n- Open Discussion",
@@ -4977,7 +5029,7 @@
     {
       "name": "French (i) Phases 1, 2 (MYP Year 1)",
       "url": "https://thegaudium.managebac.com/student/classes/12989610",
-      "latestActivity": "Yesterday Mes_vacances_prochaines.pptx Deepti Rokade added a file on Nov 26, 2026 at 11:02 AM New Mon_week-end.pptx Deepti Rokade added a file on Nov 26, 2026 at 11:02 AM New November 19, 2026 Formative Assessment Event Monday — 1h: 1:10 PM - 2:10 PM Deepti Rokade updated an event on Nov 19, 2026 a...",
+      "latestActivity": "Yesterday Mes_vacances_prochaines.pptx Deepti Rokade added a file on Nov 26, 2026 at 11:02 AM Mon_week-end.pptx Deepti Rokade added a file on Nov 26, 2026 at 11:02 AM November 19, 2026 Formative Assessment Event Monday — 1h: 1:10 PM - 2:10 PM Deepti Rokade updated an event on Nov 19, 2026 at 3:31 P...",
       "stream": [],
       "discussions": [],
       "units": [
@@ -5160,7 +5212,7 @@
       "discussions": [
         {
           "title": "Article-TaskSheet",
-          "detail": "Dear Students,\nComplete the worksheet started today in class at home. I have attached the article above for your reference.This work is due on Friday (25.11.26).",
+          "detail": "Dear Students,\nComplete the worksheet started today in class at home. I have attached the article above for your reference.This work is due on Friday (25.11.26).\n\n1 Comment\n\n- Last comment on\nFriday, Nov 27, 2026 at 8:58 AM\n\n- Open Discussion",
           "dateText": "Wednesday, Nov 25, 2026 at 4:28 PM",
           "url": "https://thegaudium.managebac.com/student/classes/12992676/discussions/29395185",
           "attachments": [
@@ -6855,9 +6907,25 @@
     {
       "name": "Mathematics (MYP Year 1) C",
       "url": "https://thegaudium.managebac.com/student/classes/12992681",
-      "latestActivity": "November 25, 2026 Generalise the rule Sabitha Karunam added a message on Nov 25, 2026 at 2:37 PM November 23, 2026 Algebraic Equations Sabitha Karunam added a message on Nov 23, 2026 at 1:27 PM November 20, 2026 Solving an Equations(Liner equations) Sabitha Karunam added a message on Nov 20, 2026 a...",
+      "latestActivity": "Today SA-3 Mock paper Sabitha Karunam added a message on Nov 27, 2026 at 2:58 PM New November 25, 2026 Generalise the rule Sabitha Karunam added a message on Nov 25, 2026 at 2:37 PM November 23, 2026 Algebraic Equations Sabitha Karunam added a message on Nov 23, 2026 at 1:27 PM November 20, 2026 So...",
       "stream": [],
       "discussions": [
+        {
+          "title": "SA-3 Mock paper",
+          "detail": "Dear Students, Complete the given mock paper and submit on Monday. this will be considered as FA3",
+          "dateText": "Friday, Nov 27, 2026 at 2:58 PM",
+          "url": "https://thegaudium.managebac.com/student/classes/12992681/discussions/29409363",
+          "attachments": [
+            {
+              "name": "MYP_1_SA3_Practice_Sheet.pdf",
+              "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/10f914bfba6d31053f24-MYP_1_SA3_Practice_Sheet.pdf",
+              "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTgzMTgxMjI_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--13628f3dda234cece0a2eb69f3de89e7beb5b6a6",
+              "mappedAt": "2026-11-27T09:50:10.567Z"
+            }
+          ],
+          "images": [],
+          "mappedAt": "2026-11-27T09:50:10.567Z"
+        },
         {
           "title": "Generalise the rule",
           "detail": "Dear Students, COmplete he task in Math notebook.\n\n1 Comment\n\n- Last comment on\nWednesday, Nov 25, 2026 at 7:56 PM\n\n- Open Discussion",
@@ -8936,26 +9004,6 @@
       "mappedAt": "2026-09-04T13:42:22.369Z"
     },
     {
-      "title": "Sample Paper",
-      "className": "English (MYP Year 1) C",
-      "dueText": "Sep 9 - Wednesday at  9:00 AM",
-      "status": "Pending",
-      "unit": "Y1_Unit 2: Pitch Perfect: the Art of Persuasion",
-      "description": "Nike_Advertisement_Task_Sheet.docx822.44 KB",
-      "url": "https://thegaudium.managebac.com/student/classes/12990853/core_tasks/48718340",
-      "attachments": [
-        {
-          "name": "Nike_Advertisement_Task_Sheet.docx",
-          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/12b73d8936c77082b6dc-Nike_Advertisement_Task_Sheet.docx",
-          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaTluYVdRNkx5OXRZVzVoWjJWaVlXTXZRWE56WlhRdk1Ua3lNakV3TXpJMFAyVjRjR2x5WlhOZmFXNEdPZ1pGVkE9PSIsImV4cCI6bnVsbCwicHVyIjoiZGVmYXVsdCJ9fQ==--6cbdaa7be3fd2d850748ad520ae2b53406560d6b",
-          "mappedAt": "2026-09-07T10:39:27.405Z"
-        }
-      ],
-      "images": [],
-      "source": "task",
-      "mappedAt": "2026-09-07T10:39:27.405Z"
-    },
-    {
       "title": "Notes",
       "className": "English (MYP Year 1) C",
       "dueText": "",
@@ -9063,7 +9111,7 @@
       "dueText": "",
       "status": "Shared in Discussion",
       "unit": "Class discussion",
-      "description": "Dear Students,\nComplete the worksheet started today in class at home. I have attached the article above for your reference.This work is due on Friday (25.11.26).",
+      "description": "Dear Students,\nComplete the worksheet started today in class at home. I have attached the article above for your reference.This work is due on Friday (25.11.26).\n\n1 Comment\n\n- Last comment on\nFriday, Nov 27, 2026 at 8:58 AM\n\n- Open Discussion",
       "url": "https://thegaudium.managebac.com/student/classes/12992676/discussions/29395185",
       "attachments": [
         {
@@ -9558,6 +9606,26 @@
       "images": [],
       "source": "discussion",
       "mappedAt": "2026-07-19T10:07:56.106Z"
+    },
+    {
+      "title": "SA-3 Mock paper",
+      "className": "Mathematics (MYP Year 1) C",
+      "dueText": "",
+      "status": "Shared in Discussion",
+      "unit": "Class discussion",
+      "description": "Dear Students, Complete the given mock paper and submit on Monday. this will be considered as FA3",
+      "url": "https://thegaudium.managebac.com/student/classes/12992681/discussions/29409363",
+      "attachments": [
+        {
+          "name": "MYP_1_SA3_Practice_Sheet.pdf",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/10f914bfba6d31053f24-MYP_1_SA3_Practice_Sheet.pdf",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL21hbmFnZWJhYy9Bc3NldC8xOTgzMTgxMjI_ZXhwaXJlc19pbiIsInB1ciI6ImRlZmF1bHQifX0=--13628f3dda234cece0a2eb69f3de89e7beb5b6a6",
+          "mappedAt": "2026-11-27T09:50:10.567Z"
+        }
+      ],
+      "images": [],
+      "source": "discussion",
+      "mappedAt": "2026-11-27T09:50:10.567Z"
     },
     {
       "title": "Generalise the rule",
@@ -11624,6 +11692,26 @@
       "images": [],
       "source": "task",
       "mappedAt": "2026-10-09T07:34:39.608Z"
+    },
+    {
+      "title": "Sample Paper",
+      "className": "English (MYP Year 1) C",
+      "dueText": "Sep 9 - Wednesday at  9:00 AM",
+      "status": "Pending",
+      "unit": "Y1_Unit 2: Pitch Perfect: the Art of Persuasion",
+      "description": "Nike_Advertisement_Task_Sheet.docx822.44 KB",
+      "url": "https://thegaudium.managebac.com/student/classes/12990853/core_tasks/48718340",
+      "attachments": [
+        {
+          "name": "Nike_Advertisement_Task_Sheet.docx",
+          "url": "https://raw.githubusercontent.com/skoolng/schoolwork/main/data/classroom/advika/assets/12b73d8936c77082b6dc-Nike_Advertisement_Task_Sheet.docx",
+          "sourceUrl": "https://thegaudium.managebac.com/attachments/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaTluYVdRNkx5OXRZVzVoWjJWaVlXTXZRWE56WlhRdk1Ua3lNakV3TXpJMFAyVjRjR2x5WlhOZmFXNEdPZ1pGVkE9PSIsImV4cCI6bnVsbCwicHVyIjoiZGVmYXVsdCJ9fQ==--6cbdaa7be3fd2d850748ad520ae2b53406560d6b",
+          "mappedAt": "2026-09-07T10:39:27.405Z"
+        }
+      ],
+      "images": [],
+      "source": "task",
+      "mappedAt": "2026-09-07T10:39:27.405Z"
     },
     {
       "title": "NLP Extension",
